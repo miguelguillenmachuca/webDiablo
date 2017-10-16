@@ -13,8 +13,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-
     <!-- Less -->
     <link href="{{ asset('css/estilos.less') }}" rel="stylesheet/less" type="text/css">
     <script src="{{ asset('css/less.min.js') }}" type="text/javascript"></script>
