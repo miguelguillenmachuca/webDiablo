@@ -1,0 +1,168 @@
+/* VARIABLES */
+@colorFuente1: #A99877;
+@colorFuente2: #F3E69E;
+@colorFuente3: #4CAF50;
+@colorBordes1: #3F2F29;
+@colorBordes2: #B95840;
+@colorBordes3: #F3E6D0;
+@colorCajas1: #1B0E0A;
+@colorCajas2: #12110F;
+
+/* ESTILOS */
+
+/* HTML */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+/* BODY */
+body {
+  background-color: #000;
+  background-image: url("../img/bg.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  margin-bottom: 60px;
+}
+
+/* FOOTER */
+footer {
+  color: gray;
+  clear: both;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  height: 30px;
+  position: relative;
+  bottom: 0;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+.footer-inverse {
+  background-color: #1b1b1b;
+  background-image: linear-gradient(to bottom,#222222,#111111);
+  background-repeat: repeat-x;
+  border-color: #252525;
+}
+
+
+/* CLASES */
+
+/* ICONO DE USUARIO EN EL NAVBAR */
+.user-icon-navbar {
+  max-height: 50px;
+}
+
+/* TOP DE LAS GUÍAS */
+.contenedor-top-guia {
+  margin-bottom: 15px;
+  background-color: @colorCajas1;
+  outline: 3px solid @colorBordes1;
+  color: @colorFuente2;
+}
+
+/* TÍTULOS EN LOS TOPS DE LAS GUÍAS */
+.contenedor-top-guia>h3 {
+  margin-top: 5px;
+}
+
+/* RESUMEN DE LAS GUÍAS */
+.resumen-guia {
+  padding-top: 5px;
+  outline: 3px solid @colorBordes1;
+  color: @colorFuente1;
+}
+
+/* RESUMEN DE LAS CLASES DE LAS GUÍAS */
+.img-clase-resumen {
+  max-height: 50px;
+  outline: 1px solid @colorBordes2;
+}
+
+/* RESUMEN DE LAS HABILIDADES DE LAS GUÍAS */
+.resumen-habilidades {
+  padding: 5px 0;
+  background-color: @colorCajas2;
+  outline: 2px solid @colorBordes1;
+  color: @colorFuente1;
+}
+
+/* IMÁGENES DEL RESUMEN DE LAS HABILIDADES */
+.img-habilidad-resumen {
+  outline: 1px solid @colorBordes2;
+}
+
+.resumen-guia-info {
+  padding-top: 5px;
+}
+
+/* ENLACE A UN USUARIO */
+.enlace-usuario {
+  color: @colorBordes3;
+}
+
+/* HOVER AL ENLACE A UN USUARIO */
+.enlace-usuario:hover {
+  color: @colorFuente2;
+  font-style: italic;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.enlace-guia {
+  color: @colorBordes3;
+}
+
+.enlace-guia:hover {
+  color: @colorFuente2;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.contenedor {
+  padding-top: 5px;
+  background-color: @colorCajas1;
+  outline: 3px solid @colorBordes1;
+  color: @colorFuente1;
+}
+
+.contenedor-seccion {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: @colorCajas2;
+  outline: 2px solid @colorBordes1;
+}
+
+/* LIKES DE UNA GUÍA */
+.likes {
+  color: @colorFuente3;
+}
+
+textarea.no-resize {
+  resize: none;
+}
+
+.margen-sup {
+  margin-top: 15px;
+}
+
+.margen-inf {
+  margin-bottom: 15px;
+}
+
+.bloque {
+  display: block;
+}
+
+form.formGuia {
+  .contenedor;
+  .margen-inf;
+}

@@ -1,0 +1,87 @@
+ALTER TABLE guia
+ADD CONSTRAINT fk_guia_usuario
+FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario);
+
+ALTER TABLE guia
+ADD CONSTRAINT fk_guia_clase
+FOREIGN KEY (id_clase) REFERENCES clase(id_clase);
+
+ALTER TABLE comentario
+ADD CONSTRAINT fk_comentario_usuario
+FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario);
+
+ALTER TABLE comentario
+ADD CONSTRAINT fk_comentario_guia
+FOREIGN KEY (id_guia) REFERENCES guia(id_guia);
+
+ALTER TABLE voto_positivo
+ADD CONSTRAINT fk_voto_positivo_guia
+FOREIGN KEY (id_guia) REFERENCES guia(id_guia);
+
+ALTER TABLE voto_positivo
+ADD CONSTRAINT fk_voto_positivo_usuario
+FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario);
+
+ALTER TABLE puntos_leyenda
+ADD CONSTRAINT fk_puntos_leyenda_guia
+FOREIGN KEY (id_guia) REFERENCES guia(id_guia);
+
+ALTER TABLE guia_habilidad
+ADD CONSTRAINT fk_guiaHabilidad_guia
+FOREIGN KEY (id_guia) REFERENCES guia(id_guia);
+
+ALTER TABLE guia_habilidad
+ADD CONSTRAINT fk_guiaHabilidad_habilidad
+FOREIGN KEY (id_habilidad) REFERENCES habilidad(id_habilidad);
+
+ALTER TABLE guia_habilidad
+ADD CONSTRAINT fk_guiaHabilidad_runa
+FOREIGN KEY (id_runa) REFERENCES runa(id_runa);
+
+ALTER TABLE habilidad
+ADD CONSTRAINT fk_habilidad_clase
+FOREIGN KEY (id_clase) REFERENCES clase(id_clase);
+
+ALTER TABLE runa
+ADD CONSTRAINT fk_runa_habilidad
+FOREIGN KEY (id_habilidad) REFERENCES habilidad(id_habilidad);
+
+ALTER TABLE guia_objeto
+ADD CONSTRAINT fk_guiaObjeto_guia
+FOREIGN KEY (id_guia) REFERENCES guia(id_guia);
+
+ALTER TABLE guia_objeto
+ADD CONSTRAINT fk_guiaObjeto_objeto
+FOREIGN KEY (id_objeto) REFERENCES objeto(id_objeto);
+
+ALTER TABLE objeto
+ADD CONSTRAINT fk_objeto_tipoObjeto
+FOREIGN KEY (tipo_objeto) REFERENCES tipo_objeto(id_tipo);
+
+ALTER TABLE efectos_legendarios
+ADD CONSTRAINT fk_efectosLegendarios_objeto
+FOREIGN KEY (id_objeto) REFERENCES objeto(id_objeto);
+
+ALTER TABLE efectos_conjuntos
+ADD CONSTRAINT fk_efectosConjuntos_conjunto
+FOREIGN KEY (id_conjunto) REFERENCES conjunto(id_conjunto);
+
+ALTER TABLE objeto_conjunto
+ADD CONSTRAINT fk_objetoConjunto_conjunto
+FOREIGN KEY (id_conjunto) REFERENCES conjunto(id_conjunto);
+
+ALTER TABLE objeto_conjunto
+ADD CONSTRAINT fk_objetoConjunto_objeto
+FOREIGN KEY (id_objeto) REFERENCES objeto(id_objeto);
+
+ALTER TABLE guia_habilidad
+ADD PRIMARY KEY (id_guia, id_habilidad);
+
+ALTER TABLE puntos_leyenda
+ADD PRIMARY KEY (id_guia, estadistica);
+
+ALTER TABLE guia_objeto
+ADD PRIMARY KEY (id_guia, posicion);
+
+ALTER TABLE efectos_conjuntos
+ADD PRIMARY KEY (id_conjunto, num_requisito);
