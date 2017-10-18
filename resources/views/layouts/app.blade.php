@@ -35,15 +35,20 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    {{-- <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
-                    </a>
+                    </a> --}}
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        {{-- &nbsp; --}}
+                          <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ route('/') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+                          <li <?php if(basename($_SERVER{'PHP_SELF'}) == "crearGuia.php" || basename($_SERVER{'PHP_SELF'}) == "formularioCrearGuia.php"){?> class="active" <?php } ?>><a href="crearGuia.php">Crear guía</a></li>
+                          <li <?php if(basename($_SERVER{'PHP_SELF'}) == "listaGuias.php"){?> class="active" <?php } ?>><a href="listaGuias.php">Guías</a></li>
+                          <li <?php if(basename($_SERVER{'PHP_SELF'}) == "tutorial.php"){?> class="active" <?php } ?>><a href="tutorial.php">¿Cómo usar la página?</a></li>
+                        </ul>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -59,6 +64,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="">Panel de cuenta</a></li>
+                                    <li><a href="">Mis guías</a></li>
+                                    <li><a href="">Mis guías favoritas</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -79,6 +87,15 @@
         </nav>
 
         @yield('content')
+
+        <footer class="footer footer-inverse">
+          <div class="container-fluid">
+            <div class="row">
+              <span id="derechos" class="col-xs-12 col-md-8">&copy; Miguel Guillén Machuca 2016</span>
+              <span id="contacto" class="col-xs-12 col-md-4 text-right">miguelguillensmr@gmail.com</span>
+            </div>
+          </div>
+        </footer>
     </div>
 
     <!-- Scripts -->
