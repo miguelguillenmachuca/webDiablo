@@ -13,7 +13,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
 
     <!-- Less -->
     <link href="{{ asset('css/estilos.less') }}" rel="stylesheet/less" type="text/css">
@@ -21,8 +22,8 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container-fluid">
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
