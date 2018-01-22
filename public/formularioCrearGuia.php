@@ -39,7 +39,7 @@
             <input type="text" class="form-control" id="nombreGuia" name="nombreGuia" placeholder="Nombre de la guía">
           </div>
 
-          <h3 class="text-center">Habilidades y runas</h3>
+          <h3 class="text-center bold">Habilidades y runas</h3>
           <p class="help-block">Elige las habilidades y las correspondientes runas que usará tu personaje</p>
           <div id="seccionHabilidades" class="row">
             <div class="form-group col-xs-6 col-md-4 contenedor-seccion" id="seccionHabilidad1">
@@ -151,8 +151,8 @@
             </div> <!-- Fin del div seccionHabilidad6 -->
           </div> <!-- Fin del div seccionHabilidades -->
 
-          <h3 class="text-center">Pasivas</h3>
-          <p class="help-block">Indica las habilidades pasivas que tendrá el personaje. Recuerda que no todos los personajes están al nivel máximo, así que no es necesario que inluyas las 4 pasivas.</p>
+          <h3 class="text-center bold">Pasivas</h3>
+          <p class="help-block">Indica las habilidades pasivas que tendrá el personaje. Recuerda que no todos los personajes están al nivel máximo, así que no es necesario que incluyas las 4 pasivas.</p>
           <div class="row" id="seccionPasivas">
             <div class="form-group col-xs-6 col-md-3" id="seccionPasiva1">
               <select class="form-control" name="pasiva1" id="pasiva1">
@@ -183,9 +183,9 @@
             </div> <!-- Fin del div seccionPasiva4 -->
           </div> <!-- Fin del div seccionHabilidades -->
 
-          <h3 class="text-center">Equipamiento</h3>
+          <h3 class="text-center bold">Equipamiento</h3>
           <p class="help-block">Escoge los objetos, mejoras del cubo de Kanai y las gemas legendarias que tu personaje llevará equipadas.</p>
-          <div class="row" id="seccionEquipamiento">
+          <div class="row row-eq-height" id="seccionEquipamiento">
             <div class="col-xs-12 col-md-9 contenedor-seccion" id="seccionObjetos">
               <h4 class="text-center">Objetos</h4>
               <div class="row">
@@ -297,7 +297,7 @@
 
             <div class="col-xs-12 col-md-3" id="seccionCuboGemas">
               <div class="row">
-                <div class="col-xs-12 contenedor-seccion" id="seccionCubo">
+                <div class="col-xs-12 contenedor-seccion full-container-height" id="seccionCubo">
                   <h4 class="text-center">Cubo de Kanai</h4>
                   <div class="row">
                     <div class="col-xs-12 form-group" id="seccionCubo1">
@@ -323,7 +323,7 @@
                   </div> <!-- Fin del div row -->
                 </div> <!-- Fin del div seccionCubo -->
 
-                <div class="col-xs-12 contenedor-seccion" id="seccionGemas">
+                <div class="col-xs-12 contenedor-seccion full-container-height" id="seccionGemas">
                   <h4 class="text-center">Gemas legendarias</h4>
                   <div class="row">
                     <div class="col-xs-12 form-group" id="seccionGema1">
@@ -354,7 +354,7 @@
 
           <div class="row" id="seccionLeyenda">
             <div class="col-xs-12">
-              <h2 class="text-center">Puntos de leyenda</h2>
+              <h2 class="text-center bold">Puntos de leyenda</h2>
             </div>
 
             <div class="col-xs-12 form-group" id="seccionLeyendaFormulario">
