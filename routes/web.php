@@ -17,5 +17,7 @@ Route::get('/', function () {
 })->name('/');
 
 Auth::routes();
-
+Route::get('/crearGuia', function () {
+    return view('crearGuia');
+})->name('crearGuia');
 Route::get('/home', 'HomeController@index')->name('home');

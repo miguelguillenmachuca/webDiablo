@@ -3,7 +3,6 @@
 @section('content')
   <div id="main" class="container">
     <h2 class="text-center">TOP GUÍAS POR CLASE</h2>
-
     <div class="container-fluid contenedor-top-guia">
       <h3 class="text-center">Bárbaro</h3>
       <div class="row">

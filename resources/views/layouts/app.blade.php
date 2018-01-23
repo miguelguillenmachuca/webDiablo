@@ -44,10 +44,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         {{-- &nbsp; --}}
-                          <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ route('/') }}"><span class="glyphicon glyphicon-home"></span></a></li>
-                          <li <?php if(basename($_SERVER{'PHP_SELF'}) == "crearGuia.php" || basename($_SERVER{'PHP_SELF'}) == "formularioCrearGuia.php"){?> class="active" <?php } ?>><a href="crearGuia.php">Crear guía</a></li>
-                          <li <?php if(basename($_SERVER{'PHP_SELF'}) == "listaGuias.php"){?> class="active" <?php } ?>><a href="listaGuias.php">Guías</a></li>
-                          <li <?php if(basename($_SERVER{'PHP_SELF'}) == "tutorial.php"){?> class="active" <?php } ?>><a href="tutorial.php">¿Cómo usar la página?</a></li>
+                          <li class="{{ isActiveUrl('/') }}"><a href="{{ route('/') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+                          <li class="{{ isActiveUrl('crearGuia') }}"><a href="{{ route('crearGuia') }}">Crear guía</a></li>
+                          <li {{ isActiveUrl('listaGuias') }}><a href="listaGuias.php">Guías</a></li>
+                          <li {{ isActiveUrl('tutorial') }}><a href="tutorial.php">¿Cómo usar la página?</a></li>
                         </ul>
                     </ul>
 
