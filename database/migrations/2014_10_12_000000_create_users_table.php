@@ -20,9 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('password', 25);
             $table->enum('tipo_usuario', ['administrador', 'usuario'])->default('usuario');
             $table->string('foto_usuario', 254)->default('usuarios/default_user_icon.png');
-            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
