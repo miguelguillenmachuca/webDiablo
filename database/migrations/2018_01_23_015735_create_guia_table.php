@@ -19,6 +19,7 @@ class CreateGuiaTable extends Migration
             $table->integer('id_usuario')->unsigned();
             $table->integer('id_clase')->unsigned();
             $table->string('descripcion', 1000)->nullable();
+            $table->string('video', 250)->nullable();
             $table->enum('visibilidad', ['publica', 'privada']);
             $table->timestamps();
             $table->softDeletes();
