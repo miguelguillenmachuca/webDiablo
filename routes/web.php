@@ -26,4 +26,9 @@ Route::get('/crearGuia/formularioCrearGuia', function () {
     return view('formularioCrearGuia');
 })->name('formularioCrearGuia');
 
+// RUTAS DE VISUALIZAR GUIAS
+Route::get('/verGuias', function () {
+  return view('verGuias');
+})->name('verGuias');
+
 Route::get('/home', 'HomeController@index')->name('home');
