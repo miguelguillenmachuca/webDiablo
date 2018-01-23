@@ -15,12 +15,14 @@ class CreateGuiaHabilidadTable extends Migration
     {
         Schema::create('guia_habilidad', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_guia')->unsigned();
             $table->integer('id_habilidad')->unsigned();
             $table->integer('id_runa')->unsigned();
             $table->enum('posicion', ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'p1', 'p2', 'p3', 'p4']);
             $table->timestamps();
             $table->softDeletes();
 
+            $table->foreign('id_guia')->references('id')->on('guia');
             $table->foreign('id_habilidad')->references('id')->on('habilidad');
             $table->foreign('id_runa')->references('id')->on('runa');
         });
@@ -35,7 +37,8 @@ class CreateGuiaHabilidadTable extends Migration
     {
         $table->dropForeign('guia_habilidad_id_runa_foreign');
         $table->dropForeign('guia_habilidad_id_habilidad_foreign');
-        
+        $table->dropForeign('guia_habilidad_id_guia_foreign');
+
         Schema::dropIfExists('guia_habilidad');
     }
 }
