@@ -17,7 +17,13 @@ Route::get('/', function () {
 })->name('/');
 
 Auth::routes();
+
+//  RUTAS DE CREAR GUÍA
 Route::get('/crearGuia', function () {
     return view('crearGuia');
 })->name('crearGuia');
+Route::get('/crearGuia/formularioCrearGuia', function () {
+    return view('formularioCrearGuia');
+})->name('formularioCrearGuia');
+
 Route::get('/home', 'HomeController@index')->name('home');
