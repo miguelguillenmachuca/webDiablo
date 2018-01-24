@@ -7,6 +7,8 @@
 @colorBordes3: #F3E6D0;
 @colorCajas1: #1B0E0A;
 @colorCajas2: #12110F;
+@colorBtn1: #630906;
+@colorBtn2: #410604;
 
 /* ESTILOS */
 
@@ -100,6 +102,11 @@ footer {
   outline: 1px solid @colorBordes2;
 }
 
+.img-clase-resumen {
+  max-width: 35px;
+  outline: 1px solid @colorBordes2;
+}
+
 .resumen-guia-info {
   padding-top: 5px;
 }
@@ -139,6 +146,157 @@ footer {
   padding-bottom: 5px;
   background-color: @colorCajas2;
   outline: 2px solid @colorBordes1;
+}
+
+// Botón rojo
+.btn-rojo {
+  color: @colorFuente2;
+  background-color: @colorBtn1;
+  border-color: @colorBtn2;
+}
+.btn-rojo:focus,
+.btn-rojo.focus {
+  color: @colorFuente2;
+  background-color: @colorBordes1;
+  border-color: #761c19;
+}
+.btn-rojo:hover {
+  color: @colorFuente2;
+  background-color: @colorBtn2;
+  border-color: @colorBtn1;
+}
+.btn-rojo:active,
+.btn-rojo.active,
+.open > .dropdown-toggle.btn-rojo {
+  color: @colorFuente2;
+  background-color: @colorBordes1;
+  border-color: @colorBordes2;
+}
+.btn-rojo:active:hover,
+.btn-rojo.active:hover,
+.open > .dropdown-toggle.btn-rojo:hover,
+.btn-rojo:active:focus,
+.btn-rojo.active:focus,
+.open > .dropdown-toggle.btn-rojo:focus,
+.btn-rojo:active.focus,
+.btn-rojo.active.focus,
+.open > .dropdown-toggle.btn-rojo.focus {
+  color: @colorFuente2;
+  background-color: @colorBordes2;
+  border-color: #761c19;
+}
+.btn-rojo:active,
+.btn-rojo.active,
+.open > .dropdown-toggle.btn-rojo {
+  background-image: none;
+}
+.btn-rojo.disabled:hover,
+.btn-rojo[disabled]:hover,
+fieldset[disabled] .btn-rojo:hover,
+.btn-rojo.disabled:focus,
+.btn-rojo[disabled]:focus,
+fieldset[disabled] .btn-rojo:focus,
+.btn-rojo.disabled.focus,
+.btn-rojo[disabled].focus,
+fieldset[disabled] .btn-rojo.focus {
+  background-color: @colorBtn1;
+  border-color: @colorBtn2;
+}
+.btn-rojo .badge {
+  color: #d9534f;
+  background-color: #fff;
+}
+
+// Paginación rojo
+.pagination-rojo > li > a,
+.pagination-rojo > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: @colorFuente2;
+  text-decoration: none;
+  background-color: @colorBtn1;
+  border: 1px solid @colorBtn2;
+}
+.pagination-rojo > li > a:hover,
+.pagination-rojo > li > span:hover,
+.pagination-rojo > li > a:focus,
+.pagination-rojo > li > span:focus {
+  z-index: 2;
+  color: @colorFuente2;
+  background-color: @colorBtn2;
+  border-color: @colorBtn1;
+}
+.pagination-rojo > .active > a,
+.pagination-rojo > .active > span,
+.pagination-rojo > .active > a:hover,
+.pagination-rojo > .active > span:hover,
+.pagination-rojo > .active > a:focus,
+.pagination-rojo > .active > span:focus {
+  z-index: 3;
+  color: @colorFuente2;
+  cursor: default;
+  background-color: @colorBtn2;
+  border-color: @colorBtn1;
+}
+.pagination-rojo > .disabled > span,
+.pagination-rojo > .disabled > span:hover,
+.pagination-rojo > .disabled > span:focus,
+.pagination-rojo > .disabled > a,
+.pagination-rojo > .disabled > a:hover,
+.pagination-rojo > .disabled > a:focus {
+  color: #777;
+  cursor: not-allowed;
+  background-color: @colorBtn1;
+  border-color: @colorBtn2;
+}
+
+@media (max-width: 480px) {
+  .btn-block-xs {
+    display: block;
+    width: 100%;
+  }
+  .btn-block-xs + .btn-block-xs {
+    margin-top: 5px;
+  }
+  input[type="submit"].btn-block-xs,
+  input[type="reset"].btn-block-xs,
+  input[type="button"].btn-block-xs {
+    width: 100%;
+  }
+}
+
+/* TABLA ROJA */
+.table-roja > thead > tr > th,
+.table-roja > tbody > tr > th,
+.table-roja > tfoot > tr > th,
+.table-roja > thead > tr > td,
+.table-roja > tbody > tr > td,
+.table-roja > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid @colorBordes1;
+}
+.table-roja > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid @colorBordes1;
+}
+
+.table-roja.table-hover > tbody > tr:hover {
+  background-color: @colorBordes1;
+}
+
+.table-roja > thead > tr > th > a,
+.table-roja > tbody > tr > th > a,
+.table-roja > tfoot > tr > th > a,
+.table-roja > thead > tr > td > a,
+.table-roja > tbody > tr > td > a,
+.table-roja > tfoot > tr > td > a {
+  font-weight: bold;
+  color: @colorFuente2;
 }
 
 /* LIKES DE UNA GUÍA */
