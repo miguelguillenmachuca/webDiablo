@@ -79,7 +79,7 @@
           <tbody>
             <tr>
               <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-              <td><a href="#">Guía de prueba</a></td>
+              <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
               <td><a href="#">Autor</a></td>
               <td class="likes">123456789</td>
               <td>147</td>
@@ -87,7 +87,7 @@
             </tr>
             <tr>
               <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-              <td><a href="#">Guía de prueba</a></td>
+              <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
               <td><a href="#">Autor</a></td>
               <td class="likes">123456789</td>
               <td>147</td>
@@ -95,7 +95,7 @@
             </tr>
             <tr>
               <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-              <td><a href="#">Guía de prueba</a></td>
+              <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
               <td><a href="#">Autor</a></td>
               <td class="likes">123456789</td>
               <td>147</td>
@@ -103,7 +103,7 @@
             </tr>
             <tr>
               <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-              <td><a href="#">Guía de prueba</a></td>
+              <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
               <td><a href="#">Autor</a></td>
               <td class="likes">123456789</td>
               <td>147</td>
@@ -111,7 +111,7 @@
             </tr>
             <tr>
               <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-              <td><a href="#">Guía de prueba</a></td>
+              <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
               <td><a href="#">Autor</a></td>
               <td class="likes">123456789</td>
               <td>147</td>
@@ -119,7 +119,7 @@
             </tr>
             <tr>
               <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-              <td><a href="#">Guía de prueba</a></td>
+              <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
               <td><a href="#">Autor</a></td>
               <td class="likes">123456789</td>
               <td>147</td>
@@ -127,7 +127,7 @@
             </tr>
             <tr>
               <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-              <td><a href="#">Guía de prueba</a></td>
+              <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
               <td><a href="#">Autor</a></td>
               <td class="likes">123456789</td>
               <td>147</td>
@@ -135,7 +135,7 @@
             </tr>
             <tr>
               <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-              <td><a href="#">Guía de prueba</a></td>
+              <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
               <td><a href="#">Autor</a></td>
               <td class="likes">123456789</td>
               <td>147</td>
@@ -143,7 +143,7 @@
             </tr>
             <tr>
               <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-              <td><a href="#">Guía de prueba</a></td>
+              <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
               <td><a href="#">Autor</a></td>
               <td class="likes">123456789</td>
               <td>147</td>
@@ -151,7 +151,7 @@
             </tr>
             <tr>
               <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-              <td><a href="#">Guía de prueba</a></td>
+              <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
               <td><a href="#">Autor</a></td>
               <td class="likes">123456789</td>
               <td>147</td>

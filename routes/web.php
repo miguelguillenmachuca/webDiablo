@@ -30,5 +30,8 @@ Route::get('/crearGuia/formularioCrearGuia', function () {
 Route::get('/verGuias', function () {
   return view('verGuias');
 })->name('verGuias');
+Route::get('/verGuias/guia/{guia}', function () {
+    return view('visualizarGuia');
+})->name('guia/show');
 
 Route::get('/home', 'HomeController@index')->name('home');
