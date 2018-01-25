@@ -500,6 +500,16 @@
 
     <div class="separador"></div>
 
+    <div id="seccionDescripcion" class="row">
+      <div class="col-xs-12">
+        <h3 class="text-center bold">Descripción</h3>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse odit blanditiis debitis necessitatibus rem asperiores reiciendis? Pariatur aut, voluptate temporibus ex voluptatum nemo itaque et maiores repellendus tempora obcaecati quaerat, similique unde deserunt assumenda cumque placeat atque! Harum alias saepe rem. Nostrum at reprehenderit laboriosam soluta? Nesciunt molestias rerum, similique dolorem dolorum consectetur, autem obcaecati, non sit atque, unde iusto adipisci voluptatum. Cupiditate ducimus molestiae alias debitis fuga enim, beatae accusantium officia quia. Quo reprehenderit earum doloribus, distinctio, voluptas a, dolores aspernatur culpa velit consequuntur repellat. Voluptatem ab debitis expedita ut provident unde molestiae sapiente, eveniet, repellendus impedit placeat ad, error, eum. Necessitatibus illum, reprehenderit blanditiis debitis vitae magnam eius, voluptates sed consequuntur suscipit maiores sunt sint, ea id fugit reiciendis. At facilis alias libero quae laboriosam culpa, quidem voluptatibus voluptates, repudiandae debitis. Facere voluptatum placeat sunt odit fugiat ipsum quia voluptate harum tempora totam, provident aliquid reiciendis ut praesentium quisquam fuga cupiditate at necessitatibus fugit dolores eius numquam aut beatae iste adipisci. In praesentium rem, voluptates dignissimos repellat consequatur odit culpa dolorem commodi. Voluptatum voluptatibus corporis, voluptas ea velit suscipit distinctio iusto ratione sint aliquid nesciunt minus soluta saepe a officiis. Modi, minima, repellat! Officiis, modi ipsam numquam quidem!</p>
+      </div>
+    </div> <!-- Fin de la sección descripción -->
+
+    <div class="separador"></div>
+
   </div>
 
 </div> <!-- Fin del div main -->
