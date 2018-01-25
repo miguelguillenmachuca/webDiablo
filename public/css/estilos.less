@@ -100,7 +100,9 @@ footer {
 /* IMÁGENES DEL RESUMEN DE LAS HABILIDADES */
 .img-habilidad-resumen {
   outline: 1px solid @colorBordes2;
-  border-radius: 200000000px;
+  min-height: 25px;
+  max-height: 50px;
+  min-width: 25px;
 }
 
 .img-clase-resumen {
@@ -111,6 +113,8 @@ footer {
 .img-clase {
   border-radius: 2px;
   border: 1px solid @colorBordes2;
+  min-width: 50px;
+  min-height: 50px;
 }
 
 .resumen-guia-info {
@@ -319,6 +323,12 @@ fieldset[disabled] .btn-rojo.focus {
   color: @colorFuente2;
 }
 
+@media screen and (max-width: 767px) {
+  .table-responsive-roja {
+    border: 1px solid @colorBordes1;
+  }
+}
+
 /* LIKES DE UNA GUÍA */
 .likes {
   color: @colorFuente3;
@@ -400,6 +410,32 @@ form.formGuia {
   .text-left-lg { text-align:left }
   .text-right-lg { text-align:right }
   .text-center-lg { text-align:center }
+}
+
+.borde-sup-color {
+  border-top: 1px solid @colorBordes2;
+  margin-top: -1px;
+}
+
+.runa-guia {
+  font-size: 13px;
+}
+
+.habilidad-guia {
+  font-weight: bold;
+}
+
+.runa-guia-img {
+  max-height: 15px;
+}
+
+div.separador {
+  border-top: 1px solid @colorBordes3;
+  margin: 20px 0;
+}
+
+.inline {
+  display: inline;
 }
 
 .pintar-caja {

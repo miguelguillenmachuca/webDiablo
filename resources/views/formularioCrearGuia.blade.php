@@ -6,7 +6,8 @@
     <form name="formGuia" id="formGuia" class="formGuia" action="formularioCrearGuia.php" method="post">
       <h2 class="text-center">Introduzca los datos de la guía</h2>
       <div class="container-fluid">
-        <div id="seccionNombre" class="row padd-sup">
+        
+        <div class="row padd-sup" id="seccionNombre">
           <div class="col-xs-12">
             <div class="form-group">
               <h3 class="text-center"><label for="nombreGuia">Nombre de la guía</label></h3>
@@ -15,6 +16,9 @@
             </div>
           </div>
         </div>
+
+        <div class="separador"></div>
+
         <div class="row padd-sup" id="seccionHabilidades">
           <div class="col-xs-12">
             <h3 class="text-center bold">Habilidades y runas</h3>
@@ -131,9 +135,11 @@
           </div>
         </div>
 
+        <div class="separador"></div>
+
         <div class="row padd-sup" id="seccionPasivas">
           <div class="col-xs-12">
-            <h3 class="text-center bold">Pasivas</h3>
+            <h3 class="text-center bold">Habilidades pasivas</h3>
             <p class="help-block">Indica las habilidades pasivas que tendrá el personaje. Recuerda que no todos los personajes están al nivel máximo, así que no es necesario que incluyas las 4 pasivas.</p>
             <div class="row">
               <div class="form-group col-xs-6 col-md-3" id="seccionPasiva1">
@@ -166,6 +172,8 @@
             </div> <!-- Fin del div seccionHabilidades -->
           </div>
         </div>
+
+        <div class="separador"></div>
 
         <div class="row padd-sup" id="seccionEquipamiento">
           <div class="col-xs-12">
@@ -341,6 +349,8 @@
           </div>
         </div>
 
+        <div class="separador"></div>
+
         <div class="row padd-sup" id="seccionLeyenda">
           <div class="col-xs-12">
             <h2 class="text-center bold">Puntos de leyenda</h2>
@@ -508,17 +518,23 @@
           </div> <!-- Fin del div seccionLeyendaFormulario -->
         </div> <!-- Fin del div seccionLeyenda -->
 
+        <div class="separador"></div>
+
         <div class="form-group padd-sup" id="seccionDescripcion">
           <h4 class="text-center"><label for="descripcion_guia">Descripción de la guía</label></h4>
           <p class="help-block">Describe la forma de juego de esta guía o lo que necesites comentar. Máximo de 1000 caracteres</p>
           <textarea class="form-control no-resize" id="descripcion_guia" name="descripcion_guia" rows="8"></textarea>
         </div> <!-- Fin del div seccionDescripcion -->
 
+        <div class="separador"></div>
+
         <div class="form-group padd-sup" id="seccionVideo">
           <h4 class="text-center"><label for="video_guia">Vídeo de la guía</label></h4>
           <p class="help-block">Puedes incluir un enlace a YouTube para ayudar a ilustrar la guía. Recuerda pegar el enlace completo en la caja de texto.</p>
           <input type="text" class="form-control" id="video_guia" name="video_guia" placeholder="Enlace a YouTube del vídeo. P.ej: https://www.youtube.com/watch?v=CBD08XXdct0"></input>
         </div> <!-- Fin del div seccionVisibilidad -->
+
+        <div class="separador"></div>
 
         <div class="form-group padd-sup" id="seccionVisibilidad">
           <h4 class="text-center"><label for="visibilidad_guia">Visibilidad de la guía</label></h4>
