@@ -6,7 +6,7 @@
     <form name="formGuia" id="formGuia" class="formGuia" action="formularioCrearGuia.php" method="post">
       <h2 class="text-center">Introduzca los datos de la guía</h2>
       <div class="container-fluid">
-        
+
         <div class="row padd-sup" id="seccionNombre">
           <div class="col-xs-12">
             <div class="form-group">
@@ -294,6 +294,7 @@
                 <div class="row">
                   <div class="col-xs-12 contenedor-seccion full-container-height" id="seccionCubo">
                     <h4 class="text-center">Cubo de Kanai</h4>
+
                     <div class="row">
                       <div class="col-xs-12 form-group" id="seccionCubo1">
                         <select class="form-control" name="cubo1" id="cubo1">
@@ -320,6 +321,7 @@
 
                   <div class="col-xs-12 contenedor-seccion full-container-height" id="seccionGemas">
                     <h4 class="text-center">Gemas legendarias</h4>
+                    
                     <div class="row">
                       <div class="col-xs-12 form-group" id="seccionGema1">
                         <select class="form-control" name="cubo1" id="cubo1">

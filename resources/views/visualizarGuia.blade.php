@@ -149,7 +149,7 @@
               <div class="col-xs-3">
                 <img src="{{ asset("img/habilidades/default_skill.png") }}" alt="pasiva1" class="img-responsive img-habilidad-resumen">
               </div>
-              <div class="col-xs-9">Runa</div>
+              <div class="col-xs-9 text-center-vertical">Pasiva</div>
             </div>
           </div>
 
@@ -158,7 +158,7 @@
               <div class="col-xs-3">
                 <img src="{{ asset("img/habilidades/default_skill.png") }}" alt="pasiva1" class="img-responsive img-habilidad-resumen">
               </div>
-              <div class="col-xs-9">Runa</div>
+              <div class="col-xs-9 text-center-vertical">Pasiva</div>
             </div>
           </div>
 
@@ -167,7 +167,7 @@
               <div class="col-xs-3">
                 <img src="{{ asset("img/habilidades/default_skill.png") }}" alt="pasiva1" class="img-responsive img-habilidad-resumen">
               </div>
-              <div class="col-xs-9">Runa</div>
+              <div class="col-xs-9 text-center-vertical">Pasiva</div>
             </div>
           </div>
 
@@ -176,7 +176,7 @@
               <div class="col-xs-3">
                 <img src="{{ asset("img/habilidades/default_skill.png") }}" alt="pasiva1" class="img-responsive img-habilidad-resumen">
               </div>
-              <div class="col-xs-9">Runa</div>
+              <div class="col-xs-9 text-center-vertical">Pasiva</div>
             </div>
           </div>
 
@@ -195,158 +195,167 @@
             <h4 class="text-center">Objetos</h4>
 
             <div class="row">
-              <div class="col-xs-6 col-md-4" id="seccionCabeza">
+              <div class="col-xs-12 col-md-4" id="seccionCabeza">
                 <h4 class="text-center">Cabeza</h4>
                 <div class="row">
                   <div class="col-xs-3">
                     <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto cabeza" class="img-responsive img-habilidad-resumen">
                   </div>
 
-                  <div class="col-xs-9">Objeto cabeza</div>
+                  <div class="col-xs-9 text-center-vertical">Objeto cabeza</div>
                 </div>
               </div> <!-- Fin de la sección cabeza -->
 
-              <div class="col-xs-6 col-md-4" id="seccionHombros">
+              <div class="col-xs-12 col-md-4" id="seccionHombros">
                 <h4 class="text-center">Hombros</h4>
 
                 <div class="row">
                   <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto cabeza" class="img-responsive img-habilidad-resumen">
+                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto hombros" class="img-responsive img-habilidad-resumen">
                   </div>
 
-                  <div class="col-xs-9">Objeto cabeza</div>
+                  <div class="col-xs-9 text-center-vertical">Objeto hombros Lorem ipsum dolor sit amet, consectetur.</div>
                 </div>
               </div> <!-- Fin de la sección hombros -->
 
-              <div class="col-xs-6 col-md-4" id="seccionAmuleto">
+              <div class="col-xs-12 col-md-4" id="seccionAmuleto">
                 <h4 class="text-center">Amuleto</h4>
 
                 <div class="row">
                   <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto cabeza" class="img-responsive img-habilidad-resumen">
+                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto amuleto" class="img-responsive img-habilidad-resumen">
                   </div>
 
-                  <div class="col-xs-9">Objeto hombros</div>
+                  <div class="col-xs-9 text-center-vertical">Objeto amuleto</div>
                 </div>
               </div> <!-- Fin de la sección amuleto -->
 
-              <div class="col-xs-6 col-md-4" id="seccionTorso">
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12 col-md-4" id="seccionTorso">
                 <h4 class="text-center">Torso</h4>
 
                 <div class="row">
                   <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto cabeza" class="img-responsive img-habilidad-resumen">
+                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto torso" class="img-responsive img-habilidad-resumen">
                   </div>
 
-                  <div class="col-xs-9">Objeto torso</div>
+                  <div class="col-xs-9 text-center-vertical">Objeto torso</div>
                 </div>
               </div> <!-- Fin de la sección torso -->
 
-              <div class="col-xs-6 col-md-4" id="seccionManos">
+              <div class="col-xs-12 col-md-4" id="seccionManos">
                 <h4 class="text-center">Manos</h4>
 
                 <div class="row">
                   <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto cabeza" class="img-responsive img-habilidad-resumen">
+                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto manos" class="img-responsive img-habilidad-resumen">
                   </div>
 
-                  <div class="col-xs-9">Objeto manos</div>
+                  <div class="col-xs-9 text-center-vertical">Objeto manos</div>
                 </div>
               </div> <!-- Fin de la sección manos -->
 
-              <div class="col-xs-6 col-md-4" id="seccionMunecas">
+              <div class="col-xs-12 col-md-4" id="seccionMunecas">
                 <h4 class="text-center">Muñecas</h4>
 
                 <div class="row">
                   <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto cabeza" class="img-responsive img-habilidad-resumen">
+                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto muñecas" class="img-responsive img-habilidad-resumen">
                   </div>
 
-                  <div class="col-xs-9">Objeto muñecas</div>
+                  <div class="col-xs-9 text-center-vertical">Objeto muñecas</div>
                 </div>
               </div> <!-- Fin de la sección muñecas -->
+            </div>
 
-              <div class="col-xs-6 col-md-4" id="seccionAnillo1">
+            <div class="row">
+              <div class="col-xs-12 col-md-4" id="seccionAnillo1">
                 <h4 class="text-center">Anillo 1</h4>
 
                 <div class="row">
                   <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto cabeza" class="img-responsive img-habilidad-resumen">
+                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto anillo1" class="img-responsive img-habilidad-resumen">
                   </div>
 
-                  <div class="col-xs-9">Objeto anillo1</div>
+                  <div class="col-xs-9 text-center-vertical">Objeto anillo1</div>
                 </div>
               </div> <!-- Fin de la sección anillo 1 -->
 
-              <div class="col-xs-6 col-md-4" id="seccionAnillo2">
+              <div class="col-xs-12 col-md-4" id="seccionAnillo2">
                 <h4 class="text-center">Anillo 2</h4>
 
                 <div class="row">
                   <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto cabeza" class="img-responsive img-habilidad-resumen">
+                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto anillo2" class="img-responsive img-habilidad-resumen">
                   </div>
 
-                  <div class="col-xs-9">Objeto anillo2</div>
+                  <div class="col-xs-9 text-center-vertical">Objeto anillo2</div>
                 </div>
               </div> <!-- Fin de la sección anillo 2 -->
 
-              <div class="col-xs-6 col-md-4" id="seccionCintura">
+              <div class="col-xs-12 col-md-4" id="seccionCintura">
                 <h4 class="text-center">Cintura</h4>
 
                 <div class="row">
                   <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto cabeza" class="img-responsive img-habilidad-resumen">
+                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto cintura" class="img-responsive img-habilidad-resumen">
                   </div>
 
-                  <div class="col-xs-9">Objeto cintura</div>
+                  <div class="col-xs-9 text-center-vertical">Objeto cintura</div>
                 </div>
               </div> <!-- Fin de la sección cintura -->
+            </div>
 
-              <div class="col-xs-6 col-md-4" id="seccionPiernas">
+            <div class="row">
+              <div class="col-xs-12 col-md-4" id="seccionPiernas">
                 <h4 class="text-center">Piernas</h4>
 
                 <div class="row">
                   <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto cabeza" class="img-responsive img-habilidad-resumen">
+                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto piernas" class="img-responsive img-habilidad-resumen">
                   </div>
 
-                  <div class="col-xs-9">Objeto piernas</div>
+                  <div class="col-xs-9 text-center-vertical">Objeto piernas</div>
                 </div>
               </div> <!-- Fin de la sección piernas -->
 
-              <div class="col-xs-6 col-md-4" id="seccionPies">
+              <div class="col-xs-12 col-md-4" id="seccionPies">
                 <h4 class="text-center">Pies</h4>
 
                 <div class="row">
                   <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto cabeza" class="img-responsive img-habilidad-resumen">
+                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto pies" class="img-responsive img-habilidad-resumen">
                   </div>
 
-                  <div class="col-xs-9">Objeto pies</div>
+                  <div class="col-xs-9 text-center-vertical">Objeto pies</div>
                 </div>
               </div> <!-- Fin de la sección pies -->
 
-              <div class="col-xs-6 col-md-4" id="seccionArma">
+              <div class="col-xs-12 col-md-4" id="seccionArma">
                 <h4 class="text-center">Arma</h4>
 
                 <div class="row">
                   <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto cabeza" class="img-responsive img-habilidad-resumen">
+                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto arma" class="img-responsive img-habilidad-resumen">
                   </div>
 
-                  <div class="col-xs-9">Objeto arma</div>
+                  <div class="col-xs-9 text-center-vertical">Objeto arma</div>
                 </div>
               </div> <!-- Fin de la sección arma -->
+            </div>
 
-              <div class="col-xs-6 col-md-4" id="seccionManoIzquierda">
+            <div class="row">
+              <div class="col-xs-12 col-md-4" id="seccionManoIzquierda">
                 <h4 class="text-center">Mano izquierda</h4>
 
                 <div class="row">
                   <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto cabeza" class="img-responsive img-habilidad-resumen">
+                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto mano izquierda" class="img-responsive img-habilidad-resumen">
                   </div>
 
-                  <div class="col-xs-9">Objeto mano izquierda</div>
+                  <div class="col-xs-9 text-center-vertical">Objeto mano izquierda</div>
                 </div>
               </div> <!-- Fin de la sección mano izquierda -->
             </div>
@@ -355,17 +364,95 @@
           <div class="col-xs-12 col-md-3" id="seccionCuboGemas">
             <div class="row">
               <div class="col-xs-12 contenedor-seccion full-container-height" id="seccionCubo">
+                <h4 class="text-center">Cubo de Kanai</h4>
 
+                <div class="row">
+                  <div class="col-xs-12" id="seccionArmaCubo">
+                    <h4 class="text-center">Arma</h4>
+
+                    <div class="row">
+                      <div class="col-xs-3">
+                        <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto arma" class="img-responsive img-habilidad-resumen">
+                      </div>
+
+                      <div class="col-xs-9 text-center-vertical">Objeto arma</div>
+                    </div>
+                  </div> <!-- Fin de la sección arma -->
+
+                  <div class="col-xs-12" id="seccionArmaduraCubo">
+                    <h4 class="text-center">Armadura</h4>
+
+                    <div class="row">
+                      <div class="col-xs-3">
+                        <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto armadura" class="img-responsive img-habilidad-resumen">
+                      </div>
+
+                      <div class="col-xs-9 text-center-vertical">Objeto armadura</div>
+                    </div>
+                  </div> <!-- Fin de la sección armadura -->
+
+                  <div class="col-xs-12" id="seccionAccesorio">
+                    <h4 class="text-center">Accesorio</h4>
+
+                    <div class="row">
+                      <div class="col-xs-3">
+                        <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto accesorio" class="img-responsive img-habilidad-resumen">
+                      </div>
+
+                      <div class="col-xs-9 text-center-vertical">Objeto accesorio</div>
+                    </div>
+                  </div> <!-- Fin de la sección accesorio -->
+                </div>
               </div> <!-- Fin de la sección cubo -->
 
               <div class="col-xs-12 contenedor-seccion full-container-height" id="seccionGemas">
+                <h4 class="text-center">Gemas legendarias</h4>
 
+                <div class="row">
+                  <div class="col-xs-12" id="seccionGema1">
+                    <h4 class="text-center">Gema 1</h4>
+
+                    <div class="row">
+                      <div class="col-xs-3">
+                        <img src="{{ asset("img/default_img.png") }}" alt="gema 1" class="img-responsive img-habilidad-resumen">
+                      </div>
+
+                      <div class="col-xs-9 text-center-vertical">Gema 1</div>
+                    </div>
+                  </div> <!-- Fin de la sección gema 1 -->
+
+                  <div class="col-xs-12" id="seccionGema2">
+                    <h4 class="text-center">Gema 2</h4>
+
+                    <div class="row">
+                      <div class="col-xs-3">
+                        <img src="{{ asset("img/default_img.png") }}" alt="gema 2" class="img-responsive img-habilidad-resumen">
+                      </div>
+
+                      <div class="col-xs-9 text-center-vertical">Gema 2</div>
+                    </div>
+                  </div> <!-- Fin de la sección gema 2 -->
+
+                  <div class="col-xs-12" id="seccionGema3">
+                    <h4 class="text-center">Gema 3</h4>
+
+                    <div class="row">
+                      <div class="col-xs-3">
+                        <img src="{{ asset("img/default_img.png") }}" alt="gema 3" class="img-responsive img-habilidad-resumen">
+                      </div>
+
+                      <div class="col-xs-9 text-center-vertical">Gema 2</div>
+                    </div>
+                  </div> <!-- Fin de la sección gema 3 -->
+                </div>
               </div> <!-- de la sección gemas -->
             </div>
           </div> <!-- Fin de la sección cubo y gemas -->
         </div>
       </div>
     </div> <!-- Fin de la seccion equipación -->
+
+    <div class="separador"></div>
 
   </div>
 
