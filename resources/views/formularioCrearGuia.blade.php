@@ -321,7 +321,7 @@
 
                   <div class="col-xs-12 contenedor-seccion full-container-height" id="seccionGemas">
                     <h4 class="text-center">Gemas legendarias</h4>
-                    
+
                     <div class="row">
                       <div class="col-xs-12 form-group" id="seccionGema1">
                         <select class="form-control" name="cubo1" id="cubo1">
@@ -411,7 +411,7 @@
                   <option value="4">4</option>
                 </select>
 
-                <label for="reduccion_enfr">Reducción de enfrimiento</label>
+                <label for="reduccion_enfr">Reducción de enfriamiento</label>
                 <select class="form-control" name="reduccion_enfr" id="reduccion_enfr">
                   <option>Elige una prioridad</option>
                   <option value="1">1</option>

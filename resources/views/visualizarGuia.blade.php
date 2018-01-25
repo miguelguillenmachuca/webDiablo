@@ -195,7 +195,7 @@
             <h4 class="text-center">Objetos</h4>
 
             <div class="row">
-              <div class="col-xs-12 col-md-4" id="seccionCabeza">
+              <div class="col-xs-12 col-sm-4" id="seccionCabeza">
                 <h4 class="text-center">Cabeza</h4>
                 <div class="row">
                   <div class="col-xs-3">
@@ -206,7 +206,7 @@
                 </div>
               </div> <!-- Fin de la sección cabeza -->
 
-              <div class="col-xs-12 col-md-4" id="seccionHombros">
+              <div class="col-xs-12 col-sm-4" id="seccionHombros">
                 <h4 class="text-center">Hombros</h4>
 
                 <div class="row">
@@ -218,7 +218,7 @@
                 </div>
               </div> <!-- Fin de la sección hombros -->
 
-              <div class="col-xs-12 col-md-4" id="seccionAmuleto">
+              <div class="col-xs-12 col-sm-4" id="seccionAmuleto">
                 <h4 class="text-center">Amuleto</h4>
 
                 <div class="row">
@@ -233,7 +233,7 @@
             </div>
 
             <div class="row">
-              <div class="col-xs-12 col-md-4" id="seccionTorso">
+              <div class="col-xs-12 col-sm-4" id="seccionTorso">
                 <h4 class="text-center">Torso</h4>
 
                 <div class="row">
@@ -245,7 +245,7 @@
                 </div>
               </div> <!-- Fin de la sección torso -->
 
-              <div class="col-xs-12 col-md-4" id="seccionManos">
+              <div class="col-xs-12 col-sm-4" id="seccionManos">
                 <h4 class="text-center">Manos</h4>
 
                 <div class="row">
@@ -257,7 +257,7 @@
                 </div>
               </div> <!-- Fin de la sección manos -->
 
-              <div class="col-xs-12 col-md-4" id="seccionMunecas">
+              <div class="col-xs-12 col-sm-4" id="seccionMunecas">
                 <h4 class="text-center">Muñecas</h4>
 
                 <div class="row">
@@ -271,7 +271,7 @@
             </div>
 
             <div class="row">
-              <div class="col-xs-12 col-md-4" id="seccionAnillo1">
+              <div class="col-xs-12 col-sm-4" id="seccionAnillo1">
                 <h4 class="text-center">Anillo 1</h4>
 
                 <div class="row">
@@ -283,7 +283,7 @@
                 </div>
               </div> <!-- Fin de la sección anillo 1 -->
 
-              <div class="col-xs-12 col-md-4" id="seccionAnillo2">
+              <div class="col-xs-12 col-sm-4" id="seccionAnillo2">
                 <h4 class="text-center">Anillo 2</h4>
 
                 <div class="row">
@@ -295,7 +295,7 @@
                 </div>
               </div> <!-- Fin de la sección anillo 2 -->
 
-              <div class="col-xs-12 col-md-4" id="seccionCintura">
+              <div class="col-xs-12 col-sm-4" id="seccionCintura">
                 <h4 class="text-center">Cintura</h4>
 
                 <div class="row">
@@ -309,7 +309,7 @@
             </div>
 
             <div class="row">
-              <div class="col-xs-12 col-md-4" id="seccionPiernas">
+              <div class="col-xs-12 col-sm-4" id="seccionPiernas">
                 <h4 class="text-center">Piernas</h4>
 
                 <div class="row">
@@ -321,7 +321,7 @@
                 </div>
               </div> <!-- Fin de la sección piernas -->
 
-              <div class="col-xs-12 col-md-4" id="seccionPies">
+              <div class="col-xs-12 col-sm-4" id="seccionPies">
                 <h4 class="text-center">Pies</h4>
 
                 <div class="row">
@@ -333,7 +333,7 @@
                 </div>
               </div> <!-- Fin de la sección pies -->
 
-              <div class="col-xs-12 col-md-4" id="seccionArma">
+              <div class="col-xs-12 col-sm-4" id="seccionArma">
                 <h4 class="text-center">Arma</h4>
 
                 <div class="row">
@@ -347,7 +347,7 @@
             </div>
 
             <div class="row">
-              <div class="col-xs-12 col-md-4" id="seccionManoIzquierda">
+              <div class="col-xs-12 col-sm-4" id="seccionManoIzquierda">
                 <h4 class="text-center">Mano izquierda</h4>
 
                 <div class="row">
@@ -367,7 +367,7 @@
                 <h4 class="text-center">Cubo de Kanai</h4>
 
                 <div class="row">
-                  <div class="col-xs-12" id="seccionArmaCubo">
+                  <div class="col-xs-12 col-sm-4 col-md-12" id="seccionArmaCubo">
                     <h4 class="text-center">Arma</h4>
 
                     <div class="row">
@@ -379,7 +379,7 @@
                     </div>
                   </div> <!-- Fin de la sección arma -->
 
-                  <div class="col-xs-12" id="seccionArmaduraCubo">
+                  <div class="col-xs-12 col-sm-4 col-md-12" id="seccionArmaduraCubo">
                     <h4 class="text-center">Armadura</h4>
 
                     <div class="row">
@@ -391,7 +391,7 @@
                     </div>
                   </div> <!-- Fin de la sección armadura -->
 
-                  <div class="col-xs-12" id="seccionAccesorio">
+                  <div class="col-xs-12 col-sm-4 col-md-12" id="seccionAccesorio">
                     <h4 class="text-center">Accesorio</h4>
 
                     <div class="row">
@@ -409,7 +409,7 @@
                 <h4 class="text-center">Gemas legendarias</h4>
 
                 <div class="row">
-                  <div class="col-xs-12" id="seccionGema1">
+                  <div class="col-xs-12 col-sm-4 col-md-12" id="seccionGema1">
                     <h4 class="text-center">Gema 1</h4>
 
                     <div class="row">
@@ -421,7 +421,7 @@
                     </div>
                   </div> <!-- Fin de la sección gema 1 -->
 
-                  <div class="col-xs-12" id="seccionGema2">
+                  <div class="col-xs-12 col-sm-4 col-md-12" id="seccionGema2">
                     <h4 class="text-center">Gema 2</h4>
 
                     <div class="row">
@@ -433,7 +433,7 @@
                     </div>
                   </div> <!-- Fin de la sección gema 2 -->
 
-                  <div class="col-xs-12" id="seccionGema3">
+                  <div class="col-xs-12 col-sm-4 col-md-12" id="seccionGema3">
                     <h4 class="text-center">Gema 3</h4>
 
                     <div class="row">
@@ -451,6 +451,52 @@
         </div>
       </div>
     </div> <!-- Fin de la seccion equipación -->
+
+    <div class="separador"></div>
+
+    <div id="seccionLeyenda" class="row">
+      <div class="col-xs-12">
+        <h3 class="text-center bold">Puntos de leyenda</h3>
+
+        <div class="row row-eq-height">
+          <div class="col-xs-12 col-sm-6 col-md-3 contenedor-seccion" id="seccionLeyendaPrimarios">
+            <h4 class="text-center">Primarios</h4>
+
+            <p>1 <span class="bold">Estadística principal</span></p>
+            <p>2 <span class="bold">Vitalidad</span></p>
+            <p>3 <span class="bold">Velocidad de movimiento</span></p>
+            <p>4 <span class="bold">Recurso máximo</span></p>
+          </div> <!-- Fin de la sección leyenda primarios-->
+
+          <div class="col-xs-12 col-sm-6 col-md-3 contenedor-seccion" id="seccionLeyendaAtaque">
+            <h4 class="text-center">Ataque</h4>
+
+            <p>4 <span class="bold">Velocidad de ataque</span></p>
+            <p>3 <span class="bold">Reducción de enfriamiento</span></p>
+            <p>2 <span class="bold">Probabilidad de golpe crítico</span></p>
+            <p>1 <span class="bold">Daño de golpe crítico</span></p>
+          </div> <!-- Fin de la sección leyenda ataque-->
+
+          <div class="col-xs-12 col-sm-6 col-md-3 contenedor-seccion" id="seccionLeyendaDefensa">
+            <h4 class="text-center">Defensa</h4>
+
+            <p>1 <span class="bold">Vida</span></p>
+            <p>2 <span class="bold">Armadura</span></p>
+            <p>3 <span class="bold">Todas las resistencias</span></p>
+            <p>4 <span class="bold">Regeneración de vida</span></p>
+          </div> <!-- Fin de la sección leyenda defensa-->
+
+          <div class="col-xs-12 col-sm-6 col-md-3 contenedor-seccion" id="seccionLeyendaUtilidad">
+            <h4 class="text-center">Utilidad</h4>
+
+            <p>1 <span class="bold">Daño de área</span></p>
+            <p>2 <span class="bold">Reducción de coste</span></p>
+            <p>3 <span class="bold">Vida por golpe</span></p>
+            <p>4 <span class="bold">Hallazgo de oro</span></p>
+          </div> <!-- Fin de la sección leyenda utilidad-->
+        </div>
+      </div>
+    </div> <!-- Fin de la sección leyenda -->
 
     <div class="separador"></div>
 
