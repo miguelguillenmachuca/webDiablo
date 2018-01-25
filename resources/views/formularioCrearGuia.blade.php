@@ -532,8 +532,8 @@
 
         <div class="form-group padd-sup" id="seccionVideo">
           <h4 class="text-center"><label for="video_guia">Vídeo de la guía</label></h4>
-          <p class="help-block">Puedes incluir un enlace a YouTube para ayudar a ilustrar la guía. Recuerda pegar el enlace completo en la caja de texto.</p>
-          <input type="text" class="form-control" id="video_guia" name="video_guia" placeholder="Enlace a YouTube del vídeo. P.ej: https://www.youtube.com/watch?v=CBD08XXdct0"></input>
+          <p class="help-block">Puedes incluir un enlace a YouTube para ayudar a ilustrar la guía. Solo tienes que pegar el código de la URL después de "?v=". Por ejemplo, si el enlace es "https://www.youtube.com/watch?v=CBD08XXdct0", solo tienes que pegar "CBD08XXdct0".</p>
+          <input type="text" class="form-control" id="video_guia" name="video_guia" placeholder="Enlace a YouTube del vídeo. P.ej: CBD08XXdct0"></input>
         </div> <!-- Fin del div seccionVisibilidad -->
 
         <div class="separador"></div>

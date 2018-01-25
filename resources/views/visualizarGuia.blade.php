@@ -510,7 +510,38 @@
 
     <div class="separador"></div>
 
+    <div id="seccionVideo" class="row">
+      <div class="col-xs-12">
+        <h3 class="text-center bold">Vídeo</h3>
+
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/CBD08XXdct0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="separador"></div>
+
+    <div id="seccionVotos" class="row">
+      <div class="col-xs-12">
+        <h3 class="text-center bold">Recuerda votar positivo si te ha gustado la guía</h3>
+
+        <h3 class="likes text-center"><span class="glyphicon glyphicon-thumbs-up likes"></span>147</h3>
+        <div class="text-center">
+          {{ Form::open(array('url' => '#', 'method' => 'post')) }}
+          {{ Form::hidden('user' , '') }}
+          {{ Form::hidden('guia' , '') }}
+
+          {{ Form::button('<span class="glyphicon glyphicon-thumbs-up likes"></span><span class="likes">Votar</span>', [ 'type' => 'submit', 'class' => 'btn btn-rojo' ]) }}
+          {{ Form::close() }}
+        </div>
+      </div>
+    </div>
+
+    <div class="separador"></div>
+
   </div>
+
 
 </div> <!-- Fin del div main -->
 @endsection
