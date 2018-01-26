@@ -3,7 +3,7 @@
 @section('content')
 <div id="main" class="container">
 
-  <div class="container-fluid contenedor">
+  <div class="container-fluid contenedor margen-inf">
     <div id="seccionEncabezado" class="row">
       <div class="col-xs-3 col-sm-1">
         <img src="{{ asset('img/clases/default_class.png') }}" class="img-clase img-responsive margen-sup" alt="clase">
@@ -518,7 +518,7 @@
           <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/CBD08XXdct0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
-    </div>
+    </div> <!-- Fin de la sección vídeo -->
 
     <div class="separador"></div>
 
@@ -536,9 +536,76 @@
           {{ Form::close() }}
         </div>
       </div>
-    </div>
+    </div> <!-- Fin de la sección votos -->
 
     <div class="separador"></div>
+
+    <div id="seccionComentarios" class="row">
+      <div class="col-xs-12">
+        <h3 class="text-left bold">Comentarios</h3>
+        <p class="help-block">Puedes debatir sobre tu opinión de la guía, posibles cambios, o simplemente agradecerle al autor que se haya tomado su tiempo en compartirla.</p>
+
+        <div class="formComentario">
+          {{ Form::open(array('url' => '#', 'method' => 'post')) }}
+          {{ Form::label('') }}
+          {{ Form::textarea('comentario', null , [ 'class' => 'form-control' ]) }}
+
+          {{ Form::button('Comentar', [' type' => 'submit', 'class' => 'btn btn-rojo btn-block-xs margen-sup' ]) }}
+          {{ Form::close() }}
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12" id="paginado_comentarios">
+      <ul class="pagination pagination-rojo">
+        <li>
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li>
+          <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </div> <!-- Fin del div paginado_comentarios -->
+
+    <div class="col-xs-12 margen-inf" id="cajaComentarios">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row contenedor-seccion-comentarios row-eq-height">
+            <div class="col-xs-12 col-sm-2 col-md-2 contenedor-autor-comentario">
+              <div class="row">
+                <div class="col-xs-2 col-sm-12">
+                  <img src="{{ asset('img/usuarios/1493925171_unknown2.png') }}" alt="usuario" class="img-responsive img-usuario center-block">
+                </div>
+                <div class="col-xs-10 col-sm-12 text-center">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <a href="#" class="enlace-usuario">Usuario</a>
+                    </div>
+                    <div class="col-xs-12">
+                      <span class="num-comentario">123 comentarios</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-10 col-md-10 contenedor-texto-comentario full-height">
+              <p class="full-height">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium maiores numquam recusandae quaerat. Numquam eius vero similique nam in eum tempora ab eos commodi soluta quam natus vel accusamus nobis, perferendis, voluptate voluptatum nesciunt, sint consequatur animi! Vitae beatae perferendis dolorem hic ab suscipit molestiae enim necessitatibus. Suscipit dolor laborum nulla consequatur dolore expedita voluptatum minima quibusdam distinctio consequuntur, sit esse enim, excepturi eius doloribus! Et totam nobis id. Architecto dolore, dignissimos vitae laborum dolores necessitatibus quam! Doloribus fugiat mollitia reprehenderit officiis ipsa, sint eveniet neque. Quae reiciendis nostrum tempore, odit sit optio blanditiis reprehenderit, ea amet impedit, excepturi totam.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
 
   </div>
 

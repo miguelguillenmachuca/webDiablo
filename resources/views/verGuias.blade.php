@@ -43,7 +43,7 @@
     <div class="contenedor margen-inf">
       <h3 class="text-center">Guías</h3>
 
-      <div class="container-fluid" id="paginado`_sup">
+      <div class="container-fluid" id="paginado_sup">
         <ul class="pagination pagination-rojo">
           <li>
             <a href="#" aria-label="Previous">
