@@ -27,11 +27,16 @@ Route::get('/crearGuia/formularioCrearGuia', function () {
 })->name('formularioCrearGuia');
 
 // RUTAS DE VISUALIZAR GUIAS
-Route::get('/verGuias', function () {
+Route::get('/guias/buscar', function () {
   return view('verGuias');
 })->name('verGuias');
-Route::get('/verGuias/guia/{guia}', function () {
+Route::get('/guias/{guia}', function () {
     return view('visualizarGuia');
 })->name('guia/show');
+
+// RUTAS DE USUARIO
+Route::get('/usuario/{user}', function () {
+  return view('visualizarUsuario');
+})->name('usuario/show');
 
 Route::get('/home', 'HomeController@index')->name('home');
