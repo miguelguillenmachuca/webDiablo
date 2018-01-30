@@ -20,8 +20,9 @@
 
           <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="row row-eq-height marco-resumen margen-sup">
-              <div class="col-xs-6 marco-separador-derecha"><span class="text-center text-center-vertical bold">10 guías creadas</span></div>
-              <div class="col-xs-6"><span class="text-center text-center-vertical bold">10 comentarios</span></div>
+              <div class="col-xs-4 text-center"><span class="text-center">10 guías creadas</span></div>
+              <div class="col-xs-4 text-center"><span class="text-center">10 comentarios</span></div>
+              <div class="col-xs-4 text-center"><span class="text-center">10 guías favoritas</span></div>
             </div>
           </div>
         </div>
