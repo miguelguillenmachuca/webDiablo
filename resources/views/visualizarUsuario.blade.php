@@ -29,7 +29,7 @@
 
         <div class="row margen-sup">
           <div class="col-xs-12">
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-tabs nav-tabs-rojo">
               <li class="{{ areActiveRoutes([ 'usuario/show', 'usuario/guias' ]) }}"><a href="{{ route('usuario/guias', [ 'asd' ]) }}">Guías publicadas</a></li>
               <li class="{{ isActiveRoute('usuario/comentarios') }}"><a href="{{ route('usuario/comentarios', [ 'asd' ]) }}">Comentarios</a></li>
               <li class="{{ isActiveRoute('usuario/favoritas') }}"><a href="{{ route('usuario/favoritas', [ 'asd' ]) }}">Me gusta</a></li>

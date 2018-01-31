@@ -221,6 +221,32 @@ footer {
   }
 }
 
+/* NAV-TABS-ROJO */
+.nav-tabs-rojo {
+  border-bottom: 1px solid @colorBordes1;
+}
+.nav-tabs-rojo> li > a {
+  color: @colorFuente2;
+  text-decoration: none;
+}
+.nav.nav-tabs-rojo > li > a:hover,
+.nav.nav-tabs-rojo > li > a:focus {
+  text-decoration: none;
+  background-color: @colorFuente1;
+}
+.nav-tabs-rojo > li > a:hover {
+  border-color: @colorFuente1 @colorFuente1 @colorBordes1;
+}
+.nav-tabs-rojo > li.active > a,
+.nav-tabs-rojo > li.active > a:hover,
+.nav-tabs-rojo > li.active > a:focus {
+  color: @colorFuente2;
+  cursor: default;
+  background-color: @colorBtn1;
+  border: 1px solid @colorBordes1;
+  border-bottom-color: transparent;
+}
+
 // Botón rojo
 .btn-rojo {
   color: @colorFuente2;
