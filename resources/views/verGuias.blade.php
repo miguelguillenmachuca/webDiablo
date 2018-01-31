@@ -81,7 +81,7 @@
               <tr>
                 <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
                 <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="#" class="enlace-usuario">Autor</a></td>
+                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
                 <td class="likes">123456789</td>
                 <td>147</td>
                 <td>12/12/2012</td>
@@ -89,7 +89,7 @@
               <tr>
                 <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
                 <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="#" class="enlace-usuario">Autor</a></td>
+                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
                 <td class="likes">123456789</td>
                 <td>147</td>
                 <td>12/12/2012</td>
@@ -97,7 +97,7 @@
               <tr>
                 <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
                 <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="#" class="enlace-usuario">Autor</a></td>
+                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
                 <td class="likes">123456789</td>
                 <td>147</td>
                 <td>12/12/2012</td>
@@ -105,7 +105,7 @@
               <tr>
                 <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
                 <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="#" class="enlace-usuario">Autor</a></td>
+                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
                 <td class="likes">123456789</td>
                 <td>147</td>
                 <td>12/12/2012</td>
@@ -113,7 +113,7 @@
               <tr>
                 <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
                 <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="#" class="enlace-usuario">Autor</a></td>
+                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
                 <td class="likes">123456789</td>
                 <td>147</td>
                 <td>12/12/2012</td>
@@ -121,7 +121,7 @@
               <tr>
                 <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
                 <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="#" class="enlace-usuario">Autor</a></td>
+                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
                 <td class="likes">123456789</td>
                 <td>147</td>
                 <td>12/12/2012</td>
@@ -129,7 +129,7 @@
               <tr>
                 <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
                 <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="#" class="enlace-usuario">Autor</a></td>
+                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
                 <td class="likes">123456789</td>
                 <td>147</td>
                 <td>12/12/2012</td>
@@ -137,7 +137,7 @@
               <tr>
                 <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
                 <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="#" class="enlace-usuario">Autor</a></td>
+                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
                 <td class="likes">123456789</td>
                 <td>147</td>
                 <td>12/12/2012</td>
@@ -145,7 +145,7 @@
               <tr>
                 <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
                 <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="#" class="enlace-usuario">Autor</a></td>
+                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
                 <td class="likes">123456789</td>
                 <td>147</td>
                 <td>12/12/2012</td>
@@ -153,7 +153,7 @@
               <tr>
                 <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
                 <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="#" class="enlace-usuario">Autor</a></td>
+                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
                 <td class="likes">123456789</td>
                 <td>147</td>
                 <td>12/12/2012</td>

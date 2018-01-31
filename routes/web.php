@@ -27,10 +27,10 @@ Route::get('/crearGuia/formularioCrearGuia', function () {
 })->name('formularioCrearGuia');
 
 // RUTAS DE VISUALIZAR GUIAS
-Route::get('/guias/buscar', function () {
+Route::get('/guia/buscar', function () {
   return view('verGuias');
-})->name('verGuias');
-Route::get('/guias/{guia}', function () {
+})->name('guia/buscar');
+Route::get('/guia/{guia}', function () {
     return view('visualizarGuia');
 })->name('guia/show');
 
@@ -38,5 +38,17 @@ Route::get('/guias/{guia}', function () {
 Route::get('/usuario/{user}', function () {
   return view('visualizarUsuario');
 })->name('usuario/show');
+
+Route::get('/usuario/{user}/guias', function () {
+  return view('visualizarUsuario');
+})->name('usuario/guias');
+
+Route::get('/usuario/{user}/comentarios', function () {
+  return view('visualizarUsuario');
+})->name('usuario/comentarios');
+
+Route::get('/usuario/{user}/favoritas', function () {
+  return view('visualizarUsuario');
+})->name('usuario/favoritas');
 
 Route::get('/home', 'HomeController@index')->name('home');
