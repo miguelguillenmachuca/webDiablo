@@ -56,11 +56,11 @@ Route::get('/usuario/{user}/favoritas', function () {
 })->name('usuario/favoritas');
 
 // RUTAS DE ADMINISTRACIÓN
-Route::get('/administracion', function () {
+Route::get('/admin', function () {
   return view('adminHome');
 })->name('admin');
 
-Route::get('administracion/home', function () {
+Route::get('admin/home', function () {
   return view('adminHome');
 })->name('admin/home');
 
