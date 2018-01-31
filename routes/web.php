@@ -35,6 +35,10 @@ Route::get('/guia/{guia}', function () {
 })->name('guia/show');
 
 // RUTAS DE USUARIO
+Route::get('/usuario/ajustes', function () {
+  return view('cambiarAjustes');
+})->name('usuario/ajustes');
+
 Route::get('/usuario/{user}', function () {
   return view('visualizarUsuario');
 })->name('usuario/show');
@@ -50,5 +54,14 @@ Route::get('/usuario/{user}/comentarios', function () {
 Route::get('/usuario/{user}/favoritas', function () {
   return view('visualizarUsuario');
 })->name('usuario/favoritas');
+
+// RUTAS DE ADMINISTRACIÓN
+Route::get('/administracion', function () {
+  return view('adminHome');
+})->name('admin');
+
+Route::get('administracion/home', function () {
+  return view('adminHome');
+})->name('admin/home');
 
 Route::get('/home', 'HomeController@index')->name('home');

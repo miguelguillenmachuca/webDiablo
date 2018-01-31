@@ -48,6 +48,7 @@
                           <li class="{{ isActiveUrl('crearGuia') }}"><a href="{{ route('crearGuia') }}">Crear guía</a></li>
                           <li class="{{ isActiveRoute('guia/*') }}"><a href="{{ route('guia/buscar') }}">Guías</a></li>
                           <li class="{{ isActiveUrl('tutorial') }}"><a href="tutorial.php">¿Cómo usar la página?</a></li>
+                          <li><a href="{{ route('usuario/ajustes') }}">Enlace temporal a ajustes</a></li>
                         </ul>
                     </ul>
 
