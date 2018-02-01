@@ -16,16 +16,16 @@
 
     <!-- Sidebar Links -->
     <ul class="list-unstyled components">
-      <li class="active">
-        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
+      <li class="{{ areActiveRoutes([ 'admin', 'admin/home' ]) }}">
+        <a href="{{ route('admin/home') }}" data-toggle="collapse" aria-expanded="false">
           <i class="glyphicon glyphicon-home"></i>
           Home
         </a>
       </li>
-      
-      <li>
-        <a href="#">
-          <i class="glyphicon glyphicon-briefcase"></i>
+
+      <li class="{{ areActiveRoutes([ 'admin/clases', 'admin/clases/*' ]) }}">
+        <a href="{{ route('admin/clases') }}">
+          <i class="glyphicon glyphicon-tower"></i>
           Clases
         </a>
       </li>
@@ -44,22 +44,29 @@
 
       <li>
         <a href="#">
-          <i class="glyphicon glyphicon-link"></i>
+          <i class="glyphicon glyphicon-fire"></i>
           Habilidades
         </a>
       </li>
 
       <li>
         <a href="#">
-          <i class="glyphicon glyphicon-send"></i>
+          <i class="glyphicon glyphicon-user"></i>
           Usuarios
         </a>
       </li>
 
       <li>
         <a href="#">
+          <i class="glyphicon glyphicon-education"></i>
+          Guías
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ route('/') }}">
           <i class="glyphicon glyphicon-send"></i>
-          Guias
+          Volver a webDiablo
         </a>
       </li>
     </ul>

@@ -1,5 +1,5 @@
-@color1: #7386D5;
-@color2: #6d7fcc;
+@color1: #000;
+@color2: #414141;
 @color3: #fff;
 @color4: #5bc0de;
 
@@ -33,7 +33,10 @@ i, span {
 SIDEBAR STYLE
 ----------------------------------------------------- */
 div#app {
-  display: flex;
+  @media (min-width: 769px)
+  {
+    display: flex;    
+  }
   align-items: stretch;
 }
 
@@ -48,6 +51,8 @@ div#app {
   top: 0;
   left: 0;
   bottom: 0;
+  overflow-y: auto;
+  z-index: 9999;
 }
 
 #hueco_sidebar {
@@ -73,9 +78,9 @@ div#app {
   display: none;
 }
 
-#sidebar::-webkit-scrollbar {
-  display: none;
-}
+// #sidebar::-webkit-scrollbar {
+//   display: none;
+// }
 
 #sidebar.active {
   min-width: 80px;

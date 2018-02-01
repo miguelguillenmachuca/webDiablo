@@ -64,4 +64,8 @@ Route::get('admin/home', function () {
   return view('adminHome');
 })->name('admin/home');
 
+Route::get('admin/clases', function () {
+  return view('adminClases');
+})->name('admin/clases');
+
 Route::get('/home', 'HomeController@index')->name('home');

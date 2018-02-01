@@ -3,3 +3,41 @@ html {
   position: relative;
   min-height: 100%;
 }
+
+.boton-remove {
+  color: red;
+}
+
+.boton-edit {
+  color: #4d78cc;
+}
+
+.boton-restore {
+  color: green;
+}
+
+.foto-resumen {
+  min-height: 40px;
+  max-height: 40px;
+  min-width: 40px;
+  max-width: 40px;
+}
+
+.table tbody {
+  overflow: auto;
+}
+
+@media (max-width: 480px) {
+  .btn-block-xs {
+    display: block;
+    width: 100%;
+  }
+  .btn-block-xs + .btn-block-xs {
+    margin-top: 5px;
+  }
+  input[type="submit"].btn-block-xs,
+  input[type="reset"].btn-block-xs,
+  input[type="button"].btn-block-xs {
+    width: 100%;
+  }
+}
