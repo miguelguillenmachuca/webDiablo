@@ -1,10 +1,11 @@
-body {
-  background: #fafafa;
-}
+@color1: #7386D5;
+@color2: #6d7fcc;
+@color3: #fff;
+@color4: #5bc0de;
 
 .navbar {
   padding: 15px 10px;
-  background: #fff;
+  background: @color3;
   border: none;
   border-radius: 0;
   margin-bottom: 40px;
@@ -40,8 +41,8 @@ div#app {
   min-height: 100%;
   min-width: 250px;
   max-width: 250px;
-  background: #7386D5;
-  color: #fff;
+  background: @color1;
+  color: @color3;
   transition: all 0.3s;
   position: fixed;
   top: 0;
@@ -69,11 +70,11 @@ div#app {
 }
 
 #sidebarCollapse.active span {
-    display: none;
+  display: none;
 }
 
 #sidebar::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 #sidebar.active {
@@ -129,7 +130,7 @@ div#app {
 #sidebar .sidebar-header {
   padding: 20px;
   padding-top: 50px;
-  background: #6d7fcc;
+  background: @color2;
 }
 
 #sidebar.active .sidebar-header {
@@ -142,9 +143,13 @@ div#app {
   font-size: 1.8em;
 }
 
+#sidebar ul li a {
+  color: @color4;
+}
+
 #sidebar ul.components {
   padding: 20px 0;
-  border-bottom: 1px solid #47748b;
+  // border-bottom: 1px solid #47748b;
 }
 
 #sidebar ul li a {
@@ -153,16 +158,16 @@ div#app {
   display: block;
 }
 #sidebar ul li a:hover {
-  color: #7386D5;
-  background: #fff;
+  color: @color1;
+  background: @color3;
 }
 #sidebar ul li a i {
   margin-right: 10px;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-  color: #fff;
-  background: #6d7fcc;
+  color: @color3;
+  background: @color2;
 }
 
 
@@ -186,7 +191,7 @@ a[aria-expanded="true"]::before {
 ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
-  background: #6d7fcc;
+  background: @color2;
 }
 
 ul.CTAs {
@@ -202,13 +207,13 @@ ul.CTAs a {
 }
 
 a.download {
-  background: #fff;
-  color: #7386D5;
+  background: @color3;
+  color: @color1;
 }
 
 a.article, a.article:hover {
-  background: #6d7fcc !important;
-  color: #fff !important;
+  background: @color2 !important;
+  color: @color3 !important;
 }
 
 
@@ -255,7 +260,7 @@ MEDIAQUERIES
   }
 
   #contenido_toggle {
-    background: #7386D5;
+    background: @color1;
     min-height: 50px;
     min-width: 100%;
     max-width: 100%;
@@ -323,6 +328,6 @@ MEDIAQUERIES
     top: 0px;
   }
   #sidebarCollapse span {
-      display: none;
+    display: none;
   }
 }
