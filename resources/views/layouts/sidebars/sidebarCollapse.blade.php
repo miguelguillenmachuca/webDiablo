@@ -32,7 +32,7 @@
 
       <li>
         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-          <i class="glyphicon glyphicon-duplicate"></i>
+          <i class="glyphicon glyphicon-sunglasses"></i>
           Objetos
         </a>
         <ul class="collapse list-unstyled" id="pageSubmenu">

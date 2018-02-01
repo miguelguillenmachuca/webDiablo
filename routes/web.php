@@ -23,7 +23,7 @@ Route::get('/crearGuia', function () {
     return view('crearGuia');
 })->name('crearGuia');
 Route::get('/crearGuia/formularioCrearGuia', function () {
-    return view('formularioCrearGuia');
+    return view('forms.guia_create');
 })->name('formularioCrearGuia');
 
 // RUTAS DE VISUALIZAR GUIAS
@@ -55,7 +55,7 @@ Route::get('/usuario/{user}/favoritas', function () {
   return view('visualizarUsuario');
 })->name('usuario/favoritas');
 
-// RUTAS DE ADMINISTRACIÓN
+// ---------------- RUTAS DE ADMINISTRACIÓN ----------------
 Route::get('/admin', function () {
   return view('adminHome');
 })->name('admin');
@@ -64,8 +64,13 @@ Route::get('admin/home', function () {
   return view('adminHome');
 })->name('admin/home');
 
+// RUTAS DE CLASES
 Route::get('admin/clases', function () {
   return view('adminClases');
 })->name('admin/clases');
+
+Route::get('admin/clases/crear', function () {
+  return view('forms.clase_create');
+})->name('admin/clases/crear');
 
 Route::get('/home', 'HomeController@index')->name('home');

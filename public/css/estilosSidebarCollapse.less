@@ -35,7 +35,7 @@ SIDEBAR STYLE
 div#app {
   @media (min-width: 769px)
   {
-    display: flex;    
+    display: flex;
   }
   align-items: stretch;
 }
@@ -245,6 +245,7 @@ MEDIAQUERIES
     min-width: 80px;
     max-width: 80px;
     top: 50px;
+    padding-top: 0;
     text-align: center;
     margin-left: -80px !important ;
   }
@@ -287,6 +288,10 @@ MEDIAQUERIES
 
   #hueco_sidebar.active {
     margin-left: 0 !important;
+  }
+
+  #sidebar.active .sidebar-header {
+    padding-top: 20px;
   }
 
   #sidebar .sidebar-header h3, #sidebar .CTAs {

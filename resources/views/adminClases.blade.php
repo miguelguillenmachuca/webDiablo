@@ -5,11 +5,11 @@
     <h2 class="text-center">CLASES</h2>
 
     <div>
-      <a href="#" class="btn btn-default btn-block-xs" role="button">Añadir nueva clase</a>
+      <a href="{{ route('admin/clases/crear') }}" class="btn btn-default btn-redondo btn-block-xs" role="button">Añadir nueva clase</a>
     </div>
 
     <div>
-      <ul class="pagination">
+      <ul class="pagination pagination-redondo">
         <li>
           <a href="#" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
@@ -28,50 +28,48 @@
       </ul>
     </div> <!-- Fin del div paginado -->
 
-    <div class="">
-      <div class="table-admin table-responsive">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th class="col-xs-3">Nombre</th>
-              <th class="col-xs-3">Foto</th>
-              <th class="col-xs-2">Editar</th>
-              <th class="col-xs-2">Eliminar</th>
-              <th class="col-xs-2">Restaurar</th>
-            </tr>
-          </thead>
+    <div class="table-admin table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="col-xs-3">Nombre</th>
+            <th class="col-xs-3">Foto</th>
+            <th class="col-xs-2">Editar</th>
+            <th class="col-xs-2">Eliminar</th>
+            <th class="col-xs-2">Restaurar</th>
+          </tr>
+        </thead>
 
-          <tbody>
-            <tr>
-              <td>Clase1</td>
-              <td><img src="{{ asset('img/clases/default_class.png') }}" class="img-responsive foto-resumen" alt="clase"></td>
-              <td><a href="#"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
-              <td><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
-              <td><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
-            </tr>
+        <tbody>
+          <tr>
+            <td>Clase1</td>
+            <td><img src="{{ asset('img/clases/default_class.png') }}" class="img-responsive foto-resumen" alt="clase"></td>
+            <td><a href="#"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
+            <td><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
+            <td><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
+          </tr>
 
-            <tr>
-              <td>Clase1</td>
-              <td><img src="{{ asset('img/clases/default_class.png') }}" class="img-responsive foto-resumen" alt="clase"></td>
-              <td><a href="#"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
-              <td><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
-              <td><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
-            </tr>
+          <tr>
+            <td>Clase1</td>
+            <td><img src="{{ asset('img/clases/default_class.png') }}" class="img-responsive foto-resumen" alt="clase"></td>
+            <td><a href="#"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
+            <td><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
+            <td><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
+          </tr>
 
-            <tr>
-              <td>Clase1</td>
-              <td><img src="{{ asset('img/clases/default_class.png') }}" class="img-responsive foto-resumen" alt="clase"></td>
-              <td><a href="#"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
-              <td><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
-              <td><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+          <tr>
+            <td>Clase1</td>
+            <td><img src="{{ asset('img/clases/default_class.png') }}" class="img-responsive foto-resumen" alt="clase"></td>
+            <td><a href="#"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
+            <td><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
+            <td><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div>
-      <ul class="pagination">
+      <ul class="pagination pagination-redondo">
         <li>
           <a href="#" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
