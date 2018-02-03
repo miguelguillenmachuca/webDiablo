@@ -38,6 +38,7 @@ div#app {
     display: flex;
   }
   align-items: stretch;
+  min-height: 100%;
 }
 
 #sidebar {
@@ -64,14 +65,14 @@ div#app {
 
 #sidebarCollapse {
   position: fixed;
-  left: 20px;
-  top: 20px;
+  left: 15px;
+  top: 0px;
 }
 
 #sidebarCollapse.active {
   position: fixed;
-  left: 20px;
-  top: 20px;
+  left: 15px;
+  top: 0px;
 }
 
 #sidebarCollapse.active span {
@@ -100,6 +101,7 @@ div#app {
 
 #sidebar.active .sidebar-header strong {
   display: block;
+  padding-top: 20px;
 }
 
 #sidebar ul li a {
@@ -134,13 +136,15 @@ div#app {
 
 #sidebar .sidebar-header {
   padding: 20px;
-  padding-top: 50px;
+  padding-top: 30px;
+  padding-bottom: 10px;
   background: @color2;
 }
 
 #sidebar.active .sidebar-header {
   padding: 20px;
-  padding-top: 70px;
+  padding-top: 30px;
+  padding-bottom: 10px;
 }
 
 #sidebar .sidebar-header strong {
@@ -291,7 +295,7 @@ MEDIAQUERIES
   }
 
   #sidebar.active .sidebar-header {
-    padding-top: 20px;
+    padding-top: 0px;
   }
 
   #sidebar .sidebar-header h3, #sidebar .CTAs {
@@ -300,6 +304,7 @@ MEDIAQUERIES
 
   #sidebar .sidebar-header strong {
     display: block;
+    padding-top: 0;
   }
 
   #sidebar ul li a {

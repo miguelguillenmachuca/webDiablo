@@ -2,6 +2,19 @@
 html {
   position: relative;
   min-height: 100%;
+  background-color: #eceeef;
+}
+
+div#main {
+  background-color: #eceeef;
+  min-height: 100%;
+  right: 0;
+}
+
+div#main-content {
+  @media (min-width: 769px) {
+    margin: 50px 50px;
+  }
 }
 
 .boton-remove {
@@ -27,7 +40,7 @@ html {
   overflow: auto;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .btn-block-xs {
     display: block;
     width: 100%;
@@ -43,13 +56,13 @@ html {
 }
 
 .text-center-vertical {
-  display: inline-block;
-  vertical-align: middle;
-  float: none;
+  display: flex;
+justify-content: center; /* align horizontal */
+align-items: center; /* align vertical */
 }
 
 .table > tbody > tr > td {
-     vertical-align: middle;
+  vertical-align: middle;
 }
 
 .btn-redondo {
@@ -58,6 +71,7 @@ html {
 
 .pagination-redondo {
   border-radius: 15px;
+  margin-top: 0;
 }
 
 .pagination-redondo > li:first-child > a,
@@ -73,4 +87,31 @@ html {
 
 .margen-sup {
   margin-top: 40px;
+}
+
+.margen-inf {
+  margin-top: 40px;
+}
+
+div.header-admin {
+  @media (max-height: 768px) {
+    height: 76px;
+  }
+  @media (min-height: 769px) {
+    height: 96.4px;
+  }
+  background-color: rgba(32,34,37,.6);
+  color: #fff;
+
+  width: 100%;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.no-margin-top {
+  margin-top: 0;
 }

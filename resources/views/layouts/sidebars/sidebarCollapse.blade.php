@@ -17,7 +17,7 @@
     <!-- Sidebar Links -->
     <ul class="list-unstyled components">
       <li class="{{ areActiveRoutes([ 'admin', 'admin/home' ]) }}">
-        <a href="{{ route('admin/home') }}" data-toggle="collapse" aria-expanded="false">
+        <a href="{{ route('admin/home') }}">
           <i class="glyphicon glyphicon-home"></i>
           Home
         </a>
