@@ -1,4 +1,4 @@
-@color1: #000;
+@color1: #141D26;
 @color2: #414141;
 @color3: #fff;
 @color4: #5bc0de;
@@ -64,15 +64,60 @@ div#app {
 }
 
 #sidebarCollapse {
-  position: fixed;
-  left: 15px;
-  top: 0px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #sidebarCollapse.active {
-  position: fixed;
-  left: 15px;
+  position: relative;
+  left: 0px;
   top: 0px;
+  height: 32px;
+}
+
+#sidebarCollapse i.flecha-derecha {
+  display: none;
+}
+
+#sidebarCollapse.active i.flecha-izquierda {
+  display: none;
+}
+
+#sidebarCollapse.active i.flecha-derecha {
+  display: inherit;
+}
+
+@media (max-width: 768px) {
+  #sidebarCollapse {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    height: 32px;
+  }
+
+  #sidebarCollapse.active {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    height: 32px;
+  }
+
+  #sidebarCollapse i.flecha-izquierda {
+    display: none;
+  }
+
+  #sidebarCollapse i.flecha-derecha {
+    display: inherit;
+  }
+
+  #sidebarCollapse.active i.flecha-derecha {
+    display: none;
+  }
+
+  #sidebarCollapse.active i.flecha-izquierda {
+    display: inherit;
+  }
 }
 
 #sidebarCollapse.active span {
@@ -95,13 +140,19 @@ div#app {
   text-align: center;
 }
 
+#sidebar h3 {
+  margin-top: 30px;
+  padding-top: 5px;
+  margin-bottom: 5px;
+}
+
 #sidebar.active .sidebar-header h3, #sidebar.active .CTAs {
   display: none;
 }
 
 #sidebar.active .sidebar-header strong {
   display: block;
-  padding-top: 20px;
+  padding-top: 30px;
 }
 
 #sidebar ul li a {
@@ -179,6 +230,24 @@ div#app {
   background: @color2;
 }
 
+#sidebar #contenedor-boton {
+  position: fixed;
+  width: 250px;
+  left: 0px;
+  top: 0px;
+  background-color: @color1;
+  z-index: 9999;
+  transition: all 0.3s;
+}
+
+#sidebar.active #contenedor-boton {
+  position: fixed;
+  width: 80px;
+  left: 0px;
+  top: 0px;
+  background-color: @color1;
+  z-index: 9999;
+}
 
 a[data-toggle="collapse"] {
   position: relative;
@@ -344,5 +413,20 @@ MEDIAQUERIES
   }
   #sidebarCollapse span {
     display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .btn-block-sm {
+    display: block;
+    width: 100%;
+  }
+  .btn-block-sm + .btn-block-sm {
+    margin-top: 5px;
+  }
+  input[type="submit"].btn-block-sm,
+  input[type="reset"].btn-block-sm,
+  input[type="button"].btn-block-sm {
+    width: 100%;
   }
 }

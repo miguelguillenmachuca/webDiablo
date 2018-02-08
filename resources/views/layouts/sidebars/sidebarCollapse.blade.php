@@ -4,10 +4,13 @@
 
 <div id="hueco_sidebar">
   <nav id="sidebar">
-    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-      <i class="glyphicon glyphicon-align-left"></i>
-      <span>Comprimir sidebar</span>
-    </button>
+    <div id="contenedor-boton">
+      <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn btn-block-sm">
+        <i class="glyphicon glyphicon-arrow-left flecha-izquierda"></i>
+        <i class="glyphicon glyphicon-arrow-right flecha-derecha"></i>
+        {{-- <span>Comprimir sidebar</span> --}}
+      </button>
+    </div>
     <!-- Sidebar Header -->
     <div class="sidebar-header">
       <h3>WebDiablo</h3>
