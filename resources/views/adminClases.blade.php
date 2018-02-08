@@ -10,13 +10,13 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="row">
-            <div class="col-xs-12 col-sm-6 col-sm-push-6">
+            <div class="col-xs-12 col-sm-6 col-sm-push-6 margen-sup">
               <div class="text-right">
                 <a href="{{ route('admin/clases/crear') }}" class="btn btn-default btn-redondo btn-block-xs" role="button">Añadir nueva clase</a>
               </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-sm-pull-6">
+            <div class="col-xs-12 col-sm-6 col-sm-pull-6 margen-sup">
               <div>
                 <ul class="pagination pagination-redondo">
                   <li>
