@@ -25,7 +25,13 @@
   <div id="app">
     @include('layouts.sidebars.sidebarCollapse')
 
-    @yield('content')
+    <div id="main" class="full-width">
+      <div class="header-admin text-center-vertical">
+        <h2 class="text-center no-margin-top">@yield('titulo')</h2>
+      </div>
+
+      @yield('content')
+    </div>
 
   </div>
 

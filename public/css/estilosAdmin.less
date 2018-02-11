@@ -2,11 +2,19 @@
 html {
   position: relative;
   min-height: 100%;
+}
+
+body {
+  min-height: 100%;
   background-color: #eceeef;
 }
 
+div#app {
+  min-height: 100%;
+  height: 200%;
+}
+
 div#main {
-  background-color: #eceeef;
   min-height: 100%;
   right: 0;
 }
@@ -115,4 +123,11 @@ div.header-admin {
 
 .no-margin-top {
   margin-top: 0;
+}
+
+input[type=file] {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
 }
