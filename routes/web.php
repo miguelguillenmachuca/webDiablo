@@ -87,7 +87,7 @@ Route::get('admin/objetos/crear', function () {
 })->name('admin/objetos/crear');
 
 Route::get('admin/objetos/{objeto}/editar', function () {
-  return view('forms.clase_update');
+  return view('forms.objeto_update');
 })->name('admin/objetos/editar');
 
 Route::get('/home', 'HomeController@index')->name('home');

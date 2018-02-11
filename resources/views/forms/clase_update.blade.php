@@ -9,6 +9,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-offset-2 col-sm-8">
         {{ Form::open([ 'url' => '#', 'files' => 'true', 'class' => 'form-horizontal' ]) }}
+        
         <div class="form-group">
           {{ Form::label('nombre', 'Nombre de la clase', [ 'class' => 'control-label col-sm-6 col-md-4' ]) }}
           <div class="col-sm-6 col-md-6">
