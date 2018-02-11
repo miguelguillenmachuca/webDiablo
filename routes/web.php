@@ -73,4 +73,8 @@ Route::get('admin/clases/crear', function () {
   return view('forms.clase_create');
 })->name('admin/clases/crear');
 
+Route::get('admin/clases/{clase}/editar', function () {
+  return view('forms.clase_update');
+})->name('admin/clases/editar');
+
 Route::get('/home', 'HomeController@index')->name('home');

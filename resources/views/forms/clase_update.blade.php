@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('titulo')
-  CREAR CLASE
+  EDITAR CLASE
 @endsection
 
 @section('content')

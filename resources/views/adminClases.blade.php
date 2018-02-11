@@ -54,28 +54,28 @@
             </thead>
 
             <tbody>
-              <tr>
+              <tr class="inactive">
                 <td>Clase1</td>
                 <td><img src="{{ asset('img/clases/default_class.png') }}" class="img-responsive foto-resumen" alt="clase"></td>
-                <td><a href="#"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
-                <td><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
+                <td><a href="{{ route('admin/clases/editar', ['1']) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
+                <td class="inactive"><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
                 <td><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
               </tr>
 
               <tr>
                 <td>Clase1</td>
                 <td><img src="{{ asset('img/clases/default_class.png') }}" class="img-responsive foto-resumen" alt="clase"></td>
-                <td><a href="#"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
+                <td><a href="{{ route('admin/clases/editar', ['1']) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
                 <td><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
-                <td><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
+                <td class="inactive"><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
               </tr>
 
               <tr>
                 <td>Clase1</td>
                 <td><img src="{{ asset('img/clases/default_class.png') }}" class="img-responsive foto-resumen" alt="clase"></td>
-                <td><a href="#"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
+                <td><a href="{{ route('admin/clases/editar', ['1']) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
                 <td><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
-                <td><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
+                <td class="inactive"><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
               </tr>
             </tbody>
           </table>
