@@ -66,7 +66,7 @@ Route::get('admin/home', function () {
 
 // RUTAS DE CLASES
 Route::get('admin/clases', function () {
-  return view('adminClases');
+  return view('admin_clases');
 })->name('admin/clases');
 
 Route::get('admin/clases/crear', function () {
@@ -76,5 +76,18 @@ Route::get('admin/clases/crear', function () {
 Route::get('admin/clases/{clase}/editar', function () {
   return view('forms.clase_update');
 })->name('admin/clases/editar');
+
+//  RUTAS DE OBJETOS
+Route::get('admin/objetos', function () {
+  return view('admin_objetos');
+})->name('admin/objetos');
+
+Route::get('admin/objetos/crear', function () {
+  return view('forms.objeto_create');
+})->name('admin/objetos/crear');
+
+Route::get('admin/objetos/{objeto}/editar', function () {
+  return view('forms.clase_update');
+})->name('admin/objetos/editar');
 
 Route::get('/home', 'HomeController@index')->name('home');

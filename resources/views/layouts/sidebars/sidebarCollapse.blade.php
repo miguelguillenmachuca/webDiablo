@@ -33,16 +33,11 @@
         </a>
       </li>
 
-      <li>
-        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+      <li class="{{ areActiveRoutes([ 'admin/objetos', 'admin/objetos/*' ]) }}">
+        <a href="{{ route('admin/objetos') }}">
           <i class="glyphicon glyphicon-sunglasses"></i>
           Objetos
         </a>
-        <ul class="collapse list-unstyled" id="pageSubmenu">
-          <li><a href="#">Page 1</a></li>
-          <li><a href="#">Page 2</a></li>
-          <li><a href="#">Page 3</a></li>
-        </ul>
       </li>
 
       <li>
