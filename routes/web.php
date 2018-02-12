@@ -111,7 +111,7 @@ Route::get('admin/objetos/conjuntos/efectos/crear', function () {
 })->name('admin/objetos/conjuntos/efectos/crear');
 
 Route::get('admin/objetos/conjuntos/{conjunto}/efectos/editar', function () {
-  return view('forms.objeto_conjunto_update');
+  return view('forms.objeto_conjunto_efectos_update');
 })->name('admin/objetos/conjuntos/efectos/editar');
 
 Route::get('/home', 'HomeController@index')->name('home');
