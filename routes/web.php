@@ -144,6 +144,10 @@ Route::get('admin/usuarios', function () {
   return view('admin_usuarios');
 })->name('admin/usuarios');
 
+Route::get('admin/usuarios/crear', function () {
+  return view('forms.usuario_create');
+})->name('admin/usuarios/crear');
+
 Route::get('admin/usuarios/{usuario}/editar', function () {
   return view('forms.usuario_update');
 })->name('admin/usuarios/editar');
@@ -152,5 +156,13 @@ Route::get('admin/usuarios/{usuario}/editar', function () {
 Route::get('admin/guias', function () {
   return view('admin_guias');
 })->name('admin/guias');
+
+Route::get('admin/guias/crear', function () {
+  return view('forms.guia_create');
+})->name('admin/guias/crear');
+
+Route::get('admin/guias/{guia}/editar', function () {
+  return view('forms.guia_update');
+})->name('admin/guias/editar');
 
 Route::get('/home', 'HomeController@index')->name('home');
