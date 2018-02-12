@@ -56,15 +56,15 @@
         </ul>
       </li>
 
-      <li>
-        <a href="#">
+      <li class="{{ areActiveRoutes([ 'admin/usuarios', 'admin/usuarios/*' ]) }}">
+        <a href="{{ route('admin/usuarios') }}">
           <i class="glyphicon glyphicon-user"></i>
           Usuarios
         </a>
       </li>
 
-      <li>
-        <a href="#">
+      <li class="{{ areActiveRoutes([ 'admin/guias', 'admin/guias/*' ]) }}">
+        <a href="{{ route('admin/guias') }}">
           <i class="glyphicon glyphicon-education"></i>
           Guías
         </a>

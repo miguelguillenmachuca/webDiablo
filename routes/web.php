@@ -123,7 +123,7 @@ Route::get('admin/habilidades/crear', function () {
   return view('forms.habilidad_create');
 })->name('admin/habilidades/crear');
 
-Route::get('admin/habilidades/{objeto}/editar', function () {
+Route::get('admin/habilidades/{habilidad}/editar', function () {
   return view('forms.habilidad_update');
 })->name('admin/habilidades/editar');
 
@@ -139,5 +139,18 @@ Route::get('admin/habilidades/runas/{objeto}/editar', function () {
   return view('forms.runa_update');
 })->name('admin/habilidades/runas/editar');
 
+// RUTAS DE USUARIOS
+Route::get('admin/usuarios', function () {
+  return view('admin_usuarios');
+})->name('admin/usuarios');
+
+Route::get('admin/usuarios/{usuario}/editar', function () {
+  return view('forms.usuario_update');
+})->name('admin/usuarios/editar');
+
+// RUTAS DE GUÍAS
+Route::get('admin/guias', function () {
+  return view('admin_guias');
+})->name('admin/guias');
 
 Route::get('/home', 'HomeController@index')->name('home');
