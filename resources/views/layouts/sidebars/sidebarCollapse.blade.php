@@ -45,11 +45,15 @@
         </ul>
       </li>
 
-      <li>
-        <a href="#">
+      <li class="{{ areActiveRoutes([ 'admin/habilidades', 'admin/habilidades/*' ]) }}">
+        <a href="#submenu_habilidades" data-toggle="collapse" aria-expanded="false">
           <i class="glyphicon glyphicon-fire"></i>
           Habilidades
         </a>
+        <ul class="collapse list-unstyled" id="submenu_habilidades">
+          <li><a href="{{ route('admin/habilidades') }}">Habilidades</a></li>
+          <li><a href="{{ route('admin/habilidades/runas') }}">Runas</a></li>
+        </ul>
       </li>
 
       <li>

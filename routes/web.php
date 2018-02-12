@@ -114,4 +114,30 @@ Route::get('admin/objetos/conjuntos/{conjunto}/efectos/editar', function () {
   return view('forms.objeto_conjunto_efectos_update');
 })->name('admin/objetos/conjuntos/efectos/editar');
 
+//  RUTAS DE HABILIDADES
+Route::get('admin/habilidades', function () {
+  return view('admin_habilidades');
+})->name('admin/habilidades');
+
+Route::get('admin/habilidades/crear', function () {
+  return view('forms.habilidad_create');
+})->name('admin/habilidades/crear');
+
+Route::get('admin/habilidades/{objeto}/editar', function () {
+  return view('forms.habilidad_update');
+})->name('admin/habilidades/editar');
+
+Route::get('admin/habilidades/runas', function () {
+  return view('admin_runas');
+})->name('admin/habilidades/runas');
+
+Route::get('admin/habilidades/runas/crear', function () {
+  return view('forms.runa_create');
+})->name('admin/habilidades/runas/crear');
+
+Route::get('admin/habilidades/runas/{objeto}/editar', function () {
+  return view('forms.runa_update');
+})->name('admin/habilidades/runas/editar');
+
+
 Route::get('/home', 'HomeController@index')->name('home');
