@@ -90,4 +90,28 @@ Route::get('admin/objetos/{objeto}/editar', function () {
   return view('forms.objeto_update');
 })->name('admin/objetos/editar');
 
+Route::get('admin/objetos/conjuntos', function () {
+  return view('admin_objetos_conjuntos');
+})->name('admin/objetos/conjuntos');
+
+Route::get('admin/objetos/conjuntos/crear', function () {
+  return view('forms.objeto_conjunto_create');
+})->name('admin/objetos/conjuntos/crear');
+
+Route::get('admin/objetos/conjuntos/{conjunto}/editar', function () {
+  return view('forms.objeto_conjunto_update');
+})->name('admin/objetos/conjuntos/editar');
+
+Route::get('admin/objetos/conjuntos/efectos', function () {
+  return view('admin_objetos_conjuntos_efectos');
+})->name('admin/objetos/conjuntos/efectos');
+
+Route::get('admin/objetos/conjuntos/efectos/crear', function () {
+  return view('forms.objeto_conjunto_efectos_create');
+})->name('admin/objetos/conjuntos/efectos/crear');
+
+Route::get('admin/objetos/conjuntos/{conjunto}/efectos/editar', function () {
+  return view('forms.objeto_conjunto_update');
+})->name('admin/objetos/conjuntos/efectos/editar');
+
 Route::get('/home', 'HomeController@index')->name('home');

@@ -27,7 +27,7 @@
         <div class="form-group">
           {{ Form::label('tipo_objeto', 'Tipo', [ 'class' => 'control-label col-sm-6 col-md-4' ]) }}
           <div class="col-sm-6 col-md-6">
-            {{ Form::select('tipo_objeto', ['1' => 'Tipo1', '2' => 'Tipo2'], '1', [ 'class' => 'form-control' ]) }}
+            {{ Form::select('tipo_objeto', [ '1' => 'Tipo1', '2' => 'Tipo2' ], '1', [ 'class' => 'form-control' ]) }}
           </div>
         </div>
 

@@ -34,10 +34,15 @@
       </li>
 
       <li class="{{ areActiveRoutes([ 'admin/objetos', 'admin/objetos/*' ]) }}">
-        <a href="{{ route('admin/objetos') }}">
+        <a href="#submenu_objetos" data-toggle="collapse" aria-expanded="false">
           <i class="glyphicon glyphicon-sunglasses"></i>
           Objetos
         </a>
+        <ul class="collapse list-unstyled" id="submenu_objetos">
+          <li><a href="{{ route('admin/objetos') }}">Objetos</a></li>
+          <li><a href="{{ route('admin/objetos/conjuntos') }}">Conjuntos</a></li>
+          <li><a href="{{ route('admin/objetos/conjuntos/efectos') }}">Efectos de conjuntos</a></li>
+        </ul>
       </li>
 
       <li>
