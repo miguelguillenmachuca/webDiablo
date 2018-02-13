@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -14,7 +15,7 @@ class UsersController extends Controller
   */
   public function index()
   {
-    $users = User::paginate(20);
+    $users = User::withTrashed()->orderBy('nombre')->paginate(20);
 
     return view('admin_usuarios', [ 'users' => $users ]);
   }
