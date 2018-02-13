@@ -140,13 +140,9 @@ Route::get('admin/habilidades/runas/{objeto}/editar', function () {
 })->name('admin/habilidades/runas/editar');
 
 // RUTAS DE USUARIOS
-Route::get('admin/usuarios', function () {
-  return view('admin_usuarios');
-})->name('admin/usuarios');
+Route::get('admin/usuarios', 'UsersController@index')->name('admin/usuarios');
 
-Route::get('admin/usuarios/crear', function () {
-  return view('forms.usuario_create');
-})->name('admin/usuarios/crear');
+Route::get('admin/usuarios/crear', 'UsersController@create')->name('admin/usuarios/crear');
 
 Route::get('admin/usuarios/{usuario}/editar', function () {
   return view('forms.usuario_update');

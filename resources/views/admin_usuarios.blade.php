@@ -15,25 +15,11 @@
             </div> --}}
           </div>
 
+          {{-- {{ $users->links() }} --}}
+
           <div class="col-xs-12 col-sm-6 col-sm-pull-6 margen-sup">
             <div>
-              <ul class="pagination pagination-redondo">
-                <li>
-                  <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                  <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
+              {{ $users->links('pagination.limit_links') }}
             </div> <!-- Fin del div paginado -->
           </div>
         </div> <!-- Fin del div row -->
