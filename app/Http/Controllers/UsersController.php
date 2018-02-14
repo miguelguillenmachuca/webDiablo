@@ -85,4 +85,23 @@ class UsersController extends Controller
   {
     //
   }
+
+  /**
+  * Validate the attributes of an user
+  *
+  * @param  Request   $request
+  * @return Response  Validator
+  */
+  public static function validateUser(Request $request)
+  {
+    // Testing the data received
+    $validator = Validator::make($request->all(), [
+      'nombre' => 'required|max:100|regex:/^[\pL\s]+$/u',
+      'email' => 'required|email|unique:users,email|max:191',
+      'password' => 'required_if:formType,create',
+      'repitePassword' => 'required_with:password|same:password',
+    ]);
+
+    return $validator;
+  }
 }
