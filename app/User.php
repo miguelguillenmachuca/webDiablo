@@ -37,4 +37,16 @@ class User extends Authenticatable
   protected $hidden = [
     'password', 'remember_token',
   ];
+
+  /**
+  * Get the value of the model's route key.
+  *
+  * @return mixed
+  */
+  public function getRouteKey()
+  {
+    $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original');
+
+    return $hashids->encode($this->getKey());
+  }
 }

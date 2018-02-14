@@ -46,7 +46,7 @@
                   <td><img src="{{ asset('img/'.$value->foto_usuario) }}" class="img-responsive foto-resumen" alt="foto_usuario"></td>
                   <td>{{ $value->email }}</td>
                   <td>{{ $value->tipo_usuario }}</td>
-                  <td><a href="{{ route('admin/usuarios/editar', ['1']) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
+                  <td><a href="{{ route('admin/usuarios/editar', [$value]) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
                   <td class="{{ $value->trashed() ? '' : 'inactive' }}"><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
                   <td class="{{ $value->trashed() ? 'inactive' : '' }}"><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
                 </tr>

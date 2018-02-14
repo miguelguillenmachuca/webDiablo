@@ -144,9 +144,7 @@ Route::get('admin/usuarios', 'UsersController@index')->name('admin/usuarios');
 
 Route::get('admin/usuarios/crear', 'UsersController@create')->name('admin/usuarios/crear');
 
-Route::get('admin/usuarios/{usuario}/editar', function () {
-  return view('forms.usuario_update');
-})->name('admin/usuarios/editar');
+Route::get('admin/usuarios/{usuario}/editar', 'UsersController@edit')->name('admin/usuarios/editar');
 
 // RUTAS DE GUÍAS
 Route::get('admin/guias', function () {

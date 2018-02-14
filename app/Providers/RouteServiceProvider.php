@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Hashids;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -23,7 +24,16 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Route::bind('usuario', function($value, $route)
+        {
+          $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original');
+
+          $id = $hashids->decode($value)[0];
+
+          // dd(\App\User::findOrFail($id));
+
+          return \App\User::findOrFail($id);
+        });
 
         parent::boot();
     }

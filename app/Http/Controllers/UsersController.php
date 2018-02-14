@@ -60,7 +60,7 @@ class UsersController extends Controller
   */
   public function edit(User $user)
   {
-    //
+    return view('forms.usuario_update')->with('usuario', $user);
   }
 
   /**
