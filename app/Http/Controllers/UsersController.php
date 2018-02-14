@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Route;
 
 class UsersController extends Controller
 {
@@ -72,7 +73,7 @@ class UsersController extends Controller
   */
   public function update(Request $request, User $user)
   {
-    //
+      return redirect()->back();
   }
 
   /**
@@ -96,9 +97,10 @@ class UsersController extends Controller
   {
     // Testing the data received
     $validator = Validator::make($request->all(), [
-      'nombre' => 'required|max:100|regex:/^[\pL\s]+$/u',
+      'nombre' => 'required|min:5|max:20|regex:/^[\pL\s]+$/u',
       'email' => 'required|email|unique:users,email|max:191',
-      'password' => 'required_if:formType,create',
+      // If the request comes from de admin section, the password will be a required field
+      'password' => 'min:6|max:20|regex:/^[a-zA-Z0-9_.-]*$/u' . $request->route()->uri() == 'admin/updateUser' ? '|required' : '',
       'repitePassword' => 'required_with:password|same:password',
     ]);
 

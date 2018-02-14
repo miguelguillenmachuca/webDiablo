@@ -8,7 +8,7 @@
   <div id="main-content" class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-sm-offset-2 col-sm-8">
-        {{ Form::model($usuario, [ 'url' => '#', 'files' => 'true', 'class' => 'form-horizontal' ]) }}
+        {{ Form::model($usuario, [ 'url' => 'admin/updateUser', 'files' => 'true', 'class' => 'form-horizontal' ]) }}
         <div class="form-group">
           {{ Form::label('nombre', 'Nombre del usuario', [ 'class' => 'control-label col-sm-6 col-md-4' ]) }}
           <div class="col-sm-6 col-md-6">
