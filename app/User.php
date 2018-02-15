@@ -49,4 +49,21 @@ class User extends Authenticatable
 
     return $hashids->encode($this->getKey());
   }
+
+  /**
+  * Update the attributes of the user
+  *
+  * @param   Integer   $id
+  * @param             $new_values
+  * @return
+  */
+  public function edit($new_values)
+  {
+    if(array_key_exists('password', $new_values))
+    {
+      $new_values['password'] = Hash::make($new_values['password']);
+    }
+    
+    $this->update($new_values);
+  }
 }

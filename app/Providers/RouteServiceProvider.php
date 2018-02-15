@@ -30,8 +30,6 @@ class RouteServiceProvider extends ServiceProvider
 
           $id = $hashids->decode($value)[0];
 
-          // dd(\App\User::findOrFail($id));
-
           return \App\User::findOrFail($id);
         });
 
