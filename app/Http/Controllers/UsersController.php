@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Validator;
+use Storage;
 
 class UsersController extends Controller
 {
@@ -85,6 +86,15 @@ class UsersController extends Controller
     }
     else
     {
+      if($request->hasFile('foto'))
+      {
+        $avatar = Controller::saveFile($request, 'public/img/usuarios');
+
+        $avatar = substr($avatar, 7);
+
+        $request->request->add([ 'foto_usuario' => $avatar ]);
+      }
+
       $user->edit($request->all());
 
       return redirect()->back();
