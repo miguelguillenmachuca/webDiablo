@@ -61,7 +61,7 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle profile-image" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    <img src="{{ asset('img/' .Auth::user()->foto_usuario) }}" alt="foto_usuario" class="img-circle img-usuario-navbar">
+                                    <img src="{{ asset('storage/' .Auth::user()->foto_usuario) }}" alt="foto_usuario" class="img-circle img-usuario-navbar">
                                     {{ Auth::user()->nombre }} <span class="caret"></span>
                                 </a>
 

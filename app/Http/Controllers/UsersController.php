@@ -90,6 +90,7 @@ class UsersController extends Controller
       {
         $avatar = Controller::saveFile($request, 'public/img/usuarios');
 
+        // Cut out the 'public' part of the string we want to save in the database
         $avatar = substr($avatar, 7);
 
         $request->request->add([ 'foto_usuario' => $avatar ]);
@@ -109,7 +110,30 @@ class UsersController extends Controller
   */
   public function destroy(User $user)
   {
-    //
+    if(!$user->trashed())
+    {
+      $user->delete();
+    }
+
+    return redirect()->back();
+  }
+
+  /**
+  * Rostore the specified removed resource from storage.
+  *
+  * @param  string  $user_id
+  * @return \Illuminate\Http\Response
+  */
+  public function restore(string $user_id)
+  {
+    $user = User::findByHashedId($user_id);
+
+    if($user->trashed())
+    {
+      $user->restore();
+    }
+
+    return redirect()->back();
   }
 
   /**

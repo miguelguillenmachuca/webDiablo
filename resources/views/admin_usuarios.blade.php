@@ -47,8 +47,8 @@
                   <td>{{ $value->email }}</td>
                   <td>{{ $value->tipo_usuario }}</td>
                   <td><a href="{{ route('admin/usuarios/editar', [ $value ]) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
-                  <td class="{{ $value->trashed() ? '' : 'inactive' }}"><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
-                  <td class="{{ $value->trashed() ? 'inactive' : '' }}"><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
+                  <td class="{{ $value->trashed() ? 'inactive' : '' }}"><a href="{{ $value->trashed() ? '#' : route('admin/deleteUser', [ $value ]) }}"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
+                  <td class="{{ $value->trashed() ? '' : 'inactive' }}"><a href="{{ !$value->trashed() ? '#' : route('admin/restoreUser', [ $value->getRouteKey() ]) }}"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
                 </tr>
               @endforeach
             </tbody>

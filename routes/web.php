@@ -148,6 +148,10 @@ Route::get('admin/usuarios/{usuario}/editar', 'UsersController@edit')->name('adm
 
 Route::post('admin/updateUser/{usuario}', 'UsersController@update')->name('admin/updateUser');
 
+Route::get('admin/deleteUser/{usuario}', 'UsersController@destroy')->name('admin/deleteUser');
+
+Route::get('admin/restoreUser/{user_id}', 'UsersController@restore')->name('admin/restoreUser');
+
 // RUTAS DE GUÍAS
 Route::get('admin/guias', function () {
   return view('admin_guias');
