@@ -41,7 +41,27 @@ class UsersController extends Controller
   */
   public function store(Request $request)
   {
-    //
+    $validator = UsersController::validateUser($request);
+
+    if($validator->fails())
+    {
+      return redirect()->back()
+      ->withErrors($validator)
+      ->withInput();
+    }
+    else
+    {
+      $user=new User;
+
+      $user->nombre = $request->nombre;
+      $user->email = $request->email;
+
+      // Encriptación del password
+      $user->password = Hash::make($request->password);
+
+      $user->save();
+      return redirect()->back();
+    }
   }
 
   /**
