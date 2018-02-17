@@ -139,17 +139,19 @@ Route::group([ 'prefix' => 'admin' ], function () {
   })->name('admin/habilidades/runas/editar');
 
   // RUTAS DE USUARIOS
-  Route::get('usuarios', 'UsersController@index')->name('admin/usuarios');
+  Route::group([ 'prefix' => 'usuarios' ], function () {
+    Route::get('/', 'UsersController@index')->name('admin/usuarios');
 
-  Route::get('usuarios/crear', 'UsersController@create')->name('admin/usuarios/crear');
+    Route::get('crear', 'UsersController@create')->name('admin/usuarios/crear');
 
-  Route::get('usuarios/{usuario}/editar', 'UsersController@edit')->name('admin/usuarios/editar');
+    Route::get('{usuario}/editar', 'UsersController@edit')->name('admin/usuarios/editar');
 
-  Route::post('updateUser/{usuario}', 'UsersController@update')->name('admin/updateUser');
+    Route::post('{usuario}/updateUser', 'UsersController@update')->name('admin/updateUser');
 
-  Route::get('deleteUser/{usuario}', 'UsersController@destroy')->name('admin/deleteUser');
+    Route::get('{usuario}/deleteUser', 'UsersController@destroy')->name('admin/deleteUser');
 
-  Route::get('restoreUser/{user_id}', 'UsersController@restore')->name('admin/restoreUser');
+    Route::get('{user_id}/restoreUser', 'UsersController@restore')->name('admin/restoreUser');
+  });
 
   // RUTAS DE GUÍAS
   Route::get('guias', function () {
