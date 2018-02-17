@@ -41,7 +41,7 @@ class UsersController extends Controller
   */
   public function store(Request $request)
   {
-    $validator = UsersController::validateUser($request);
+    $validator = UsersController::validateModel($request);
 
     if($validator->fails())
     {
@@ -60,6 +60,7 @@ class UsersController extends Controller
       $user->password = Hash::make($request->password);
 
       $user->save();
+
       return redirect()->back();
     }
   }
@@ -72,7 +73,7 @@ class UsersController extends Controller
   */
   public function show(User $user)
   {
-    //
+    return view('visualizarUsuario')->with('usuario', $user);
   }
 
   /**
@@ -95,7 +96,7 @@ class UsersController extends Controller
   */
   public function update(Request $request, User $user)
   {
-    $validator = UsersController::validateUser($request, $user);
+    $validator = UsersController::validateModel($request, $user);
 
     if($validator->fails())
     {
@@ -110,7 +111,7 @@ class UsersController extends Controller
       {
         $avatar = Controller::saveFile($request, 'public/img/usuarios');
 
-        // Cut out the 'public' part of the string we want to save in the database
+        // Cut out the 'public/' part of the string we want to save in the database
         $avatar = substr($avatar, 7);
 
         $request->request->add([ 'foto_usuario' => $avatar ]);
@@ -157,12 +158,12 @@ class UsersController extends Controller
   }
 
   /**
-  * Validate the attributes of an user
+  * Validate the attributes of a model
   *
   * @param  Request   $request
   * @return Response  Validator
   */
-  public static function validateUser(Request $request, $user = null)
+  public static function validateModel(Request $request, $user = null)
   {
 
     // Testing the data received

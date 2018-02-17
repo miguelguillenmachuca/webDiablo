@@ -64,17 +64,19 @@ Route::group([ 'prefix' => 'admin' ], function () {
   })->name('admin/home');
 
   // RUTAS DE CLASES
-  Route::get('clases', function () {
-    return view('admin_clases');
-  })->name('admin/clases');
+  Route::group([ 'prefix' => 'clases' ], function () {
+    Route::get('/', function () {
+      return view('admin_clases');
+    })->name('admin/clases');
 
-  Route::get('clases/crear', function () {
-    return view('forms.clase_create');
-  })->name('admin/clases/crear');
+    Route::get('crear/', function () {
+      return view('forms.clase_create');
+    })->name('admin/clases/crear');
 
-  Route::get('clases/{clase}/editar', function () {
-    return view('forms.clase_update');
-  })->name('admin/clases/editar');
+    Route::get('{clase}/editar', function () {
+      return view('forms.clase_update');
+    })->name('admin/clases/editar');
+  });
 
   //  RUTAS DE OBJETOS
   Route::get('objetos', function () {

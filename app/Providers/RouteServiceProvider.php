@@ -33,6 +33,15 @@ class RouteServiceProvider extends ServiceProvider
           return \App\User::findOrFail($id);
         });
 
+        Route::bind('clase', function($value, $route)
+        {
+          $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original');
+
+          $id = $hashids->decode($value)[0];
+
+          return \App\Clase::findOrFail($id);
+        });
+
         parent::boot();
     }
 

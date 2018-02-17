@@ -2,17 +2,15 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Validator;
-use Auth;
 use Hashids;
 
-class User extends Authenticatable
+class Clase extends Model
 {
-  use Notifiable, SoftDeletes;
+  use SoftDeletes;
 
   /**
   * The attributes that should be mutated to dates.
@@ -27,7 +25,7 @@ class User extends Authenticatable
   * @var array
   */
   protected $fillable = [
-    'nombre', 'email', 'password', 'tipo_usuario', 'foto_usuario',
+    'nombre', 'foto_clase',
   ];
 
   /**
@@ -35,9 +33,7 @@ class User extends Authenticatable
   *
   * @var array
   */
-  protected $hidden = [
-    'password', 'remember_token',
-  ];
+  protected $hidden = [ ];
 
   /**
   * Get the value of the model's route key.
@@ -52,27 +48,10 @@ class User extends Authenticatable
   }
 
   /**
-  * Update the attributes of the model
-  *
-  * @param   Integer   $id
-  * @param             $new_values
-  * @return
-  */
-  public function edit($new_values)
-  {
-    if(array_key_exists('password', $new_values))
-    {
-      $new_values['password'] = Hash::make($new_values['password']);
-    }
-
-    $this->update($new_values);
-  }
-
-  /**
   * Gets the model with the hashed id
   *
   * @param   Integer   $id
-  * @return  \App\User $user
+  * @return  \App\Clase $clase
   */
   public static function findByHashedId($hashedId)
   {
@@ -80,6 +59,6 @@ class User extends Authenticatable
 
     $id = $hashids->decode($hashedId)[0];
 
-    return \App\User::withTrashed()->findOrFail($id);
+    return \App\Clase::withTrashed()->findOrFail($id);
   }
 }
