@@ -71,9 +71,9 @@ Route::group([ 'prefix' => 'admin' ], function () {
 
     Route::post('createClase', 'ClasesController@store')->name('admin/createClase');
 
-    Route::get('{clase}/editar', function () {
-      return view('forms.clase_update');
-    })->name('admin/clases/editar');
+    Route::get('{clase}/editar', 'ClasesController@edit')->name('admin/clases/editar');
+
+    Route::post('{clase}/updateClase', 'ClasesController@update')->name('admin/updateClase');
 
     Route::get('{clase}/deleteClase', 'ClasesController@destroy')->name('admin/deleteClase');
 

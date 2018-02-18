@@ -55,6 +55,18 @@ class Clase extends Model
   }
 
   /**
+  * Update the attributes of the model
+  *
+  * @param   Integer   $id
+  * @param             $new_values
+  * @return
+  */
+  public function edit($new_values)
+  {
+    $this->update($new_values);
+  }
+
+  /**
   * Gets the model with the hashed id
   *
   * @param   Integer   $id

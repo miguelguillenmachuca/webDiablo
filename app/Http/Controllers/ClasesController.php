@@ -102,7 +102,7 @@ class ClasesController extends Controller
      */
     public function update(Request $request, Clase $clase)
     {
-      $validator = UsersController::validateModel($request, $clase);
+      $validator = ClasesController::validateModel($request, $clase);
 
       if($validator->fails())
       {
