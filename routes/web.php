@@ -67,13 +67,17 @@ Route::group([ 'prefix' => 'admin' ], function () {
   Route::group([ 'prefix' => 'clases' ], function () {
     Route::get('/', 'ClasesController@index')->name('admin/clases');
 
-    Route::get('crear/', function () {
-      return view('forms.clase_create');
-    })->name('admin/clases/crear');
+    Route::get('crear/', 'ClasesController@create')->name('admin/clases/crear');
+
+    Route::post('createClase', 'ClasesController@store')->name('admin/createClase');
 
     Route::get('{clase}/editar', function () {
       return view('forms.clase_update');
     })->name('admin/clases/editar');
+
+    Route::get('{clase}/deleteClase', 'ClasesController@destroy')->name('admin/deleteClase');
+
+    Route::get('{clase_id}/restoreClase', 'ClasesController@restore')->name('admin/restoreClase');
   });
 
   //  RUTAS DE OBJETOS

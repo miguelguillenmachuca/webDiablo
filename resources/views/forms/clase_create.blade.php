@@ -8,11 +8,16 @@
   <div id="main-content" class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-sm-offset-2 col-sm-8">
-        {{ Form::open([ 'url' => '#', 'files' => 'true', 'class' => 'form-horizontal' ]) }}
-        <div class="form-group">
+        {{ Form::open([ 'url' => route('admin/createClase'), 'files' => 'true', 'class' => 'form-horizontal' ]) }}
+        <div class="form-group{{ $errors->has('nombre') ? ' has-error': '' }}">
           {{ Form::label('nombre', 'Nombre de la clase', [ 'class' => 'control-label col-sm-6 col-md-4' ]) }}
           <div class="col-sm-6 col-md-6">
             {{ Form::text('nombre', null, [ 'class' => 'form-control' ]) }}
+            @if($errors->has('nombre'))
+              @foreach ($errors->get('nombre') as $message)
+                <span class="help-block">{{ $message }}</span>
+              @endforeach
+            @endif
           </div>
         </div>
 
