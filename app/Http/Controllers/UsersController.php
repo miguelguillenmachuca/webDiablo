@@ -142,13 +142,11 @@ class UsersController extends Controller
   /**
   * Rostore the specified removed resource from storage.
   *
-  * @param  string  $user_id
+  * @param  \App\User  $user
   * @return \Illuminate\Http\Response
   */
-  public function restore(string $user_id)
+  public function restore(User $user)
   {
-    $user = User::findByHashedId($user_id);
-
     if($user->trashed())
     {
       $user->restore();

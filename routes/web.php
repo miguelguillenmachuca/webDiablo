@@ -77,7 +77,7 @@ Route::group([ 'prefix' => 'admin' ], function () {
 
     Route::get('{clase}/deleteClase', 'ClasesController@destroy')->name('admin/deleteClase');
 
-    Route::get('{clase_id}/restoreClase', 'ClasesController@restore')->name('admin/restoreClase');
+    Route::get('{clase}/restoreClase', 'ClasesController@restore')->name('admin/restoreClase');
   });
 
   //  RUTAS DE OBJETOS
@@ -154,7 +154,7 @@ Route::group([ 'prefix' => 'admin' ], function () {
 
     Route::get('{usuario}/deleteUser', 'UsersController@destroy')->name('admin/deleteUser');
 
-    Route::get('{user_id}/restoreUser', 'UsersController@restore')->name('admin/restoreUser');
+    Route::get('{usuario}/restoreUser', 'UsersController@restore')->name('admin/restoreUser');
   });
 
   // RUTAS DE GUÍAS

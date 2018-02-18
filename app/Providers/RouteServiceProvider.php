@@ -30,7 +30,7 @@ class RouteServiceProvider extends ServiceProvider
 
           $id = $hashids->decode($value)[0];
 
-          return \App\User::findOrFail($id);
+          return \App\User::withTrashed()->findOrFail($id);
         });
 
         Route::bind('clase', function($value, $route)
@@ -39,7 +39,7 @@ class RouteServiceProvider extends ServiceProvider
 
           $id = $hashids->decode($value)[0];
 
-          return \App\Clase::findOrFail($id);
+          return \App\Clase::withTrashed()->findOrFail($id);
         });
 
         parent::boot();

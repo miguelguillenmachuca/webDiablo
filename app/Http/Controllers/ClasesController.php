@@ -148,13 +148,11 @@ class ClasesController extends Controller
     /**
     * Rostore the specified removed resource from storage.
     *
-    * @param  string  $clase_id
+    * @param  \App\Clase  $clase
     * @return \Illuminate\Http\Response
     */
-    public function restore(string $clase_id)
+    public function restore(Clase $clase)
     {
-      $clase = Clase::findByHashedId($clase_id);
-
       if($clase->trashed())
       {
         $clase->restore();
