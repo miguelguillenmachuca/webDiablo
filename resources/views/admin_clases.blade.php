@@ -17,7 +17,7 @@
 
           <div class="col-xs-12 col-sm-6 col-sm-pull-6 margen-sup">
             <div>
-              {{ $users->links('pagination.limit_links') }}
+              {{ $clases->links('pagination.limit_links') }}
             </div> <!-- Fin del div paginado -->
           </div>
         </div> <!-- Fin del div row -->
@@ -38,29 +38,15 @@
             </thead>
 
             <tbody>
-              <tr class="inactive">
-                <td>Clase1</td>
-                <td><img src="{{ asset('img/clases/default_class.png') }}" class="img-responsive foto-resumen" alt="clase"></td>
-                <td><a href="{{ route('admin/clases/editar', ['1']) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
-                <td class="inactive"><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
-                <td><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
-              </tr>
-
-              <tr>
-                <td>Clase1</td>
-                <td><img src="{{ asset('img/clases/default_class.png') }}" class="img-responsive foto-resumen" alt="clase"></td>
-                <td><a href="{{ route('admin/clases/editar', ['1']) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
-                <td><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
-                <td class="inactive"><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
-              </tr>
-
-              <tr>
-                <td>Clase1</td>
-                <td><img src="{{ asset('img/clases/default_class.png') }}" class="img-responsive foto-resumen" alt="clase"></td>
-                <td><a href="{{ route('admin/clases/editar', ['1']) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
-                <td><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
-                <td class="inactive"><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
-              </tr>
+              @foreach ($clases as $clase)
+                <tr class="{{ $clase->trashed() ? 'inactive' : '' }}">
+                  <td>{{ $clase->nombre }}</td>
+                  <td><img src="{{ asset('storage/' .$clase->foto_clase) }}" class="img-responsive foto-resumen" alt="foto clase"></td>
+                  <td><a href="{{ route('admin/clases/editar', [ $clase ]) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
+                  <td class="{{ $clase->trashed() ? 'inactive' : '' }}"><a href="{{ $clase->trashed() ? '#' : route('admin/deleteClase', [ $clase ]) }}"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
+                  <td class="{{ $clase->trashed() ? '' : 'inactive' }}"><a href="{{ !$clase->trashed() ? '#' : route('admin/restoreClase', [ $clase->getRouteKey() ]) }}"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
+                </tr>
+              @endforeach
             </tbody>
           </table>
         </div>
@@ -68,23 +54,7 @@
 
       <div class="col-xs-12">
         <div>
-          <ul class="pagination pagination-redondo">
-            <li>
-              <a href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li>
-              <a href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
+          {{ $clases->links('pagination.limit_links') }}
         </div> <!-- Fin del div paginado -->
       </div>
     </div> <!-- Fin del div row -->

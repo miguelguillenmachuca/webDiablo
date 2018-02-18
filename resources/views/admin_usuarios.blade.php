@@ -40,15 +40,15 @@
             </thead>
 
             <tbody>
-              @foreach ($users as $key => $value)
-                <tr class="{{ $value->trashed() ? 'inactive' : '' }}">
-                  <td>{{ $value->nombre }}</td>
-                  <td><img src="{{ asset('storage/' .$value->foto_usuario) }}" class="img-responsive foto-resumen" alt="foto_usuario"></td>
-                  <td>{{ $value->email }}</td>
-                  <td>{{ $value->tipo_usuario }}</td>
-                  <td><a href="{{ route('admin/usuarios/editar', [ $value ]) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
-                  <td class="{{ $value->trashed() ? 'inactive' : '' }}"><a href="{{ $value->trashed() ? '#' : route('admin/deleteUser', [ $value ]) }}"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
-                  <td class="{{ $value->trashed() ? '' : 'inactive' }}"><a href="{{ !$value->trashed() ? '#' : route('admin/restoreUser', [ $value->getRouteKey() ]) }}"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
+              @foreach ($users as $user)
+                <tr class="{{ $user->trashed() ? 'inactive' : '' }}">
+                  <td>{{ $user->nombre }}</td>
+                  <td><img src="{{ asset('storage/' .$user->foto_usuario) }}" class="img-responsive foto-resumen" alt="foto usuario"></td>
+                  <td>{{ $user->email }}</td>
+                  <td>{{ $user->tipo_usuario }}</td>
+                  <td><a href="{{ route('admin/usuarios/editar', [ $user ]) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
+                  <td class="{{ $user->trashed() ? 'inactive' : '' }}"><a href="{{ $user->trashed() ? '#' : route('admin/deleteUser', [ $user ]) }}"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
+                  <td class="{{ $user->trashed() ? '' : 'inactive' }}"><a href="{{ !$user->trashed() ? '#' : route('admin/restoreUser', [ $user->getRouteKey() ]) }}"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
                 </tr>
               @endforeach
             </tbody>

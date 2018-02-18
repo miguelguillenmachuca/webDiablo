@@ -65,9 +65,7 @@ Route::group([ 'prefix' => 'admin' ], function () {
 
   // RUTAS DE CLASES
   Route::group([ 'prefix' => 'clases' ], function () {
-    Route::get('/', function () {
-      return view('admin_clases');
-    })->name('admin/clases');
+    Route::get('/', 'ClasesController@index')->name('admin/clases');
 
     Route::get('crear/', function () {
       return view('forms.clase_create');
