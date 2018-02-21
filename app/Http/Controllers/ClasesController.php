@@ -169,7 +169,6 @@ class ClasesController extends Controller
     */
     public static function validateModel(Request $request)
     {
-
       // Testing the data received
       $validator = Validator::make($request->all(), [
         'nombre' => 'required|min:3|max:20|regex:/^[A-zÀ-úÀ-ÿ ]*$/u',

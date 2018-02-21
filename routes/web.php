@@ -118,29 +118,35 @@ Route::group([ 'prefix' => 'admin' ], function () {
   })->name('admin/objetos/conjuntos/efectos/editar');
 
   //  RUTAS DE HABILIDADES
-  Route::get('habilidades', function () {
-    return view('admin_habilidades');
-  })->name('admin/habilidades');
+  Route::group([ 'prefix' => 'habilidades' ], function () {
+    Route::get('/', function () {
+      return view('admin_habilidades');
+    })->name('admin/habilidades');
 
-  Route::get('habilidades/crear', function () {
-    return view('forms.habilidad_create');
-  })->name('admin/habilidades/crear');
+    Route::get('crear', function () {
+      return view('forms.habilidad_create');
+    })->name('admin/habilidades/crear');
 
-  Route::get('habilidades/{habilidad}/editar', function () {
-    return view('forms.habilidad_update');
-  })->name('admin/habilidades/editar');
+    Route::get('crear_pasiva', function () {
+      return view('forms.habilidad_create');
+    })->name('admin/habilidades/crear_pasiva');
 
-  Route::get('habilidades/runas', function () {
-    return view('admin_runas');
-  })->name('admin/habilidades/runas');
+    Route::get('{habilidad}/editar', function () {
+      return view('forms.habilidad_update');
+    })->name('admin/habilidades/editar');
 
-  Route::get('habilidades/runas/crear', function () {
-    return view('forms.runa_create');
-  })->name('admin/habilidades/runas/crear');
+    Route::get('runas', function () {
+      return view('admin_runas');
+    })->name('admin/habilidades/runas');
 
-  Route::get('habilidades/runas/{objeto}/editar', function () {
-    return view('forms.runa_update');
-  })->name('admin/habilidades/runas/editar');
+    Route::get('runas/crear', function () {
+      return view('forms.runa_create');
+    })->name('admin/habilidades/runas/crear');
+
+    Route::get('runas/{objeto}/editar', function () {
+      return view('forms.runa_update');
+    })->name('admin/habilidades/runas/editar');
+  });
 
   // RUTAS DE USUARIOS
   Route::group([ 'prefix' => 'usuarios' ], function () {

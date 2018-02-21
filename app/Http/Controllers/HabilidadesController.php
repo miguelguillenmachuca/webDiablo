@@ -70,6 +70,12 @@ class HabilidadesController extends Controller
 
         $habilidad->save();
 
+        // Generate the runes associated with the skill
+        if($request->tipo_habilidad == 'activa')
+        {
+
+        }
+
         return redirect()->back();
       }
     }
@@ -82,7 +88,7 @@ class HabilidadesController extends Controller
      */
     public function show(Habilidad $habilidad)
     {
-        //
+        return view('visualizarHabilidad')->with('habilidad', $habilidad);
     }
 
     /**
@@ -93,7 +99,7 @@ class HabilidadesController extends Controller
      */
     public function edit(Habilidad $habilidad)
     {
-        //
+        return view('forms.habilidad_update')->with('habilidad', $habilidad);
     }
 
     /**
@@ -105,7 +111,31 @@ class HabilidadesController extends Controller
      */
     public function update(Request $request, Habilidad $habilidad)
     {
-        //
+      $validator = HabilidadesController::validateModel($request, $habilidad);
+
+      if($validator->fails())
+      {
+        return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput();
+      }
+      else
+      {
+        if($request->hasFile('foto'))
+        {
+          $foto = Controller::saveFile($request, 'public/img/habilidades');
+
+          // Cut out the 'public/' part of the string we want to save in the database
+          $foto = substr($foto, 7);
+
+          $request->request->add([ 'foto_habilidad' => $foto ]);
+        }
+
+        $habilidad->edit($request->all());
+
+        return redirect()->back();
+      }
     }
 
     /**
@@ -116,6 +146,44 @@ class HabilidadesController extends Controller
      */
     public function destroy(Habilidad $habilidad)
     {
-        //
+      if(!$habilidad->trashed())
+      {
+        $habilidad->delete();
+      }
+
+      return redirect()->back();
+    }
+
+    /**
+    * Rostore the specified removed resource from storage.
+    *
+    * @param  \App\Habilidad  $habilidad
+    * @return \Illuminate\Http\Response
+    */
+    public function restore(Habilidad $habilidad)
+    {
+      if($habilidad->trashed())
+      {
+        $habilidad->restore();
+      }
+
+      return redirect()->back();
+    }
+
+    /**
+    * Validate the attributes of a model
+    *
+    * @param  Request   $request
+    * @return Response  Validator
+    */
+    public static function validateModel(Request $request)
+    {
+      // Testing the data received
+      $validator = Validator::make($request->all(), [
+        'nombre' => 'required|min:3|max:20|regex:/^[A-zÀ-úÀ-ÿ ]*$/u',
+        'nombre' => 'required|min:3|max:20|regex:/^[A-zÀ-úÀ-ÿ ]*$/u',
+      ]);
+
+      return $validator;
     }
 }

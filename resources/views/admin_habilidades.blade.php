@@ -11,7 +11,10 @@
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-sm-push-6 margen-sup">
             <div class="text-right">
-              <a href="{{ route('admin/habilidades/crear') }}" class="btn btn-default btn-redondo btn-block-xs" role="button">Añadir nueva habilidad</a>
+              <div class="btn-group">
+                <a href="{{ route('admin/habilidades/crear') }}" class="btn btn-default btn-redondo" role="button">Añadir habilidad</a>
+                <a href="{{ route('admin/habilidades/crear_pasiva') }}" class="btn btn-default btn-redondo" role="button">Añadir habilidad pasiva</a>
+              </div>
             </div>
           </div>
 
