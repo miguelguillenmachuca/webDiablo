@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Validator;
 use Hashids;
 
-class Clase extends Model
+class Habilidad extends Model
 {
   use SoftDeletes;
 
@@ -17,7 +17,7 @@ class Clase extends Model
   *
   * @var string
   */
-  protected $table = 'clase';
+  protected $table = 'habilidad';
 
   /**
   * The attributes that should be mutated to dates.
@@ -32,7 +32,7 @@ class Clase extends Model
   * @var array
   */
   protected $fillable = [
-    'nombre', 'foto_clase',
+    'nombre', 'tipo_habilidad', 'id_clase', 'descripcion', 'foto_habilidad',
   ];
 
   /**
@@ -41,6 +41,18 @@ class Clase extends Model
   * @var array
   */
   protected $hidden = [ ];
+
+  /**********************************************************/
+  /***************** Relationships **************************/
+  /**********************************************************/
+
+  /**
+  * Relationship
+  */
+  public function clase()
+  {
+    return $this->belongsTo('App\Clase', 'id_clase', 'id');
+  }
 
   /**
   * Get the value of the model's route key.

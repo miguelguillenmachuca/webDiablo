@@ -52,9 +52,8 @@ class User extends Authenticatable
   }
 
   /**
-  * Update the attributes of the model
+  * Update the attributes of the model instance
   *
-  * @param   Integer   $id
   * @param             $new_values
   * @return
   */
@@ -66,20 +65,5 @@ class User extends Authenticatable
     }
 
     $this->update($new_values);
-  }
-
-  /**
-  * Gets the model with the hashed id
-  *
-  * @param   Integer   $id
-  * @return  \App\User $user
-  */
-  public static function findByHashedId($hashedId)
-  {
-    $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original');
-
-    $id = $hashids->decode($hashedId)[0];
-
-    return \App\User::withTrashed()->findOrFail($id);
   }
 }

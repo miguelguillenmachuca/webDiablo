@@ -17,7 +17,7 @@ class CreateRunaTable extends Migration
             $table->increments('id');
             $table->integer('id_habilidad')->unsigned();
             $table->string('nombre', 50);
-            $table->string('descripcion', 200);
+            $table->string('descripcion', 200)->default('Descripción');
             $table->string('foto_runa', 254)->default('runas/default_rune.png');
             $table->timestamps();
             $table->softDeletes();
