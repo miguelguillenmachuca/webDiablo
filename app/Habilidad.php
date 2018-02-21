@@ -27,6 +27,13 @@ class Habilidad extends Model
   protected $dates = ['deleted_at', 'created_at', 'updated_at'];
 
   /**
+  * The storage format of the model's date columns.
+  *
+  * @var string
+  */
+  protected $dateFormat = 'j/n/Y g:i a';
+
+  /**
   * The attributes that are mass assignable.
   *
   * @var array

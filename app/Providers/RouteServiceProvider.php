@@ -42,6 +42,15 @@ class RouteServiceProvider extends ServiceProvider
           return \App\Clase::withTrashed()->findOrFail($id);
         });
 
+        Route::bind('habilidad', function($value, $route)
+        {
+          $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original');
+
+          $id = $hashids->decode($value)[0];
+
+          return \App\Habilidad::withTrashed()->findOrFail($id);
+        });
+
         parent::boot();
     }
 
