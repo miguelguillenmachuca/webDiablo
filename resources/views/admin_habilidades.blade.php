@@ -20,23 +20,7 @@
 
           <div class="col-xs-12 col-sm-6 col-sm-pull-6 margen-sup">
             <div>
-              <ul class="pagination pagination-redondo">
-                <li>
-                  <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                  <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
+              {{ $habilidades->links('pagination.limit_links') }}
             </div> <!-- Fin del div paginado -->
           </div>
         </div> <!-- Fin del div row -->
@@ -60,38 +44,18 @@
             </thead>
 
             <tbody>
-              <tr class="inactive">
-                <td>habilidad1</td>
-                <td><img src="{{ asset('img/habilidades/default_skill.png') }}" class="img-responsive foto-resumen" alt="habilidad"></td>
-                <td>Clase1</td>
-                <td>Pasiva</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, cum iure dolorum. In iure quos quae vitae, doloremque, ipsum at!</td>
-                <td><a href="{{ route('admin/habilidades/editar', ['1']) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
-                <td class="inactive"><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
-                <td><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
-              </tr>
-
-              <tr>
-                <td>habilidad1</td>
-                <td><img src="{{ asset('img/habilidades/default_skill.png') }}" class="img-responsive foto-resumen" alt="habilidad"></td>
-                <td>Clase1</td>
-                <td>Activa</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, cum iure dolorum. In iure quos quae vitae, doloremque, ipsum at!</td>
-                <td><a href="{{ route('admin/habilidades/editar', ['1']) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
-                <td><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
-                <td class="inactive"><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
-              </tr>
-
-              <tr>
-                <td>habilidad1</td>
-                <td><img src="{{ asset('img/habilidades/default_skill.png') }}" class="img-responsive foto-resumen" alt="habilidad"></td>
-                <td>Clase1</td>
-                <td>Pasiva</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, cum iure dolorum. In iure quos quae vitae, doloremque, ipsum at!</td>
-                <td><a href="{{ route('admin/habilidades/editar', ['1']) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
-                <td><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
-                <td class="inactive"><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
-              </tr>
+              @foreach ($habilidades as $habilidad)
+                <tr class="{{ $habilidad->trashed() ? 'inactive' : '' }}">
+                  <td>{{ $habilidad->nombre }}</td>
+                  <td><img src="{{ asset('storage/' .$habilidad->foto_habilidad) }}" class="img-responsive foto-resumen" alt="foto habilidad"></td>
+                  <td>{{ $habilidad->clase->nombre }}</td>
+                  <td>{{ $habilidad->tipo_habilidad }}</td>
+                  <td>{{ $habilidad->descripcion }}</td>
+                  <td><a href="{{ route('admin/habilidades/editar', [ $habilidad ]) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
+                  <td class="{{ $habilidad->trashed() ? 'inactive' : '' }}"><a href="{{ $habilidad->trashed() ? '#' : route('admin/deleteHabilidad', [ $habilidad ]) }}"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
+                  <td class="{{ $habilidad->trashed() ? '' : 'inactive' }}"><a href="{{ !$habilidad->trashed() ? '#' : route('admin/restoreHabilidad', [ $habilidad->getRouteKey() ]) }}"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
+                </tr>
+              @endforeach
             </tbody>
           </table>
         </div>
@@ -99,23 +63,7 @@
 
       <div class="col-xs-12">
         <div>
-          <ul class="pagination pagination-redondo">
-            <li>
-              <a href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li>
-              <a href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
+          {{ $habilidades->links('pagination.limit_links') }}
         </div> <!-- Fin del div paginado -->
       </div>
     </div> <!-- Fin del div row -->

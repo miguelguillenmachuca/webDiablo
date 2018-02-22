@@ -119,9 +119,7 @@ Route::group([ 'prefix' => 'admin' ], function () {
 
   //  RUTAS DE HABILIDADES
   Route::group([ 'prefix' => 'habilidades' ], function () {
-    Route::get('/', function () {
-      return view('admin_habilidades');
-    })->name('admin/habilidades');
+    Route::get('/', 'HabilidadesController@index')->name('admin/habilidades');
 
     Route::get('crear', function () {
       return view('forms.habilidad_create');
