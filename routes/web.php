@@ -121,13 +121,9 @@ Route::group([ 'prefix' => 'admin' ], function () {
   Route::group([ 'prefix' => 'habilidades' ], function () {
     Route::get('/', 'HabilidadesController@index')->name('admin/habilidades');
 
-    Route::get('crear', function () {
-      return view('forms.habilidad_create');
-    })->name('admin/habilidades/crear');
+    Route::get('crear', 'HabilidadesController@create')->name('admin/habilidades/crear');
 
-    Route::get('crear_pasiva', function () {
-      return view('forms.habilidad_create');
-    })->name('admin/habilidades/crear_pasiva');
+    Route::get('pasiva/crear', 'HabilidadesController@create')->name('admin/habilidades/pasiva/crear');
 
     Route::get('{habilidad}/editar', function () {
       return view('forms.habilidad_update');

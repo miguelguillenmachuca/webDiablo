@@ -13,7 +13,7 @@
             <div class="text-right">
               <div class="btn-group">
                 <a href="{{ route('admin/habilidades/crear') }}" class="btn btn-default btn-redondo" role="button">Añadir habilidad</a>
-                <a href="{{ route('admin/habilidades/crear_pasiva') }}" class="btn btn-default btn-redondo" role="button">Añadir habilidad pasiva</a>
+                <a href="{{ route('admin/habilidades/pasiva/crear') }}" class="btn btn-default btn-redondo" role="button">Añadir habilidad pasiva</a>
               </div>
             </div>
           </div>
