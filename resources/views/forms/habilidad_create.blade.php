@@ -24,13 +24,6 @@
         </div>
 
         <div class="form-group">
-          {{ Form::label('tipo_habilidad', 'Tipo de la habilidad', [ 'class' => 'control-label col-sm-6 col-md-4' ]) }}
-          <div class="col-sm-6 col-md-6">
-            {{ Form::select('tipo_habilidad', [ 'activa' => 'Activa', 'pasiva' => 'Pasiva' ], 'activa', [ 'class' => 'form-control' ]) }}
-          </div>
-        </div>
-
-        <div class="form-group">
           {{ Form::label('descripcion', 'Descripción', [ 'class' => 'control-label col-sm-6 col-md-4' ]) }}
           <div class="col-sm-6 col-md-6">
             {{ Form::textarea('descripcion', null, [ 'class' => 'form-control' ]) }}
@@ -43,6 +36,12 @@
             {{ Form::file('foto') }}
           </div>
         </div>
+
+        @if ($pasiva)
+          {{ Form::hidden('tipo_habilidad', 'pasiva') }}
+        @else
+          {{ Form::hidden('tipo_habilidad', 'activa') }}
+        @endif
 
         <div class="form-group">
           <div class="col-sm-offset-1 col-sm-10 col-md-offset-3 col-md-6">
