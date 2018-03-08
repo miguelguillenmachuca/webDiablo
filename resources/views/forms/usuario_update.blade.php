@@ -9,7 +9,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-offset-2 col-sm-8">
         {{ Form::model($usuario, [ 'url' => route('admin/updateUser', [ $usuario ]), 'files' => 'true', 'class' => 'form-horizontal' ]) }}
-        
+
         <div class="form-group{{ $errors->has('nombre') ? ' has-error': '' }}">
           {{ Form::label('nombre', 'Nombre del usuario', [ 'class' => 'control-label col-sm-6 col-md-4' ]) }}
           <div class="col-sm-6 col-md-6">
@@ -42,7 +42,7 @@
         </div>
 
         <div class="form-group">
-          {{ Form::label('foto', 'Foto de la habilidad', [ 'class' => 'control-label col-sm-6 col-md-4' ]) }}
+          {{ Form::label('foto', 'Foto del usuario', [ 'class' => 'control-label col-sm-6 col-md-4' ]) }}
           <div class="col-sm-6 col-md-6">
             {{ Form::file('foto') }}
           </div>
