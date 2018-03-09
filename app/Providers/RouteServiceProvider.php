@@ -51,6 +51,15 @@ class RouteServiceProvider extends ServiceProvider
           return \App\Habilidad::withTrashed()->findOrFail($id);
         });
 
+        Route::bind('runa', function($value, $route)
+        {
+          $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original');
+
+          $id = $hashids->decode($value)[0];
+
+          return \App\Runa::withTrashed()->findOrFail($id);
+        });
+
         parent::boot();
     }
 

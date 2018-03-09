@@ -84,6 +84,18 @@ class HabilidadesController extends Controller
       // Generate the runes associated with the skill
       if($request->tipo_habilidad == 'activa')
       {
+        // Creation of the 5 runa instances
+        for ($i=1; $i <= 5 ; $i++)
+        {
+          // Create a custom request to send to RunasController's store method
+          $runa_request = new Request;
+
+          $runa_request->setMethod('POST');
+
+          $runa_request->request->add([ 'nombre' => $request->runa+$i, 'id_habilidad' => $habilidad->id ]);
+
+          RunasController::store($runa_request);
+        }
 
       }
 
@@ -192,7 +204,8 @@ class HabilidadesController extends Controller
     // Testing the data received
     $validator = Validator::make($request->all(), [
       'nombre' => 'required|min:3|max:20|regex:/^[A-zÀ-úÀ-ÿ ]*$/u',
-      'nombre' => 'required|min:3|max:20|regex:/^[A-zÀ-úÀ-ÿ ]*$/u',
+      'id_clase' => 'required|exists:clase',
+      'descripcion' => 'required|min:5|max:200|nullable|string',
     ]);
 
     return $validator;

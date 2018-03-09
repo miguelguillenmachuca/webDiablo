@@ -62,6 +62,14 @@ class Habilidad extends Model
   }
 
   /**
+  * Relationship
+  */
+  public function runa()
+  {
+    return $this->hasMany('App\Runa', 'id_runa', 'id');
+  }
+
+  /**
   * Get the value of the model's route key.
   *
   * @return mixed

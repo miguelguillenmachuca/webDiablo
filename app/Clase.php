@@ -42,6 +42,18 @@ class Clase extends Model
   */
   protected $hidden = [ ];
 
+  /**********************************************************/
+  /***************** Relationships **************************/
+  /**********************************************************/
+
+  /**
+  * Relationship
+  */
+  public function habilidad()
+  {
+    return $this->hasMany('App\Habilidad', 'id_habilidad', 'id');
+  }
+
   /**
   * Get the value of the model's route key.
   *
