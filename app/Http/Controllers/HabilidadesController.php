@@ -134,7 +134,11 @@ class HabilidadesController extends Controller
   {
     $clases = \App\Clase::listNombreId();
 
-    return view('forms.habilidad_update', [ 'habilidad' => $habilidad, 'clases' => $clases ]);
+    $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+
+    $default = $hashids->encode($habilidad->id_clase);
+
+    return view('forms.habilidad_update', [ 'habilidad' => $habilidad, 'clases' => $clases, 'default' => $default ]);
   }
 
   /**
@@ -146,6 +150,10 @@ class HabilidadesController extends Controller
   */
   public function update(Request $request, Habilidad $habilidad)
   {
+    $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+
+    $request->merge([ 'id_clase' => $hashids->decode($request->id_clase)[0] ]);
+
     $validator = HabilidadesController::validateModel($request, $habilidad);
 
     if($validator->fails())
@@ -215,7 +223,7 @@ class HabilidadesController extends Controller
   {
     // Testing the data received
     $validator = Validator::make($request->all(), [
-      'nombre' => 'required|min:3|max:20|regex:/^[A-zÀ-úÀ-ÿñÑ ]*$/u',
+      'nombre' => 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ ]*$/u',
       'id_clase' => 'required|exists:clase,id',
       'descripcion' => 'required|min:5|max:1000|nullable|string',
     ]);

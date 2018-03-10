@@ -19,7 +19,7 @@ class CreateObjetoTable extends Migration
             $table->integer('id_clase')->unsigned()->nullable();
             $table->integer('tipo_objeto')->unsigned();
             $table->enum('rareza', ['legendario', 'conjunto']);
-            $table->string('foto_objeto')->default('objetos/default_item.png');
+            $table->string('foto_objeto')->default('img/objetos/default_item.png');
             $table->timestamps();
             $table->softDeletes();
 

@@ -8,25 +8,28 @@
   <div id="main-content" class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-sm-offset-2 col-sm-8">
-        {{ Form::open([ 'url' => '#', 'files' => 'true', 'class' => 'form-horizontal' ]) }}
+        {{ Form::model( $habilidad, [ 'url' => route('admin/updateHabilidad', [ $habilidad ]), 'files' => 'true', 'class' => 'form-horizontal' ]) }}
         <div class="form-group">
           {{ Form::label('nombre', 'Nombre de la habilidad', [ 'class' => 'control-label col-sm-6 col-md-4' ]) }}
           <div class="col-sm-6 col-md-6">
             {{ Form::text('nombre', null, [ 'class' => 'form-control' ]) }}
+            @if($errors->has('nombre'))
+              @foreach ($errors->get('nombre') as $message)
+                <span class="help-block">{{ $message }}</span>
+              @endforeach
+            @endif
           </div>
         </div>
 
         <div class="form-group">
           {{ Form::label('id_clase', 'Clase', [ 'class' => 'control-label col-sm-6 col-md-4' ]) }}
           <div class="col-sm-6 col-md-6">
-            {{ Form::select('id_clase', [ 'clase1' => 'Clase1', 'clase2' => 'Clase2' ], 'clase1', [ 'class' => 'form-control' ]) }}
-          </div>
-        </div>
-
-        <div class="form-group">
-          {{ Form::label('tipo_habilidad', 'Tipo de la habilidad', [ 'class' => 'control-label col-sm-6 col-md-4' ]) }}
-          <div class="col-sm-6 col-md-6">
-            {{ Form::select('tipo_habilidad', [ 'activa' => 'Activa', 'pasiva' => 'Pasiva' ], 'activa', [ 'class' => 'form-control' ]) }}
+            {{ Form::select('id_clase', $clases, $default, [ 'class' => 'form-control' ]) }}
+            @if($errors->has('id_clase'))
+              @foreach ($errors->get('id_clase') as $message)
+                <span class="help-block">{{ $message }}</span>
+              @endforeach
+            @endif
           </div>
         </div>
 
@@ -34,6 +37,11 @@
           {{ Form::label('descripcion', 'Descripción', [ 'class' => 'control-label col-sm-6 col-md-4' ]) }}
           <div class="col-sm-6 col-md-6">
             {{ Form::textarea('descripcion', null, [ 'class' => 'form-control' ]) }}
+            @if($errors->has('descripcion'))
+              @foreach ($errors->get('descripcion') as $message)
+                <span class="help-block">{{ $message }}</span>
+              @endforeach
+            @endif
           </div>
         </div>
 

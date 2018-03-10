@@ -52,7 +52,7 @@
         </a>
         <ul class="collapse list-unstyled" id="submenu_habilidades">
           <li><a href="{{ route('admin/habilidades') }}">Habilidades</a></li>
-          <li><a href="{{ route('admin/habilidades/runas') }}">Runas</a></li>
+          <li><a href="{{ route('admin/runas') }}">Runas</a></li>
         </ul>
       </li>
 

@@ -127,25 +127,29 @@ Route::group([ 'prefix' => 'admin' ], function () {
 
     Route::post('createHabilidad', 'HabilidadesController@store')->name('admin/createHabilidad');
 
-    Route::get('{habilidad}/editar', function () {
-      return view('forms.habilidad_update');
-    })->name('admin/habilidades/editar');
+    Route::get('{habilidad}/editar', 'HabilidadesController@edit')->name('admin/habilidades/editar');
 
-    Route::get('runas', function () {
-      return view('admin_runas');
-    })->name('admin/habilidades/runas');
+    Route::post('{habilidad}/updateHabilidad', 'HabilidadesController@update')->name('admin/updateHabilidad');
+
+
+    Route::get('{habilidad}/deleteHabilidad', 'HabilidadesController@destroy')->name('admin/deleteHabilidad');
+
+    Route::get('{habilidad}/restoreHabilidad', 'HabilidadesController@restore')->name('admin/restoreHabilidad');
+
+    // Runas
+    Route::get('runas', 'RunasController@index')->name('admin/runas');
 
     Route::get('runas/crear', function () {
       return view('forms.runa_create');
     })->name('admin/habilidades/runas/crear');
 
-    Route::get('runas/{objeto}/editar', function () {
-      return view('forms.runa_update');
-    })->name('admin/habilidades/runas/editar');
+    Route::get('runas/{runa}/editar', 'RunasController@edit')->name('admin/runas/editar');
 
-    Route::get('{habilidad}/deleteHabilidad', 'HabilidadesController@destroy')->name('admin/deleteHabilidad');
+    Route::post('runas/{runa}/updateRuna', 'RunasController@update')->name('admin/updateRuna');
 
-    Route::get('{habilidad}/restoreHabilidad', 'HabilidadesController@restore')->name('admin/restoreHabilidad');
+    Route::get('runas/{runa}/deleteRuna', 'RunasController@destroy')->name('admin/deleteRuna');
+
+    Route::get('runas/{runa}/restoreRuna', 'RunasController@restore')->name('admin/restoreRuna');
   });
 
   // RUTAS DE USUARIOS

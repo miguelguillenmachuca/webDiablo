@@ -18,7 +18,7 @@ class RunasController extends Controller
   */
   public function index()
   {
-    $runas = Runa::withTrashed()->orderBy('id_habilidad')->paginate(20);
+    $runas = Runa::withTrashed()->orderBy('id_habilidad')->orderBy('nombre')->paginate(20);
 
     return view('admin_runas', [ 'runas' => $runas ]);
   }
@@ -60,17 +60,6 @@ class RunasController extends Controller
       {
         $runa->descripcion = $request->descripcion;
       }
-
-      if($request->hasFile('foto'))
-      {
-        $foto = Controller::saveFile($request, 'public/img/runas');
-
-        // Cut out the 'public/' part of the string we want to save in the database
-        $foto = substr($foto, 7);
-
-        $runa->foto_runa = $foto;
-      }
-
 
       $runa->save();
     }
@@ -118,16 +107,6 @@ class RunasController extends Controller
     }
     else
     {
-      if($request->hasFile('foto'))
-      {
-        $foto = Controller::saveFile($request, 'public/img/runas');
-
-        // Cut out the 'public/' part of the string we want to save in the database
-        $foto = substr($foto, 7);
-
-        $request->request->add([ 'foto_runa' => $foto ]);
-      }
-
       $runa->edit($request->all());
 
       return redirect()->back();
@@ -176,8 +155,8 @@ class RunasController extends Controller
   {
     // Testing the data received
     $validator = Validator::make($request->all(), [
-      'nombre' => 'required|min:3|max:20|regex:/^[A-zÀ-úÀ-ÿñÑ ]*$/u',
-      'descripcion' => 'min:5|max:200|nullable|string',
+      'nombre' => 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ ]*$/u',
+      'descripcion' => 'min:5|max:1000|nullable|string',
     ]);
 
     return $validator;

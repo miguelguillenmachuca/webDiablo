@@ -16,7 +16,7 @@ class CreateClaseTable extends Migration
         Schema::create('clase', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre', 100);
-            $table->string('foto_clase', 254)->default('clases/default_class.png');
+            $table->string('foto_clase', 254)->default('img/clases/default_class.png');
             $table->timestamps();
             $table->softDeletes();
         });

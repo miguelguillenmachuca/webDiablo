@@ -18,8 +18,8 @@ class CreateHabilidadTable extends Migration
             $table->string('nombre', 50);
             $table->enum('tipo_habilidad', ['activa', 'pasiva']);
             $table->integer('id_clase')->unsigned();
-            $table->string('descripcion', 200);
-            $table->string('foto_habilidad', 254)->default('habilidades/default_skill.png');
+            $table->string('descripcion', 1000);
+            $table->string('foto_habilidad', 254)->default('img/habilidades/default_skill.png');
             $table->timestamps();
             $table->softDeletes();
 
@@ -35,7 +35,7 @@ class CreateHabilidadTable extends Migration
     public function down()
     {
         $table->dropForeign('habilidad_id_clase_foreign');
-        
+
         Schema::dropIfExists('habilidad');
     }
 }
