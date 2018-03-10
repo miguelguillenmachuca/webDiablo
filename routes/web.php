@@ -143,9 +143,9 @@ Route::group([ 'prefix' => 'admin' ], function () {
       return view('forms.runa_update');
     })->name('admin/habilidades/runas/editar');
 
-    Route::get('{usuario}/deleteHabilidad', 'HabilidadesController@destroy')->name('admin/deleteHabilidad');
+    Route::get('{habilidad}/deleteHabilidad', 'HabilidadesController@destroy')->name('admin/deleteHabilidad');
 
-    Route::get('{usuario}/restoreHabilidad', 'HabilidadesController@restore')->name('admin/restoreHabilidad');
+    Route::get('{habilidad}/restoreHabilidad', 'HabilidadesController@restore')->name('admin/restoreHabilidad');
   });
 
   // RUTAS DE USUARIOS

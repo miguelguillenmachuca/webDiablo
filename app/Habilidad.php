@@ -76,7 +76,7 @@ class Habilidad extends Model
   */
   public function getRouteKey()
   {
-    $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original');
+    $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
     return $hashids->encode($this->getKey());
   }
