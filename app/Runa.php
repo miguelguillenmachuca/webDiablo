@@ -31,7 +31,7 @@ class Runa extends Model
   *
   * @var string
   */
-  protected $dateFormat = 'j/n/Y g:i a';
+  // protected $dateFormat = 'j/n/Y g:i a';
 
   /**
   * The attributes that are mass assignable.

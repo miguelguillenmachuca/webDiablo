@@ -125,6 +125,8 @@ Route::group([ 'prefix' => 'admin' ], function () {
 
     Route::get('pasiva/crear', 'HabilidadesController@create')->name('admin/habilidades/pasiva/crear');
 
+    Route::post('createHabilidad', 'HabilidadesController@store')->name('admin/createHabilidad');
+
     Route::get('{habilidad}/editar', function () {
       return view('forms.habilidad_update');
     })->name('admin/habilidades/editar');
@@ -140,6 +142,10 @@ Route::group([ 'prefix' => 'admin' ], function () {
     Route::get('runas/{objeto}/editar', function () {
       return view('forms.runa_update');
     })->name('admin/habilidades/runas/editar');
+
+    Route::get('{usuario}/deleteHabilidad', 'HabilidadesController@destroy')->name('admin/deleteHabilidad');
+
+    Route::get('{usuario}/restoreHabilidad', 'HabilidadesController@restore')->name('admin/restoreHabilidad');
   });
 
   // RUTAS DE USUARIOS

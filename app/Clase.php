@@ -61,7 +61,7 @@ class Clase extends Model
   */
   public function getRouteKey()
   {
-    $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original');
+    $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
     return $hashids->encode($this->getKey());
   }
@@ -75,5 +75,28 @@ class Clase extends Model
   public function edit($new_values)
   {
     $this->update($new_values);
+  }
+
+  /**
+  * Retrieve a list of the nombre and id pairings of all model
+  *
+  * @return array
+  */
+  public static function listNombreId()
+  {
+    $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+
+    $id = Clase::orderBy('nombre')->pluck('id')->toArray();
+
+    foreach ($id as $key => $value)
+    {
+      $id[$key] = $hashids->encode($value);
+    }
+
+    $nombre = Clase::orderBy('nombre')->pluck('nombre')->toArray();
+
+    $data = array_combine($id, $nombre);
+
+    return $data;
   }
 }

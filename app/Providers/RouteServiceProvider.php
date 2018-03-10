@@ -26,7 +26,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::bind('usuario', function($value, $route)
         {
-          $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original');
+          $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
           $id = $hashids->decode($value)[0];
 
@@ -35,7 +35,7 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::bind('clase', function($value, $route)
         {
-          $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original');
+          $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
           $id = $hashids->decode($value)[0];
 
@@ -44,7 +44,7 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::bind('habilidad', function($value, $route)
         {
-          $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original');
+          $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
           $id = $hashids->decode($value)[0];
 
@@ -53,7 +53,7 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::bind('runa', function($value, $route)
         {
-          $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original');
+          $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
           $id = $hashids->decode($value)[0];
 

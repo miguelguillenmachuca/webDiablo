@@ -41,7 +41,7 @@ class RunasController extends Controller
   */
   public function store(Request $request)
   {
-    $validator = HabilidadesController::validateModel($request);
+    $validator = RunasController::validateModel($request);
 
     if($validator->fails())
     {
@@ -55,7 +55,11 @@ class RunasController extends Controller
 
       $runa->id_habilidad = $request->id_habilidad;
       $runa->nombre = $request->nombre;
-      $runa->descripcion = $request->descripcion;
+
+      if($request->has('descripcion'))
+      {
+        $runa->descripcion = $request->descripcion;
+      }
 
       if($request->hasFile('foto'))
       {
@@ -66,6 +70,7 @@ class RunasController extends Controller
 
         $runa->foto_runa = $foto;
       }
+
 
       $runa->save();
     }
@@ -171,7 +176,7 @@ class RunasController extends Controller
   {
     // Testing the data received
     $validator = Validator::make($request->all(), [
-      'nombre' => 'required|min:3|max:20|regex:/^[A-zÀ-úÀ-ÿ ]*$/u',
+      'nombre' => 'required|min:3|max:20|regex:/^[A-zÀ-úÀ-ÿñÑ ]*$/u',
       'descripcion' => 'min:5|max:200|nullable|string',
     ]);
 

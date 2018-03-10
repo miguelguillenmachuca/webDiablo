@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Validator;
 use Storage;
+use Hashids;
 
 class HabilidadesController extends Controller
 {
@@ -32,11 +33,15 @@ class HabilidadesController extends Controller
   {
     if(Route::getFacadeRoot()->current()->uri() == 'admin/habilidades/crear')
     {
-      return view('forms.habilidad_create', [ 'pasiva' => false ]);
+      $clases = \App\Clase::listNombreId();
+
+      return view('forms.habilidad_create', [ 'pasiva' => false, 'clases' => $clases ]);
     }
     else if(Route::getFacadeRoot()->current()->uri() == 'admin/habilidades/pasiva/crear')
     {
-      return view('forms.habilidad_create', [ 'pasiva' => true ]);
+      $clases = \App\Clase::listNombreId();
+
+      return view('forms.habilidad_create', [ 'pasiva' => true, 'clases' => $clases ]);
     }
     else
     {
@@ -52,6 +57,10 @@ class HabilidadesController extends Controller
   */
   public function store(Request $request)
   {
+    $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+
+    $request->merge([ 'id_clase' => $hashids->decode($request->id_clase)[0] ]);
+
     $validator = HabilidadesController::validateModel($request);
 
     if($validator->fails())
@@ -65,7 +74,7 @@ class HabilidadesController extends Controller
       $habilidad=new Habilidad;
 
       $habilidad->nombre = $request->nombre;
-      $habilidad->tipo_habilidad = $request->tipo_habilidad;
+      $habilidad->tipo_habilidad = $request->tipoHabilidad;
       $habilidad->id_clase = $request->id_clase;
       $habilidad->descripcion = $request->descripcion;
 
@@ -81,9 +90,10 @@ class HabilidadesController extends Controller
 
       $habilidad->save();
 
-      // Generate the runes associated with the skill
-      if($request->tipo_habilidad == 'activa')
+      // Generate the runas associated with the skill
+      if($request->tipoHabilidad == 'activa')
       {
+        $rController = new RunasController();
         // Creation of the 5 runa instances
         for ($i=1; $i <= 5 ; $i++)
         {
@@ -92,9 +102,9 @@ class HabilidadesController extends Controller
 
           $runa_request->setMethod('POST');
 
-          $runa_request->request->add([ 'nombre' => $request->runa+$i, 'id_habilidad' => $habilidad->id ]);
+          $runa_request->request->add([ 'nombre' => $request->input('runa' .$i), 'id_habilidad' => $habilidad->id ]);
 
-          RunasController::store($runa_request);
+          $rController->store($runa_request);
         }
 
       }
@@ -122,7 +132,9 @@ class HabilidadesController extends Controller
   */
   public function edit(Habilidad $habilidad)
   {
-    return view('forms.habilidad_update')->with('habilidad', $habilidad);
+    $clases = \App\Clase::listNombreId();
+
+    return view('forms.habilidad_update', [ 'habilidad' => $habilidad, 'clases' => $clases ]);
   }
 
   /**
@@ -203,9 +215,9 @@ class HabilidadesController extends Controller
   {
     // Testing the data received
     $validator = Validator::make($request->all(), [
-      'nombre' => 'required|min:3|max:20|regex:/^[A-zÀ-úÀ-ÿ ]*$/u',
-      'id_clase' => 'required|exists:clase',
-      'descripcion' => 'required|min:5|max:200|nullable|string',
+      'nombre' => 'required|min:3|max:20|regex:/^[A-zÀ-úÀ-ÿñÑ ]*$/u',
+      'id_clase' => 'required|exists:clase,id',
+      'descripcion' => 'required|min:5|max:1000|nullable|string',
     ]);
 
     return $validator;
