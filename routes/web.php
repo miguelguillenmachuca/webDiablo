@@ -93,17 +93,18 @@ Route::group([ 'prefix' => 'admin' ], function () {
     return view('forms.objeto_update');
   })->name('admin/objetos/editar');
 
-  Route::get('objetos/conjuntos', function () {
-    return view('admin_objetos_conjuntos');
-  })->name('admin/objetos/conjuntos');
+  // Conjuntos
+  Route::get('objetos/conjuntos', 'ConjuntosController@index')->name('admin/objetos/conjuntos');
 
-  Route::get('objetos/conjuntos/crear', function () {
-    return view('forms.objeto_conjunto_create');
-  })->name('admin/objetos/conjuntos/crear');
+  Route::get('objetos/conjuntos/crear', 'ConjuntosController@create')->name('admin/objetos/conjuntos/crear');
 
-  Route::get('objetos/conjuntos/{conjunto}/editar', function () {
-    return view('forms.objeto_conjunto_update');
-  })->name('admin/objetos/conjuntos/editar');
+  Route::post('createConjunto', 'ConjuntosController@store')->name('admin/createConjunto');
+
+  Route::get('objetos/conjuntos/{conjunto}/editar', 'ConjuntosController@edit')->name('admin/objetos/conjuntos/editar');
+
+  Route::post('{conjunto}/updateConjunto', 'ConjuntosController@store')->name('admin/updateConjunto');
+
+  // Efectos de conjunto
 
   Route::get('objetos/conjuntos/efectos', function () {
     return view('admin_objetos_conjuntos_efectos');
@@ -116,6 +117,10 @@ Route::group([ 'prefix' => 'admin' ], function () {
   Route::get('objetos/conjuntos/{conjunto}/efectos/editar', function () {
     return view('forms.objeto_conjunto_efectos_update');
   })->name('admin/objetos/conjuntos/efectos/editar');
+
+  Route::get('{conjunto}/deleteConjunto', 'ConjuntosController@destroy')->name('admin/deleteConjunto');
+
+  Route::get('{conjunto}/restoreConjunto', 'ConjuntosController@restore')->name('admin/restoreConjunto');
 
   //  RUTAS DE HABILIDADES
   Route::group([ 'prefix' => 'habilidades' ], function () {
