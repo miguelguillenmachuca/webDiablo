@@ -60,6 +60,15 @@ class RouteServiceProvider extends ServiceProvider
           return \App\Runa::withTrashed()->findOrFail($id);
         });
 
+        Route::bind('conjunto', function($value, $route)
+        {
+          $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+
+          $id = $hashids->decode($value)[0];
+
+          return \App\Conjunto::withTrashed()->findOrFail($id);
+        });
+
         parent::boot();
     }
 
