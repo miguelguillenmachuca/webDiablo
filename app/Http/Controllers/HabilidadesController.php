@@ -198,7 +198,7 @@ class HabilidadesController extends Controller
   }
 
   /**
-  * Rostore the specified removed resource from storage.
+  * Restore the specified removed resource from storage.
   *
   * @param  \App\Habilidad  $habilidad
   * @return \Illuminate\Http\Response

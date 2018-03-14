@@ -140,7 +140,7 @@ class UsersController extends Controller
   }
 
   /**
-  * Rostore the specified removed resource from storage.
+  * Restore the specified removed resource from storage.
   *
   * @param  \App\User  $user
   * @return \Illuminate\Http\Response

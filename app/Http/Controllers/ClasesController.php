@@ -146,7 +146,7 @@ class ClasesController extends Controller
     }
 
     /**
-    * Rostore the specified removed resource from storage.
+    * Restore the specified removed resource from storage.
     *
     * @param  \App\Clase  $clase
     * @return \Illuminate\Http\Response

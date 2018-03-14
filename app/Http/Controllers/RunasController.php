@@ -130,7 +130,7 @@ class RunasController extends Controller
   }
 
   /**
-  * Rostore the specified removed resource from storage.
+  * Restore the specified removed resource from storage.
   *
   * @param  \App\Runa  $runa
   * @return \Illuminate\Http\Response
