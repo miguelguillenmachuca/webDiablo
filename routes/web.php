@@ -104,6 +104,10 @@ Route::group([ 'prefix' => 'admin' ], function () {
 
   Route::post('{conjunto}/updateConjunto', 'ConjuntosController@store')->name('admin/updateConjunto');
 
+  Route::get('{conjunto}/deleteConjunto', 'ConjuntosController@destroy')->name('admin/deleteConjunto');
+
+  Route::get('{conjunto}/restoreConjunto', 'ConjuntosController@restore')->name('admin/restoreConjunto');
+
   // Efectos de conjunto
 
   Route::get('objetos/conjuntos/efectos', function () {
@@ -117,10 +121,6 @@ Route::group([ 'prefix' => 'admin' ], function () {
   Route::get('objetos/conjuntos/{conjunto}/efectos/editar', function () {
     return view('forms.objeto_conjunto_efectos_update');
   })->name('admin/objetos/conjuntos/efectos/editar');
-
-  Route::get('{conjunto}/deleteConjunto', 'ConjuntosController@destroy')->name('admin/deleteConjunto');
-
-  Route::get('{conjunto}/restoreConjunto', 'ConjuntosController@restore')->name('admin/restoreConjunto');
 
   //  RUTAS DE HABILIDADES
   Route::group([ 'prefix' => 'habilidades' ], function () {

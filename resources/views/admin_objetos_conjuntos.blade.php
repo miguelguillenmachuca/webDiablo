@@ -17,23 +17,7 @@
 
           <div class="col-xs-12 col-sm-6 col-sm-pull-6 margen-sup">
             <div>
-              <ul class="pagination pagination-redondo">
-                <li>
-                  <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                  <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
+              {{ $conjuntos->links('pagination.limit_links') }}
             </div> <!-- Fin del div paginado -->
           </div>
         </div> <!-- Fin del div row -->
@@ -53,26 +37,14 @@
             </thead>
 
             <tbody>
-              <tr class="inactive">
-                <td>conjunto1</td>
-                <td><a href="{{ route('admin/objetos/conjuntos/editar', ['1']) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
-                <td class="inactive"><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
-                <td><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
-              </tr>
-
-              <tr>
-                <td>conjunto1</td>
-                <td><a href="{{ route('admin/objetos/conjuntos/editar', ['1']) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
-                <td><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
-                <td class="inactive"><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
-              </tr>
-
-              <tr>
-                <td>conjunto1</td>
-                <td><a href="{{ route('admin/objetos/conjuntos/editar', ['1']) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
-                <td><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
-                <td class="inactive"><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
-              </tr>
+              @foreach ($conjuntos as $conjunto)
+                <tr class="{{ $conjunto->trashed() ? 'inactive' : '' }}">
+                  <td>{{ $conjunto->nombre }}</td>
+                  <td><a href="{{ route('admin/onjetos/conjuntos/editar', [ $conjunto ]) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
+                  <td class="{{ $conjunto->trashed() ? 'inactive' : '' }}"><a href="{{ $conjunto->trashed() ? '#' : route('admin/deleteConjunto', [ $conjunto ]) }}"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
+                  <td class="{{ $conjunto->trashed() ? '' : 'inactive' }}"><a href="{{ !$conjunto->trashed() ? '#' : route('admin/restoreConjunto', [ $conjunto->getRouteKey() ]) }}"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
+                </tr>
+              @endforeach
             </tbody>
           </table>
         </div>
@@ -80,23 +52,7 @@
 
       <div class="col-xs-12">
         <div>
-          <ul class="pagination pagination-redondo">
-            <li>
-              <a href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li>
-              <a href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
+          {{ $conjuntos->links('pagination.limit_links') }}
         </div> <!-- Fin del div paginado -->
       </div>
     </div> <!-- Fin del div row -->

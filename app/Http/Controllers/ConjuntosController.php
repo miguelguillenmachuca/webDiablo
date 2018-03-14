@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 use Validator;
 use Hashids;
 
-class ConjuntoController extends Controller
+class ConjuntosController extends Controller
 {
   /**
   * Display a listing of the resource.
@@ -20,7 +20,7 @@ class ConjuntoController extends Controller
   {
     $conjuntos = Conjunto::withTrashed()->orderBy('nombre')->paginate(20);
 
-    return view('admin_conjuntos', [ 'conjuntos' => $conjuntos ]);
+    return view('admin_objetos_conjuntos', [ 'conjuntos' => $conjuntos ]);
   }
 
   /**
@@ -30,7 +30,7 @@ class ConjuntoController extends Controller
   */
   public function create()
   {
-    return view('forms.conjunto_create');
+    return view('forms.objeto_conjunto_create');
   }
 
   /**
@@ -80,7 +80,7 @@ class ConjuntoController extends Controller
   */
   public function edit(Conjunto $conjunto)
   {
-    return view('forms.conjunto_update')->with('conjunto', $conjunto);
+    return view('forms.objeto_conjunto_update')->with('conjunto', $conjunto);
   }
 
   /**
