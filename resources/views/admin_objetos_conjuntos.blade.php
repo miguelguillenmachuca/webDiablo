@@ -40,7 +40,7 @@
               @foreach ($conjuntos as $conjunto)
                 <tr class="{{ $conjunto->trashed() ? 'inactive' : '' }}">
                   <td>{{ $conjunto->nombre }}</td>
-                  <td><a href="{{ route('admin/onjetos/conjuntos/editar', [ $conjunto ]) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
+                  <td><a href="{{ route('admin/objetos/conjuntos/editar', [ $conjunto ]) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
                   <td class="{{ $conjunto->trashed() ? 'inactive' : '' }}"><a href="{{ $conjunto->trashed() ? '#' : route('admin/deleteConjunto', [ $conjunto ]) }}"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
                   <td class="{{ $conjunto->trashed() ? '' : 'inactive' }}"><a href="{{ !$conjunto->trashed() ? '#' : route('admin/restoreConjunto', [ $conjunto->getRouteKey() ]) }}"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
                 </tr>

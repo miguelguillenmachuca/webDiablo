@@ -102,7 +102,7 @@ Route::group([ 'prefix' => 'admin' ], function () {
 
   Route::get('objetos/conjuntos/{conjunto}/editar', 'ConjuntosController@edit')->name('admin/objetos/conjuntos/editar');
 
-  Route::post('{conjunto}/updateConjunto', 'ConjuntosController@store')->name('admin/updateConjunto');
+  Route::post('{conjunto}/updateConjunto', 'ConjuntosController@update')->name('admin/updateConjunto');
 
   Route::get('{conjunto}/deleteConjunto', 'ConjuntosController@destroy')->name('admin/deleteConjunto');
 

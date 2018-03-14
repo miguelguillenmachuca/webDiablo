@@ -55,7 +55,7 @@ class ConjuntosController extends Controller
 
       $conjunto->nombre = $request->nombre;
 
-      $habilidad->save();
+      $conjunto->save();
 
       return redirect()->back();
     }
@@ -69,7 +69,7 @@ class ConjuntosController extends Controller
   */
   public function show(Conjunto $conjunto)
   {
-    return view('visualizarConjunto')->with('conjunto', $conjunto);
+    return view('visualizarConjunto', [ $conjunto ]);
   }
 
   /**
