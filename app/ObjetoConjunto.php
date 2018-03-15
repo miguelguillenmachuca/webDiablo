@@ -5,9 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
-use Hashids;
 
-class Conjunto extends Model
+class ObjetoConjunto extends Model
 {
     use SoftDeletes;
 
@@ -38,7 +37,7 @@ class Conjunto extends Model
     * @var array
     */
     protected $fillable = [
-      'nombre',
+      'id_objeto', 'id_conjunto',
     ];
 
     /**
@@ -55,29 +54,17 @@ class Conjunto extends Model
     /**
     * Relationship
     */
-    public function objetoConjunto()
+    public function objeto()
     {
-      return $this->hasMany('App\ObjetoConjunto', 'id_conjunto', 'id');
+      return $this->belongsTo('App\Objeto', 'id_conjunto', 'id');
     }
 
     /**
     * Relationship
     */
-    public function objetos()
+    public function conjunto()
     {
-      return $this->hasManyThrough('App\Objeto', 'App\ObjetoConjunto', 'id_conjunto', 'id_objeto', 'id', 'id');
-    }
-
-    /**
-    * Get the value of the model's route key.
-    *
-    * @return mixed
-    */
-    public function getRouteKey()
-    {
-      $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
-
-      return $hashids->encode($this->getKey());
+      return $this->belongsTo('App\Conjunto', 'id_conjunto', 'id');
     }
 
     /**
