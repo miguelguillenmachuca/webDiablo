@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Objeto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Route;
+use Validator;
+use Hashids;
 
 class ObjetosController extends Controller
 {
