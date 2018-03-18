@@ -126,7 +126,7 @@ Route::group([ 'prefix' => 'admin' ], function () {
 
     Route::get('tipos/crear', 'TipoObjetosController@create')->name('admin/objetos/tipos/crear');
 
-    Route::post('createTipo', 'TipoObjetosController@store')->name('admin/createConjunto');
+    Route::post('createTipoObjeto', 'TipoObjetosController@store')->name('admin/createTipoObjeto');
 
     Route::get('tipos/{tipo_objeto}/editar', 'TipoObjetosController@edit')->name('admin/objetos/tipos/editar');
 

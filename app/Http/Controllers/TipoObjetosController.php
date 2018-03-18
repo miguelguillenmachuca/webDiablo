@@ -32,7 +32,25 @@ class TipoObjetosController extends Controller
     {
       $clases = \App\Clase::listNombreId();
 
-      return view('forms.tipo_objeto_create', [ 'clases' => $clases ]);
+      $categorias = [
+        'cabeza'           => 'Cabeza',
+        'hombros'          => 'Hombros',
+        'torso'            => 'Torso',
+        'munecas'          => 'Muñecas',
+        'manos'            => 'Manos',
+        'cintura'          => 'Cintura',
+        'piernas'          => 'Piernas',
+        'pies'             => 'Pies',
+        'mano_izquierda'   => 'Mano izquierda',
+        'una_mano'         => 'Una mano',
+        'dos_manos'        => 'Dos manos',
+        'a_distancia'      => 'A distancia',
+        'anillo'           => 'Anillo',
+        'amuleto'          => 'Amuleto',
+        'gema'             => 'Gema'
+      ];
+
+      return view('forms.tipo_objeto_create', [ 'clases' => $clases, 'categorias' => $categorias ]);
     }
 
     /**
@@ -43,9 +61,12 @@ class TipoObjetosController extends Controller
      */
     public function store(Request $request)
     {
-      $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+      if($request->id_clase)
+      {
+        $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
-      $request->merge([ 'id_clase' => $hashids->decode($request->id_clase)[0] ]);
+        $request->merge([ 'id_clase' => $hashids->decode($request->id_clase)[0] ]);
+      }
 
       $validator = TipoObjetosController::validateModel($request);
 
@@ -57,7 +78,7 @@ class TipoObjetosController extends Controller
       }
       else
       {
-        $tipo_objeto=new Objeto;
+        $tipo_objeto=new TipoObjeto;
 
         $tipo_objeto->nombre = $request->nombre;
         $tipo_objeto->id_clase = $request->id_clase;
@@ -167,10 +188,19 @@ class TipoObjetosController extends Controller
     */
     public static function validateModel(Request $request)
     {
+      if($request->id_clase)
+      {
+        $id_clase_rules = 'exists:clase,id';
+      }
+      else
+      {
+        $id_clase_rules = '';
+      }
+
       // Testing the data received
       $validator = Validator::make($request->all(), [
         'nombre' => 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ ]*$/u',
-        'id_clase' => 'exists:clase,id',
+        'id_clase' => $id_clase_rules,
       ]);
 
       return $validator;

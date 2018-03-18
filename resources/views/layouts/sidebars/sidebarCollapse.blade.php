@@ -42,6 +42,7 @@
           <li><a href="{{ route('admin/objetos') }}">Objetos</a></li>
           <li><a href="{{ route('admin/objetos/conjuntos') }}">Conjuntos</a></li>
           <li><a href="{{ route('admin/objetos/conjuntos/efectos') }}">Efectos de conjuntos</a></li>
+          <li><a href="{{ route('admin/objetos/tipos') }}">Tipos de objeto</a></li>
         </ul>
       </li>
 

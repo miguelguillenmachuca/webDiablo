@@ -17,7 +17,7 @@
 
           <div class="col-xs-12 col-sm-6 col-sm-pull-6 margen-sup">
             <div>
-              {{ $conjuntos->links('pagination.limit_links') }}
+              {{ $tipo_objetos->links('pagination.limit_links') }}
             </div> <!-- Fin del div paginado -->
           </div>
         </div> <!-- Fin del div row -->
@@ -42,8 +42,12 @@
               @foreach ($tipo_objetos as $tipo_objeto)
                 <tr class="{{ $tipo_objeto->trashed() ? 'inactive' : '' }}">
                   <td>{{ $tipo_objeto->nombre }}</td>
-                  <td>{{ $tipo_objeto->clase->nombre }}</td>
-                  <td>{{ $tipo_objeto->categoria }}</td>
+                  @if ($tipo_objeto->clase != null)
+                    <td>{{ $tipo_objeto->clase->nombre }}</td>
+                  @else
+                    <td>Multiclase</td>
+                  @endif
+                  <td>{{ $tipo_objeto->categoria_obj }}</td>
                   <td><a href="{{ route('admin/objetos/tipos/editar', [ $tipo_objeto ]) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
                   <td class="{{ $tipo_objeto->trashed() ? 'inactive' : '' }}"><a href="{{ $tipo_objeto->trashed() ? '#' : route('admin/deleteTipoObjeto', [ $tipo_objeto ]) }}"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
                   <td class="{{ $tipo_objeto->trashed() ? '' : 'inactive' }}"><a href="{{ !$tipo_objeto->trashed() ? '#' : route('admin/restoreTipoObjeto', [ $tipo_objeto->getRouteKey() ]) }}"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
@@ -56,7 +60,7 @@
 
       <div class="col-xs-12">
         <div>
-          {{ $conjuntos->links('pagination.limit_links') }}
+          {{ $tipo_objetos->links('pagination.limit_links') }}
         </div> <!-- Fin del div paginado -->
       </div>
     </div> <!-- Fin del div row -->
