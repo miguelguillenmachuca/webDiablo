@@ -39,7 +39,7 @@ class Objeto extends Model
   * @var array
   */
   protected $fillable = [
-    'nombre', 'id_clase', 'tipo_objeto', 'rareza', 'foto_objeto',
+    'nombre', 'id_clase', 'tipo_objeto', 'rareza', 'efecto_legendario', 'foto_objeto',
   ];
 
   /**********************************************************/

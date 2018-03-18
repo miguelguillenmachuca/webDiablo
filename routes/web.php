@@ -81,9 +81,7 @@ Route::group([ 'prefix' => 'admin' ], function () {
   });
 
   //  RUTAS DE OBJETOS
-  Route::get('objetos', function () {
-    return view('admin_objetos');
-  })->name('admin/objetos');
+  Route::get('objetos', 'ObjetosController@index')->name('admin/objetos');
 
   Route::get('objetos/crear', function () {
     return view('forms.objeto_create');

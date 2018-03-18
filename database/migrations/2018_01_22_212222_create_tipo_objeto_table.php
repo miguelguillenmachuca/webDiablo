@@ -16,8 +16,12 @@ class CreateTipoObjetoTable extends Migration
         Schema::create('tipo_objeto', function (Blueprint $table) {
           $table->increments('id');
           $table->string('nombre', 50);
+          $table->integer('id_clase')->nullable()->unsigned();
           $table->enum('categoria_obj', ['cabeza', 'hombros', 'torso', 'munecas', 'manos', 'cintura', 'piernas', 'pies', 'mano_izquierda', 'una_mano', 'dos_manos', 'a_distancia', 'anillo', 'amuleto', 'gema']);
           $table->timestamps();
+          $table->softDeletes();
+
+          $table->foreign('id_clase')->references('id')->on('clase');
         });
     }
 
@@ -28,6 +32,8 @@ class CreateTipoObjetoTable extends Migration
      */
     public function down()
     {
+        $table->dropForeign('tipo_objeto_id_clase_foreign');
+
         Schema::dropIfExists('tipo_objeto');
     }
 }
