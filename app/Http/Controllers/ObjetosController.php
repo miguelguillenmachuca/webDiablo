@@ -124,13 +124,15 @@ class ObjetosController extends Controller
   {
     $conjuntos = \App\Conjunto::listNombreId();
     $tipos_objeto = \App\TipoObjeto::listNombreId();
+    $clases = \App\Clase::listNombreId();
 
     $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
     $default_conjunto = $hashids->encode($objeto->id_conjunto);
     $default_tipo_objeto = $hashids->encode($objeto->tipo_objeto);
+    $default_clase = $hashids->encode($objeto->clase);
 
-    return view('forms.habilidad_update', [ 'habilidad' => $habilidad, 'conjuntos' => $conjuntos, 'default_conjunto' => $default_conjunto, 'default_tipo_objeto' => $default_tipo_objeto ]);
+    return view('forms.habilidad_update', [ 'objeto' => $objeto, 'conjuntos' => $conjuntos,'tipos_objeto' => $tipos_objeto, 'clases' => $clases, 'default_conjunto' => $default_conjunto, 'default_tipo_objeto' => $default_tipo_objeto, 'default_clase' => $default_clase ]);
   }
 
   /**
