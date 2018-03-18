@@ -110,12 +110,29 @@ class TipoObjetosController extends Controller
     public function edit(TipoObjeto $tipoObjeto)
     {
       $clases = \App\Clase::listNombreId();
+      $categorias = [
+        'cabeza'           => 'Cabeza',
+        'hombros'          => 'Hombros',
+        'torso'            => 'Torso',
+        'munecas'          => 'Muñecas',
+        'manos'            => 'Manos',
+        'cintura'          => 'Cintura',
+        'piernas'          => 'Piernas',
+        'pies'             => 'Pies',
+        'mano_izquierda'   => 'Mano izquierda',
+        'una_mano'         => 'Una mano',
+        'dos_manos'        => 'Dos manos',
+        'a_distancia'      => 'A distancia',
+        'anillo'           => 'Anillo',
+        'amuleto'          => 'Amuleto',
+        'gema'             => 'Gema'
+      ];
 
       $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
-      $default_clase = $hashids->encode($objeto->clase);
+      $default_clase = $hashids->encode($tipoObjeto->clase);
 
-      return view('forms.habilidad_update', [ 'tipoObjeto' => $tipoObjeto, 'clases' => $clases, 'default_clase' => $default_clase ]);
+      return view('forms.tipo_objeto_update', [ 'tipo_objeto' => $tipoObjeto, 'categorias' => $categorias, 'clases' => $clases, 'default_clase' => $default_clase ]);
     }
 
     /**
@@ -127,9 +144,12 @@ class TipoObjetosController extends Controller
      */
     public function update(Request $request, TipoObjeto $tipoObjeto)
     {
-      $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+      if($request->id_clase)
+      {
+        $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
-      $request->merge([ 'id_clase' => $hashids->decode($request->id_clase)[0] ]);
+        $request->merge([ 'id_clase' => $hashids->decode($request->id_clase)[0] ]);        
+      }
 
       $validator = TipoObjetosController::validateModel($request, $tipoObjeto);
 
