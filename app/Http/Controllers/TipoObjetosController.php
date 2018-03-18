@@ -20,7 +20,7 @@ class TipoObjetosController extends Controller
     {
       $tipo_objetos = TipoObjeto::withTrashed()->orderBy('id_clase')->orderBy('nombre')->paginate(20);
 
-      return view('admin_tipo_objeto', [ 'tipo_objetos' => $tipo_objetos ]);
+      return view('admin_tipo_objetos', [ 'tipo_objetos' => $tipo_objetos ]);
     }
 
     /**

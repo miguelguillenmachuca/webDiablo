@@ -81,44 +81,62 @@ Route::group([ 'prefix' => 'admin' ], function () {
   });
 
   //  RUTAS DE OBJETOS
-  Route::get('objetos', 'ObjetosController@index')->name('admin/objetos');
+  Route::group([ 'prefix' => 'objetos' ], function () {
+    Route::get('/', 'ObjetosController@index')->name('admin/objetos');
 
-  Route::get('objetos/crear', function () {
-    return view('forms.objeto_create');
-  })->name('admin/objetos/crear');
+    Route::get('crear', function () {
+      return view('forms.objeto_create');
+    })->name('admin/objetos/crear');
 
-  Route::get('objetos/{objeto}/editar', function () {
-    return view('forms.objeto_update');
-  })->name('admin/objetos/editar');
+    Route::get('{objeto}/editar', function () {
+      return view('forms.objeto_update');
+    })->name('admin/objetos/editar');
 
-  // Conjuntos
-  Route::get('objetos/conjuntos', 'ConjuntosController@index')->name('admin/objetos/conjuntos');
+    // Conjuntos
+    Route::get('conjuntos', 'ConjuntosController@index')->name('admin/objetos/conjuntos');
 
-  Route::get('objetos/conjuntos/crear', 'ConjuntosController@create')->name('admin/objetos/conjuntos/crear');
+    Route::get('conjuntos/crear', 'ConjuntosController@create')->name('admin/objetos/conjuntos/crear');
 
-  Route::post('createConjunto', 'ConjuntosController@store')->name('admin/createConjunto');
+    Route::post('createConjunto', 'ConjuntosController@store')->name('admin/createConjunto');
 
-  Route::get('objetos/conjuntos/{conjunto}/editar', 'ConjuntosController@edit')->name('admin/objetos/conjuntos/editar');
+    Route::get('conjuntos/{conjunto}/editar', 'ConjuntosController@edit')->name('admin/objetos/conjuntos/editar');
 
-  Route::post('{conjunto}/updateConjunto', 'ConjuntosController@update')->name('admin/updateConjunto');
+    Route::post('{conjunto}/updateConjunto', 'ConjuntosController@update')->name('admin/updateConjunto');
 
-  Route::get('{conjunto}/deleteConjunto', 'ConjuntosController@destroy')->name('admin/deleteConjunto');
+    Route::get('{conjunto}/deleteConjunto', 'ConjuntosController@destroy')->name('admin/deleteConjunto');
 
-  Route::get('{conjunto}/restoreConjunto', 'ConjuntosController@restore')->name('admin/restoreConjunto');
+    Route::get('{conjunto}/restoreConjunto', 'ConjuntosController@restore')->name('admin/restoreConjunto');
 
-  // Efectos de conjunto
+    // Efectos de conjunto
 
-  Route::get('objetos/conjuntos/efectos', function () {
-    return view('admin_objetos_conjuntos_efectos');
-  })->name('admin/objetos/conjuntos/efectos');
+    Route::get('conjuntos/efectos', function () {
+      return view('admin_objetos_conjuntos_efectos');
+    })->name('admin/objetos/conjuntos/efectos');
 
-  Route::get('objetos/conjuntos/efectos/crear', function () {
-    return view('forms.objeto_conjunto_efectos_create');
-  })->name('admin/objetos/conjuntos/efectos/crear');
+    Route::get('conjuntos/efectos/crear', function () {
+      return view('forms.objeto_conjunto_efectos_create');
+    })->name('admin/objetos/conjuntos/efectos/crear');
 
-  Route::get('objetos/conjuntos/{conjunto}/efectos/editar', function () {
-    return view('forms.objeto_conjunto_efectos_update');
-  })->name('admin/objetos/conjuntos/efectos/editar');
+    Route::get('conjuntos/{conjunto}/efectos/editar', function () {
+      return view('forms.objeto_conjunto_efectos_update');
+    })->name('admin/objetos/conjuntos/efectos/editar');
+
+    // Tipos
+    Route::get('tipos', 'TipoObjetosController@index')->name('admin/objetos/tipos');
+
+    Route::get('tipos/crear', 'TipoObjetosController@create')->name('admin/objetos/tipos/crear');
+
+    Route::post('createTipo', 'TipoObjetosController@store')->name('admin/createConjunto');
+
+    Route::get('tipos/{tipo_objeto}/editar', 'TipoObjetosController@edit')->name('admin/objetos/tipos/editar');
+
+    Route::post('{tipo_objeto}/updateTipoObjeto', 'TipoObjetosController@update')->name('admin/updateTipoObjeto');
+
+    Route::get('{tipo_objeto}/deleteTipoObjeto', 'TipoObjetosController@destroy')->name('admin/deleteTipoObjeto');
+
+    Route::get('{tipo_objeto}/restoreTipoObjeto', 'TipoObjetosController@restore')->name('admin/restoreTipoObjeto');
+
+  });
 
   //  RUTAS DE HABILIDADES
   Route::group([ 'prefix' => 'habilidades' ], function () {

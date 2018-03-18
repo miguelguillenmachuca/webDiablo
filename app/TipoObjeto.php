@@ -54,6 +54,18 @@ class TipoObjeto extends Model
   }
 
   /**
+  * Get the value of the model's route key.
+  *
+  * @return mixed
+  */
+  public function getRouteKey()
+  {
+    $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+
+    return $hashids->encode($this->getKey());
+  }
+
+  /**
   * Update the attributes of the model instance
   *
   * @param             $new_values

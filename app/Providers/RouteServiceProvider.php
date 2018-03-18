@@ -78,6 +78,15 @@ class RouteServiceProvider extends ServiceProvider
           return \App\Objeto::withTrashed()->findOrFail($id);
         });
 
+        Route::bind('tipo_objeto', function($value, $route)
+        {
+          $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+
+          $id = $hashids->decode($value)[0];
+
+          return \App\TipoObjeto::withTrashed()->findOrFail($id);
+        });
+
         parent::boot();
     }
 
