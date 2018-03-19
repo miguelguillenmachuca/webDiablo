@@ -87,6 +87,15 @@ class RouteServiceProvider extends ServiceProvider
           return \App\TipoObjeto::withTrashed()->findOrFail($id);
         });
 
+        Route::bind('efecto_conjunto', function($value, $route)
+        {
+          $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+
+          $id = $hashids->decode($value)[0];
+
+          return \App\EfectoConjunto::withTrashed()->findOrFail($id);
+        });
+
         parent::boot();
     }
 
