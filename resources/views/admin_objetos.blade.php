@@ -46,7 +46,7 @@
               @foreach ($objetos as $objeto)
                 <tr class="{{ $objeto->trashed() ? 'inactive' : '' }}">
                   <td>{{ $objeto->nombre }}</td>
-                  <td><img src="{{ asset('storage/' .$objeto->foto_habilidad) }}" class="img-responsive foto-resumen" alt="foto objeto"></td>
+                  <td><img src="{{ asset('storage/' .$objeto->foto_objeto) }}" class="img-responsive foto-resumen" alt="foto objeto"></td>
 
                   @if($objeto->clase != null)
                     <td>{{ $objeto->clase->nombre }}</td>
@@ -54,7 +54,7 @@
                     <td>Multiclase</td>
                   @endif
 
-                  <td>{{ $objeto->tipo_objeto }}</td>
+                  <td>{{ $objeto->tipo_objeto->nombre }}</td>
                   <td>{{ $objeto->rareza }}</td>
 
                   @if($objeto->conjunto != null)

@@ -58,7 +58,7 @@ class TipoObjeto extends Model
   */
   public function objeto()
   {
-    return $this->hasMany('App\Objeto', 'tipo_objeto', 'id');
+    return $this->hasMany('App\Objeto', 'id_tipo_objeto', 'id');
   }
 
   /**

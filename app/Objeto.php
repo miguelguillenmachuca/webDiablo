@@ -39,7 +39,7 @@ class Objeto extends Model
   * @var array
   */
   protected $fillable = [
-    'nombre', 'id_clase', 'tipo_objeto', 'rareza', 'efecto_legendario', 'foto_objeto',
+    'nombre', 'id_clase', 'id_tipo_objeto', 'rareza', 'efecto_legendario', 'foto_objeto',
   ];
 
   /**********************************************************/
@@ -67,7 +67,7 @@ class Objeto extends Model
   */
   public function tipo_objeto()
   {
-    return $this->belongsTo('\AppTipoObjeto', 'tipo_objeto', 'id');
+    return $this->belongsTo('\App\TipoObjeto', 'id_tipo_objeto', 'id');
   }
 
   /**

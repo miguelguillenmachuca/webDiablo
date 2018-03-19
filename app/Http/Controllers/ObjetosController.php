@@ -19,7 +19,7 @@ class ObjetosController extends Controller
   */
   public function index()
   {
-    $objetos = Objeto::withTrashed()->orderBy('id_clase')->orderBy('tipo_objeto')->orderBy('nombre')->paginate(20);
+    $objetos = Objeto::withTrashed()->orderBy('id_clase')->orderBy('id_tipo_objeto')->orderBy('nombre')->paginate(20);
 
     return view('admin_objetos', [ 'objetos' => $objetos ]);
   }
@@ -58,7 +58,7 @@ class ObjetosController extends Controller
       $request->merge([ 'id_conjunto' => $hashids->decode($request->id_conjunto)[0] ]);
     }
 
-    $request->merge([ 'tipo_objeto' => $hashids->decode($request->tipo_objeto)[0] ]);
+    $request->merge([ 'id_tipo_objeto' => $hashids->decode($request->id_tipo_objeto)[0] ]);
 
     $validator = ObjetosController::validateModel($request);
 
@@ -86,7 +86,7 @@ class ObjetosController extends Controller
 
       $objeto->id_conjunto = $request->id_conjunto;
       $objeto->rareza = $rareza;
-      $objeto->tipo_objeto = $request->tipo_objeto;
+      $objeto->id_tipo_objeto = $request->id_tipo_objeto;
       $objeto->efecto_legendario = $request->efecto_legendario;
 
       if($request->hasFile('foto'))
@@ -113,7 +113,7 @@ class ObjetosController extends Controller
   */
   public function show(Objeto $objeto)
   {
-    return view('visualizarHabilidad')->with('habilidad', $habilidad);
+    return view('visualizarObjeto')->with('objeto', $objeto);
   }
 
   /**
@@ -131,10 +131,10 @@ class ObjetosController extends Controller
     $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
     $default_conjunto = $hashids->encode($objeto->id_conjunto);
-    $default_tipo_objeto = $hashids->encode($objeto->tipo_objeto);
+    $default_tipo_objeto = $hashids->encode($objeto->id_tipo_objeto);
     $default_clase = $hashids->encode($objeto->clase);
 
-    return view('forms.habilidad_update', [ 'objeto' => $objeto, 'conjuntos' => $conjuntos,'tipos_objeto' => $tipos_objeto, 'clases' => $clases, 'default_conjunto' => $default_conjunto, 'default_tipo_objeto' => $default_tipo_objeto, 'default_clase' => $default_clase ]);
+    return view('forms.objeto_update', [ 'objeto' => $objeto, 'conjuntos' => $conjuntos,'tipos_objeto' => $tipos_objeto, 'clases' => $clases, 'default_conjunto' => $default_conjunto, 'default_tipo_objeto' => $default_tipo_objeto, 'default_clase' => $default_clase ]);
   }
 
   /**
@@ -158,7 +158,7 @@ class ObjetosController extends Controller
       $request->merge([ 'id_conjunto' => $hashids->decode($request->id_conjunto)[0] ]);
     }
 
-    $request->merge([ 'tipo_objeto' => $hashids->decode($request->tipo_objeto)[0] ]);
+    $request->merge([ 'id_tipo_objeto' => $hashids->decode($request->id_tipo_objeto)[0] ]);
 
     $validator = ObjetosController::validateModel($request, $objeto);
 
@@ -235,13 +235,22 @@ class ObjetosController extends Controller
     {
       $id_clase_rules = "";
     }
+
+    if($request->id_conjunto != null)
+    {
+      $id_conjunto_rules = "exists:conjunto,id";
+    }
+    else
+    {
+      $id_conjunto_rules = "";
+    }
     // Testing the data received
     $validator = Validator::make($request->all(), [
       'nombre' => 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ ]*$/u',
       'id_clase' => $id_clase_rules,
-      'id_conjunto' => 'exists:conjunto,id',
-      'tipo_objeto' => 'required|exists:tipo_objeto,id',
-      'efecto_legendario' => 'string',
+      'id_conjunto' => $id_conjunto_rules,
+      'id_tipo_objeto' => 'required|exists:tipo_objeto,id',
+      'efecto_legendario' => 'string|nullable',
     ]);
 
     return $validator;

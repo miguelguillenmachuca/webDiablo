@@ -35,11 +35,11 @@
         </div>
 
         <div class="form-group">
-          {{ Form::label('tipo_objeto', 'Tipo', [ 'class' => 'control-label col-sm-6 col-md-4' ]) }}
+          {{ Form::label('id_tipo_objeto', 'Tipo', [ 'class' => 'control-label col-sm-6 col-md-4' ]) }}
           <div class="col-sm-6 col-md-6">
-            {{ Form::select('tipo_objeto', $tipos_objeto, null, [ 'class' => 'form-control' ]) }}
-            @if($errors->has('tipo_objeto'))
-              @foreach ($errors->get('tipo_objeto') as $message)
+            {{ Form::select('id_tipo_objeto', $tipos_objeto, null, [ 'class' => 'form-control' ]) }}
+            @if($errors->has('id_tipo_objeto'))
+              @foreach ($errors->get('id_tipo_objeto') as $message)
                 <span class="help-block">{{ $message }}</span>
               @endforeach
             @endif
@@ -59,10 +59,10 @@
         </div>
 
         <div class="form-group">
-          {{ Form::label('efecto_objeto', 'Efecto legendario', [ 'class' => 'control-label col-sm-6 col-md-4' ]) }}
+          {{ Form::label('efecto_legendario', 'Efecto legendario', [ 'class' => 'control-label col-sm-6 col-md-4' ]) }}
           <div class="col-sm-6 col-md-6">
             {{ Form::textarea('efecto_legendario', null, [ 'placeholder' => 'Efecto legendario del objeto, en caso de no tener, déjalo vacío', 'class' => 'form-control' ]) }}
-            @if($errors->has('efecto_objeto'))
+            @if($errors->has('efecto_legendario'))
               @foreach ($errors->get('efecto_legendario') as $message)
                 <span class="help-block">{{ $message }}</span>
               @endforeach
