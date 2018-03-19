@@ -57,17 +57,17 @@ class Objeto extends Model
   /**
   * Relationship
   */
-  public function objetoConjunto()
+  public function conjunto()
   {
-    return $this->hasOne('App\ObjetoConjunto', 'id_objeto', 'id');
+    return $this->belongsTo('App\Conjunto', 'id_conjunto', 'id');
   }
 
   /**
   * Relationship
   */
-  public function conjunto()
+  public function tipo_objeto()
   {
-    return $this->objetoConjunto->conjunto();
+    return $this->belongsTo('\AppTipoObjeto', 'tipo_objeto', 'id');
   }
 
   /**

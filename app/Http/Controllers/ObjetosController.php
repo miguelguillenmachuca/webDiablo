@@ -33,8 +33,9 @@ class ObjetosController extends Controller
   {
     $clases = \App\Clase::listNombreId();
     $tipos_objeto = \App\TipoObjeto::listNombreId();
+    $conjuntos = \App\Conjunto::listNombreId();
 
-    return view('forms.objeto_create', [ 'clases' => $clases, 'tipos_objeto' => $tipos_objeto ]);
+    return view('forms.objeto_create', [ 'clases' => $clases, 'tipos_objeto' => $tipos_objeto, 'conjuntos' => $conjuntos ]);
   }
 
   /**
@@ -47,7 +48,15 @@ class ObjetosController extends Controller
   {
     $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
-    $request->merge([ 'id_clase' => $hashids->decode($request->id_clase)[0] ]);
+    if($request->id_clase != null)
+    {
+      $request->merge([ 'id_clase' => $hashids->decode($request->id_clase)[0] ]);
+    }
+
+    if($request->id_conjunto)
+    {
+      $request->merge([ 'id_conjunto' => $hashids->decode($request->id_conjunto)[0] ]);
+    }
 
     $request->merge([ 'tipo_objeto' => $hashids->decode($request->tipo_objeto)[0] ]);
 
@@ -66,14 +75,17 @@ class ObjetosController extends Controller
       $objeto->nombre = $request->nombre;
       $objeto->id_clase = $request->id_clase;
 
-      if($request->rareza != 'legendario')
+      if($request->id_conjunto == null)
       {
-        $conjunto = $request->rareza;
-
-        $request->merge([ 'rareza' => 'conjunto' ]);
+        $rareza = 'legendario';
+      }
+      else
+      {
+        $rareza = 'conjunto';
       }
 
-      $objeto->rareza = $request->rareza;
+      $objeto->id_conjunto = $request->id_conjunto;
+      $objeto->rareza = $rareza;
       $objeto->tipo_objeto = $request->tipo_objeto;
       $objeto->efecto_legendario = $request->efecto_legendario;
 
@@ -84,20 +96,10 @@ class ObjetosController extends Controller
         // Cut out the 'public/' part of the string we want to save in the database
         $foto = substr($foto, 7);
 
-        $habilidad->foto_objeto = $foto;
+        $objeto->foto_objeto = $foto;
       }
 
       $objeto->save();
-
-      if($request->rareza == 'conjunto')
-      {
-        $objeto_conjunto = new App\ObjetoConjunto;
-
-        $objeto_conjunto->id_objeto = $objeto->id;
-        $objeto_conjunto->id_conjunto = $conjunto;
-
-        $objeto_conjunto->save();
-      }
 
       return redirect()->back();
     }
@@ -146,7 +148,16 @@ class ObjetosController extends Controller
   {
     $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
-    $request->merge([ 'id_conjunto' => $hashids->decode($request->id_conjunto)[0] ]);
+    if($request->id_clase != null)
+    {
+      $request->merge([ 'id_clase' => $hashids->decode($request->id_clase)[0] ]);
+    }
+
+    if($request->id_conjunto)
+    {
+      $request->merge([ 'id_conjunto' => $hashids->decode($request->id_conjunto)[0] ]);
+    }
+
     $request->merge([ 'tipo_objeto' => $hashids->decode($request->tipo_objeto)[0] ]);
 
     $validator = ObjetosController::validateModel($request, $objeto);
@@ -216,13 +227,20 @@ class ObjetosController extends Controller
   */
   public static function validateModel(Request $request)
   {
+    if($request->id_clase != null)
+    {
+      $id_clase_rules = "exists:clase,id";
+    }
+    else
+    {
+      $id_clase_rules = "";
+    }
     // Testing the data received
     $validator = Validator::make($request->all(), [
       'nombre' => 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ ]*$/u',
-      'id_clase' => 'exists:clase,id',
+      'id_clase' => $id_clase_rules,
       'id_conjunto' => 'exists:conjunto,id',
       'tipo_objeto' => 'required|exists:tipo_objeto,id',
-      'rareza' => 'required',
       'efecto_legendario' => 'string',
     ]);
 

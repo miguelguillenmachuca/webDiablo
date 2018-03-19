@@ -19,12 +19,14 @@ class CreateObjetoTable extends Migration
             $table->integer('id_clase')->unsigned()->nullable();
             $table->integer('tipo_objeto')->unsigned();
             $table->enum('rareza', ['legendario', 'conjunto']);
+            $table->integer('id_conjunto')->unsigned();
             $table->string('foto_objeto')->default('img/objetos/default_item.png');
             $table->timestamps();
             $table->softDeletes();
 
             $table->foreign('id_clase')->references('id')->on('clase');
             $table->foreign('tipo_objeto')->references('id')->on('tipo_objeto');
+            $table->foreign('id_conjunto')->references('id')->on('conjunto');
         });
     }
 
@@ -35,6 +37,7 @@ class CreateObjetoTable extends Migration
      */
     public function down()
     {
+        $table->dropForeign('objeto_id_conjunto_foreign');
         $table->dropForeign('objeto_tipo_objeto_foreign');
         $table->dropForeign('objeto_id_clase_foreign');
 

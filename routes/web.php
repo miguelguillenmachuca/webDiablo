@@ -84,13 +84,17 @@ Route::group([ 'prefix' => 'admin' ], function () {
   Route::group([ 'prefix' => 'objetos' ], function () {
     Route::get('/', 'ObjetosController@index')->name('admin/objetos');
 
-    Route::get('crear', function () {
-      return view('forms.objeto_create');
-    })->name('admin/objetos/crear');
+    Route::get('crear', 'ObjetosController@create')->name('admin/objetos/crear');
 
-    Route::get('{objeto}/editar', function () {
-      return view('forms.objeto_update');
-    })->name('admin/objetos/editar');
+    Route::post('createObjeto', 'ObjetosController@store')->name('admin/createObjeto');
+
+    Route::get('{objeto}/editar', 'ObjetosController@edit')->name('admin/objetos/editar');
+
+    Route::post('{objeto}/updateObjeto', 'ObjetosController@update')->name('admin/updateObjeto');
+
+    Route::get('{objeto}/deleteObjeto', 'ObjetosController@destroy')->name('admin/deleteObjeto');
+
+    Route::get('{objeto}/restoreObjeto', 'ObjetosController@restore')->name('admin/restoreObjeto');
 
     // Conjuntos
     Route::get('conjuntos', 'ConjuntosController@index')->name('admin/objetos/conjuntos');
