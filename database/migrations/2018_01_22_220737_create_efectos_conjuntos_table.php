@@ -17,7 +17,7 @@ class CreateEfectosConjuntosTable extends Migration
             $table->increments('id');
             $table->integer('id_conjunto')->unsigned();
             $table->tinyInteger('num_requisito')->unsigned();
-            $table->string('efecto', 75);
+            $table->string('efecto', 200);
             $table->timestamps();
             $table->softDeletes();
 

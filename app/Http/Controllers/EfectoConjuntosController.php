@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\EfectoConjunto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Route;
+use Validator;
+use Hashids;
 
 class EfectoConjuntosController extends Controller
 {
@@ -14,7 +18,9 @@ class EfectoConjuntosController extends Controller
      */
     public function index()
     {
-        //
+      $efectos_conjuntos = EfectoConjunto::withTrashed()->orderBy('id_conjunto')->orderBy('num_requisito')->paginate(20);
+
+      return view('admin_efecto_conjuntos', [ 'efectos_conjuntos' => $efectos_conjuntos ]);
     }
 
     /**
@@ -24,7 +30,22 @@ class EfectoConjuntosController extends Controller
      */
     public function create()
     {
-        //
+      if(Route::getFacadeRoot()->current()->uri() == 'admin/objetos/conjuntos/efectos/crear')
+      {
+        $clases = \App\Clase::listNombreId();
+
+        return view('forms.habilidad_create', [ 'pasiva' => false, 'clases' => $clases ]);
+      }
+      else if(Route::getFacadeRoot()->current()->uri() == 'admin/habilidades/pasiva/crear')
+      {
+        $clases = \App\Clase::listNombreId();
+
+        return view('forms.habilidad_create', [ 'pasiva' => true, 'clases' => $clases ]);
+      }
+      else
+      {
+        abort(404, 'Página no encontrada');
+      }
     }
 
     /**
