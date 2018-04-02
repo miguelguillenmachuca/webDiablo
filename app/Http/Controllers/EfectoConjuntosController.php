@@ -20,7 +20,7 @@ class EfectoConjuntosController extends Controller
     {
       $efectos_conjuntos = EfectoConjunto::withTrashed()->orderBy('id_conjunto')->orderBy('num_requisito')->paginate(20);
 
-      return view('admin_efecto_conjuntos', [ 'efectos_conjuntos' => $efectos_conjuntos ]);
+      return view('admin_objetos_conjuntos_efectos', [ 'efectos_conjuntos' => $efectos_conjuntos ]);
     }
 
     /**
@@ -30,22 +30,9 @@ class EfectoConjuntosController extends Controller
      */
     public function create()
     {
-      if(Route::getFacadeRoot()->current()->uri() == 'admin/objetos/conjuntos/efectos/crear')
-      {
-        $clases = \App\Clase::listNombreId();
+      $conjuntos = \App\Conjunto::listNombreId();
 
-        return view('forms.habilidad_create', [ 'pasiva' => false, 'clases' => $clases ]);
-      }
-      else if(Route::getFacadeRoot()->current()->uri() == 'admin/habilidades/pasiva/crear')
-      {
-        $clases = \App\Clase::listNombreId();
-
-        return view('forms.habilidad_create', [ 'pasiva' => true, 'clases' => $clases ]);
-      }
-      else
-      {
-        abort(404, 'Página no encontrada');
-      }
+      return view('forms.objeto_conjunto_efectos_create', ['conjuntos' => $conjuntos ]);
     }
 
     /**
@@ -56,7 +43,30 @@ class EfectoConjuntosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+
+      $request->merge([ 'id_conjunto' => $hashids->decode($request->id_conjunto)[0] ]);
+
+      $validator = EfectoConjuntosController::validateModel($request);
+
+      if($validator->fails())
+      {
+        return redirect()->back()
+        ->withErrors($validator)
+        ->withInput();
+      }
+      else
+      {
+        $efecto_conjunto=new EfectoConjunto;
+
+        $efecto_conjunto->id_conjunto = $request->id_conjunto;
+        $efecto_conjunto->num_requisito = $request->num_requisito;
+        $efecto_conjunto->efecto = $request->efecto;
+
+        $efecto_conjunto->save();
+
+        return redirect()->back();
+      }
     }
 
     /**
@@ -78,7 +88,13 @@ class EfectoConjuntosController extends Controller
      */
     public function edit(EfectosConjunto $efectosConjunto)
     {
-        //
+      $conjuntos = \App\Conjunto::listNombreId();
+
+      $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+
+      $default = $hashids->encode($efectosConjunto->id_conjunto);
+
+      return view('forms.habilidad_update', [ 'efecto_conjunto' => $efectosConjunto, 'conjunto' => $conjuntos, 'default' => $default ]);
     }
 
     /**
@@ -90,7 +106,25 @@ class EfectoConjuntosController extends Controller
      */
     public function update(Request $request, EfectosConjunto $efectosConjunto)
     {
-        //
+      $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+
+      $request->merge([ 'id_conjunto' => $hashids->decode($request->id_conjunto)[0] ]);
+
+      $validator = EfectoConjuntosController::validateModel($request, $efectosConjunto);
+
+      if($validator->fails())
+      {
+        return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput();
+      }
+      else
+      {
+        $efectosConjunto->edit($request->all());
+
+        return redirect()->back();
+      }
     }
 
     /**
@@ -101,6 +135,46 @@ class EfectoConjuntosController extends Controller
      */
     public function destroy(EfectosConjunto $efectosConjunto)
     {
-        //
+      if(!$efectosConjunto->trashed())
+      {
+        $efectosConjunto->delete();
+      }
+
+      return redirect()->back();
+    }
+
+    /**
+    * Restore the specified removed resource from storage.
+    *
+    * @param  \App\EfectosConjunto  $efectosConjunto
+    * @return \Illuminate\Http\Response
+    */
+    public function restore(EfectosConjunto $efectosConjunto)
+    {
+      if($efectosConjunto->trashed())
+      {
+        $efectosConjunto->restore();
+      }
+
+      return redirect()->back();
+    }
+
+    /**
+    * Validate the attributes of a model
+    *
+    * @param  Request   $request
+    * @return Response  Validator
+    */
+    public static function validateModel(Request $request)
+    {
+      // Testing the data received
+      $validator = Validator::make($request->all(), [
+        'nombre' => 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ ]*$/u',
+        'num_requisito' => 'numeric|min:0',
+        'id_conjunto' => 'required|exists:conjunto,id',
+        'efecto' => 'required|min:5|max:1000|string',
+      ]);
+
+      return $validator;
     }
 }

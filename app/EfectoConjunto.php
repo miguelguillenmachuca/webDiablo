@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Validator;
 use Hashids;
 
-class EfectosConjunto extends Model
+class EfectoConjunto extends Model
 {
     use SoftDeletes;
 
