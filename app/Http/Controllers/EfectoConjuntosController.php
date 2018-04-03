@@ -94,7 +94,7 @@ class EfectoConjuntosController extends Controller
 
       $default = $hashids->encode($efectosConjunto->id_conjunto);
 
-      return view('forms.habilidad_update', [ 'efecto_conjunto' => $efectosConjunto, 'conjunto' => $conjuntos, 'default' => $default ]);
+      return view('forms.objeto_conjunto_efectos_update', [ 'efecto_conjunto' => $efectosConjunto, 'conjuntos' => $conjuntos, 'default' => $default ]);
     }
 
     /**
