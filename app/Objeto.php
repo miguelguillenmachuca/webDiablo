@@ -71,6 +71,14 @@ class Objeto extends Model
   }
 
   /**
+  * Relationship
+  */
+  public function objeto()
+  {
+    return $this->belongsToMany('App\Guia', 'guia_objeto', 'id_objeto', 'id_guia');
+  }
+
+  /**
   * Get the value of the model's route key.
   *
   * @return mixed

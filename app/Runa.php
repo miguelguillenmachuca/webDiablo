@@ -62,6 +62,14 @@ class Runa extends Model
   }
 
   /**
+  * Relationship
+  */
+  public function guia()
+  {
+    return $this->belongsToMany('App\Guia', 'guia_habilidad', 'id_runa', 'id_guia');
+  }
+
+  /**
   * Get the value of the model's route key.
   *
   * @return mixed

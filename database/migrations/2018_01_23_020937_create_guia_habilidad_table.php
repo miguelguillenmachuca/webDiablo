@@ -17,7 +17,7 @@ class CreateGuiaHabilidadTable extends Migration
             $table->increments('id');
             $table->integer('id_guia')->unsigned();
             $table->integer('id_habilidad')->unsigned();
-            $table->integer('id_runa')->unsigned();
+            $table->integer('id_runa')->unsigned()->nullable();
             $table->enum('posicion', ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'p1', 'p2', 'p3', 'p4']);
             $table->timestamps();
             $table->softDeletes();
