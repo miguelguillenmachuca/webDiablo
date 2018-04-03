@@ -72,10 +72,10 @@ class EfectoConjuntosController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\EfectosConjunto  $efectosConjunto
+     * @param  \App\EfectoConjunto  $efectosConjunto
      * @return \Illuminate\Http\Response
      */
-    public function show(EfectosConjunto $efectosConjunto)
+    public function show(EfectoConjunto $efectosConjunto)
     {
         //
     }
@@ -83,10 +83,10 @@ class EfectoConjuntosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\EfectosConjunto  $efectosConjunto
+     * @param  \App\EfectoConjunto  $efectosConjunto
      * @return \Illuminate\Http\Response
      */
-    public function edit(EfectosConjunto $efectosConjunto)
+    public function edit(EfectoConjunto $efectosConjunto)
     {
       $conjuntos = \App\Conjunto::listNombreId();
 
@@ -101,10 +101,10 @@ class EfectoConjuntosController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\EfectosConjunto  $efectosConjunto
+     * @param  \App\EfectoConjunto  $efectosConjunto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EfectosConjunto $efectosConjunto)
+    public function update(Request $request, EfectoConjunto $efectosConjunto)
     {
       $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
@@ -130,10 +130,10 @@ class EfectoConjuntosController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\EfectosConjunto  $efectosConjunto
+     * @param  \App\EfectoConjunto  $efectosConjunto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EfectosConjunto $efectosConjunto)
+    public function destroy(EfectoConjunto $efectosConjunto)
     {
       if(!$efectosConjunto->trashed())
       {
@@ -146,10 +146,10 @@ class EfectoConjuntosController extends Controller
     /**
     * Restore the specified removed resource from storage.
     *
-    * @param  \App\EfectosConjunto  $efectosConjunto
+    * @param  \App\EfectoConjunto  $efectosConjunto
     * @return \Illuminate\Http\Response
     */
-    public function restore(EfectosConjunto $efectosConjunto)
+    public function restore(EfectoConjunto $efectosConjunto)
     {
       if($efectosConjunto->trashed())
       {
@@ -169,8 +169,7 @@ class EfectoConjuntosController extends Controller
     {
       // Testing the data received
       $validator = Validator::make($request->all(), [
-        'nombre' => 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ ]*$/u',
-        'num_requisito' => 'numeric|min:0',
+        'num_requisito' => 'numeric|min:2',
         'id_conjunto' => 'required|exists:conjunto,id',
         'efecto' => 'required|min:5|max:1000|string',
       ]);
