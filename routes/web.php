@@ -63,6 +63,24 @@ Route::group([ 'prefix' => 'admin' ], function () {
     return view('adminHome');
   })->name('admin/home');
 
+  // RUTAS DE GUÍAS
+  Route::group([ 'prefix' => 'guia' ], function() {
+    Route::get('/', 'GuiasController@index')->name('admin/guias');
+
+    Route::get('crear', function () {
+      return view('forms.guia_create');
+    })->name('admin/guias/crear');
+
+    Route::get('{guia}/editar', function () {
+      return view('forms.guia_update');
+    })->name('admin/guias/editar');
+
+    Route::get('{clase}/deleteGuia', 'ClasesController@destroy')->name('admin/deleteGuia');
+
+    Route::get('{clase}/restoreGuia', 'ClasesController@restore')->name('admin/restoreGuia');
+  });
+});
+
   // RUTAS DE CLASES
   Route::group([ 'prefix' => 'clases' ], function () {
     Route::get('/', 'ClasesController@index')->name('admin/clases');
@@ -197,19 +215,5 @@ Route::group([ 'prefix' => 'admin' ], function () {
 
     Route::get('{usuario}/restoreUser', 'UsersController@restore')->name('admin/restoreUser');
   });
-
-  // RUTAS DE GUÍAS
-  Route::get('guias', function () {
-    return view('admin_guias');
-  })->name('admin/guias');
-
-  Route::get('guias/crear', function () {
-    return view('forms.guia_create');
-  })->name('admin/guias/crear');
-
-  Route::get('guias/{guia}/editar', function () {
-    return view('forms.guia_update');
-  })->name('admin/guias/editar');
-});
 
 Route::get('/home', 'HomeController@index')->name('home');

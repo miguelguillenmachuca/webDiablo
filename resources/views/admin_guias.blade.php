@@ -17,23 +17,7 @@
 
           <div class="col-xs-12 col-sm-6 col-sm-pull-6 margen-sup">
             <div>
-              <ul class="pagination pagination-redondo">
-                <li>
-                  <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                  <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
+              {{ $guias->links('pagination.limit_links') }}
             </div> <!-- Fin del div paginado -->
           </div>
         </div> <!-- Fin del div row -->
@@ -55,32 +39,16 @@
             </thead>
 
             <tbody>
-              <tr class="inactive">
-                <td>guia1</td>
-                <td>usuario1</td>
-                <td>clase1</td>
-                <td>Privada</td>
-                <td class="inactive"><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
-                <td><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
-              </tr>
-
-              <tr>
-                <td>guia1</td>
-                <td>usuario1</td>
-                <td>clase1</td>
-                <td>Pública</td>
-                <td><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
-                <td class="inactive"><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
-              </tr>
-
-              <tr>
-                <td>guia1</td>
-                <td>usuario1</td>
-                <td>clase1</td>
-                <td>Privada</td>
-                <td><a href="#"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
-                <td class="inactive"><a href="#"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
-              </tr>
+              @foreach ($guias as $guia)
+                <tr class="{{ $guia->trashed() ? 'inactive' : '' }}">
+                  <td>{{ $guia->nombre }}</td>
+                  <td>{{ $guia->usuario->nombre }}</td>
+                  <td>{{ $guia->clase->nombre }}</td>
+                  <td>{{ $guia->visibilidad }}</td>
+                  <td class="{{ $guia->trashed() ? 'inactive' : '' }}"><a href="{{ $guia->trashed() ? '#' : route('admin/deleteGuia', [ $guia ]) }}"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
+                  <td class="{{ $guia->trashed() ? '' : 'inactive' }}"><a href="{{ !$guia->trashed() ? '#' : route('admin/restoreGuia', [ $guia->getRouteKey() ]) }}"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>
+                </tr>
+              @endforeach
             </tbody>
           </table>
         </div>
@@ -88,23 +56,7 @@
 
       <div class="col-xs-12">
         <div>
-          <ul class="pagination pagination-redondo">
-            <li>
-              <a href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li>
-              <a href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
+          {{ $guias->links('pagination.limit_links') }}
         </div> <!-- Fin del div paginado -->
       </div>
     </div> <!-- Fin del div row -->

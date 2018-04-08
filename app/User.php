@@ -39,6 +39,18 @@ class User extends Authenticatable
     'password', 'remember_token',
   ];
 
+  /**********************************************************/
+  /***************** Relationships **************************/
+  /**********************************************************/
+
+  /**
+  * Relationship
+  */
+  public function guias()
+  {
+    return $this->hasMany('App\Guia', 'id_usuario', 'id');
+  }
+
   /**
   * Get the value of the model's route key.
   *

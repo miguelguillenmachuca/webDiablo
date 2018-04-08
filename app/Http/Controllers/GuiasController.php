@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Guia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Route;
+use Validator;
+use Hashids;
 
 class GuiasController extends Controller
 {
@@ -14,7 +18,9 @@ class GuiasController extends Controller
      */
     public function index()
     {
-        //
+        $guias = Guia::withTrashed()->paginate(20);
+
+        return view('admin_guias', [ 'guias' => $guias ]);
     }
 
     /**
@@ -80,6 +86,43 @@ class GuiasController extends Controller
      */
     public function destroy(Guia $guia)
     {
-        //
+      if(!$guia->trashed())
+      {
+        $guia->delete();
+      }
+
+      return redirect()->back();
+    }
+
+    /**
+    * Restore the specified removed resource from storage.
+    *
+    * @param  \App\Guia  $guia
+    * @return \Illuminate\Http\Response
+    */
+    public function restore(Guia $guia)
+    {
+      if($guia->trashed())
+      {
+        $guia->restore();
+      }
+
+      return redirect()->back();
+    }
+
+    /**
+    * Validate the attributes of a model
+    *
+    * @param  Request   $request
+    * @return Response  Validator
+    */
+    public static function validateModel(Request $request)
+    {
+      // Testing the data received
+      $validator = Validator::make($request->all(), [
+        'nombre' => 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ ]*$/u',
+      ]);
+
+      return $validator;
     }
 }
