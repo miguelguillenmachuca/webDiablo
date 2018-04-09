@@ -39,19 +39,17 @@ Route::group([ 'prefix' => 'usuario' ], function() {
   Route::get('{usuario}', 'UsersController@show'
   )->name('usuario/show');
 
+  Route::get('{usuario}/guias_publi', 'UsersController@show')->name('usuario/guias_publi');
+
+  Route::get('{usuario}/comentarios', 'UsersController@show'
+  )->name('usuario/comentarios');
+
+  Route::get('{usuario}/favoritas', 'UsersController@show'
+  )->name('usuario/favoritas');
+
   Route::get('{usuario}/ajustes', function () {
     return view('cambiarAjustes');
   })->name('usuario/ajustes');
-
-  Route::get('{usuario}/comentarios', function () {
-    return view('visualizarUsuario');
-  })->name('usuario/comentarios');
-
-  Route::get('{usuario}/favoritas', function () {
-    return view('visualizarUsuario');
-  })->name('usuario/favoritas');
-
-  Route::get('{usuario}/guias_publi', 'UsersController@show')->name('usuario/guias_publi');
 });
 
 // ---------------- RUTAS DE ADMINISTRACIÓN ----------------

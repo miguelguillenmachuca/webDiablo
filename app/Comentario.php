@@ -51,7 +51,7 @@ class Comentario extends Model
     /**
     * Relationship
     */
-    public function guias()
+    public function guia()
     {
       return $this->belongsTo('App\Guia', 'id_guia', 'id');
     }

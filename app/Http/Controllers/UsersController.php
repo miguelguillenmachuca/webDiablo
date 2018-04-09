@@ -73,11 +73,29 @@ class UsersController extends Controller
   */
   public function show(User $user)
   {
-    $guias = $user->guias()->paginate(10);
+    switch(Route::currentRouteName())
+    {
+      case 'usuario/show':
+      case 'usuario/guias_publi':
+        $guias = $user->guias()->paginate(10);
 
-    // dd(Route::currentRouteName());
+        return view('visualizarUsuario', [ 'usuario' => $user, 'guias' => $guias ]);
+      break;
 
-    return view('visualizarUsuario', [ 'usuario' => $user, 'guias' => $guias ]);
+      case 'usuario/comentarios':
+        $comentarios = $user->comentarios()->paginate(10);
+
+        return view('visualizarUsuario', [ 'usuario' => $user, 'comentarios' => $comentarios ]);
+      break;
+
+      case 'usuario/favoritas':
+        $guias = $user->guias()->paginate(10);
+
+        return view('visualizarUsuario', [ 'usuario' => $user, 'guias' => $guias ]);
+      break;
+    }
+
+    App::abort(404, 'Página no encontrada');
   }
 
   /**
