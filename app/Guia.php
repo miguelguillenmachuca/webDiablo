@@ -109,6 +109,14 @@ class Guia extends Model
     }
 
     /**
+    * Relationship
+    */
+    public function usuarios_favoritos()
+    {
+      return $this->belongsToMany('App\User', 'voto_positivo', 'id_guia', 'id_usuario');
+    }
+
+    /**
     * Get the value of the model's route key.
     *
     * @return mixed

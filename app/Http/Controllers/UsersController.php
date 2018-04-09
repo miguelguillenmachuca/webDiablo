@@ -89,7 +89,7 @@ class UsersController extends Controller
       break;
 
       case 'usuario/favoritas':
-        $guias = $user->guias()->paginate(10);
+        $guias = $user->guias_favoritas()->paginate(10);
 
         return view('visualizarUsuario', [ 'usuario' => $user, 'guias' => $guias ]);
       break;

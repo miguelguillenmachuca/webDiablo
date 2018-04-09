@@ -75,6 +75,14 @@ class User extends Authenticatable
   }
 
   /**
+  * Relationship
+  */
+  public function guias_favoritas()
+  {
+    return $this->belongsToMany('App\Guia', 'voto_positivo', 'id_usuario', 'id_guia');
+  }
+
+  /**
   * Get the value of the model's route key.
   *
   * @return mixed
