@@ -2,24 +2,22 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Validator;
-use Auth;
 use Hashids;
 
-class User extends Authenticatable
+class VotoPositivo extends Model
 {
-  use Notifiable, SoftDeletes;
+  use SoftDeletes;
 
   /**
   * The table associated with the model.
   *
   * @var string
   */
-  protected $table = 'users';
+  protected $table = 'voto_positivo';
 
   /**
   * The attributes that should be mutated to dates.
@@ -34,7 +32,7 @@ class User extends Authenticatable
   * @var array
   */
   protected $fillable = [
-    'nombre', 'email', 'password', 'tipo_usuario', 'foto_usuario',
+    'id_guia', 'id_usuario',
   ];
 
   /**
@@ -43,7 +41,7 @@ class User extends Authenticatable
   * @var array
   */
   protected $hidden = [
-    'password', 'remember_token',
+
   ];
 
   /**********************************************************/
@@ -55,23 +53,15 @@ class User extends Authenticatable
   */
   public function guias()
   {
-    return $this->hasMany('App\Guia', 'id_usuario', 'id');
+    return $this->belongsTo('App\Guia', 'id_guia', 'id');
   }
 
   /**
   * Relationship
   */
-  public function comentarios()
+  public function usuario()
   {
-    return $this->hasMany('App\Comentario', 'id_usuario', 'id');
-  }
-
-  /**
-  * Relationship
-  */
-  public function voto_positivo()
-  {
-    return $this->hasMany('App\VotoPositivo', 'id_usuario', 'id');
+    return $this->belongsTo('App\Usuario', 'id_usuario', 'id');
   }
 
   /**
@@ -94,41 +84,6 @@ class User extends Authenticatable
   */
   public function edit($new_values)
   {
-    if(array_key_exists('password', $new_values))
-    {
-      $new_values['password'] = Hash::make($new_values['password']);
-    }
-
     $this->update($new_values);
-  }
-
-  /**
-  * Get the number of relationships with guia
-  *
-  * @return integer
-  */
-  public function get_num_guias()
-  {
-    return $this->guias()->count();
-  }
-
-  /**
-  * Get the number of relationships with comentario
-  *
-  * @return integer
-  */
-  public function get_num_comentarios()
-  {
-    return $this->comentarios()->count();
-  }
-
-  /**
-  * Get the number of relationships with voto_positivo
-  *
-  * @return integer
-  */
-  public function get_num_likes()
-  {
-    return $this->voto_positivo()->count();
   }
 }

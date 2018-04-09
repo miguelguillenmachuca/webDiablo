@@ -93,6 +93,22 @@ class Guia extends Model
     }
 
     /**
+    * Relationship
+    */
+    public function comentarios()
+    {
+      return $this->hasMany('App\Comentario', 'id_guia', 'id');
+    }
+
+    /**
+    * Relationship
+    */
+    public function voto_positivo()
+    {
+      return $this->hasMany('App\VotoPositivo', 'id_guia', 'id');
+    }
+
+    /**
     * Get the value of the model's route key.
     *
     * @return mixed
@@ -113,5 +129,25 @@ class Guia extends Model
     public function edit($new_values)
     {
       $this->update($new_values);
+    }
+
+    /**
+    * Get the number of relationships with comentario
+    *
+    * @return integer
+    */
+    public function get_num_comentarios()
+    {
+      return $this->comentarios()->count();
+    }
+
+    /**
+    * Get the number of relationships with voto_positivo
+    *
+    * @return integer
+    */
+    public function get_num_likes()
+    {
+      return $this->voto_positivo()->count();
     }
 }

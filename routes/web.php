@@ -43,10 +43,6 @@ Route::group([ 'prefix' => 'usuario' ], function() {
     return view('cambiarAjustes');
   })->name('usuario/ajustes');
 
-  Route::get('{usuario}/guias', function () {
-    return view('visualizarUsuario');
-  })->name('usuario/guias');
-
   Route::get('{usuario}/comentarios', function () {
     return view('visualizarUsuario');
   })->name('usuario/comentarios');
@@ -54,6 +50,8 @@ Route::group([ 'prefix' => 'usuario' ], function() {
   Route::get('{usuario}/favoritas', function () {
     return view('visualizarUsuario');
   })->name('usuario/favoritas');
+
+  Route::get('{usuario}/guias_publi', 'UsersController@show')->name('usuario/guias_publi');
 });
 
 // ---------------- RUTAS DE ADMINISTRACIÓN ----------------

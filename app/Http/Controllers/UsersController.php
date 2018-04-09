@@ -73,7 +73,11 @@ class UsersController extends Controller
   */
   public function show(User $user)
   {
-    return view('visualizarUsuario', [ 'usuario' => $user ]);
+    $guias = $user->guias()->paginate(10);
+
+    // dd(Route::currentRouteName());
+
+    return view('visualizarUsuario', [ 'usuario' => $user, 'guias' => $guias ]);
   }
 
   /**
