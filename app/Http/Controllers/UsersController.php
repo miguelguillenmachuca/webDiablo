@@ -73,7 +73,7 @@ class UsersController extends Controller
   */
   public function show(User $user)
   {
-    return view('visualizarUsuario')->with('usuario', $user);
+    return view('visualizarUsuario', [ 'usuario' => $user ]);
   }
 
   /**

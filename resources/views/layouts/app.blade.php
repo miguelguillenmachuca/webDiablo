@@ -48,7 +48,6 @@
                           <li class="{{ isActiveUrl('crearGuia') }}"><a href="{{ route('crearGuia') }}">Crear guía</a></li>
                           <li class="{{ isActiveRoute('guia/*') }}"><a href="{{ route('guia/buscar') }}">Guías</a></li>
                           <li class="{{ isActiveUrl('tutorial') }}"><a href="tutorial.php">¿Cómo usar la página?</a></li>
-                          <li><a href="{{ route('usuario/ajustes') }}">Enlace temporal a ajustes</a></li>
                         </ul>
                     </ul>
 
@@ -66,9 +65,10 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="">Panel de cuenta</a></li>
-                                    <li><a href="">Mis guías</a></li>
-                                    <li><a href="">Mis guías favoritas</a></li>
+                                    <li><a href="{{ route('usuario/show', [ Auth::user() ]) }}">Panel de cuenta</a></li>
+                                    <li><a href="{{ route('usuario/ajustes', [ Auth::user() ]) }}">Ajustes</a></li>
+                                    <li><a href="{{ route('usuario/guias', [ Auth::user() ]) }}">Mis guías</a></li>
+                                    <li><a href="{{ route('usuario/favoritas', [ Auth::user() ]) }}">Mis guías favoritas</a></li>
                                     @if(Auth::user()->tipo_usuario == 'administrador')
                                       <li><a href="{{ route('admin') }}">Panel de administración</a></li>
                                     @endif

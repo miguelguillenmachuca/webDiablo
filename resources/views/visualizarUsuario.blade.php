@@ -13,9 +13,9 @@
           </div>
 
           <div class="col-xs-9 col-sm-5 col-md-8">
-            <h3>Nombre de usuario</h3>
-            <h4>Usuario/administrador</h4>
-            <p>Se unió el 12/12/2012</p>
+            <h3>{{ $usuario->nombre }}</h3>
+            <h4>{{ $usuario->tipo_usuario }}</h4>
+            <p>Se unió el {{ $usuario->created_at }}</p>
           </div>
 
           <div class="col-xs-12 col-sm-6 col-md-3 margen-inf">

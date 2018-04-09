@@ -35,23 +35,26 @@ Route::get('/guia/{guia}', function () {
 })->name('guia/show');
 
 // RUTAS DE USUARIO
-Route::get('/usuario/ajustes', function () {
-  return view('cambiarAjustes');
-})->name('usuario/ajustes');
+Route::group([ 'prefix' => 'usuario' ], function() {
+  Route::get('{usuario}', 'UsersController@show'
+  )->name('usuario/show');
 
-Route::get('/usuario/{user}', 'UsersController@show')->name('usuario/show');
+  Route::get('{usuario}/ajustes', function () {
+    return view('cambiarAjustes');
+  })->name('usuario/ajustes');
 
-Route::get('/usuario/{user}/guias', function () {
-  return view('visualizarUsuario');
-})->name('usuario/guias');
+  Route::get('{usuario}/guias', function () {
+    return view('visualizarUsuario');
+  })->name('usuario/guias');
 
-Route::get('/usuario/{user}/comentarios', function () {
-  return view('visualizarUsuario');
-})->name('usuario/comentarios');
+  Route::get('{usuario}/comentarios', function () {
+    return view('visualizarUsuario');
+  })->name('usuario/comentarios');
 
-Route::get('/usuario/{user}/favoritas', function () {
-  return view('visualizarUsuario');
-})->name('usuario/favoritas');
+  Route::get('{usuario}/favoritas', function () {
+    return view('visualizarUsuario');
+  })->name('usuario/favoritas');
+});
 
 // ---------------- RUTAS DE ADMINISTRACIÓN ----------------
 Route::group([ 'prefix' => 'admin' ], function () {
