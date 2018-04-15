@@ -73,7 +73,7 @@ class Objeto extends Model
   /**
   * Relationship
   */
-  public function objeto()
+  public function guia()
   {
     return $this->belongsToMany('App\Guia', 'guia_objeto', 'id_objeto', 'id_guia');
   }

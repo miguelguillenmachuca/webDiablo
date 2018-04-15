@@ -81,7 +81,7 @@ class Guia extends Model
     */
     public function habilidad()
     {
-      return $this->belongsToMany('App\Objeto', 'guia_habilidad', 'id_guia', 'id_habilidad');
+      return $this->belongsToMany('App\Habilidad', 'guia_habilidad', 'id_guia', 'id_habilidad')->using('App\GuiaHabilidad')->withPivot('id_runa', 'posicion')->withTimestamps();
     }
 
     /**

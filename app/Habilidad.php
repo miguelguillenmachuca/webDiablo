@@ -70,6 +70,14 @@ class Habilidad extends Model
   }
 
   /**
+  * Relationship
+  */
+  public function guia()
+  {
+    return $this->belongsToMany('App\Guia', 'guia_habilidad', 'id_habilidad', 'id_guia')->using('App\GuiaHabilidad')->withPivot('id_runa', 'posicion')->withTimestamps();
+  }
+
+  /**
   * Get the value of the model's route key.
   *
   * @return mixed
