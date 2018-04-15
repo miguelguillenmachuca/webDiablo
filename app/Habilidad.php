@@ -99,4 +99,50 @@ class Habilidad extends Model
   {
     $this->update($new_values);
   }
+
+  /**
+  * Retrieve a list of the nombre and id pairings of all model
+  *
+  * @return array
+  */
+  public static function listNombreIdActiva()
+  {
+    $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+
+    $id = Habilidad::where('tipo_habilidad', 'activa')->orderBy('nombre')->pluck('id')->toArray();
+
+    foreach ($id as $key => $value)
+    {
+      $id[$key] = $hashids->encode($value);
+    }
+
+    $nombre = Habilidad::where('tipo_habilidad', 'activa')->orderBy('nombre')->pluck('nombre')->toArray();
+
+    $data = array_combine($id, $nombre);
+
+    return $data;
+  }
+
+  /**
+  * Retrieve a list of the nombre and id pairings of all model
+  *
+  * @return array
+  */
+  public static function listNombreIdPasiva()
+  {
+    $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+
+    $id = Habilidad::where('tipo_habilidad', 'pasiva')->orderBy('nombre')->pluck('id')->toArray();
+
+    foreach ($id as $key => $value)
+    {
+      $id[$key] = $hashids->encode($value);
+    }
+
+    $nombre = Habilidad::where('tipo_habilidad', 'activa')->orderBy('nombre')->pluck('nombre')->toArray();
+
+    $data = array_combine($id, $nombre);
+
+    return $data;
+  }
 }

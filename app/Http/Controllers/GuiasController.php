@@ -26,11 +26,31 @@ class GuiasController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param  \App\Clase $clase
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(\App\Clase $clase = null)
     {
-        //
+      switch(Route::currentRouteName())
+      {
+        case 'crearGuia':
+          $clases = \App\Clase::orderBy('nombre')->get();
+
+          return view('crearGuia', [ 'clases' => $clases ]);
+        break;
+
+        case 'formularioCrearGuia':
+          $habilidadesActivas = \App\Habilidad::listNombreIdActiva();
+
+          $runas = \App\Runa::listNombreId($clase);
+
+          $habilidadesPasivas = \App\Habilidad::listNombreIdPasiva();
+
+          return view ('forms.guia_create');
+        break;
+      }
+
+      App::abort(404, 'Página no encontrada');
     }
 
     /**

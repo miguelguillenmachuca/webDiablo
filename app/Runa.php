@@ -99,4 +99,30 @@ class Runa extends Model
   {
     $this->update($new_values);
   }
+
+  /**
+  * Retrieve a list of the nombre and id pairings of all model
+  *
+  * @param  \App\Clase $clase
+  * @return array
+  */
+  public static function listNombreId(\App\Clase $clase)
+  {
+    $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+
+    $idHabilidades = \App\Habilidad::where('id_clase', $clase->id)->where('tipo_habilidad', 'activa')->orderBy('nombre')->pluck('id')->toArray();
+
+    $id = Runa::whereIn('id_habilidad', $idHabilidades)->orderBy('id_habilidad')->pluck('id')->toArray();
+
+    foreach ($id as $key => $value)
+    {
+      $id[$key] = $hashids->encode($value);
+    }
+
+    $nombre = Runa::whereIn('id_habilidad', $idHabilidades)->orderBy('id_habilidad')->pluck('nombre')->toArray();
+
+    $data = array_combine($id, $nombre);
+
+    return $data;
+  }
 }
