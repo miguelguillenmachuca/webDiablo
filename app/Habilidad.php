@@ -103,20 +103,21 @@ class Habilidad extends Model
   /**
   * Retrieve a list of the nombre and id pairings of all model
   *
+  * @param \App\Clase $clase
   * @return array
   */
-  public static function listNombreIdActiva()
+  public static function listNombreIdActiva(Clase $clase)
   {
     $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
-    $id = Habilidad::where('tipo_habilidad', 'activa')->orderBy('nombre')->pluck('id')->toArray();
+    $id = Habilidad::where('id_clase', $clase->id)->where('tipo_habilidad', 'activa')->orderBy('nombre')->pluck('id')->toArray();
 
     foreach ($id as $key => $value)
     {
       $id[$key] = $hashids->encode($value);
     }
 
-    $nombre = Habilidad::where('tipo_habilidad', 'activa')->orderBy('nombre')->pluck('nombre')->toArray();
+    $nombre = Habilidad::where('id_clase', $clase->id)->where('tipo_habilidad', 'activa')->orderBy('nombre')->pluck('nombre')->toArray();
 
     $data = array_combine($id, $nombre);
 
@@ -126,20 +127,21 @@ class Habilidad extends Model
   /**
   * Retrieve a list of the nombre and id pairings of all model
   *
+  * @param \App\Clase $clase
   * @return array
   */
-  public static function listNombreIdPasiva()
+  public static function listNombreIdPasiva(Clase $clase)
   {
     $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
-    $id = Habilidad::where('tipo_habilidad', 'pasiva')->orderBy('nombre')->pluck('id')->toArray();
+    $id = Habilidad::where('id_clase', $clase->id)->where('tipo_habilidad', 'pasiva')->orderBy('nombre')->pluck('id')->toArray();
 
     foreach ($id as $key => $value)
     {
       $id[$key] = $hashids->encode($value);
     }
 
-    $nombre = Habilidad::where('tipo_habilidad', 'activa')->orderBy('nombre')->pluck('nombre')->toArray();
+    $nombre = Habilidad::where('id_clase', $clase->id)->where('tipo_habilidad', 'pasiva')->orderBy('nombre')->pluck('nombre')->toArray();
 
     $data = array_combine($id, $nombre);
 

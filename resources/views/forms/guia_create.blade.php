@@ -3,16 +3,17 @@
 @section('content')
   <div id="main" class="container">
 
-    <form name="formGuia" id="formGuia" class="formGuia" action="formularioCrearGuia.php" method="post">
+    {{ Form::open([ 'url' => route('createGuia'), 'class' => "formGuia", 'id' => 'formGuia', 'name' => 'formGuia' ]) }}
+    {{-- <form name="formGuia" id="formGuia" class="formGuia" action="formularioCrearGuia.php" method="post"> --}}
       <h2 class="text-center">Introduzca los datos de la guía</h2>
       <div class="container-fluid">
 
         <div class="row padd-sup" id="seccionNombre">
           <div class="col-xs-12">
             <div class="form-group">
-              <h3 class="text-center"><label for="nombreGuia">Nombre de la guía</label></h3>
+              <h3 class="text-center">{{ Form::label('nombreGuia', 'Nombre de la guía') }}</h3>
               <p class="help-block">Incluye un nombre para la guía que sea fácilmente reconocible.</p>
-              <input type="text" class="form-control" name="nombreGuia" placeholder="Nombre de la guía">
+              {{ Form::text('nombreGuia', null, [ 'class' => 'form-control', 'placeholder' => 'Nombre de la guía' ]) }}
             </div>
           </div>
         </div>
@@ -24,113 +25,22 @@
             <h3 class="text-center bold">Habilidades y runas</h3>
             <p class="help-block">Elige las habilidades y las correspondientes runas que usará tu personaje</p>
             <div class="row">
-              <div class="form-group col-xs-6 col-md-4 contenedor-seccion" id="seccionHabilidad1">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <select class="form-control" name="habilidad1" id="habilidad1">
-                      <option>Elige una habilidad</option>
-                      <option value="1">Habilidad 1</option>
-                    </select>
-                  </div>
+              @for ($i=1; $i < 7; $i++)
+                <div class="form-group col-xs-6 col-md-4 contenedor-seccion" id="seccionHabilidad{{ $i }}">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      {{ Form::select( 'habilidad'.$i, $activas, null, [ 'placeholder' => 'Elige una habilidad', 'class' => 'form-control' ]) }}
+                    </div>
 
-                  <div class="margen-sup col-xs-offset-1 col-xs-10">
-                    <select class="form-control" name="runa1" id="runa1">
-                      <option>Elige una runa</option>
-                      <option value="1">Runa 1</option>
-                    </select>
+                    <div class="margen-sup col-xs-offset-1 col-xs-10">
+                      <select class="form-control" name="runa1" id="runa1">
+                        <option>Elige una runa</option>
+                        <option value="1">Runa 1</option>
+                      </select>
+                    </div>
                   </div>
-                </div>
-              </div> <!-- Fin del div seccionHabilidad1 -->
-
-              <div class="form-group col-xs-6 col-md-4 contenedor-seccion" id="seccionHabilidad2">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <select class="form-control" name="habilidad2" id="habilidad2">
-                      <option>Elige una habilidad</option>
-                      <option value="1">Habilidad 1</option>
-                    </select>
-                  </div>
-
-                  <div class="margen-sup col-xs-offset-1 col-xs-10">
-                    <select class="form-control" name="runa2" id="runa2">
-                      <option>Elige una runa</option>
-                      <option value="1">Runa 1</option>
-                    </select>
-                  </div>
-                </div>
-              </div> <!-- Fin del div seccionHabilidad2 -->
-
-              <div class="form-group col-xs-6 col-md-4 contenedor-seccion" id="seccionHabilidad3">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <select class="form-control" name="habilidad3" id="habilidad3">
-                      <option>Elige una habilidad</option>
-                      <option value="1">Habilidad 1</option>
-                    </select>
-                  </div>
-
-                  <div class="margen-sup col-xs-offset-1 col-xs-10">
-                    <select class="form-control" name="runa3" id="runa3">
-                      <option>Elige una runa</option>
-                      <option value="1">Runa 1</option>
-                    </select>
-                  </div>
-                </div>
-              </div> <!-- Fin del div seccionHabilidad3 -->
-
-              <div class="form-group col-xs-6 col-md-4 contenedor-seccion" id="seccionHabilidad4">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <select class="form-control" name="habilidad4" id="habilidad4">
-                      <option>Elige una habilidad</option>
-                      <option value="1">Habilidad 1</option>
-                    </select>
-                  </div>
-
-                  <div class="margen-sup col-xs-offset-1 col-xs-10">
-                    <select class="form-control" name="runa4" id="runa4">
-                      <option>Elige una runa</option>
-                      <option value="1">Runa 1</option>
-                    </select>
-                  </div>
-                </div>
-              </div> <!-- Fin del div seccionHabilidad4 -->
-
-              <div class="form-group col-xs-6 col-md-4 contenedor-seccion" id="seccionHabilidad5">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <select class="form-control" name="habilidad5" id="habilidad5">
-                      <option>Elige una habilidad</option>
-                      <option value="1">Habilidad 1</option>
-                    </select>
-                  </div>
-
-                  <div class="margen-sup col-xs-offset-1 col-xs-10">
-                    <select class="form-control" name="runa5" id="runa5">
-                      <option>Elige una runa</option>
-                      <option value="1">Runa 1</option>
-                    </select>
-                  </div>
-                </div>
-              </div> <!-- Fin del div seccionHabilidad5 -->
-
-              <div class="form-group col-xs-6 col-md-4 contenedor-seccion" id="seccionHabilidad6">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <select class="form-control" name="habilidad6" id="habilidad6">
-                      <option>Elige una habilidad</option>
-                      <option value="1">Habilidad 1</option>
-                    </select>
-                  </div>
-
-                  <div class="margen-sup col-xs-offset-1 col-xs-10">
-                    <select class="form-control" name="runa6" id="runa6">
-                      <option>Elige una runa</option>
-                      <option value="1">Runa 1</option>
-                    </select>
-                  </div>
-                </div> <!-- Fin del div row -->
-              </div> <!-- Fin del div seccionHabilidad6 -->
+                </div> <!-- Fin del div seccionHabilidad -->
+              @endfor
             </div> <!-- Fin del div seccionHabilidades -->
           </div>
         </div>
@@ -553,5 +463,6 @@
         </div> <!-- Fin del div seccionBotones -->
       </div> <!-- Fin del div container-fluid -->
     </form>
+    {{ Form::close() }}
   </div> <!-- Fin del div main -->
 @endsection

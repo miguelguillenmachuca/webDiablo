@@ -100,4 +100,27 @@ class Objeto extends Model
   {
     $this->update($new_values);
   }
+
+  /**
+  * Retrieve a list of the nombre and id pairings of all model
+  *
+  * @return array
+  */
+  public static function listData()
+  {
+    $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+
+    $id = Objeto::orderBy('nombre')->pluck('id')->toArray();
+
+    foreach ($id as $key => $value)
+    {
+      $id[$key] = $hashids->encode($value);
+    }
+
+    $nombre = Objeto::with('tipo_objeto')->orderBy('nombre')->pluck('nombre', 'id_clase', 'tipo_objeto.categoria')->toArray();
+
+    $data = array_combine($id, $nombre);
+
+    return $data;
+  }
 }

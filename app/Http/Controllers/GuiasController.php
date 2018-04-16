@@ -40,13 +40,15 @@ class GuiasController extends Controller
         break;
 
         case 'formularioCrearGuia':
-          $habilidadesActivas = \App\Habilidad::listNombreIdActiva();
+          $habilidadesActivas = \App\Habilidad::listNombreIdActiva($clase);
 
           $runas = \App\Runa::listNombreId($clase);
 
-          $habilidadesPasivas = \App\Habilidad::listNombreIdPasiva();
+          $habilidadesPasivas = \App\Habilidad::listNombreIdPasiva($clase);
 
-          return view ('forms.guia_create');
+          $objetos = \App\Objeto::listData();
+
+          return view ('forms.guia_create', [ 'activas' => $habilidadesActivas, 'runas' => $runas, 'pasivas' => $runas, 'objetos' => $objetos ]);
         break;
       }
 

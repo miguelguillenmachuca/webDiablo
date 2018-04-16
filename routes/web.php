@@ -19,8 +19,13 @@ Route::get('/', function () {
 Auth::routes();
 
 //  RUTAS DE CREAR GUÍA
-Route::get('/crearGuia', 'GuiasController@create')->name('crearGuia');
-Route::get('/crearGuia/{clase}/formularioCrearGuia', 'GuiasController@create')->name('formularioCrearGuia');
+Route::group([ 'prefix' => 'crearGuia' ], function() {
+  Route::get('/', 'GuiasController@create')->name('crearGuia');
+
+  Route::get('{clase}/formularioCrearGuia', 'GuiasController@create')->name('formularioCrearGuia');
+
+  Route::post('createGuia', 'GuiasController@store')->name('createGuia');
+});
 
 // RUTAS DE VISUALIZAR GUIAS
 Route::get('/guia/buscar', function () {

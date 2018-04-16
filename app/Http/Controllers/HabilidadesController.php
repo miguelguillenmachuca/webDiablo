@@ -31,13 +31,13 @@ class HabilidadesController extends Controller
   */
   public function create()
   {
-    if(Route::getFacadeRoot()->current()->uri() == 'admin/habilidades/crear')
+    if(Route::currentRouteName() == 'admin/habilidades/crear')
     {
       $clases = \App\Clase::listNombreId();
 
       return view('forms.habilidad_create', [ 'pasiva' => false, 'clases' => $clases ]);
     }
-    else if(Route::getFacadeRoot()->current()->uri() == 'admin/habilidades/pasiva/crear')
+    else if(Route::currentRouteName() == 'admin/habilidades/pasiva/crear')
     {
       $clases = \App\Clase::listNombreId();
 
