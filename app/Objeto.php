@@ -123,4 +123,108 @@ class Objeto extends Model
 
     return $data;
   }
+
+  /**
+  * Retrieve a list of the nombre and id pairings of all model, filtering by categoria and clase
+  *
+  * @param String $categoria
+  * @param \App\Clase $clase
+  * @return array
+  */
+  public static function listObjCat(string $categoria, \App\Clase $clase)
+  {
+    $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+
+    $id = Objeto::join('tipo_objeto', 'objeto.id_tipo_objeto', '=', 'tipo_objeto.id')
+      ->where('tipo_objeto.categoria_obj', $categoria)
+      ->where(function ($query) use ($clase)
+      {
+        $query->where('tipo_objeto.id_clase', null)
+              ->where('objeto.id_clase', $clase->id);
+
+        $query->orWhere('tipo_objeto.id_clase', null)
+              ->where('objeto.id_clase', null);
+
+        $query->orWhere('tipo_objeto.id_clase', $clase->id)
+              ->where('objeto.id_clase', $clase->id);
+
+        $query->orWhere('tipo_objeto.id_clase', $clase->id)
+              ->where('objeto.id_clase', null);
+      })
+      ->orderBy('objeto.nombre')
+      ->pluck('objeto.id')
+      ->toArray();
+
+    foreach ($id as $key => $value)
+    {
+      $id[$key] = $hashids->encode($value);
+    }
+
+    $nombre = Objeto::join('tipo_objeto', 'objeto.id_tipo_objeto', '=', 'tipo_objeto.id')
+      ->where('tipo_objeto.categoria_obj', $categoria)
+      ->where(function ($query) use ($clase)
+      {
+        $query->where('tipo_objeto.id_clase', null)
+              ->where('objeto.id_clase', $clase->id);
+
+        $query->orWhere('tipo_objeto.id_clase', null)
+              ->where('objeto.id_clase', null);
+
+        $query->orWhere('tipo_objeto.id_clase', $clase->id)
+              ->where('objeto.id_clase', $clase->id);
+
+        $query->orWhere('tipo_objeto.id_clase', $clase->id)
+              ->where('objeto.id_clase', null);
+      })
+      ->orderBy('objeto.nombre')
+      ->pluck('objeto.nombre')
+      ->toArray();
+
+    $data = array_combine($id, $nombre);
+
+    return $data;
+  }
+
+  // /**
+  // * Retrieve a list of the nombre and id pairings of all model, filtering by categoria and clase
+  // *
+  // * @param String $categoria
+  // * @param \App\Clase $clase
+  // * @return array
+  // */
+  // public static function listObjCat(string $categoria, \App\Clase $clase)
+  // {
+  //   $hashids = new \Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+  //
+  //   $id = Objeto::join('tipo_objeto', 'objeto.id_tipo_objeto', '=', 'tipo_objeto.id')
+  //     ->where('tipo_objeto.categoria_obj', $categoria)
+  //     ->where(function ($query) use ($clase)
+  //     {
+  //       $query->where('tipo_objeto.id_clase', null)
+  //             ->orWhere('tipo_objeto.id_clase', $clase->id);
+  //     })
+  //     ->orderBy('objeto.nombre')
+  //     ->pluck('objeto.id')
+  //     ->toArray();
+  //
+  //   foreach ($id as $key => $value)
+  //   {
+  //     $id[$key] = $hashids->encode($value);
+  //   }
+  //
+  //   $nombre = Objeto::join('tipo_objeto', 'objeto.id_tipo_objeto', '=', 'tipo_objeto.id')
+  //     ->where('tipo_objeto.categoria_obj', $categoria)
+  //     ->where(function ($query) use ($clase)
+  //     {
+  //       $query->where('tipo_objeto.id_clase', null)
+  //             ->orWhere('tipo_objeto.id_clase', $clase->id);
+  //     })
+  //     ->orderBy('objeto.nombre')
+  //     ->pluck('objeto.nombre')
+  //     ->toArray();
+  //
+  //   $data = array_combine($id, $nombre);
+  //
+  //   return $data;
+  // }
 }

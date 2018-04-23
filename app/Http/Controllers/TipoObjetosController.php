@@ -18,7 +18,7 @@ class TipoObjetosController extends Controller
      */
     public function index()
     {
-      $tipo_objetos = TipoObjeto::withTrashed()->orderBy('id_clase')->orderBy('nombre')->paginate(20);
+      $tipo_objetos = TipoObjeto::withTrashed()->orderBy('nombre')->paginate(20);
 
       return view('admin_tipo_objetos', [ 'tipo_objetos' => $tipo_objetos ]);
     }
@@ -148,7 +148,7 @@ class TipoObjetosController extends Controller
       {
         $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
-        $request->merge([ 'id_clase' => $hashids->decode($request->id_clase)[0] ]);        
+        $request->merge([ 'id_clase' => $hashids->decode($request->id_clase)[0] ]);
       }
 
       $validator = TipoObjetosController::validateModel($request, $tipoObjeto);

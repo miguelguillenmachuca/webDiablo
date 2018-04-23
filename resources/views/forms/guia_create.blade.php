@@ -33,10 +33,7 @@
                     </div>
 
                     <div class="margen-sup col-xs-offset-1 col-xs-10">
-                      <select class="form-control" name="runa1" id="runa1">
-                        <option>Elige una runa</option>
-                        <option value="1">Runa 1</option>
-                      </select>
+                      {{ Form::select( 'runa' .$i, $runas, null, [ 'placeholder' => 'Elige una runa', 'class' => 'form-control' ] ) }}
                     </div>
                   </div>
                 </div> <!-- Fin del div seccionHabilidad -->
@@ -52,33 +49,11 @@
             <h3 class="text-center bold">Habilidades pasivas</h3>
             <p class="help-block">Indica las habilidades pasivas que tendrá el personaje. Recuerda que no todos los personajes están al nivel máximo, así que no es necesario que incluyas las 4 pasivas.</p>
             <div class="row">
-              <div class="form-group col-xs-6 col-md-3" id="seccionPasiva1">
-                <select class="form-control" name="pasiva1" id="pasiva1">
-                  <option>Elige una pasiva</option>
-                  <option value="1">Pasiva 1</option>
-                </select>
-              </div> <!-- Fin del div seccionPasiva1 -->
-
-              <div class="form-group col-xs-6 col-md-3" id="seccionPasiva2">
-                <select class="form-control" name="pasiva2" id="pasiva2">
-                  <option>Elige una pasiva</option>
-                  <option value="1">Pasiva 1</option>
-                </select>
-              </div> <!-- Fin del div seccionPasiva2 -->
-
-              <div class="form-group col-xs-6 col-md-3" id="seccionPasiva3">
-                <select class="form-control" name="pasiva3" id="pasiva3">
-                  <option>Elige una pasiva</option>
-                  <option value="1">Pasiva 1</option>
-                </select>
-              </div> <!-- Fin del div seccionPasiva3 -->
-
-              <div class="form-group col-xs-6 col-md-3" id="seccionPasiva4">
-                <select class="form-control" name="pasiva4" id="pasiva4">
-                  <option>Elige una pasiva</option>
-                  <option value="1">Pasiva 1</option>
-                </select>
-              </div> <!-- Fin del div seccionPasiva4 -->
+              @for ($i=1; $i < 5; $i++)
+                <div class="form-group col-xs-6 col-md-3" id="seccionPasiva{{ $i }}">
+                  {{ Form::select( 'pasiva' .$i, $pasivas, null, [ 'placeholder' => 'Elige una pasiva', 'class' => 'form-control' ] ) }}
+                </div> <!-- Fin del div seccionPasiva1 -->
+              @endfor
             </div> <!-- Fin del div seccionHabilidades -->
           </div>
         </div>
@@ -95,107 +70,68 @@
                 <h4 class="text-center">Objetos</h4>
                 <div class="row">
                   <div class="form-group col-xs-6 col-md-4" id="seccionCabeza">
-                    <label for="cabeza">Cabeza</label>
-                    <select class="form-control" name="cabeza" id="cabeza">
-                      <option>Elige un objeto</option>
-                      <option value="1">Objeto 1</option>
-                    </select>
+                    {{ Form::label( 'cabeza', 'Cabeza') }}
+                    {{ Form::select( 'cabeza', $objetos[ 'cabeza' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'cabeza' ] ) }}
                   </div> <!-- Fin del div seccionCabeza -->
 
                   <div class="form-group col-xs-6 col-md-4" id="seccionHombros">
-                    <label for="hombros">Hombros</label>
-                    <select class="form-control" name="hombros" id="hombros">
-                      <option>Elige un objeto</option>
-                      <option value="1">Objeto 1</option>
-                    </select>
+                    {{ Form::label( 'hombros', 'Hombros') }}
+                    {{ Form::select( 'hombros', $objetos[ 'hombros' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'hombros' ] ) }}
                   </div> <!-- Fin del div seccionHombros -->
 
                   <div class="form-group col-xs-6 col-md-4" id="seccionAmuleto">
-                    <label for="amuleto">Amuleto</label>
-                    <select class="form-control" name="amuleto" id="amuleto">
-                      <option>Elige un objeto</option>
-                      <option value="1">Objeto 1</option>
-                    </select>
+                    {{ Form::label( 'amuleto', 'Amuleto') }}
+                    {{ Form::select( 'amuleto', $objetos[ 'amuleto' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'amuleto' ] ) }}
                   </div> <!-- Fin del div seccionAmuleto -->
 
                   <div class="form-group col-xs-6 col-md-4" id="seccionTorso">
-                    <label for="torso">Torso</label>
-                    <select class="form-control" name="torso" id="torso">
-                      <option>Elige un objeto</option>
-                      <option value="1">Objeto 1</option>
-                    </select>
+                    {{ Form::label( 'torso', 'Torso') }}
+                    {{ Form::select( 'torso', $objetos[ 'torso' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'torso' ] ) }}
                   </div> <!-- Fin del div seccionTorso -->
 
                   <div class="form-group col-xs-6 col-md-4" id="seccionManos">
-                    <label for="manos">Manos</label>
-                    <select class="form-control" name="manos" id="manos">
-                      <option>Elige un objeto</option>
-                      <option value="1">Objeto 1</option>
-                    </select>
+                    {{ Form::label( 'manos', 'Manos') }}
+                    {{ Form::select( 'manos', $objetos[ 'manos' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'manos' ] ) }}
                   </div> <!-- Fin del div seccionManos -->
 
                   <div class="form-group col-xs-6 col-md-4" id="seccionMunecas">
-                    <label for="munecas">Muñecas</label>
-                    <select class="form-control" name="munecas" id="munecas">
-                      <option>Elige un objeto</option>
-                      <option value="1">Objeto 1</option>
-                    </select>
+                    {{ Form::label( 'munecas', 'Muñecas') }}
+                    {{ Form::select( 'munecas', $objetos[ 'munecas' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'munecas' ] ) }}
                   </div> <!-- Fin del div seccionMunecas -->
 
                   <div class="form-group col-xs-6 col-md-4" id="seccionAnillo1">
-                    <label for="anillo1">Anillo</label>
-                    <select class="form-control" name="anillo1" id="anillo1">
-                      <option>Elige un objeto</option>
-                      <option value="1">Objeto 1</option>
-                    </select>
+                    {{ Form::label( 'anillo1', 'Anillo') }}
+                    {{ Form::select( 'anillo1', $objetos[ 'anillo' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'anillo1' ] ) }}
                   </div> <!-- Fin del div seccionAnillo1 -->
 
                   <div class="form-group col-xs-6 col-md-4" id="seccionAnillo2">
-                    <label for="anillo2">Anillo</label>
-                    <select class="form-control" name="anillo2" id="anillo2">
-                      <option>Elige un objeto</option>
-                      <option value="1">Objeto 1</option>
-                    </select>
+                    {{ Form::label( 'anillo2', 'Anillo') }}
+                    {{ Form::select( 'anillo2', $objetos[ 'anillo' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'anillo2' ] ) }}
                   </div> <!-- Fin del div seccionAnillo2 -->
 
                   <div class="form-group col-xs-6 col-md-4" id="seccionCintura">
-                    <label for="cintura">Cintura</label>
-                    <select class="form-control" name="cintura" id="cintura">
-                      <option>Elige un objeto</option>
-                      <option value="1">Objeto 1</option>
-                    </select>
+                    {{ Form::label( 'cintura', 'Cintura') }}
+                    {{ Form::select( 'cintura', $objetos[ 'cintura' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'cintura' ] ) }}
                   </div> <!-- Fin del div seccionCintura -->
 
                   <div class="form-group col-xs-6 col-md-4" id="seccionPiernas">
-                    <label for="piernas">Piernas</label>
-                    <select class="form-control" name="piernas" id="piernas">
-                      <option>Elige un objeto</option>
-                      <option value="1">Objeto 1</option>
-                    </select>
+                    {{ Form::label( 'piernas', 'Piernas') }}
+                    {{ Form::select( 'piernas', $objetos[ 'piernas' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'piernas' ] ) }}
                   </div> <!-- Fin del div seccionPiernas -->
 
                   <div class="form-group col-xs-6 col-md-4" id="seccionPies">
-                    <label for="pies">Pies</label>
-                    <select class="form-control" name="pies" id="pies">
-                      <option>Elige un objeto</option>
-                      <option value="1">Objeto 1</option>
-                    </select>
+                    {{ Form::label( 'pies', 'Pies') }}
+                    {{ Form::select( 'pies', $objetos[ 'pies' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'pies' ] ) }}
                   </div> <!-- Fin del div seccionPies -->
 
                   <div class="form-group col-xs-6 col-md-4" id="seccionArma">
-                    <label for="arma">Arma</label>
-                    <select class="form-control" name="arma" id="arma">
-                      <option>Elige un objeto</option>
-                      <option value="1">Objeto 1</option>
-                    </select>
+                    {{ Form::label( 'arma', 'Arma') }}
+                    {{ Form::select( 'arma', $objetos[ 'arma' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'arma' ] ) }}
                   </div> <!-- Fin del div seccionArma -->
 
                   <div class="form-group col-xs-6 col-md-4" id="seccionManoIzquierda">
-                    <label for="Mano izquierda">Mano izquierda</label>
-                    <select class="form-control" name="Mano izquierda" id="Mano izquierda">
-                      <option>Elige un objeto</option>
-                      <option value="1">Objeto 1</option>
-                    </select>
+                    {{ Form::label( 'mano_izquierda', 'Mano izquierda') }}
+                    {{ Form::select( 'mano_izquierda', $objetos[ 'mano_izquierda' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'mano_izquierda' ] ) }}
                   </div> <!-- Fin del div seccionManoIzquierda -->
                 </div> <!-- Fin del div row -->
               </div> <!-- Fin del div seccionObjetos -->

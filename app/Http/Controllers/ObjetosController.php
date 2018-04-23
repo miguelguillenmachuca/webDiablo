@@ -250,7 +250,7 @@ class ObjetosController extends Controller
       'id_clase' => $id_clase_rules,
       'id_conjunto' => $id_conjunto_rules,
       'id_tipo_objeto' => 'required|exists:tipo_objeto,id',
-      'efecto_legendario' => 'string|nullable',
+      'efecto_legendario' => 'string|nullable|max:220',
     ]);
 
     return $validator;
