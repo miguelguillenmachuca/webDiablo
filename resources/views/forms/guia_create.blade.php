@@ -4,16 +4,26 @@
   <div id="main" class="container">
 
     {{ Form::open([ 'url' => route('createGuia'), 'class' => "formGuia", 'id' => 'formGuia', 'name' => 'formGuia' ]) }}
-    {{-- <form name="formGuia" id="formGuia" class="formGuia" action="formularioCrearGuia.php" method="post"> --}}
       <h2 class="text-center">Introduzca los datos de la guía</h2>
+
+      @if($errors->any())
+      <div class="container-fluid">
+        <h3>Hay errores en el formulario:</h3>
+        @foreach ($errors->all() as $message)
+          <p>{{ $message }}</p>
+
+        @endforeach
+      </div>
+      @endif
+
       <div class="container-fluid">
 
         <div class="row padd-sup" id="seccionNombre">
           <div class="col-xs-12">
             <div class="form-group">
-              <h3 class="text-center">{{ Form::label('nombreGuia', 'Nombre de la guía') }}</h3>
+              <h3 class="text-center">{{ Form::label('nombre', 'Nombre de la guía') }}</h3>
               <p class="help-block">Incluye un nombre para la guía que sea fácilmente reconocible.</p>
-              {{ Form::text('nombreGuia', null, [ 'class' => 'form-control', 'placeholder' => 'Nombre de la guía' ]) }}
+              {{ Form::text('nombre', null, [ 'class' => 'form-control', 'placeholder' => 'Nombre de la guía' ]) }}
             </div>
           </div>
         </div>
@@ -206,8 +216,8 @@
 
               <div class="col-xs-12 col-md-3 contenedor-seccion" id="seccionLeyendaAtaque">
                 <h4 class="text-center">Ataque</h4>
-                {{ Form::label('v_movimiento', 'Velocidad de movimiento') }}
-                {{ Form::select( 'v_movimiento', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'v_movimiento' ] ) }}
+                {{ Form::label('v_ataque', 'Velocidad de ataque') }}
+                {{ Form::select( 'v_ataque', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'v_ataque' ] ) }}
 
                 {{ Form::label('reduccion_enf', 'Reducción de enfriamiento') }}
                 {{ Form::select( 'reduccion_enf', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'reduccion_enf' ] ) }}
@@ -236,8 +246,8 @@
 
               <div class="col-xs-12 col-md-3 contenedor-seccion" id="seccionLeyendaUtilidad">
                 <h4 class="text-center">Utilidad</h4>
-                {{ Form::label('dano_Area', 'Daño de área') }}
-                {{ Form::select( 'dano_Area', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'dano_Area' ] ) }}
+                {{ Form::label('dano_area', 'Daño de área') }}
+                {{ Form::select( 'dano_area', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'dano_area' ] ) }}
 
                 {{ Form::label('reduc_coste', 'Reducción de coste') }}
                 {{ Form::select( 'reduc_coste', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'reduc_coste' ] ) }}
@@ -277,6 +287,8 @@
         </div> <!-- Fin del div seccionVideo -->
 
         <div class="margen-inf padd-sup" id="seccionBotones">
+          {{ Form::hidden('id_clase', $clase->getRouteKey()) }}
+
           {{ Form::submit('Enviar guía', [ 'class' => 'btn btn-default', 'name' => 'enviarGuia', 'id' => 'enviarGuia' ]) }}
 
           {{ Form::reset('Vaciar campos', [ 'class' => 'btn btn-default' ]) }}
