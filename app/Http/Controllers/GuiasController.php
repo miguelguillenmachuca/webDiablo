@@ -120,8 +120,13 @@ class GuiasController extends Controller
 
         $guia->id_usuario = Auth::user()->id;
         $guia->id_clase = $request_unhashed->id_clase;
+        $guia->descripcion = $request_unhashed->descripcion;
+        $guia->video = $request_unhashed->video;
+        $guia->visibilidad = $request_unhashed->visibilidad;
 
         $guia->save();
+
+        // dd($guia);
 
         // ----------------- HABILIDADES -----------------
 
@@ -152,67 +157,212 @@ class GuiasController extends Controller
         // ----------------- OBJETOS -----------------
         if($request_unhashed->filled('cabeza'))
         {
-          $guia->objeto()->attach($request_unhashed->input('cabeza'));
+          $guia->objeto()->attach($request_unhashed->input('cabeza'), [ 'posicion' => 'cabeza' ]);
         }
 
         if($request_unhashed->filled('hombros'))
         {
-          $guia->objeto()->attach($request_unhashed->input('hombros'));
+          $guia->objeto()->attach($request_unhashed->input('hombros'), [ 'posicion' => 'hombros' ]);
         }
 
         if($request_unhashed->filled('amuleto'))
         {
-          $guia->objeto()->attach($request_unhashed->input('amuleto'));
+          $guia->objeto()->attach($request_unhashed->input('amuleto'), [ 'posicion' => 'amuleto' ]);
         }
 
         if($request_unhashed->filled('torso'))
         {
-          $guia->objeto()->attach($request_unhashed->input('torso'));
+          $guia->objeto()->attach($request_unhashed->input('torso'), [ 'posicion' => 'torso' ]);
         }
 
         if($request_unhashed->filled('manos'))
         {
-          $guia->objeto()->attach($request_unhashed->input('manos'));
+          $guia->objeto()->attach($request_unhashed->input('manos'), [ 'posicion' => 'manos' ]);
         }
 
         if($request_unhashed->filled('munecas'))
         {
-          $guia->objeto()->attach($request_unhashed->input('munecas'));
+          $guia->objeto()->attach($request_unhashed->input('munecas'), [ 'posicion' => 'munecas' ]);
         }
 
         if($request_unhashed->filled('anillo1'))
         {
-          $guia->objeto()->attach($request_unhashed->input('anillo1'));
+          $guia->objeto()->attach($request_unhashed->input('anillo1'), [ 'posicion' => 'anillo1' ]);
         }
 
         if($request_unhashed->filled('anillo2'))
         {
-          $guia->objeto()->attach($request_unhashed->input('anillo2'));
+          $guia->objeto()->attach($request_unhashed->input('anillo2'), [ 'posicion' => 'anillo2' ]);
         }
 
         if($request_unhashed->filled('cintura'))
         {
-          $guia->objeto()->attach($request_unhashed->input('cintura'));
+          $guia->objeto()->attach($request_unhashed->input('cintura'), [ 'posicion' => 'cintura' ]);
         }
 
         if($request_unhashed->filled('piernas'))
         {
-          $guia->objeto()->attach($request_unhashed->input('piernas'));
+          $guia->objeto()->attach($request_unhashed->input('piernas'), [ 'posicion' => 'piernas' ]);
         }
 
         if($request_unhashed->filled('pies'))
         {
-          $guia->objeto()->attach($request_unhashed->input('pies'));
+          $guia->objeto()->attach($request_unhashed->input('pies'), [ 'posicion' => 'pies' ]);
         }
 
         if($request_unhashed->filled('arma'))
         {
-          $guia->objeto()->attach($request_unhashed->input('arma'));
+          $guia->objeto()->attach($request_unhashed->input('arma'), [ 'posicion' => 'arma' ]);
         }
 
         if($request_unhashed->filled('mano_izquierda'))
         {
-          $guia->objeto()->attach($request_unhashed->input('mano_izquierda'));
+          $guia->objeto()->attach($request_unhashed->input('mano_izquierda'), [ 'posicion' => 'mano_izquierda' ]);
+        }
+
+        for ($i=1; $i < 4; $i++)
+        {
+          if($request_unhashed->filled('cubo'.$i))
+          {
+            $guia->objeto()->attach($request_unhashed->input('cubo'.$i), [ 'posicion' => 'cubo'.$i ]);
+          }
+        }
+
+        for ($i=1; $i < 4; $i++)
+        {
+          if($request_unhashed->filled('gema'.$i))
+          {
+            $guia->objeto()->attach($request_unhashed->input('gema'.$i), [ 'posicion' => 'gema'.$i ]);
+          }
+        }
+
+        // ----------------- PUNTOS LEYENDA -----------------
+        if($request_unhashed->filled('estad_principal'))
+        {
+          $estad_principal = new \App\PuntosLeyenda;
+          $estad_principal->id_guia = $guia->id;
+          $estad_principal->estadistica = 'estad_principal';
+          $estad_principal->prioridad = $request_unhashed->input('estad_principal');
+        }
+
+        if($request_unhashed->filled('vitalidad'))
+        {
+          $vitalidad = new \App\PuntosLeyenda;
+          $vitalidad->id_guia = $guia->id;
+          $vitalidad->estadistica = 'vitalidad';
+          $vitalidad->prioridad = $request_unhashed->input('vitalidad');
+        }
+
+        if($request_unhashed->filled('v_movimiento'))
+        {
+          $v_movimiento = new \App\PuntosLeyenda;
+          $v_movimiento->id_guia = $guia->id;
+          $v_movimiento->estadistica = 'v_movimiento';
+          $v_movimiento->prioridad = $request_unhashed->input('v_movimiento');
+        }
+
+        if($request_unhashed->filled('recurso_max'))
+        {
+          $recurso_max = new \App\PuntosLeyenda;
+          $recurso_max->id_guia = $guia->id;
+          $recurso_max->estadistica = 'recurso_max';
+          $recurso_max->prioridad = $request_unhashed->input('recurso_max');
+        }
+
+        if($request_unhashed->filled('v_ataque'))
+        {
+          $v_ataque = new \App\PuntosLeyenda;
+          $v_ataque->id_guia = $guia->id;
+          $v_ataque->estadistica = 'v_ataque';
+          $v_ataque->prioridad = $request_unhashed->input('v_ataque');
+        }
+
+        if($request_unhashed->filled('reduccion_enf'))
+        {
+          $reduccion_enf = new \App\PuntosLeyenda;
+          $reduccion_enf->id_guia = $guia->id;
+          $reduccion_enf->estadistica = 'reduccion_enf';
+          $reduccion_enf->prioridad = $request_unhashed->input('reduccion_enf');
+        }
+
+        if($request_unhashed->filled('prob_golpe_crit'))
+        {
+          $prob_golpe_crit = new \App\PuntosLeyenda;
+          $prob_golpe_crit->id_guia = $guia->id;
+          $prob_golpe_crit->estadistica = 'prob_golpe_crit';
+          $prob_golpe_crit->prioridad = $request_unhashed->input('prob_golpe_crit');
+        }
+
+        if($request_unhashed->filled('dano_golpe_crit'))
+        {
+          $dano_golpe_crit = new \App\PuntosLeyenda;
+          $dano_golpe_crit->id_guia = $guia->id;
+          $dano_golpe_crit->estadistica = 'dano_golpe_crit';
+          $dano_golpe_crit->prioridad = $request_unhashed->input('dano_golpe_crit');
+        }
+
+        if($request_unhashed->filled('vida'))
+        {
+          $vida = new \App\PuntosLeyenda;
+          $vida->id_guia = $guia->id;
+          $vida->estadistica = 'vida';
+          $vida->prioridad = $request_unhashed->input('vida');
+        }
+
+        if($request_unhashed->filled('armadura'))
+        {
+          $armadura = new \App\PuntosLeyenda;
+          $armadura->id_guia = $guia->id;
+          $armadura->estadistica = 'armadura';
+          $armadura->prioridad = $request_unhashed->input('armadura');
+        }
+
+        if($request_unhashed->filled('todas_resist'))
+        {
+          $todas_resist = new \App\PuntosLeyenda;
+          $todas_resist->id_guia = $guia->id;
+          $todas_resist->estadistica = 'todas_resist';
+          $todas_resist->prioridad = $request_unhashed->input('todas_resist');
+        }
+
+        if($request_unhashed->filled('regeneracion_vida'))
+        {
+          $regeneracion_vida = new \App\PuntosLeyenda;
+          $regeneracion_vida->id_guia = $guia->id;
+          $regeneracion_vida->estadistica = 'regeneracion_vida';
+          $regeneracion_vida->prioridad = $request_unhashed->input('regeneracion_vida');
+        }
+
+        if($request_unhashed->filled('dano_area'))
+        {
+          $dano_area = new \App\PuntosLeyenda;
+          $dano_area->id_guia = $guia->id;
+          $dano_area->estadistica = 'dano_area';
+          $dano_area->prioridad = $request_unhashed->input('dano_area');
+        }
+
+        if($request_unhashed->filled('reduc_coste'))
+        {
+          $reduc_coste = new \App\PuntosLeyenda;
+          $reduc_coste->id_guia = $guia->id;
+          $reduc_coste->estadistica = 'reduc_coste';
+          $reduc_coste->prioridad = $request_unhashed->input('reduc_coste');
+        }
+
+        if($request_unhashed->filled('vida_por_golpe'))
+        {
+          $vida_por_golpe = new \App\PuntosLeyenda;
+          $vida_por_golpe->id_guia = $guia->id;
+          $vida_por_golpe->estadistica = 'vida_por_golpe';
+          $vida_por_golpe->prioridad = $request_unhashed->input('vida_por_golpe');
+        }
+
+        if($request_unhashed->filled('hallazgo_oro'))
+        {
+          $hallazgo_oro = new \App\PuntosLeyenda;
+          $hallazgo_oro->id_guia = $guia->id;
+          $hallazgo_oro->estadistica = 'hallazgo_oro';
+          $hallazgo_oro->prioridad = $request_unhashed->input('hallazgo_oro');
         }
 
         return redirect()->back();
@@ -362,11 +512,11 @@ class GuiasController extends Controller
         'vida_por_golpe' => 'nullable|min:1|max:4',
         'hallazgo_oro' => 'nullable|min:1|max:4',
 
-        'descripcion_guia' => 'nullable|string|min:5|max:1000',
+        'descripcion' => 'nullable|string|min:5|max:1000',
 
-        'video_guia' => 'nullable|string|min:2|max:250',
+        'video' => 'nullable|string|min:2|max:250',
 
-        'visibilidad_guia' => 'nullable|in:publica,privada',
+        'visibilidad' => 'nullable|in:publica,privada',
       ]);
 
       return $validator;

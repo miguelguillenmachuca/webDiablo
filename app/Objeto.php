@@ -75,7 +75,7 @@ class Objeto extends Model
   */
   public function guia()
   {
-    return $this->belongsToMany('App\Guia', 'guia_objeto', 'id_objeto', 'id_guia');
+    return $this->belongsToMany('App\Guia', 'guia_objeto', 'id_objeto', 'id_guia')->withTimeStamps();
   }
 
   /**

@@ -73,7 +73,7 @@ class Guia extends Model
     */
     public function objeto()
     {
-      return $this->belongsToMany('App\Objeto', 'guia_objeto', 'id_guia', 'id_objeto');
+      return $this->belongsToMany('App\Objeto', 'guia_objeto', 'id_guia', 'id_objeto')->withTimeStamps();
     }
 
     /**
@@ -90,6 +90,14 @@ class Guia extends Model
     public function runa()
     {
       return $this->belongsToMany('App\Runa', 'guia_habilidad', 'id_guia', 'id_runa');
+    }
+
+    /**
+    * Relationship
+    */
+    public function puntosLeyenda()
+    {
+      return $this->belongsTo('App\PuntosLeyenda', 'id_guia', 'id');
     }
 
     /**

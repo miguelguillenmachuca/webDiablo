@@ -240,8 +240,8 @@
                 {{ Form::label('todas_resist', 'Todas las resistencias') }}
                 {{ Form::select( 'todas_resist', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'todas_resist' ] ) }}
 
-                {{ Form::label('regeracion_vida', 'Regeneración de vida') }}
-                {{ Form::select( 'regeracion_vida', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'regeracion_vida' ] ) }}
+                {{ Form::label('regeneracion_vida', 'Regeneración de vida') }}
+                {{ Form::select( 'regeneracion_vida', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'regeneracion_vida' ] ) }}
               </div> <!-- Fin del div seccionLeyendaDefensa -->
 
               <div class="col-xs-12 col-md-3 contenedor-seccion" id="seccionLeyendaUtilidad">
@@ -265,25 +265,25 @@
         <div class="separador"></div>
 
         <div class="form-group padd-sup" id="seccionDescripcion">
-          <h4 class="text-center">{{ Form::label('descripcion_guia', 'Descripción de la guía') }}</h4>
+          <h4 class="text-center">{{ Form::label('descripcion', 'Descripción de la guía') }}</h4>
           <p class="help-block">Describe la forma de juego de esta guía o lo que necesites comentar. Máximo de 1000 caracteres</p>
-          {{ Form::textarea('descripcion_guia', null, [ 'class' => 'form-control no-resize', 'id' => 'descripcion_guia', 'rows' => '8' ]) }}
+          {{ Form::textarea('descripcion', null, [ 'class' => 'form-control no-resize', 'id' => 'descripcion_guia', 'rows' => '8' ]) }}
         </div> <!-- Fin del div seccionDescripcion -->
 
         <div class="separador"></div>
 
         <div class="form-group padd-sup" id="seccionVideo">
-          <h4 class="text-center">{{ Form::label('video_guia', 'Vídeo de la guía') }}</h4>
+          <h4 class="text-center">{{ Form::label('video', 'Vídeo de la guía') }}</h4>
           <p class="help-block">Puedes incluir un enlace a YouTube para ayudar a ilustrar la guía. Solo tienes que pegar el código de la URL después de "?v=". Por ejemplo, si el enlace es "https://www.youtube.com/watch?v=CBD08XXdct0", solo tienes que pegar "CBD08XXdct0".</p>
-          {{ Form::text('video_guia', null, [ 'class' => 'form-control', 'id' => 'video_guia', 'placeholder' => 'Enlace a YouTube del vídeo. P.ej: CBD08XXdct0' ]) }}
+          {{ Form::text('video', null, [ 'class' => 'form-control', 'id' => 'video_guia', 'placeholder' => 'Enlace a YouTube del vídeo. P.ej: CBD08XXdct0' ]) }}
         </div> <!-- Fin del div seccionVisibilidad -->
 
         <div class="separador"></div>
 
         <div class="form-group padd-sup" id="seccionVisibilidad">
-          <h4 class="text-center">{{ Form::label('visibilidad_guia', 'Visibilidad de la guía') }}</h4>
+          <h4 class="text-center">{{ Form::label('visibilidad', 'Visibilidad de la guía') }}</h4>
           <p class="help-block">Elige el grado de visibilidad de la guía:<br/><strong>Pública:</strong> cualquier usuario puede verla. <br/><strong>Privada:</strong> solo los usuarios con el enlace a la guía pueden verla. <br/>Recuerda que puedes guardar la guía como privada hasta el momento en que consideres que esté completa o simplemente hasta que cambies de opinión.</p>
-          {{ Form::select('visibilidad_guia', [ 'publica' => 'Pública', 'privada' => 'Privada' ], null, [ 'class' => 'form-control', 'id' => 'visibilidad_guia' ]) }}
+          {{ Form::select('visibilidad', [ 'publica' => 'Pública', 'privada' => 'Privada' ], null, [ 'class' => 'form-control', 'id' => 'visibilidad_guia' ]) }}
         </div> <!-- Fin del div seccionVideo -->
 
         <div class="margen-inf padd-sup" id="seccionBotones">
