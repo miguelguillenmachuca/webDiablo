@@ -191,158 +191,62 @@
             <div class="row">
               <div class="col-xs-12 col-md-3 contenedor-seccion" id="seccionLeyendaPrimarios">
                 <h4 class="text-center">Primarios</h4>
-                <label for="estad_principal">Estadística principal</label>
-                <select class="form-control" name="estad_principal" id="estad_principal">
-                  <option>Elige una prioridad</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
+                {{ Form::label('estad_principal', 'Estadística principal') }}
+                {{ Form::select( 'estad_principal', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'estad_principal' ] ) }}
 
-                <label for="vitalidad">Vitalidad</label>
-                <select class="form-control" name="vitalidad" id="vitalidad">
-                  <option>Elige una prioridad</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
+                {{ Form::label('vitalidad', 'Vitalidad') }}
+                {{ Form::select( 'vitalidad', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'vitalidad' ] ) }}
 
-                <label for="v_movimiento">Velocidad de movimiento</label>
-                <select class="form-control" name="v_movimiento" id="v_movimiento">
-                  <option>Elige una prioridad</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
+                {{ Form::label('v_movimiento', 'Velocidad de movimiento') }}
+                {{ Form::select( 'v_movimiento', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'v_movimiento' ] ) }}
 
-                <label for="recurso_max">Recurso máximo</label>
-                <select class="form-control" name="recurso_max" id="recurso_max">
-                  <option>Elige una prioridad</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
+                {{ Form::label('recurso_max', 'Recurso máximo') }}
+                {{ Form::select( 'recurso_max', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'recurso_max' ] ) }}
               </div> <!-- Fin del div seccionLeyendaPrimarios -->
 
               <div class="col-xs-12 col-md-3 contenedor-seccion" id="seccionLeyendaAtaque">
                 <h4 class="text-center">Ataque</h4>
-                <label for="v_ataque">Velocidad de ataque</label>
-                <select class="form-control" name="v_ataque" id="v_ataque">
-                  <option>Elige una prioridad</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
+                {{ Form::label('v_movimiento', 'Velocidad de movimiento') }}
+                {{ Form::select( 'v_movimiento', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'v_movimiento' ] ) }}
 
-                <label for="reduccion_enfr">Reducción de enfriamiento</label>
-                <select class="form-control" name="reduccion_enfr" id="reduccion_enfr">
-                  <option>Elige una prioridad</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
+                {{ Form::label('reduccion_enf', 'Reducción de enfriamiento') }}
+                {{ Form::select( 'reduccion_enf', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'reduccion_enf' ] ) }}
 
-                <label for="prob_golpe_crit">Probabilidad de golpe crítico</label>
-                <select class="form-control" name="prob_golpe_crit" id="prob_golpe_crit">
-                  <option>Elige una prioridad</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
+                {{ Form::label('prob_golpe_crit', 'Probabilidad de golpe crítico') }}
+                {{ Form::select( 'prob_golpe_crit', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'prob_golpe_crit' ] ) }}
 
-                <label for="dano_golpe_crit">Daño de golpe crítico</label>
-                <select class="form-control" name="dano_golpe_crit" id="dano_golpe_crit">
-                  <option>Elige una prioridad</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
+                {{ Form::label('dano_golpe_crit', 'Daño de golpe crítico') }}
+                {{ Form::select( 'dano_golpe_crit', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'dano_golpe_crit' ] ) }}
               </div> <!-- Fin del div seccionLeyendaAtaque -->
 
               <div class="col-xs-12 col-md-3 contenedor-seccion" id="seccionLeyendaDefensa">
                 <h4 class="text-center">Defensa</h4>
-                <label for="vida">Vida</label>
-                <select class="form-control" name="vida" id="vida">
-                  <option>Elige una prioridad</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
+                {{ Form::label('vida', 'Vida') }}
+                {{ Form::select( 'vida', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'vida' ] ) }}
 
-                <label for="armadura">Armadura</label>
-                <select class="form-control" name="armadura" id="armadura">
-                  <option>Elige una prioridad</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
+                {{ Form::label('armadura', 'Armadura') }}
+                {{ Form::select( 'armadura', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'armadura' ] ) }}
 
-                <label for="todas_resist">Todas las resistencias</label>
-                <select class="form-control" name="todas_resist" id="todas_resist">
-                  <option>Elige una prioridad</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
+                {{ Form::label('todas_resist', 'Todas las resistencias') }}
+                {{ Form::select( 'todas_resist', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'todas_resist' ] ) }}
 
-                <label for="regeneracion_vida">Regeneración de vida</label>
-                <select class="form-control" name="regeneracion_vida" id="regeneracion_vida">
-                  <option>Elige una prioridad</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
+                {{ Form::label('regeracion_vida', 'Regeneración de vida') }}
+                {{ Form::select( 'regeracion_vida', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'regeracion_vida' ] ) }}
               </div> <!-- Fin del div seccionLeyendaDefensa -->
 
               <div class="col-xs-12 col-md-3 contenedor-seccion" id="seccionLeyendaUtilidad">
                 <h4 class="text-center">Utilidad</h4>
-                <label for="dano_area">Daño de área</label>
-                <select class="form-control" name="dano_area" id="dano_area">
-                  <option>Elige una prioridad</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
+                {{ Form::label('dano_Area', 'Daño de área') }}
+                {{ Form::select( 'dano_Area', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'dano_Area' ] ) }}
 
-                <label for="reduc_coste">Reducción de coste</label>
-                <select class="form-control" name="reduc_coste" id="reduc_coste">
-                  <option>Elige una prioridad</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
+                {{ Form::label('reduc_coste', 'Reducción de coste') }}
+                {{ Form::select( 'reduc_coste', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'reduc_coste' ] ) }}
 
-                <label for="vida_por_golpe">Vida por golpe</label>
-                <select class="form-control" name="vida_por_golpe" id="vida_por_golpe">
-                  <option>Elige una prioridad</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
+                {{ Form::label('vida_por_golpe', 'Vida por golpe') }}
+                {{ Form::select( 'vida_por_golpe', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'vida_por_golpe' ] ) }}
 
-                <label for="hallazgo_oro">Hallazgo de oro</label>
-                <select class="form-control" name="hallazgo_oro" id="hallazgo_oro">
-                  <option>Elige una prioridad</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
+                {{ Form::label('hallazgo_oro', 'Hallazgo de oro') }}
+                {{ Form::select( 'hallazgo_oro', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'hallazgo_oro' ] ) }}
               </div> <!-- Fin del div seccionLeyendaUtilidad -->
             </div> <!-- Fin del div row -->
           </div> <!-- Fin del div seccionLeyendaFormulario -->
@@ -351,33 +255,31 @@
         <div class="separador"></div>
 
         <div class="form-group padd-sup" id="seccionDescripcion">
-          <h4 class="text-center"><label for="descripcion_guia">Descripción de la guía</label></h4>
+          <h4 class="text-center">{{ Form::label('descripcion_guia', 'Descripción de la guía') }}</h4>
           <p class="help-block">Describe la forma de juego de esta guía o lo que necesites comentar. Máximo de 1000 caracteres</p>
-          <textarea class="form-control no-resize" id="descripcion_guia" name="descripcion_guia" rows="8"></textarea>
+          {{ Form::textarea('descripcion_guia', null, [ 'class' => 'form-control no-resize', 'id' => 'descripcion_guia', 'rows' => '8' ]) }}
         </div> <!-- Fin del div seccionDescripcion -->
 
         <div class="separador"></div>
 
         <div class="form-group padd-sup" id="seccionVideo">
-          <h4 class="text-center"><label for="video_guia">Vídeo de la guía</label></h4>
+          <h4 class="text-center">{{ Form::label('video_guia', 'Vídeo de la guía') }}</h4>
           <p class="help-block">Puedes incluir un enlace a YouTube para ayudar a ilustrar la guía. Solo tienes que pegar el código de la URL después de "?v=". Por ejemplo, si el enlace es "https://www.youtube.com/watch?v=CBD08XXdct0", solo tienes que pegar "CBD08XXdct0".</p>
-          <input type="text" class="form-control" id="video_guia" name="video_guia" placeholder="Enlace a YouTube del vídeo. P.ej: CBD08XXdct0"></input>
+          {{ Form::text('video_guia', null, [ 'class' => 'form-control', 'id' => 'video_guia', 'placeholder' => 'Enlace a YouTube del vídeo. P.ej: CBD08XXdct0' ]) }}
         </div> <!-- Fin del div seccionVisibilidad -->
 
         <div class="separador"></div>
 
         <div class="form-group padd-sup" id="seccionVisibilidad">
-          <h4 class="text-center"><label for="visibilidad_guia">Visibilidad de la guía</label></h4>
+          <h4 class="text-center">{{ Form::label('visibilidad_guia', 'Visibilidad de la guía') }}</h4>
           <p class="help-block">Elige el grado de visibilidad de la guía:<br/><strong>Pública:</strong> cualquier usuario puede verla. <br/><strong>Privada:</strong> solo los usuarios con el enlace a la guía pueden verla. <br/>Recuerda que puedes guardar la guía como privada hasta el momento en que consideres que esté completa o simplemente hasta que cambies de opinión.</p>
-          <select class="form-control" id="visibilidad_guia" name="visibilidad_guia">
-            <option value="publica">Pública</option>
-            <option value="privada">Privada</option>
-          </select>
+          {{ Form::select('visibilidad_guia', [ 'publica' => 'Pública', 'privada' => 'Privada' ], null, [ 'class' => 'form-control', 'id' => 'visibilidad_guia' ]) }}
         </div> <!-- Fin del div seccionVideo -->
 
         <div class="margen-inf padd-sup" id="seccionBotones">
-          <input type="submit" class="btn btn-default" id="enviarGuia" name="enviarGuia" value="Enviar guia">
-          <input type="reset" class="btn btn-default" value="Vaciar campos">
+          {{ Form::submit('Enviar guía', [ 'class' => 'btn btn-default', 'name' => 'enviarGuia', 'id' => 'enviarGuia' ]) }}
+
+          {{ Form::reset('Vaciar campos', [ 'class' => 'btn btn-default' ]) }}
         </div> <!-- Fin del div seccionBotones -->
       </div> <!-- Fin del div container-fluid -->
     </form>
