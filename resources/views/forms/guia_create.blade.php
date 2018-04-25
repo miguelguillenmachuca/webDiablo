@@ -143,24 +143,15 @@
 
                     <div class="row">
                       <div class="col-xs-12 form-group" id="seccionCubo1">
-                        <select class="form-control" name="cubo1" id="cubo1">
-                          <option>Elige un objeto</option>
-                          <option value="1">Objeto 1</option>
-                        </select>
+                        {{ Form::select( 'cubo1', $armas, null, [ 'placeholder' => 'Elige un arma', 'class' => 'form-control', 'id' => 'cubo1' ] ) }}
                       </div> <!-- Fin del div seccionCubo1 -->
 
                       <div class="col-xs-12 form-group" id="seccionCubo2">
-                        <select class="form-control" name="cubo2" id="cubo2">
-                          <option>Elige un objeto</option>
-                          <option value="1">Objeto 1</option>
-                        </select>
+                        {{ Form::select( 'cubo2', $armaduras, null, [ 'placeholder' => 'Elige una pieza de armadura', 'class' => 'form-control', 'id' => 'cubo2' ] ) }}
                       </div> <!-- Fin del div seccionCubo2 -->
 
                       <div class="col-xs-12 form-group" id="seccionCubo3">
-                        <select class="form-control" name="cubo3" id="cubo3">
-                          <option>Elige un objeto</option>
-                          <option value="1">Objeto 1</option>
-                        </select>
+                        {{ Form::select( 'cubo3', $accesorios, null, [ 'placeholder' => 'Elige un accesorio', 'class' => 'form-control', 'id' => 'cubo3' ] ) }}
                       </div> <!-- Fin del div seccionCubo3 -->
                     </div> <!-- Fin del div row -->
                   </div> <!-- Fin del div seccionCubo -->
@@ -170,24 +161,15 @@
 
                     <div class="row">
                       <div class="col-xs-12 form-group" id="seccionGema1">
-                        <select class="form-control" name="cubo1" id="cubo1">
-                          <option>Elige una gema</option>
-                          <option value="1">Gema 1</option>
-                        </select>
+                        {{ Form::select( 'gema1', $gema, null, [ 'placeholder' => 'Elige una gema', 'class' => 'form-control', 'id' => 'gema1' ] ) }}
                       </div> <!-- Fin del div seccionGema1 -->
 
                       <div class="col-xs-12 form-group" id="seccionGema2">
-                        <select class="form-control" name="cubo2" id="cubo2">
-                          <option>Elige una gema</option>
-                          <option value="1">Gema 1</option>
-                        </select>
+                        {{ Form::select( 'gema2', $gema, null, [ 'placeholder' => 'Elige una gema', 'class' => 'form-control', 'id' => 'gema2' ] ) }}
                       </div> <!-- Fin del div seccionGema2 -->
 
                       <div class="col-xs-12 form-group" id="seccionGema3">
-                        <select class="form-control" name="cubo3" id="cubo3">
-                          <option>Elige una gema</option>
-                          <option value="1">Gema 1</option>
-                        </select>
+                        {{ Form::select( 'gema3', $gema, null, [ 'placeholder' => 'Elige una gema', 'class' => 'form-control', 'id' => 'gema3' ] ) }}
                       </div> <!-- Fin del div seccionGema3 -->
                     </div> <!-- Fin del div row -->
                   </div> <!-- Fin del div seccionGemas -->
