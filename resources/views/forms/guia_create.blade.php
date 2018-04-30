@@ -219,8 +219,8 @@
                 {{ Form::label('v_ataque', 'Velocidad de ataque') }}
                 {{ Form::select( 'v_ataque', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'v_ataque' ] ) }}
 
-                {{ Form::label('reduccion_enf', 'Reducción de enfriamiento') }}
-                {{ Form::select( 'reduccion_enf', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'reduccion_enf' ] ) }}
+                {{ Form::label('reduccion_enfr', 'Reducción de enfriamiento') }}
+                {{ Form::select( 'reduccion_enfr', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'reduccion_enfr' ] ) }}
 
                 {{ Form::label('prob_golpe_crit', 'Probabilidad de golpe crítico') }}
                 {{ Form::select( 'prob_golpe_crit', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'prob_golpe_crit' ] ) }}

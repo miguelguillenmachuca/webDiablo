@@ -243,6 +243,7 @@ class GuiasController extends Controller
           $estad_principal->id_guia = $guia->id;
           $estad_principal->estadistica = 'estad_principal';
           $estad_principal->prioridad = $request_unhashed->input('estad_principal');
+          $estad_principal->save();
         }
 
         if($request_unhashed->filled('vitalidad'))
@@ -251,6 +252,7 @@ class GuiasController extends Controller
           $vitalidad->id_guia = $guia->id;
           $vitalidad->estadistica = 'vitalidad';
           $vitalidad->prioridad = $request_unhashed->input('vitalidad');
+          $vitalidad->save();
         }
 
         if($request_unhashed->filled('v_movimiento'))
@@ -259,6 +261,7 @@ class GuiasController extends Controller
           $v_movimiento->id_guia = $guia->id;
           $v_movimiento->estadistica = 'v_movimiento';
           $v_movimiento->prioridad = $request_unhashed->input('v_movimiento');
+          $v_movimiento->save();
         }
 
         if($request_unhashed->filled('recurso_max'))
@@ -267,6 +270,7 @@ class GuiasController extends Controller
           $recurso_max->id_guia = $guia->id;
           $recurso_max->estadistica = 'recurso_max';
           $recurso_max->prioridad = $request_unhashed->input('recurso_max');
+          $recurso_max->save();
         }
 
         if($request_unhashed->filled('v_ataque'))
@@ -275,14 +279,16 @@ class GuiasController extends Controller
           $v_ataque->id_guia = $guia->id;
           $v_ataque->estadistica = 'v_ataque';
           $v_ataque->prioridad = $request_unhashed->input('v_ataque');
+          $v_ataque->save();
         }
 
-        if($request_unhashed->filled('reduccion_enf'))
+        if($request_unhashed->filled('reduccion_enfr'))
         {
-          $reduccion_enf = new \App\PuntosLeyenda;
-          $reduccion_enf->id_guia = $guia->id;
-          $reduccion_enf->estadistica = 'reduccion_enf';
-          $reduccion_enf->prioridad = $request_unhashed->input('reduccion_enf');
+          $reduccion_enfr = new \App\PuntosLeyenda;
+          $reduccion_enfr->id_guia = $guia->id;
+          $reduccion_enfr->estadistica = 'reduccion_enfr';
+          $reduccion_enfr->prioridad = $request_unhashed->input('reduccion_enfr');
+          $reduccion_enfr->save();
         }
 
         if($request_unhashed->filled('prob_golpe_crit'))
@@ -291,6 +297,7 @@ class GuiasController extends Controller
           $prob_golpe_crit->id_guia = $guia->id;
           $prob_golpe_crit->estadistica = 'prob_golpe_crit';
           $prob_golpe_crit->prioridad = $request_unhashed->input('prob_golpe_crit');
+          $prob_golpe_crit->save();
         }
 
         if($request_unhashed->filled('dano_golpe_crit'))
@@ -299,6 +306,7 @@ class GuiasController extends Controller
           $dano_golpe_crit->id_guia = $guia->id;
           $dano_golpe_crit->estadistica = 'dano_golpe_crit';
           $dano_golpe_crit->prioridad = $request_unhashed->input('dano_golpe_crit');
+          $dano_golpe_crit->save();
         }
 
         if($request_unhashed->filled('vida'))
@@ -307,6 +315,7 @@ class GuiasController extends Controller
           $vida->id_guia = $guia->id;
           $vida->estadistica = 'vida';
           $vida->prioridad = $request_unhashed->input('vida');
+          $vida->save();
         }
 
         if($request_unhashed->filled('armadura'))
@@ -315,6 +324,7 @@ class GuiasController extends Controller
           $armadura->id_guia = $guia->id;
           $armadura->estadistica = 'armadura';
           $armadura->prioridad = $request_unhashed->input('armadura');
+          $armadura->save();
         }
 
         if($request_unhashed->filled('todas_resist'))
@@ -323,6 +333,7 @@ class GuiasController extends Controller
           $todas_resist->id_guia = $guia->id;
           $todas_resist->estadistica = 'todas_resist';
           $todas_resist->prioridad = $request_unhashed->input('todas_resist');
+          $todas_resist->save();
         }
 
         if($request_unhashed->filled('regeneracion_vida'))
@@ -331,6 +342,7 @@ class GuiasController extends Controller
           $regeneracion_vida->id_guia = $guia->id;
           $regeneracion_vida->estadistica = 'regeneracion_vida';
           $regeneracion_vida->prioridad = $request_unhashed->input('regeneracion_vida');
+          $regeneracion_vida->save();
         }
 
         if($request_unhashed->filled('dano_area'))
@@ -339,6 +351,7 @@ class GuiasController extends Controller
           $dano_area->id_guia = $guia->id;
           $dano_area->estadistica = 'dano_area';
           $dano_area->prioridad = $request_unhashed->input('dano_area');
+          $dano_area->save();
         }
 
         if($request_unhashed->filled('reduc_coste'))
@@ -347,6 +360,7 @@ class GuiasController extends Controller
           $reduc_coste->id_guia = $guia->id;
           $reduc_coste->estadistica = 'reduc_coste';
           $reduc_coste->prioridad = $request_unhashed->input('reduc_coste');
+          $reduc_coste->save();
         }
 
         if($request_unhashed->filled('vida_por_golpe'))
@@ -355,6 +369,7 @@ class GuiasController extends Controller
           $vida_por_golpe->id_guia = $guia->id;
           $vida_por_golpe->estadistica = 'vida_por_golpe';
           $vida_por_golpe->prioridad = $request_unhashed->input('vida_por_golpe');
+          $vida_por_golpe->save();
         }
 
         if($request_unhashed->filled('hallazgo_oro'))
@@ -363,6 +378,7 @@ class GuiasController extends Controller
           $hallazgo_oro->id_guia = $guia->id;
           $hallazgo_oro->estadistica = 'hallazgo_oro';
           $hallazgo_oro->prioridad = $request_unhashed->input('hallazgo_oro');
+          $hallazgo_oro->save();
         }
 
         return redirect()->back();
