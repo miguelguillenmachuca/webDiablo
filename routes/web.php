@@ -28,12 +28,13 @@ Route::group([ 'prefix' => 'crearGuia' ], function() {
 });
 
 // RUTAS DE VISUALIZAR GUIAS
-Route::get('/guia/buscar', function () {
-  return view('verGuias');
-})->name('guia/buscar');
-Route::get('/guia/{guia}', function () {
+Route::group([ 'prefix' => 'guia' ], function() {
+  Route::get('/', 'GuiasController@index')->name('guia');
+  Route::get('buscar', 'GuiasController@index')->name('guia/buscar');
+  Route::get('{guia}', function () {
     return view('visualizarGuia');
-})->name('guia/show');
+  })->name('guia/show');
+});
 
 // RUTAS DE USUARIO
 Route::group([ 'prefix' => 'usuario' ], function() {

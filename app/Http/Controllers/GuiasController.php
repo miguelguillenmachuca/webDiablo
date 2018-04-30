@@ -19,9 +19,60 @@ class GuiasController extends Controller
      */
     public function index()
     {
-        $guias = Guia::withTrashed()->paginate(20);
+        $filters = false;
+        $conditions = [];
+        $clases = \App\Clase::listNombreId();
 
-        return view('admin_guias', [ 'guias' => $guias ]);
+        switch (Route::currentRouteName())
+        {
+          case 'admin/guias':
+            $guias = Guia::withTrashed()->paginate(20);
+
+            return view('admin_guias', [ 'guias' => $guias ]);
+          break;
+
+          case 'guia':
+          case 'guia/buscar':
+            if(isset($_GET['nombre']))
+            {
+              array_push($conditions, ['guia.nombre', 'like', '%' .$_GET['nombre'] .'%']);
+
+              $filters = true;
+            }
+
+            if(isset($_GET['autorGuia']))
+            {
+              array_push($conditions, ['users.nombre', 'like', '%' .$_GET['autorGuia'] .'%']);
+
+              $filters = true;
+            }
+
+            if(isset($_GET['clase']) && $_GET['clase'] != '')
+            {
+              $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+
+              // Getting the unhashed id_clase
+              $id_clase = $hashids->decode($_GET['clase'])[0];
+
+              array_push($conditions, ['guia.id_clase', '=', $id_clase ]);
+
+              $filters = true;
+            }
+
+            if($filters)
+            {
+              $guias = Guia::select('guia.*')->join('users', 'users.id', '=', 'guia.id_usuario')->where($conditions)->paginate(10);
+            }
+            else
+            {
+              $guias = Guia::paginate(10);
+            }
+
+            return view('verGuias', [ 'guias' => $guias, 'clases' => $clases ]);
+          break;
+        }
+
+        App::abort(404, 'Página no encontrada');
     }
 
     /**
@@ -514,7 +565,7 @@ class GuiasController extends Controller
         'recurso_max' => 'nullable|min:1|max:4',
 
         'v_ataque' => 'nullable|min:1|max:4',
-        'reduccion_enf' => 'nullable|min:1|max:4',
+        'reduccion_enfr' => 'nullable|min:1|max:4',
         'prob_golpe_crit' => 'nullable|min:1|max:4',
         'dano_golpe_crit' => 'nullable|min:1|max:4',
 

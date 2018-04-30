@@ -3,64 +3,45 @@
 @section('content')
   <div id="main" class="container">
 
-    <form class="formGuia" id="filtrosBusqueda" name="filtrosBusqueda" action="listaGuias.php" method="post">
+    {{ Form::open([ 'url' => route('guia/buscar'), 'method' => 'get', 'name' => 'filtrosBusqueda', 'id' => 'filtrosBusqueda', 'class' => 'formGuia' ]) }}
       <div class="container-fluid">
         <div class="row">
           <div class="col-xs-12">
             <h3 class="text-center">Filtros</h3>
             <div class="row">
               <div class="col-xs-12 col-md-4 form-group" id="filtroNombre">
-                <label for="nombre">Nombre de la guía</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre de la guía">
+                {{ Form::label('nombre', 'Nombre de la guía') }}
+                {{ Form::text('nombre', null, [ 'class' => 'form-control', 'id' => 'nombre', 'placeholder' => 'Nombre de la guía' ]) }}
               </div> <!-- Fin del div filtroNombre -->
 
               <div class="col-xs-12 col-md-4 form-group" id="filtroAutor">
-                <label for="autorGuia">Autor de la guía</label>
-                <input type="text" class="form-control" id="autorGuia" name="autorGuia" placeholder="Autor de la guía">
+                {{ Form::label('autorGuia', 'Autor de la guía') }}
+                {{ Form::text('autorGuia', null, [ 'class' => 'form-control', 'id' => 'autorGuia', 'placeholder' => 'Autor de la guía' ]) }}
               </div> <!-- Fin del div filtroAutor -->
 
               <div class="col-xs-12 col-md-4 form-group" id="filtroClase">
-                <label for="clase">Clase de la guía</label>
-                <select class="form-control" name="clase" id="clase">
-                  <option>Elige una clase</option>
-                  <option value="1">Clase 1</option>
-                </select>
+                {{ Form::label('clase', 'Clase de la guía') }}
+                {{ Form::select('clase', $clases, null, [ 'class' => 'form-control', 'id' => 'clase', 'placeholder' => 'Elige una clase' ]) }}
               </div> <!-- Fin del div filtroClase -->
 
             </div> <!-- Fin del div row -->
 
             <div class="margen-inf">
-              <input type="submit" class="btn btn-rojo btn-block-xs" id="filtrarGuia" name="filtrarGuia" value="Filtrar guia">
-              <input type="reset" class="btn btn-rojo btn-block-xs" value="Vaciar campos">
+              {{ Form::submit('Filtrar guía', [ 'class' => 'btn btn-rojo btn-block-xs', 'id' => 'filtrarGuia' ]) }}
+              {{ Form::reset('Vaciar campos', [ 'class' => 'btn btn-rojo btn-block-xs', 'id' => 'resetForm' ]) }}
             </div>
 
           </div>
         </div>
 
       </div> <!-- Fin del div container-fluid -->
-    </form>
+    {{ Form::close() }}
 
     <div class="contenedor margen-inf">
       <h3 class="text-center">Guías</h3>
 
       <div class="container-fluid" id="paginado_sup">
-        <ul class="pagination pagination-rojo">
-          <li>
-            <a href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
-          <li class="active"><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li>
-            <a href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-        </ul>
+        {{ $guias->links('pagination.limit_links_rojo') }}
       </div> <!-- Fin del div paginado_sup -->
 
       <div class="container-fluid" id="resumenGuias">
@@ -78,109 +59,23 @@
             </thead>
 
             <tbody>
-              <tr>
-                <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-                <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
-                <td class="likes">123456789</td>
-                <td>147</td>
-                <td>12/12/2012</td>
-              </tr>
-              <tr>
-                <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-                <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
-                <td class="likes">123456789</td>
-                <td>147</td>
-                <td>12/12/2012</td>
-              </tr>
-              <tr>
-                <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-                <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
-                <td class="likes">123456789</td>
-                <td>147</td>
-                <td>12/12/2012</td>
-              </tr>
-              <tr>
-                <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-                <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
-                <td class="likes">123456789</td>
-                <td>147</td>
-                <td>12/12/2012</td>
-              </tr>
-              <tr>
-                <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-                <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
-                <td class="likes">123456789</td>
-                <td>147</td>
-                <td>12/12/2012</td>
-              </tr>
-              <tr>
-                <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-                <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
-                <td class="likes">123456789</td>
-                <td>147</td>
-                <td>12/12/2012</td>
-              </tr>
-              <tr>
-                <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-                <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
-                <td class="likes">123456789</td>
-                <td>147</td>
-                <td>12/12/2012</td>
-              </tr>
-              <tr>
-                <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-                <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
-                <td class="likes">123456789</td>
-                <td>147</td>
-                <td>12/12/2012</td>
-              </tr>
-              <tr>
-                <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-                <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
-                <td class="likes">123456789</td>
-                <td>147</td>
-                <td>12/12/2012</td>
-              </tr>
-              <tr>
-                <td><img src="{{ asset('/img/clases/default_class.png') }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
-                <td><a href="{{ route('guia/show', ['1']) }}">Guía de prueba</a></td>
-                <td><a href="{{ route('usuario/show', ['asd']) }}" class="enlace-usuario">Autor</a></td>
-                <td class="likes">123456789</td>
-                <td>147</td>
-                <td>12/12/2012</td>
-              </tr>
+              @foreach ($guias as $guia)
+                <tr>
+                  <td><img src="{{ asset('storage/' .$guia->clase->foto_clase) }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
+                  <td><a href="{{ route('guia/show', $guia->getRouteKey()) }}">{{ $guia->nombre }}</a></td>
+                  <td><a href="{{ route('usuario/show', $guia->usuario->getRouteKey()) }}" class="enlace-usuario">{{ $guia->usuario->nombre }}</a></td>
+                  <td class="likes">{{ $guia->get_num_likes() }}</td>
+                  <td>{{ $guia->get_num_comentarios() }}</td>
+                  <td>{{ $guia->updated_at }}</td>
+                </tr>
+              @endforeach
             </tbody>
           </table>
         </div>
       </div> <!-- Fin del div resumenGuias -->
 
       <div class="container-fluid" id="paginado_inf">
-        <ul class="pagination pagination-rojo">
-          <li>
-            <a href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
-          <li class="active"><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li>
-            <a href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-        </ul>
+        {{ $guias->links('pagination.limit_links_rojo') }}
       </div> <!-- Fin del div paginado_inf -->
 
     </div>
