@@ -97,7 +97,7 @@ class Guia extends Model
     */
     public function puntosLeyenda()
     {
-      return $this->belongsTo('App\PuntosLeyenda', 'id_guia', 'id');
+      return $this->hasMany('App\PuntosLeyenda', 'id_guia', 'id');
     }
 
     /**

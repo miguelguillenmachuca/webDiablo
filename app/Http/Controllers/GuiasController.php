@@ -450,6 +450,7 @@ class GuiasController extends Controller
           'cabeza', 'hombros', 'amuleto', 'torso', 'manos', 'munecas', 'anillo1', 'anillo2', 'cintura', 'piernas', 'pies', 'arma', 'mano_izquierda'
         ];
         $objetos = [];
+        $puntos_leyenda = [];
 
         foreach($guia->habilidad as $habilidad)
         {
@@ -466,7 +467,12 @@ class GuiasController extends Controller
           $objetos[ $objeto->pivot->posicion ] = $objeto;
         }
 
-        return view('visualizarGuia', [ 'guia' => $guia, 'habilidades' => $habilidades, 'runas' => $runas, 'listaPosObj' => $listaPosObj, 'objetos' => $objetos ]);
+        foreach($guia->puntosLeyenda as $punto)
+        {
+          $puntos_leyenda[ $punto->estadistica ] = $punto;
+        }
+
+        return view('visualizarGuia', [ 'guia' => $guia, 'habilidades' => $habilidades, 'runas' => $runas, 'listaPosObj' => $listaPosObj, 'objetos' => $objetos, 'puntos_leyenda' => $puntos_leyenda ]);
     }
 
     /**
