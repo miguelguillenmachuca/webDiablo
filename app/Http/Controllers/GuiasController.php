@@ -481,6 +481,7 @@ class GuiasController extends Controller
       if(!$guia->trashed())
       {
         $guia->delete();
+        dd($guia);
       }
 
       return redirect()->back();

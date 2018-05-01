@@ -74,9 +74,9 @@ Route::group([ 'prefix' => 'admin' ], function () {
       return view('forms.guia_update');
     })->name('admin/guias/editar');
 
-    Route::get('{clase}/deleteGuia', 'GuiasController@destroy')->name('admin/deleteGuia');
+    Route::get('{guia}/deleteGuia', 'GuiasController@destroy')->name('admin/deleteGuia');
 
-    Route::get('{clase}/restoreGuia', 'GuiasController@restore')->name('admin/restoreGuia');
+    Route::get('{guia}/restoreGuia', 'GuiasController@restore')->name('admin/restoreGuia');
   });
 });
 
