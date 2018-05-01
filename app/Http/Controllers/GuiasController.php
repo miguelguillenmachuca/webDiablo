@@ -444,27 +444,8 @@ class GuiasController extends Controller
      */
     public function show(Guia $guia)
     {
-        $habilidades = [
-          'a1' => null,
-          'a2' => null,
-          'a3' => null,
-          'a4' => null,
-          'a5' => null,
-          'a6' => null,
-          'p1' => null,
-          'p2' => null,
-          'p3' => null,
-          'p4' => null,
-        ];
-
-        $runas = [
-          'a1' => null,
-          'a2' => null,
-          'a3' => null,
-          'a4' => null,
-          'a5' => null,
-          'a6' => null,
-        ];
+        $habilidades = [];
+        $runas = [];
 
         foreach($guia->habilidad as $habilidad)
         {

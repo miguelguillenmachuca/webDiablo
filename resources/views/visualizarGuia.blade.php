@@ -47,7 +47,7 @@
             <div class="col-xs-12 col-sm-4 contenedor-seccion" id="habilidad{{ $i }}">
               <div class="row">
                 <div class="col-xs-3 col-sm-2">
-                  @if ($habilidades[ 'a' .$i ])
+                  @if (isset($habilidades[ 'a' .$i ]))
                     <img src="{{ asset('storage/' .$habilidades[ 'a' .$i ]->foto_habilidad) }}" alt="habilidad{{ $i }}" class="img-responsive img-habilidad-resumen">
                   @else
                     <img src="{{ asset('img/habilidades/default_skill.png') }}" alt="habilidad{{ $i }}" class="img-responsive img-habilidad-resumen">
@@ -56,9 +56,9 @@
 
                 <div class="col-xs-9 col-sm-10">
                   <div class="row">
-                    <div class="col-xs-12 habilidad-guia">{{ $habilidades[ 'a' .$i ] ? $habilidades[ 'a' .$i ]->nombre : 'Sin habilidad seleccionada' }}</div>
+                    <div class="col-xs-12 habilidad-guia">{{ isset($habilidades[ 'a' .$i ]) ? $habilidades[ 'a' .$i ]->nombre : 'Sin habilidad seleccionada' }}</div>
                     <div class="col-xs-12 runa-guia">
-                      <span>{{ $runas[ 'a' .$i ] ? $runas[ 'a' .$i ]->nombre : 'Sin runa seleccionada' }}</span>
+                      <span>{{ isset($runas[ 'a' .$i ]) ? $runas[ 'a' .$i ]->nombre : 'Sin runa seleccionada' }}</span>
                     </div>
                   </div>
                 </div>
@@ -80,13 +80,13 @@
             <div class="col-xs-6 col-sm-3 contenedor-seccion" id="pasiva{{ $i }}">
               <div class="row">
                 <div class="col-xs-3">
-                  @if ($habilidades[ 'p' .$i ])
+                  @if (isset($habilidades[ 'p' .$i ]))
                     <img src="{{ asset('storage/' .$habilidades[ 'p' .$i ]->foto_habilidad) }}" alt="pasiva{{ $i }}" class="img-responsive img-habilidad-resumen">
                   @else
                     <img src="{{ asset('img/habilidades/default_skill.png') }}" alt="pasiva{{ $i }}" class="img-responsive img-habilidad-resumen">
                   @endif
                 </div>
-                <div class="col-xs-9 text-center-vertical">{{ $habilidades[ 'p' .$i ] ? $habilidades[ 'p' .$i ]->nombre : 'Sin pasiva seleccionada' }}</div>
+                <div class="col-xs-9 text-center-vertical">{{ isset($habilidades[ 'p' .$i ]) ? $habilidades[ 'p' .$i ]->nombre : 'Sin pasiva seleccionada' }}</div>
               </div>
             </div>
           @endfor
