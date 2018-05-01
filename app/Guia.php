@@ -89,7 +89,7 @@ class Guia extends Model
     */
     public function runa()
     {
-      return $this->belongsToMany('App\Runa', 'guia_habilidad', 'id_guia', 'id_runa');
+      return $this->belongsToMany('App\Runa', 'guia_habilidad', 'id_guia', 'id_runa')->using('App\GuiaHabilidad')->withPivot('posicion');
     }
 
     /**

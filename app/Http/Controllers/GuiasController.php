@@ -444,7 +444,39 @@ class GuiasController extends Controller
      */
     public function show(Guia $guia)
     {
-        return view('visualizarGuia');
+        $habilidades = [
+          'a1' => null,
+          'a2' => null,
+          'a3' => null,
+          'a4' => null,
+          'a5' => null,
+          'a6' => null,
+          'p1' => null,
+          'p2' => null,
+          'p3' => null,
+          'p4' => null,
+        ];
+
+        $runas = [
+          'a1' => null,
+          'a2' => null,
+          'a3' => null,
+          'a4' => null,
+          'a5' => null,
+          'a6' => null,
+        ];
+
+        foreach($guia->habilidad as $habilidad)
+        {
+          $habilidades[ $habilidad->pivot->posicion ] = $habilidad;
+        }
+
+        foreach($guia->runa as $runa)
+        {
+          $runas[ $runa->pivot->posicion ] = $runa;
+        }
+
+        return view('visualizarGuia', [ 'guia' => $guia, 'habilidades' => $habilidades, 'runas' => $runas ]);
     }
 
     /**
@@ -481,7 +513,6 @@ class GuiasController extends Controller
       if(!$guia->trashed())
       {
         $guia->delete();
-        dd($guia);
       }
 
       return redirect()->back();

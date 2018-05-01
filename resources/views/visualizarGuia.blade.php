@@ -6,25 +6,25 @@
   <div class="container-fluid contenedor margen-inf">
     <div id="seccionEncabezado" class="row">
       <div class="col-xs-3 col-sm-1">
-        <img src="{{ asset('img/clases/default_class.png') }}" class="img-clase img-responsive margen-sup" alt="clase">
+        <img src="{{ asset('storage/' .$guia->clase->foto_clase) }}" class="img-clase img-responsive margen-sup" alt="clase">
       </div>
       <div class="col-xs-9 col-sm-9">
         <div class="row">
           <div class="col-xs-12">
-            <h2 class="enlace-guia-inverse">Título Guía</h2>
+            <h2 class="enlace-guia-inverse">{{ $guia->nombre }}</h2>
           </div>
           <div class="col-xs-12">
-            <h3><a href="{{ route('usuario/show', 'asd') }}" class="enlace-usuario">Autor Guía</a></h3>
+            <h3><a href="{{ route('usuario/show', $guia->usuario) }}" class="enlace-usuario">{{ $guia->usuario->nombre }}</a></h3>
           </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-2">
         <div class="row">
           <div class="col-xs-6 col-sm-12">
-            <h4 class="text-right text-left-xs texto-amarillo">Última modificación: 12/12/2012</h4>
+            <h4 class="text-right text-left-xs texto-amarillo">Última modificación: {{ $guia->updated_at }}</h4>
           </div>
           <div class="col-xs-6 col-sm-12">
-            <h3 class="likes text-right"><span class="glyphicon glyphicon-thumbs-up likes"></span>147</h3>
+            <h3 class="likes text-right"><span class="glyphicon glyphicon-thumbs-up likes"></span>{{ $guia->get_num_likes() }}</h3>
             {{ Form::open(array('url' => '#', 'method' => 'post')) }}
             {{ Form::hidden('user' , '') }}
             {{ Form::hidden('guia' , '') }}
@@ -43,96 +43,28 @@
         <h3 class="text-center bold">Habilidades y runas</h3>
 
         <div class="row">
-          <div class="col-xs-12 col-sm-4 contenedor-seccion" id="habilidad1">
-            <div class="row">
-              <div class="col-xs-3 col-sm-2">
-                <img src="{{ asset('img/habilidades/default_skill.png') }}" alt="habilidad1" class="img-responsive img-habilidad-resumen">
-              </div>
-              <div class="col-xs-9 col-sm-10">
-                <div class="row">
-                  <div class="col-xs-12 habilidad-guia">Habilidad 1</div>
-                  <div class="col-xs-12 runa-guia">
-                    <img src="{{ asset('img/runas/default_rune.png') }}" alt="runa1" class="img-responsive runa-guia-img inline"><span>Runa 1</span></div>
+          @for ($i=1; $i < 7; $i++)
+            <div class="col-xs-12 col-sm-4 contenedor-seccion" id="habilidad{{ $i }}">
+              <div class="row">
+                <div class="col-xs-3 col-sm-2">
+                  @if ($habilidades[ 'a' .$i ])
+                    <img src="{{ asset('storage/' .$habilidades[ 'a' .$i ]->foto_habilidad) }}" alt="habilidad{{ $i }}" class="img-responsive img-habilidad-resumen">
+                  @else
+                    <img src="{{ asset('img/habilidades/default_skill.png') }}" alt="habilidad1" class="img-responsive img-habilidad-resumen">
+                  @endif
+                </div>
+
+                <div class="col-xs-9 col-sm-10">
+                  <div class="row">
+                    <div class="col-xs-12 habilidad-guia">{{ $habilidades[ 'a' .$i ] ? $habilidades[ 'a' .$i ]->nombre : 'Sin habilidad seleccionada' }}</div>
+                    <div class="col-xs-12 runa-guia">
+                      <span>{{ $runas[ 'a' .$i ] ? $runas[ 'a' .$i ]->nombre : 'Sin runa seleccionada' }}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div class="col-xs-12 col-sm-4 contenedor-seccion" id="habilidad2">
-            <div class="row">
-              <div class="col-xs-3 col-sm-2">
-                <img src="{{ asset('img/habilidades/default_skill.png') }}" alt="habilidad2" class="img-responsive img-habilidad-resumen">
-              </div>
-              <div class="col-xs-9 col-sm-10">
-                <div class="row">
-                  <div class="col-xs-12">Habilidad 2</div>
-                  <div class="col-xs-12 runa-guia">
-                    <img src="{{ asset('img/runas/default_rune.png') }}" alt="runa2" class="img-responsive runa-guia-img inline"><span>Runa 2</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xs-12 col-sm-4 contenedor-seccion" id="habilidad3">
-            <div class="row">
-              <div class="col-xs-3 col-sm-2">
-                <img src="{{ asset('img/habilidades/default_skill.png') }}" alt="habilidad3" class="img-responsive img-habilidad-resumen">
-              </div>
-              <div class="col-xs-9 col-sm-10">
-                <div class="row">
-                  <div class="col-xs-12">Habilidad 3</div>
-                  <div class="col-xs-12 runa-guia">
-                    <img src="{{ asset('img/runas/default_rune.png') }}" alt="runa3" class="img-responsive runa-guia-img inline"><span>Runa 3</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xs-12 col-sm-4 contenedor-seccion" id="habilidad4">
-            <div class="row">
-              <div class="col-xs-3 col-sm-2">
-                <img src="{{ asset('img/habilidades/default_skill.png') }}" alt="habilidad4" class="img-responsive img-habilidad-resumen">
-              </div>
-              <div class="col-xs-9 col-sm-10">
-                <div class="row">
-                  <div class="col-xs-12">Habilidad 4</div>
-                  <div class="col-xs-12 runa-guia">
-                    <img src="{{ asset('img/runas/default_rune.png') }}" alt="runa4" class="img-responsive runa-guia-img inline"><span>Runa 4</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xs-12 col-sm-4 contenedor-seccion" id="habilidad5">
-            <div class="row">
-              <div class="col-xs-3 col-sm-2">
-                <img src="{{ asset('img/habilidades/default_skill.png') }}" alt="habilidad5" class="img-responsive img-habilidad-resumen">
-              </div>
-              <div class="col-xs-9 col-sm-10">
-                <div class="row">
-                  <div class="col-xs-12">Habilidad 5</div>
-                  <div class="col-xs-12 runa-guia">
-                    <img src="{{ asset('img/runas/default_rune.png') }}" alt="runa5" class="img-responsive runa-guia-img inline"><span>Runa 5</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xs-12 col-sm-4 contenedor-seccion" id="habilidad6">
-            <div class="row">
-              <div class="col-xs-3 col-sm-2">
-                <img src="{{ asset('img/habilidades/default_skill.png') }}" alt="habilidad6" class="img-responsive img-habilidad-resumen">
-              </div>
-              <div class="col-xs-9 col-sm-10">
-                <div class="row">
-                  <div class="col-xs-12">Habilidad 6</div>
-                  <div class="col-xs-12 runa-guia">
-                    <img src="{{ asset('img/runas/default_rune.png') }}" alt="runa6" class="img-responsive runa-guia-img inline"><span>Runa 6</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+            </div> <!-- Fin del contenedor-seccion -->
+          @endfor
         </div>
       </div>
     </div> <!-- Fin de la sección habilidades -->
