@@ -47,11 +47,7 @@
             <div class="col-xs-12 col-sm-4 contenedor-seccion" id="habilidad{{ $i }}">
               <div class="row">
                 <div class="col-xs-3 col-sm-2">
-                  @if (isset($habilidades[ 'a' .$i ]))
-                    <img src="{{ asset('storage/' .$habilidades[ 'a' .$i ]->foto_habilidad) }}" alt="habilidad{{ $i }}" class="img-responsive img-habilidad-resumen">
-                  @else
-                    <img src="{{ asset('img/habilidades/default_skill.png') }}" alt="habilidad{{ $i }}" class="img-responsive img-habilidad-resumen">
-                  @endif
+                  <img src="{{ isset($habilidades[ 'a' .$i ]) ? asset('storage/' .$habilidades[ 'a' .$i ]->foto_habilidad) : asset("img/objetos/default_item.png") }}" alt="habilidad{{ $i }}" class="img-responsive img-habilidad-resumen">
                 </div>
 
                 <div class="col-xs-9 col-sm-10">
@@ -80,12 +76,9 @@
             <div class="col-xs-6 col-sm-3 contenedor-seccion" id="pasiva{{ $i }}">
               <div class="row">
                 <div class="col-xs-3">
-                  @if (isset($habilidades[ 'p' .$i ]))
-                    <img src="{{ asset('storage/' .$habilidades[ 'p' .$i ]->foto_habilidad) }}" alt="pasiva{{ $i }}" class="img-responsive img-habilidad-resumen">
-                  @else
-                    <img src="{{ asset('img/habilidades/default_skill.png') }}" alt="pasiva{{ $i }}" class="img-responsive img-habilidad-resumen">
-                  @endif
+                  <img src="{{ isset($habilidades[ 'p' .$i ]) ? asset('storage/' .$habilidades[ 'p' .$i ]->foto_habilidad) : asset("img/objetos/default_item.png") }}" alt="pasiva{{ $i }}" class="img-responsive img-habilidad-resumen">
                 </div>
+
                 <div class="col-xs-9 text-center-vertical">{{ isset($habilidades[ 'p' .$i ]) ? $habilidades[ 'p' .$i ]->nombre : 'Sin pasiva seleccionada' }}</div>
               </div>
             </div>
@@ -104,171 +97,36 @@
           <div class="col-xs-12 col-md-9 contenedor-seccion" id="seccionObjetos">
             <h4 class="text-center">Objetos</h4>
 
-            <div class="row">
-              <div class="col-xs-12 col-sm-4" id="seccionCabeza">
-                <h4 class="text-center">Cabeza</h4>
-                <div class="row">
-                  <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto cabeza" class="img-responsive img-habilidad-resumen">
+            @php
+              $cont_row = 0;
+            @endphp
+
+              @foreach ($listaPosObj as $pos)
+                @if ($cont_row == 0)
+                  <div class="row">
+                @endif
+                <div class="col-xs-12 col-sm-4" id="seccionCabeza">
+                  <h4 class="text-center">{{ str_replace( '_', ' ', ucfirst( str_replace('munecas', 'muñecas', str_replace( 'anillo', 'anillo ', $pos) ) ) ) }}</h4>
+
+                  <div class="row">
+                    <div class="col-xs-3">
+                      <img src="{{ isset($objetos[ $pos ]) ? asset('storage/' .$objetos[ $pos ]->foto_objeto) : asset("img/objetos/default_item.png") }}" alt="objeto {{ $pos }}" class="img-responsive img-habilidad-resumen">
+                    </div>
+
+                    <div class="col-xs-9 text-center-vertical">{{ isset($objetos[ $pos ]) ? $objetos[ $pos ]->nombre : 'Sin objeto seleccionado' }}</div>
                   </div>
-
-                  <div class="col-xs-9 text-center-vertical">Objeto cabeza</div>
-                </div>
-              </div> <!-- Fin de la sección cabeza -->
-
-              <div class="col-xs-12 col-sm-4" id="seccionHombros">
-                <h4 class="text-center">Hombros</h4>
-
-                <div class="row">
-                  <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto hombros" class="img-responsive img-habilidad-resumen">
+                </div> <!-- Fin de la sección cabeza -->
+                @if ($cont_row == 2)
                   </div>
-
-                  <div class="col-xs-9 text-center-vertical">Objeto hombros Lorem ipsum dolor sit amet, consectetur.</div>
-                </div>
-              </div> <!-- Fin de la sección hombros -->
-
-              <div class="col-xs-12 col-sm-4" id="seccionAmuleto">
-                <h4 class="text-center">Amuleto</h4>
-
-                <div class="row">
-                  <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto amuleto" class="img-responsive img-habilidad-resumen">
-                  </div>
-
-                  <div class="col-xs-9 text-center-vertical">Objeto amuleto</div>
-                </div>
-              </div> <!-- Fin de la sección amuleto -->
-
+                @endif
+                @php
+                  $cont_row++;
+                  $cont_row = $cont_row%3;
+                @endphp
+              @endforeach
+            @if ($cont_row != 0)
             </div>
-
-            <div class="row">
-              <div class="col-xs-12 col-sm-4" id="seccionTorso">
-                <h4 class="text-center">Torso</h4>
-
-                <div class="row">
-                  <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto torso" class="img-responsive img-habilidad-resumen">
-                  </div>
-
-                  <div class="col-xs-9 text-center-vertical">Objeto torso</div>
-                </div>
-              </div> <!-- Fin de la sección torso -->
-
-              <div class="col-xs-12 col-sm-4" id="seccionManos">
-                <h4 class="text-center">Manos</h4>
-
-                <div class="row">
-                  <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto manos" class="img-responsive img-habilidad-resumen">
-                  </div>
-
-                  <div class="col-xs-9 text-center-vertical">Objeto manos</div>
-                </div>
-              </div> <!-- Fin de la sección manos -->
-
-              <div class="col-xs-12 col-sm-4" id="seccionMunecas">
-                <h4 class="text-center">Muñecas</h4>
-
-                <div class="row">
-                  <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto muñecas" class="img-responsive img-habilidad-resumen">
-                  </div>
-
-                  <div class="col-xs-9 text-center-vertical">Objeto muñecas</div>
-                </div>
-              </div> <!-- Fin de la sección muñecas -->
-            </div>
-
-            <div class="row">
-              <div class="col-xs-12 col-sm-4" id="seccionAnillo1">
-                <h4 class="text-center">Anillo 1</h4>
-
-                <div class="row">
-                  <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto anillo1" class="img-responsive img-habilidad-resumen">
-                  </div>
-
-                  <div class="col-xs-9 text-center-vertical">Objeto anillo1</div>
-                </div>
-              </div> <!-- Fin de la sección anillo 1 -->
-
-              <div class="col-xs-12 col-sm-4" id="seccionAnillo2">
-                <h4 class="text-center">Anillo 2</h4>
-
-                <div class="row">
-                  <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto anillo2" class="img-responsive img-habilidad-resumen">
-                  </div>
-
-                  <div class="col-xs-9 text-center-vertical">Objeto anillo2</div>
-                </div>
-              </div> <!-- Fin de la sección anillo 2 -->
-
-              <div class="col-xs-12 col-sm-4" id="seccionCintura">
-                <h4 class="text-center">Cintura</h4>
-
-                <div class="row">
-                  <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto cintura" class="img-responsive img-habilidad-resumen">
-                  </div>
-
-                  <div class="col-xs-9 text-center-vertical">Objeto cintura</div>
-                </div>
-              </div> <!-- Fin de la sección cintura -->
-            </div>
-
-            <div class="row">
-              <div class="col-xs-12 col-sm-4" id="seccionPiernas">
-                <h4 class="text-center">Piernas</h4>
-
-                <div class="row">
-                  <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto piernas" class="img-responsive img-habilidad-resumen">
-                  </div>
-
-                  <div class="col-xs-9 text-center-vertical">Objeto piernas</div>
-                </div>
-              </div> <!-- Fin de la sección piernas -->
-
-              <div class="col-xs-12 col-sm-4" id="seccionPies">
-                <h4 class="text-center">Pies</h4>
-
-                <div class="row">
-                  <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto pies" class="img-responsive img-habilidad-resumen">
-                  </div>
-
-                  <div class="col-xs-9 text-center-vertical">Objeto pies</div>
-                </div>
-              </div> <!-- Fin de la sección pies -->
-
-              <div class="col-xs-12 col-sm-4" id="seccionArma">
-                <h4 class="text-center">Arma</h4>
-
-                <div class="row">
-                  <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto arma" class="img-responsive img-habilidad-resumen">
-                  </div>
-
-                  <div class="col-xs-9 text-center-vertical">Objeto arma</div>
-                </div>
-              </div> <!-- Fin de la sección arma -->
-            </div>
-
-            <div class="row">
-              <div class="col-xs-12 col-sm-4" id="seccionManoIzquierda">
-                <h4 class="text-center">Mano izquierda</h4>
-
-                <div class="row">
-                  <div class="col-xs-3">
-                    <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto mano izquierda" class="img-responsive img-habilidad-resumen">
-                  </div>
-
-                  <div class="col-xs-9 text-center-vertical">Objeto mano izquierda</div>
-                </div>
-              </div> <!-- Fin de la sección mano izquierda -->
-            </div>
+            @endif
           </div> <!-- Fin de la sección objetos -->
 
           <div class="col-xs-12 col-md-3" id="seccionCuboGemas">
@@ -277,41 +135,19 @@
                 <h4 class="text-center">Cubo de Kanai</h4>
 
                 <div class="row">
-                  <div class="col-xs-12 col-sm-4 col-md-12" id="seccionArmaCubo">
-                    <h4 class="text-center">Arma</h4>
+                  @for ($i=1; $i < 4; $i++)
+                    <div class="col-xs-12 col-sm-4 col-md-12" id="seccionCubo{{ $i }}">
+                      <h4 class="text-center">@switch($i) @case(1) Arma @break @case(2)Armadura @break @case(3)Accesorio @break @endswitch</h4>
 
-                    <div class="row">
-                      <div class="col-xs-3">
-                        <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto arma" class="img-responsive img-habilidad-resumen">
+                      <div class="row">
+                        <div class="col-xs-3">
+                          <img src="{{ isset($objetos[ 'cubo' .$i ]) ? asset('storage/' .$objetos[ 'cubo' .$i ]->foto_objeto) : asset("img/objetos/default_item.png") }}" alt="cubo{{ $i }}" class="img-responsive img-habilidad-resumen">
+                        </div>
+
+                        <div class="col-xs-9 text-center-vertical">{{ isset($objetos[ 'cubo' .$i ]) ? $objetos[ 'cubo' .$i ]->nombre : 'Sin objeto seleccionado' }}</div>
                       </div>
-
-                      <div class="col-xs-9 text-center-vertical">Objeto arma</div>
-                    </div>
-                  </div> <!-- Fin de la sección arma -->
-
-                  <div class="col-xs-12 col-sm-4 col-md-12" id="seccionArmaduraCubo">
-                    <h4 class="text-center">Armadura</h4>
-
-                    <div class="row">
-                      <div class="col-xs-3">
-                        <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto armadura" class="img-responsive img-habilidad-resumen">
-                      </div>
-
-                      <div class="col-xs-9 text-center-vertical">Objeto armadura</div>
-                    </div>
-                  </div> <!-- Fin de la sección armadura -->
-
-                  <div class="col-xs-12 col-sm-4 col-md-12" id="seccionAccesorio">
-                    <h4 class="text-center">Accesorio</h4>
-
-                    <div class="row">
-                      <div class="col-xs-3">
-                        <img src="{{ asset("img/objetos/default_item.png") }}" alt="objeto accesorio" class="img-responsive img-habilidad-resumen">
-                      </div>
-
-                      <div class="col-xs-9 text-center-vertical">Objeto accesorio</div>
-                    </div>
-                  </div> <!-- Fin de la sección accesorio -->
+                    </div> <!-- Fin de la sección cubo {{ $i }} -->
+                  @endfor
                 </div>
               </div> <!-- Fin de la sección cubo -->
 
@@ -319,41 +155,19 @@
                 <h4 class="text-center">Gemas legendarias</h4>
 
                 <div class="row">
-                  <div class="col-xs-12 col-sm-4 col-md-12" id="seccionGema1">
-                    <h4 class="text-center">Gema 1</h4>
+                  @for ($i=1; $i < 4; $i++)
+                    <div class="col-xs-12 col-sm-4 col-md-12" id="seccionGema{{ $i }}">
+                      <h4 class="text-center">Gema {{ $i }}</h4>
 
-                    <div class="row">
-                      <div class="col-xs-3">
-                        <img src="{{ asset("img/default_img.png") }}" alt="gema 1" class="img-responsive img-habilidad-resumen">
+                      <div class="row">
+                        <div class="col-xs-3">
+                          <img src="{{ isset($objetos[ 'gema' .$i ]) ? asset('storage/' .$objetos[ 'gema' .$i ]->foto_objeto) : asset("img/objetos/default_item.png") }}" alt="gema{{ $i }}" class="img-responsive img-habilidad-resumen">
+                        </div>
+
+                        <div class="col-xs-9 text-center-vertical">{{ isset($objetos[ 'gema' .$i ]) ? $objetos[ 'gema' .$i ]->nombre : 'Sin objeto seleccionado' }}</div>
                       </div>
-
-                      <div class="col-xs-9 text-center-vertical">Gema 1</div>
-                    </div>
-                  </div> <!-- Fin de la sección gema 1 -->
-
-                  <div class="col-xs-12 col-sm-4 col-md-12" id="seccionGema2">
-                    <h4 class="text-center">Gema 2</h4>
-
-                    <div class="row">
-                      <div class="col-xs-3">
-                        <img src="{{ asset("img/default_img.png") }}" alt="gema 2" class="img-responsive img-habilidad-resumen">
-                      </div>
-
-                      <div class="col-xs-9 text-center-vertical">Gema 2</div>
-                    </div>
-                  </div> <!-- Fin de la sección gema 2 -->
-
-                  <div class="col-xs-12 col-sm-4 col-md-12" id="seccionGema3">
-                    <h4 class="text-center">Gema 3</h4>
-
-                    <div class="row">
-                      <div class="col-xs-3">
-                        <img src="{{ asset("img/default_img.png") }}" alt="gema 3" class="img-responsive img-habilidad-resumen">
-                      </div>
-
-                      <div class="col-xs-9 text-center-vertical">Gema 2</div>
-                    </div>
-                  </div> <!-- Fin de la sección gema 3 -->
+                    </div> <!-- Fin de la sección gema {{ $i }} -->
+                  @endfor
                 </div>
               </div> <!-- de la sección gemas -->
             </div>

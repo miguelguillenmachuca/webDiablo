@@ -446,6 +446,10 @@ class GuiasController extends Controller
     {
         $habilidades = [];
         $runas = [];
+        $listaPosObj = [
+          'cabeza', 'hombros', 'amuleto', 'torso', 'manos', 'munecas', 'anillo1', 'anillo2', 'cintura', 'piernas', 'pies', 'arma', 'mano_izquierda'
+        ];
+        $objetos = [];
 
         foreach($guia->habilidad as $habilidad)
         {
@@ -457,7 +461,12 @@ class GuiasController extends Controller
           $runas[ $runa->pivot->posicion ] = $runa;
         }
 
-        return view('visualizarGuia', [ 'guia' => $guia, 'habilidades' => $habilidades, 'runas' => $runas ]);
+        foreach($guia->objeto as $objeto)
+        {
+          $objetos[ $objeto->pivot->posicion ] = $objeto;
+        }
+
+        return view('visualizarGuia', [ 'guia' => $guia, 'habilidades' => $habilidades, 'runas' => $runas, 'listaPosObj' => $listaPosObj, 'objetos' => $objetos ]);
     }
 
     /**
