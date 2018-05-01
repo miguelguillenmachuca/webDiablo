@@ -50,7 +50,7 @@
                   @if ($habilidades[ 'a' .$i ])
                     <img src="{{ asset('storage/' .$habilidades[ 'a' .$i ]->foto_habilidad) }}" alt="habilidad{{ $i }}" class="img-responsive img-habilidad-resumen">
                   @else
-                    <img src="{{ asset('img/habilidades/default_skill.png') }}" alt="habilidad1" class="img-responsive img-habilidad-resumen">
+                    <img src="{{ asset('img/habilidades/default_skill.png') }}" alt="habilidad{{ $i }}" class="img-responsive img-habilidad-resumen">
                   @endif
                 </div>
 
@@ -76,42 +76,20 @@
         <h3 class="text-center bold">Habilidades pasivas</h3>
 
         <div class="row">
-          <div class="col-xs-6 col-sm-3 contenedor-seccion" id="pasiva1">
-            <div class="row">
-              <div class="col-xs-3">
-                <img src="{{ asset("img/habilidades/default_skill.png") }}" alt="pasiva1" class="img-responsive img-habilidad-resumen">
+          @for ($i=1; $i < 5; $i++)
+            <div class="col-xs-6 col-sm-3 contenedor-seccion" id="pasiva{{ $i }}">
+              <div class="row">
+                <div class="col-xs-3">
+                  @if ($habilidades[ 'p' .$i ])
+                    <img src="{{ asset('storage/' .$habilidades[ 'p' .$i ]->foto_habilidad) }}" alt="pasiva{{ $i }}" class="img-responsive img-habilidad-resumen">
+                  @else
+                    <img src="{{ asset('img/habilidades/default_skill.png') }}" alt="pasiva{{ $i }}" class="img-responsive img-habilidad-resumen">
+                  @endif
+                </div>
+                <div class="col-xs-9 text-center-vertical">{{ $habilidades[ 'p' .$i ] ? $habilidades[ 'p' .$i ]->nombre : 'Sin pasiva seleccionada' }}</div>
               </div>
-              <div class="col-xs-9 text-center-vertical">Pasiva</div>
             </div>
-          </div>
-
-          <div class="col-xs-6 col-sm-3 contenedor-seccion" id="pasiva2">
-            <div class="row">
-              <div class="col-xs-3">
-                <img src="{{ asset("img/habilidades/default_skill.png") }}" alt="pasiva1" class="img-responsive img-habilidad-resumen">
-              </div>
-              <div class="col-xs-9 text-center-vertical">Pasiva</div>
-            </div>
-          </div>
-
-          <div class="col-xs-6 col-sm-3 contenedor-seccion" id="pasiva3">
-            <div class="row">
-              <div class="col-xs-3">
-                <img src="{{ asset("img/habilidades/default_skill.png") }}" alt="pasiva1" class="img-responsive img-habilidad-resumen">
-              </div>
-              <div class="col-xs-9 text-center-vertical">Pasiva</div>
-            </div>
-          </div>
-
-          <div class="col-xs-6 col-sm-3 contenedor-seccion" id="pasiva4">
-            <div class="row">
-              <div class="col-xs-3">
-                <img src="{{ asset("img/habilidades/default_skill.png") }}" alt="pasiva1" class="img-responsive img-habilidad-resumen">
-              </div>
-              <div class="col-xs-9 text-center-vertical">Pasiva</div>
-            </div>
-          </div>
-
+          @endfor
         </div>
       </div>
     </div> <!-- Fin de la sección pasivas -->
