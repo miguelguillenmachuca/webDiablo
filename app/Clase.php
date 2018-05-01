@@ -55,6 +55,14 @@ class Clase extends Model
   }
 
   /**
+  * Relationship
+  */
+  public function guia()
+  {
+    return $this->hasMany('App\Guia', 'id_clase', 'id');
+  }
+
+  /**
   * Get the value of the model's route key.
   *
   * @return mixed

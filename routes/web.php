@@ -31,9 +31,7 @@ Route::group([ 'prefix' => 'crearGuia' ], function() {
 Route::group([ 'prefix' => 'guia' ], function() {
   Route::get('/', 'GuiasController@index')->name('guia');
   Route::get('buscar', 'GuiasController@index')->name('guia/buscar');
-  Route::get('{guia}', function () {
-    return view('visualizarGuia');
-  })->name('guia/show');
+  Route::get('{guia}', 'GuiasController@show')->name('guia/show');
 });
 
 // RUTAS DE USUARIO
@@ -76,9 +74,9 @@ Route::group([ 'prefix' => 'admin' ], function () {
       return view('forms.guia_update');
     })->name('admin/guias/editar');
 
-    Route::get('{clase}/deleteGuia', 'ClasesController@destroy')->name('admin/deleteGuia');
+    Route::get('{clase}/deleteGuia', 'GuiasController@destroy')->name('admin/deleteGuia');
 
-    Route::get('{clase}/restoreGuia', 'ClasesController@restore')->name('admin/restoreGuia');
+    Route::get('{clase}/restoreGuia', 'GuiasController@restore')->name('admin/restoreGuia');
   });
 });
 

@@ -61,18 +61,18 @@ class GuiasController extends Controller
 
             if($filters)
             {
-              $guias = Guia::select('guia.*')->join('users', 'users.id', '=', 'guia.id_usuario')->where($conditions)->paginate(10);
+              $guias = Guia::select('guia.*')->join('users', 'users.id', '=', 'guia.id_usuario')->where($conditions)->orderBy('updated_at', 'DESC')->paginate(10);
             }
             else
             {
-              $guias = Guia::paginate(10);
+              $guias = Guia::orderBy('updated_at', 'DESC')->paginate(10);
             }
 
             return view('verGuias', [ 'guias' => $guias, 'clases' => $clases ]);
           break;
         }
 
-        App::abort(404, 'Página no encontrada');
+        abort(404, 'Página no encontrada');
     }
 
     /**
@@ -140,7 +140,7 @@ class GuiasController extends Controller
         break;
       }
 
-      App::abort(404, 'Página no encontrada');
+      abort(404, 'Página no encontrada');
     }
 
     /**
@@ -444,7 +444,7 @@ class GuiasController extends Controller
      */
     public function show(Guia $guia)
     {
-        //
+        return view('visualizarGuia');
     }
 
     /**

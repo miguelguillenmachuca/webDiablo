@@ -100,7 +100,7 @@ class RouteServiceProvider extends ServiceProvider
         {
           $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
-          $id = $hashids->decode($value);
+          $id = $hashids->decode($value)[0];
 
           return \App\Guia::withTrashed()->findOrFail($id);
         });

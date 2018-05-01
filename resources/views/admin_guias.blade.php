@@ -40,6 +40,7 @@
 
             <tbody>
               @foreach ($guias as $guia)
+                {{-- {{ dump($guia->clase) }} --}}
                 <tr class="{{ $guia->trashed() ? 'inactive' : '' }}">
                   <td>{{ $guia->nombre }}</td>
                   <td>{{ $guia->usuario->nombre }}</td>
