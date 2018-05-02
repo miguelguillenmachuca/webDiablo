@@ -177,8 +177,6 @@ class GuiasController extends Controller
 
         $guia->save();
 
-        // dd($guia);
-
         // ----------------- HABILIDADES -----------------
 
         // Loop to save all the habilidad and runa
@@ -451,6 +449,7 @@ class GuiasController extends Controller
         ];
         $objetos = [];
         $puntos_leyenda = [];
+        $votoPositivo = \App\VotoPositivo::where([ [ 'id_guia', $guia->id ], [ 'id_usuario', Auth::user()->id ] ])->first();
 
         foreach($guia->habilidad as $habilidad)
         {
@@ -472,7 +471,7 @@ class GuiasController extends Controller
           $puntos_leyenda[ $punto->estadistica ] = $punto;
         }
 
-        return view('visualizarGuia', [ 'guia' => $guia, 'habilidades' => $habilidades, 'runas' => $runas, 'listaPosObj' => $listaPosObj, 'objetos' => $objetos, 'puntos_leyenda' => $puntos_leyenda ]);
+        return view('visualizarGuia', [ 'guia' => $guia, 'habilidades' => $habilidades, 'runas' => $runas, 'listaPosObj' => $listaPosObj, 'objetos' => $objetos, 'puntos_leyenda' => $puntos_leyenda, 'votoPositivo' => $votoPositivo ]);
     }
 
     /**

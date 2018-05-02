@@ -25,12 +25,18 @@
           </div>
           <div class="col-xs-6 col-sm-12">
             <h3 class="likes text-right"><span class="glyphicon glyphicon-thumbs-up likes"></span>{{ $guia->get_num_likes() }}</h3>
-            {{ Form::open(array('url' => '#', 'method' => 'post')) }}
-            {{ Form::hidden('user' , '') }}
-            {{ Form::hidden('guia' , '') }}
+            @if (!$votoPositivo)
+              {{ Form::open(array('url' => route('createVoto'), 'method' => 'post')) }}
+              {{ Form::hidden('id_guia' , $guia->getRouteKey()) }}
 
-            {{ Form::button('<span class="glyphicon glyphicon-thumbs-up likes"></span><span class="likes">Votar</span>', [ 'type' => 'submit', 'class' => 'btn btn-rojo pull-right' ]) }}
-            {{ Form::close() }}
+              {{ Form::button('<span class="glyphicon glyphicon-thumbs-up likes"></span><span class="likes">Votar</span>', [ 'type' => 'submit', 'class' => 'btn btn-rojo pull-right' ]) }}
+              {{ Form::close() }}
+            @else
+              {{ Form::open(array('url' => route('deleteVoto', [ $votoPositivo->getRouteKey() ]))) }}
+
+              {{ Form::button('<span class="glyphicon glyphicon-thumbs-up likes"></span><span class="likes">Quitar voto</span>', [ 'type' => 'submit', 'class' => 'btn btn-rojo pull-right' ]) }}
+              {{ Form::close() }}
+            @endif
           </div>
         </div>
       </div>
@@ -254,14 +260,20 @@
       <div class="col-xs-12">
         <h3 class="text-center bold">Recuerda votar positivo si te ha gustado la guía</h3>
 
-        <h3 class="likes text-center"><span class="glyphicon glyphicon-thumbs-up likes"></span>147</h3>
+        <h3 class="likes text-center"><span class="glyphicon glyphicon-thumbs-up likes"></span>{{ $guia->get_num_likes() }}</h3>
         <div class="text-center">
-          {{ Form::open(array('url' => '#', 'method' => 'post')) }}
-          {{ Form::hidden('user' , '') }}
-          {{ Form::hidden('guia' , '') }}
+          @if (!$votoPositivo)
+            {{ Form::open(array('url' => route('createVoto'), 'method' => 'post')) }}
+            {{ Form::hidden('id_guia' , $guia->getRouteKey()) }}
 
-          {{ Form::button('<span class="glyphicon glyphicon-thumbs-up likes"></span><span class="likes">Votar</span>', [ 'type' => 'submit', 'class' => 'btn btn-rojo' ]) }}
-          {{ Form::close() }}
+            {{ Form::button('<span class="glyphicon glyphicon-thumbs-up likes"></span><span class="likes">Votar</span>', [ 'type' => 'submit', 'class' => 'btn btn-rojo' ]) }}
+            {{ Form::close() }}
+          @else
+            {{ Form::open(array('url' => route('deleteVoto', [ $votoPositivo->getRouteKey() ]))) }}
+
+            {{ Form::button('<span class="glyphicon glyphicon-thumbs-up likes"></span><span class="likes">Quitar voto</span>', [ 'type' => 'submit', 'class' => 'btn btn-rojo' ]) }}
+            {{ Form::close() }}
+          @endif
         </div>
       </div>
     </div> <!-- Fin de la sección votos -->

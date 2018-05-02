@@ -105,6 +105,15 @@ class RouteServiceProvider extends ServiceProvider
           return \App\Guia::withTrashed()->findOrFail($id);
         });
 
+        Route::bind('voto_positivo', function($value, $route)
+        {
+          $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
+
+          $id = $hashids->decode($value)[0];
+
+          return \App\VotoPositivo::withTrashed()->findOrFail($id);
+        });
+
         parent::boot();
     }
 
