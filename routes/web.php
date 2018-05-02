@@ -34,6 +34,7 @@ Route::group([ 'prefix' => 'guia' ], function() {
   Route::get('{guia}', 'GuiasController@show')->name('guia/show');
   Route::post('like', 'VotosPositivosController@store')->name('createVoto');
   Route::post('{voto_positivo}/dislike', 'VotosPositivosController@destroy')->name('deleteVoto');
+  Route::post('comentario', 'ComentariosController@store')->name('createComentario');
 });
 
 // RUTAS DE USUARIO

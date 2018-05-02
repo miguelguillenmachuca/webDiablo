@@ -27,7 +27,7 @@
             <h3 class="likes text-right"><span class="glyphicon glyphicon-thumbs-up likes"></span>{{ $guia->get_num_likes() }}</h3>
             @if (!$votoPositivo)
               {{ Form::open(array('url' => route('createVoto'), 'method' => 'post')) }}
-              {{ Form::hidden('id_guia' , $guia->getRouteKey()) }}
+              {{ Form::hidden('id_guia', $guia->getRouteKey()) }}
 
               {{ Form::button('<span class="glyphicon glyphicon-thumbs-up likes"></span><span class="likes">Votar</span>', [ 'type' => 'submit', 'class' => 'btn btn-rojo pull-right' ]) }}
               {{ Form::close() }}
@@ -264,7 +264,7 @@
         <div class="text-center">
           @if (!$votoPositivo)
             {{ Form::open(array('url' => route('createVoto'), 'method' => 'post')) }}
-            {{ Form::hidden('id_guia' , $guia->getRouteKey()) }}
+            {{ Form::hidden('id_guia', $guia->getRouteKey()) }}
 
             {{ Form::button('<span class="glyphicon glyphicon-thumbs-up likes"></span><span class="likes">Votar</span>', [ 'type' => 'submit', 'class' => 'btn btn-rojo' ]) }}
             {{ Form::close() }}
@@ -286,9 +286,9 @@
         <p class="help-block">Puedes debatir sobre tu opinión de la guía, posibles cambios, o simplemente agradecerle al autor que se haya tomado su tiempo en compartirla.</p>
 
         <div class="formComentario">
-          {{ Form::open(array('url' => '#', 'method' => 'post')) }}
-          {{ Form::label('') }}
-          {{ Form::textarea('comentario', null , [ 'class' => 'form-control' ]) }}
+          {{ Form::open(array('url' => route('createComentario'), 'method' => 'post')) }}
+          {{ Form::textarea('texto_com', null , [ 'class' => 'form-control' ]) }}
+          {{ Form::hidden('id_guia', $guia->getRouteKey()) }}
 
           {{ Form::button('Comentar', [' type' => 'submit', 'class' => 'btn btn-rojo btn-block-xs margen-sup' ]) }}
           {{ Form::close() }}
@@ -297,135 +297,45 @@
     </div>
 
     <div class="col-xs-12" id="paginado_comentarios">
-      <ul class="pagination pagination-rojo">
-        <li>
-          <a href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li>
-        <li class="active"><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li>
-          <a href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
-      </ul>
+      {{ $comentarios->links('pagination.limit_links_rojo') }}
     </div> <!-- Fin del div paginado_comentarios -->
 
-    <div class="col-xs-12 margen-inf" id="cajaComentarios">
+    <div class="col-xs-12 margen-sup margen-inf" id="cajaComentarios">
       <div class="row">
-        <div class="col-xs-12">
-          <div class="row contenedor-seccion-comentarios row-eq-height">
-            <div class="col-xs-12 col-sm-2 col-md-2 contenedor-autor-comentario">
-              <div class="row">
-                <div class="col-xs-2 col-sm-12">
-                  <img src="{{ asset('img/usuarios/1493925171_unknown2.png') }}" alt="usuario" class="img-responsive img-usuario center-block">
-                </div>
-                <div class="col-xs-10 col-sm-12 text-center">
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <a href="{{ route('usuario/show', 'asd') }}" class="enlace-usuario">Usuario</a>
-                    </div>
-                    <div class="col-xs-12">
-                      <span class="num-comentario">123 comentarios</span>
+        @foreach ($comentarios as $comentario)
+          <div class="col-xs-12">
+            <div class="row contenedor-seccion-comentarios row-eq-height">
+              <div class="col-xs-12 col-sm-2 col-md-2 contenedor-autor-comentario">
+                <div class="row">
+                  <div class="col-xs-2 col-sm-12">
+                    <img src="{{ asset('storage/' .$comentario->usuario->foto_usuario) }}" alt="usuario" class="img-responsive img-usuario center-block">
+                  </div>
+                  <div class="col-xs-10 col-sm-12 text-center">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <a href="{{ route('usuario/show', $comentario->usuario->getRouteKey()) }}" class="enlace-usuario">{{ $comentario->usuario->nombre }}</a>
+                      </div>
+                      <div class="col-xs-12">
+                        <span class="num-comentario">{{ $comentario->usuario->get_num_comentarios() }} comentarios</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="col-xs-12 col-sm-10 col-md-10 contenedor-texto-comentario full-height">
-              <p class="full-height">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium maiores numquam recusandae quaerat. Numquam eius vero similique nam in eum tempora ab eos commodi soluta quam natus vel accusamus nobis, perferendis, voluptate voluptatum nesciunt, sint consequatur animi! Vitae beatae perferendis dolorem hic ab suscipit molestiae enim necessitatibus. Suscipit dolor laborum nulla consequatur dolore expedita voluptatum minima quibusdam distinctio consequuntur, sit esse enim, excepturi eius doloribus! Et totam nobis id. Architecto dolore, dignissimos vitae laborum dolores necessitatibus quam! Doloribus fugiat mollitia reprehenderit officiis ipsa, sint eveniet neque. Quae reiciendis nostrum tempore, odit sit optio blanditiis reprehenderit, ea amet impedit, excepturi totam.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-xs-12">
-          <div class="row contenedor-seccion-comentarios row-eq-height">
-            <div class="col-xs-12 col-sm-2 col-md-2 contenedor-autor-comentario">
-              <div class="row">
-                <div class="col-xs-2 col-sm-12">
-                  <img src="{{ asset('img/usuarios/1493925171_unknown2.png') }}" alt="usuario" class="img-responsive img-usuario center-block">
-                </div>
-                <div class="col-xs-10 col-sm-12 text-center">
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <a href="{{ route('usuario/show', 'asd') }}" class="enlace-usuario">Usuario</a>
-                    </div>
-                    <div class="col-xs-12">
-                      <span class="num-comentario">123 comentarios</span>
-                    </div>
-                  </div>
-                </div>
+              <div class="col-xs-12 col-sm-10 col-md-10 contenedor-texto-comentario full-height">
+                <p class="full-height">{{ $comentario->texto }}</p>
               </div>
             </div>
-
-            <div class="col-xs-12 col-sm-10 col-md-10 contenedor-texto-comentario full-height">
-              <p class="full-height">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium maiores numquam recusandae quaerat. Numquam eius vero similique nam in eum tempora ab eos commodi soluta quam natus vel accusamus nobis, perferendis, voluptate voluptatum nesciunt, sint consequatur animi! Vitae beatae perferendis dolorem hic ab suscipit molestiae enim necessitatibus. Suscipit dolor laborum nulla consequatur dolore expedita voluptatum minima quibusdam distinctio consequuntur, sit esse enim, excepturi eius doloribus! Et totam nobis id. Architecto dolore, dignissimos vitae laborum dolores necessitatibus quam! Doloribus fugiat mollitia reprehenderit officiis ipsa, sint eveniet neque. Quae reiciendis nostrum tempore, odit sit optio blanditiis reprehenderit, ea amet impedit, excepturi totam.</p>
-            </div>
           </div>
+        @endforeach
 
-        </div>
-
-        <div class="col-xs-12">
-          <div class="row contenedor-seccion-comentarios row-eq-height">
-            <div class="col-xs-12 col-sm-2 col-md-2 contenedor-autor-comentario">
-              <div class="row">
-                <div class="col-xs-2 col-sm-12">
-                  <img src="{{ asset('img/usuarios/1493925171_unknown2.png') }}" alt="usuario" class="img-responsive img-usuario center-block">
-                </div>
-                <div class="col-xs-10 col-sm-12 text-center">
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <a href="{{ route('usuario/show', 'asd') }}" class="enlace-usuario">Usuario</a>
-                    </div>
-                    <div class="col-xs-12">
-                      <span class="num-comentario">123 comentarios</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-10 col-md-10 contenedor-texto-comentario full-height">
-              <p class="full-height">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium maiores numquam recusandae quaerat. Numquam eius vero similique nam in eum tempora ab eos commodi soluta quam natus vel accusamus nobis, perferendis, voluptate voluptatum nesciunt, sint consequatur animi! Vitae beatae perferendis dolorem hic ab suscipit molestiae enim necessitatibus. Suscipit dolor laborum nulla consequatur dolore expedita voluptatum minima quibusdam distinctio consequuntur, sit esse enim, excepturi eius doloribus! Et totam nobis id. Architecto dolore, dignissimos vitae laborum dolores necessitatibus quam! Doloribus fugiat mollitia reprehenderit officiis ipsa, sint eveniet neque. Quae reiciendis nostrum tempore, odit sit optio blanditiis reprehenderit, ea amet impedit, excepturi totam.</p>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col-xs-12">
-          <div class="row contenedor-seccion-comentarios row-eq-height">
-            <div class="col-xs-12 col-sm-2 col-md-2 contenedor-autor-comentario">
-              <div class="row">
-                <div class="col-xs-2 col-sm-12">
-                  <img src="{{ asset('img/usuarios/1493925171_unknown2.png') }}" alt="usuario" class="img-responsive img-usuario center-block">
-                </div>
-                <div class="col-xs-10 col-sm-12 text-center">
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <a href="{{ route('usuario/show', 'asd') }}" class="enlace-usuario">Usuario</a>
-                    </div>
-                    <div class="col-xs-12">
-                      <span class="num-comentario">123 comentarios</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-10 col-md-10 contenedor-texto-comentario full-height">
-              <p class="full-height">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium maiores numquam recusandae quaerat. Numquam eius vero similique nam in eum tempora ab eos commodi soluta quam natus vel accusamus nobis, perferendis, voluptate voluptatum nesciunt, sint consequatur animi! Vitae beatae perferendis dolorem hic ab suscipit molestiae enim necessitatibus. Suscipit dolor laborum nulla consequatur dolore expedita voluptatum minima quibusdam distinctio consequuntur, sit esse enim, excepturi eius doloribus! Et totam nobis id. Architecto dolore, dignissimos vitae laborum dolores necessitatibus quam! Doloribus fugiat mollitia reprehenderit officiis ipsa, sint eveniet neque. Quae reiciendis nostrum tempore, odit sit optio blanditiis reprehenderit, ea amet impedit, excepturi totam.</p>
-            </div>
-          </div>
-
-        </div>
       </div>
     </div>
+
+    <div class="container-fluid" id="paginado_inf">
+      {{ $comentarios->links('pagination.limit_links_rojo') }}
+    </div> <!-- Fin del div paginado_inf -->
 
   </div>
 
