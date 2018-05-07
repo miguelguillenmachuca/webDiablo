@@ -46,7 +46,7 @@
               @foreach ($objetos as $objeto)
                 <tr class="{{ $objeto->trashed() ? 'inactive' : '' }}">
                   <td>{{ $objeto->nombre }}</td>
-                  <td><img src="{{ asset('storage/' .$objeto->foto_objeto) }}" class="img-responsive foto-resumen" alt="foto objeto"></td>
+                  <td><img src="{{ asset('../storage/app/public/' .$objeto->foto_objeto) }}" class="img-responsive foto-resumen" alt="foto objeto"></td>
 
                   @if($objeto->clase != null)
                     <td>{{ $objeto->clase->nombre }}</td>

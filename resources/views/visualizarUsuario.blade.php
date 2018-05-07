@@ -8,7 +8,7 @@
         <div class="row row-eq-height">
           <div class="col-xs-3 col-sm-1 text-center">
             <div class="text-center-vertical">
-              <img src="{{ asset('storage/' .$usuario->foto_usuario) }}" alt="avatar del usuario" class="img-responsive img-usuario-no-max">
+              <img src="{{ asset('../storage/app/public/' .$usuario->foto_usuario) }}" alt="avatar del usuario" class="img-responsive img-usuario-no-max">
             </div>
           </div>
 

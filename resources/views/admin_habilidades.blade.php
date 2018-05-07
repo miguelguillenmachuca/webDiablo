@@ -47,7 +47,7 @@
               @foreach ($habilidades as $habilidad)
                 <tr class="{{ $habilidad->trashed() ? 'inactive' : '' }}">
                   <td>{{ $habilidad->nombre }}</td>
-                  <td><img src="{{ asset('storage/' .$habilidad->foto_habilidad) }}" class="img-responsive foto-resumen" alt="foto habilidad"></td>
+                  <td><img src="{{ asset('../storage/app/public/' .$habilidad->foto_habilidad) }}" class="img-responsive foto-resumen" alt="foto habilidad"></td>
                   <td>{{ $habilidad->clase->nombre }}</td>
                   <td>{{ $habilidad->tipo_habilidad }}</td>
                   <td>{{ $habilidad->descripcion }}</td>

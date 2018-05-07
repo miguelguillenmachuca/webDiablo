@@ -21,7 +21,7 @@
       <div class="col-xs-6 col-sm-5 {{ $offset }} contenedor margen-sup">
         <div class="row">
           <div class="col-xs-4 col-sm-3 col-md-2">
-            <img src="{{ asset('storage/' .$clase->foto_clase) }}" alt="imagen {{ $clase->nombre }}" class="img-responsive">
+            <img src="{{ asset('../storage/app/public/' .$clase->foto_clase) }}" alt="imagen {{ $clase->nombre }}" class="img-responsive">
           </div>
           <div class="col-xs-8 col-sm-9 col-md-10">
             <h4><a href="{{ route('formularioCrearGuia', [ $clase ]) }}" class="enlace-guia">{{ $clase->nombre }}</a></h4>

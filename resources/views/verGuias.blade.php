@@ -61,7 +61,7 @@
             <tbody>
               @foreach ($guias as $guia)
                 <tr>
-                  <td><img src="{{ asset('storage/' .$guia->clase->foto_clase) }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
+                  <td><img src="{{ asset('../storage/app/public/' .$guia->clase->foto_clase) }}" alt="imagen" class="img-responsive img-clase-resumen"></td>
                   <td><a href="{{ route('guia/show', $guia->getRouteKey()) }}">{{ $guia->nombre }}</a></td>
                   <td><a href="{{ route('usuario/show', $guia->usuario->getRouteKey()) }}" class="enlace-usuario">{{ $guia->usuario->nombre }}</a></td>
                   <td class="likes">{{ $guia->get_num_likes() }}</td>
