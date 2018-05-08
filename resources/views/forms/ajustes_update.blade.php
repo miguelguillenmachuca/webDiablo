@@ -3,6 +3,11 @@
   {{ Form::label('email', 'Correo electrónico', [ 'class' => 'control-label col-sm-2 text-right' ]) }}
   <div class="col-sm-10">
     {{ Form::email('email') }}
+    @if($errors->has('email'))
+      @foreach ($errors->get('email') as $message)
+        <span class="help-block">{{ $message }}</span>
+      @endforeach
+    @endif
   </div>
 </div>
 
@@ -10,26 +15,28 @@
   {{ Form::label('nombre', 'Nombre de usuario', [ 'class' => 'control-label col-sm-2 text-right' ]) }}
   <div class="col-sm-10">
     {{ Form::text('nombre') }}
+    @if($errors->has('nombre'))
+      @foreach ($errors->get('nombre') as $message)
+        <span class="help-block">{{ $message }}</span>
+      @endforeach
+    @endif
   </div>
 </div>
 
 <div class="separador"></div>
-{{-- {{dd($errors)}} --}}
-<h3>Ajustes básicos</h3>
-@if($errors->any())
-<div class="container-fluid">
-  <h3>Hay errores en el formulario:</h3>
-  @foreach ($errors->all() as $message)
-    <p>{{ $message }}</p>
 
-  @endforeach
-</div>
-@endif
+<h3>Ajustes básicos</h3>
+
 
 <div class="form-group">
   {{ Form::label('pass_actual', 'Contraseña actual', [ 'class' => 'control-label col-sm-2 text-right' ]) }}
   <div class="col-sm-10">
     {{ Form::password('pass_actual') }}
+    @if($errors->has('pass_actual'))
+      @foreach ($errors->get('pass_actual') as $message)
+        <span class="help-block">{{ $message }}</span>
+      @endforeach
+    @endif
   </div>
 </div>
 
@@ -37,6 +44,11 @@
   {{ Form::label('password', 'Nueva contraseña', [ 'class' => 'control-label col-sm-2 text-right' ]) }}
   <div class="col-sm-10">
     {{ Form::password('password') }}
+    @if($errors->has('password'))
+      @foreach ($errors->get('password') as $message)
+        <span class="help-block">{{ $message }}</span>
+      @endforeach
+    @endif
   </div>
 </div>
 
@@ -44,6 +56,11 @@
   {{ Form::label('repitePassword', 'Repite la contraseña', [ 'class' => 'control-label col-sm-2 text-right' ]) }}
   <div class="col-sm-10">
     {{ Form::password('repitePassword') }}
+    @if($errors->has('repitePassword'))
+      @foreach ($errors->get('repitePassword') as $message)
+        <span class="help-block">{{ $message }}</span>
+      @endforeach
+    @endif
   </div>
 </div>
 
