@@ -50,9 +50,9 @@ Route::group([ 'prefix' => 'usuario' ], function() {
   Route::get('{usuario}/favoritas', 'UsersController@show'
   )->name('usuario/favoritas');
 
-  Route::get('{usuario}/ajustes', function () {
-    return view('cambiarAjustes');
-  })->name('usuario/ajustes');
+  Route::get('{usuario}/ajustes', 'UsersController@edit')->name('usuario/ajustes');
+
+  Route::post('{usuario}/updateUsuario', 'UsersController@update')->name('updateUsuario');
 });
 
 // ---------------- RUTAS DE ADMINISTRACIÓN ----------------

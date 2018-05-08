@@ -106,7 +106,16 @@ class UsersController extends Controller
   */
   public function edit(User $user)
   {
-    return view('forms.usuario_update')->with('usuario', $user);
+    switch(Route::currentRouteName())
+    {
+      case 'admin/usuarios/editar':
+        return view('forms.usuario_update')->with('usuario', $user);
+      break;
+
+      case 'usuario/ajustes':
+        return view('cambiarAjustes')->with('usuario', $user);
+      break;
+    }
   }
 
   /**
@@ -118,7 +127,23 @@ class UsersController extends Controller
   */
   public function update(Request $request, User $user)
   {
+    $old_pass = true;
+
+    if(Route::currentRouteName() == 'updateUsuario')
+    {
+      if($request->has('password'))
+      {
+        $old_pass = Hash::check($request->pass_actual, $user->password);
+      }
+    }
+
     $validator = UsersController::validateModel($request, $user);
+
+    $validator->after(function ($validator) use($old_pass) {
+      if(!$old_pass) {
+        $validator->errors()->add('pass_actual', 'La antigua contraseña tiene que coincidir');
+      }
+    });
 
     if($validator->fails())
     {
@@ -192,7 +217,7 @@ class UsersController extends Controller
       // Make sure to ignore the unique email clause if is an update request
       'email' => 'required|email|max:191|unique:users,email' .$request->route()->uri() == 'admin/updateUser' || $request->route()->uri() == 'usuario/updateUser' ? $user->id: '',
       // If the request comes from de admin section, the password will be a required field
-      'password' => 'min:6|max:20|regex:/^[a-zA-Z0-9_.-]*$/u' . $request->route()->uri() == 'admin/updateUser' ? '|required' : '',
+      'password' => 'min:6|max:20|regex:/^[a-zA-Z0-9_.-]*$/u' . $request->route()->uri() == 'admin/updateUser' || $request->route()->uri() == 'updateUser' ? '|required' : '',
       'repitePassword' => 'required_with:password|same:password',
     ]);
 

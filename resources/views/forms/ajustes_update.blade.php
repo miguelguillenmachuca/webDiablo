@@ -1,4 +1,4 @@
-{{ Form::open([ 'url' => '#', 'files' => 'true', 'class' => "form-horizontal" ]) }}
+{{ Form::model( $usuario, [ 'url' => route('updateUsuario', [ $usuario ]), 'files' => 'true', 'class' => "form-horizontal" ]) }}
 <div class="form-group">
   {{ Form::label('email', 'Correo electrónico', [ 'class' => 'control-label col-sm-2 text-right' ]) }}
   <div class="col-sm-10">
@@ -14,8 +14,17 @@
 </div>
 
 <div class="separador"></div>
-
+{{-- {{dd($errors)}} --}}
 <h3>Ajustes básicos</h3>
+@if($errors->any())
+<div class="container-fluid">
+  <h3>Hay errores en el formulario:</h3>
+  @foreach ($errors->all() as $message)
+    <p>{{ $message }}</p>
+
+  @endforeach
+</div>
+@endif
 
 <div class="form-group">
   {{ Form::label('pass_actual', 'Contraseña actual', [ 'class' => 'control-label col-sm-2 text-right' ]) }}
@@ -25,16 +34,16 @@
 </div>
 
 <div class="form-group">
-  {{ Form::label('pass', 'Nueva contraseña', [ 'class' => 'control-label col-sm-2 text-right' ]) }}
+  {{ Form::label('password', 'Nueva contraseña', [ 'class' => 'control-label col-sm-2 text-right' ]) }}
   <div class="col-sm-10">
-    {{ Form::password('pass') }}
+    {{ Form::password('password') }}
   </div>
 </div>
 
 <div class="form-group">
-  {{ Form::label('repite_pass', 'Repite la contraseña', [ 'class' => 'control-label col-sm-2 text-right' ]) }}
+  {{ Form::label('repitePassword', 'Repite la contraseña', [ 'class' => 'control-label col-sm-2 text-right' ]) }}
   <div class="col-sm-10">
-    {{ Form::password('repite_pass') }}
+    {{ Form::password('repitePassword') }}
   </div>
 </div>
 
@@ -43,9 +52,9 @@
 <h3>Avatar</h3>
 
 <div class="form-group">
-  {{ Form::label('avatar', 'Cambiar avatar', [ 'class' => 'control-label col-sm-2 text-right' ]) }}
+  {{ Form::label('foto', 'Cambiar avatar', [ 'class' => 'control-label col-sm-2 text-right' ]) }}
   <div class="col-sm-10">
-    {{ Form::file('avatar') }}
+    {{ Form::file('foto') }}
   </div>
 </div>
 
