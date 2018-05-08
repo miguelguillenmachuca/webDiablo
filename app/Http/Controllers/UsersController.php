@@ -131,7 +131,7 @@ class UsersController extends Controller
 
     if(Route::currentRouteName() == 'updateUsuario')
     {
-      if($request->has('password'))
+      if($request->has('password') && $request->password != '')
       {
         $old_pass = Hash::check($request->pass_actual, $user->password);
       }
