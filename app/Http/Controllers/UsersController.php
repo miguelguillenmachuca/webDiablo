@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Validator;
 use Storage;
+use Auth;
 
 class UsersController extends Controller
 {
@@ -77,19 +78,40 @@ class UsersController extends Controller
     {
       case 'usuario/show':
       case 'usuario/guias_publi':
-        $guias = $user->guias()->paginate(10);
+        if($user->id == Auth::user()->id)
+        {
+          $guias = $user->guias()->paginate(10);
+        }
+        else
+        {
+          $guias = $user->guias()->where('visibilidad', 'publica')->paginate(10);
+        }
 
         return view('visualizarUsuario', [ 'usuario' => $user, 'guias' => $guias ]);
       break;
 
       case 'usuario/comentarios':
-        $comentarios = $user->comentarios()->paginate(10);
+        if($user->id == Auth::user()->id)
+        {
+          $comentarios = $user->comentarios()->paginate(10);
+        }
+        else
+        {
+          $comentarios = $user->get_comentarios_publicos()->paginate(10);
+        }
 
         return view('visualizarUsuario', [ 'usuario' => $user, 'comentarios' => $comentarios ]);
       break;
 
       case 'usuario/favoritas':
-        $guias = $user->guias_favoritas()->paginate(10);
+        if($user->id == Auth::user()->id)
+        {
+          $guias = $user->guias_favoritas()->paginate(10);
+        }
+        else
+        {
+          $guias = $user->guias_favoritas()->where('visibilidad', 'publica')->paginate(10);
+        }
 
         return view('visualizarUsuario', [ 'usuario' => $user, 'guias' => $guias ]);
       break;

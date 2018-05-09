@@ -140,4 +140,14 @@ class User extends Authenticatable
   {
     return $this->voto_positivo()->count();
   }
+
+  /**
+  * Get the comentarios publicos of the model
+  */
+  public function get_comentarios_publicos()
+  {
+    $id_guias_publicas = \App\Guia::where('visibilidad', 'publica')->pluck('id')->toArray();
+
+    return $this->hasMany('App\Comentario', 'id_usuario', 'id')->whereIn('id_guia', $id_guias_publicas);
+  }
 }

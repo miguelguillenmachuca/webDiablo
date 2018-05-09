@@ -65,7 +65,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ route('usuario/show', [ Auth::user() ]) }}">Panel de cuenta</a></li>
+                                    <li><a href="{{ route('usuario/show', [ Auth::user() ]) }}">Mi cuenta</a></li>
                                     <li><a href="{{ route('usuario/ajustes', [ Auth::user() ]) }}">Ajustes</a></li>
                                     <li><a href="{{ route('usuario/guias_publi', [ Auth::user() ]) }}">Mis guías</a></li>
                                     <li><a href="{{ route('usuario/favoritas', [ Auth::user() ]) }}">Mis guías favoritas</a></li>
