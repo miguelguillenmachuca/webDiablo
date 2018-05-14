@@ -571,6 +571,8 @@ class GuiasController extends Controller
 
       $default_objetos = [];
 
+      $default_puntos_leyenda = [];
+
       // Default values from the guia
 
       foreach($guia->habilidad as $habilidad)
@@ -588,6 +590,11 @@ class GuiasController extends Controller
         $default_objetos[ $objeto->pivot->posicion ] = $objeto;
       }
 
+      foreach($guia->puntosLeyenda as $punto)
+      {
+        $default_puntos_leyenda[ $punto->estadistica ] = $punto;
+      }
+
       return view ('forms.guia_update', [
         'guia' => $guia,
         'activas' => $habilidadesActivas,
@@ -603,6 +610,7 @@ class GuiasController extends Controller
         'default_habilidades' => $default_habilidades,
         'default_runas' => $default_runas,
         'default_objetos' => $default_objetos,
+        'default_puntos_leyenda' => $default_puntos_leyenda,
        ]);
     }
 

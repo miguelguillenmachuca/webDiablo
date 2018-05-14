@@ -144,61 +144,61 @@
               <div class="col-xs-12 col-md-3 contenedor-seccion" id="seccionLeyendaPrimarios">
                 <h4 class="text-center">Primarios</h4>
                 {{ Form::label('estad_principal', 'Estadística principal') }}
-                {{ Form::select( 'estad_principal', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'estad_principal' ] ) }}
+                {{ Form::select( 'estad_principal', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], isset($default_puntos_leyenda[ 'estad_principal' ]) ? $default_puntos_leyenda[ 'estad_principal' ]->prioridad : null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'estad_principal' ] ) }}
 
                 {{ Form::label('vitalidad', 'Vitalidad') }}
-                {{ Form::select( 'vitalidad', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'vitalidad' ] ) }}
+                {{ Form::select( 'vitalidad', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], isset($default_puntos_leyenda[ 'vitalidad' ]) ? $default_puntos_leyenda[ 'vitalidad' ]->prioridad : null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'vitalidad' ] ) }}
 
                 {{ Form::label('v_movimiento', 'Velocidad de movimiento') }}
-                {{ Form::select( 'v_movimiento', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'v_movimiento' ] ) }}
+                {{ Form::select( 'v_movimiento', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], isset($default_puntos_leyenda[ 'v_movimiento' ]) ? $default_puntos_leyenda[ 'v_movimiento' ]->prioridad : null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'v_movimiento' ] ) }}
 
                 {{ Form::label('recurso_max', 'Recurso máximo') }}
-                {{ Form::select( 'recurso_max', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'recurso_max' ] ) }}
+                {{ Form::select( 'recurso_max', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], isset($default_puntos_leyenda[ 'recurso_max' ]) ? $default_puntos_leyenda[ 'recurso_max' ]->prioridad : null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'recurso_max' ] ) }}
               </div> <!-- Fin del div seccionLeyendaPrimarios -->
 
               <div class="col-xs-12 col-md-3 contenedor-seccion" id="seccionLeyendaAtaque">
                 <h4 class="text-center">Ataque</h4>
                 {{ Form::label('v_ataque', 'Velocidad de ataque') }}
-                {{ Form::select( 'v_ataque', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'v_ataque' ] ) }}
+                {{ Form::select( 'v_ataque', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], isset($default_puntos_leyenda[ 'v_ataque' ]) ? $default_puntos_leyenda[ 'v_ataque' ]->prioridad : null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'v_ataque' ] ) }}
 
                 {{ Form::label('reduccion_enfr', 'Reducción de enfriamiento') }}
-                {{ Form::select( 'reduccion_enfr', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'reduccion_enfr' ] ) }}
+                {{ Form::select( 'reduccion_enfr', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], isset($default_puntos_leyenda[ 'reduccion_enfr' ]) ? $default_puntos_leyenda[ 'reduccion_enfr' ]->prioridad : null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'reduccion_enfr' ] ) }}
 
                 {{ Form::label('prob_golpe_crit', 'Probabilidad de golpe crítico') }}
-                {{ Form::select( 'prob_golpe_crit', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'prob_golpe_crit' ] ) }}
+                {{ Form::select( 'prob_golpe_crit', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], isset($default_puntos_leyenda[ 'prob_golpe_crit' ]) ? $default_puntos_leyenda[ 'prob_golpe_crit' ]->prioridad : null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'prob_golpe_crit' ] ) }}
 
                 {{ Form::label('dano_golpe_crit', 'Daño de golpe crítico') }}
-                {{ Form::select( 'dano_golpe_crit', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'dano_golpe_crit' ] ) }}
+                {{ Form::select( 'dano_golpe_crit', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], isset($default_puntos_leyenda[ 'dano_golpe_crit' ]) ? $default_puntos_leyenda[ 'dano_golpe_crit' ]->prioridad : null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'dano_golpe_crit' ] ) }}
               </div> <!-- Fin del div seccionLeyendaAtaque -->
 
               <div class="col-xs-12 col-md-3 contenedor-seccion" id="seccionLeyendaDefensa">
                 <h4 class="text-center">Defensa</h4>
                 {{ Form::label('vida', 'Vida') }}
-                {{ Form::select( 'vida', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'vida' ] ) }}
+                {{ Form::select( 'vida', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], isset($default_puntos_leyenda[ 'vida' ]) ? $default_puntos_leyenda[ 'vida' ]->prioridad : null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'vida' ] ) }}
 
                 {{ Form::label('armadura', 'Armadura') }}
-                {{ Form::select( 'armadura', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'armadura' ] ) }}
+                {{ Form::select( 'armadura', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], isset($default_puntos_leyenda[ 'armadura' ]) ? $default_puntos_leyenda[ 'armadura' ]->prioridad : null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'armadura' ] ) }}
 
                 {{ Form::label('todas_resist', 'Todas las resistencias') }}
-                {{ Form::select( 'todas_resist', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'todas_resist' ] ) }}
+                {{ Form::select( 'todas_resist', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], isset($default_puntos_leyenda[ 'todas_resist' ]) ? $default_puntos_leyenda[ 'todas_resist' ]->prioridad : null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'todas_resist' ] ) }}
 
                 {{ Form::label('regeneracion_vida', 'Regeneración de vida') }}
-                {{ Form::select( 'regeneracion_vida', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'regeneracion_vida' ] ) }}
+                {{ Form::select( 'regeneracion_vida', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], isset($default_puntos_leyenda[ 'regeneracion_vida' ]) ? $default_puntos_leyenda[ 'regeneracion_vida' ]->prioridad : null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'regeneracion_vida' ] ) }}
               </div> <!-- Fin del div seccionLeyendaDefensa -->
 
               <div class="col-xs-12 col-md-3 contenedor-seccion" id="seccionLeyendaUtilidad">
                 <h4 class="text-center">Utilidad</h4>
                 {{ Form::label('dano_area', 'Daño de área') }}
-                {{ Form::select( 'dano_area', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'dano_area' ] ) }}
+                {{ Form::select( 'dano_area', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], isset($default_puntos_leyenda[ 'dano_area' ]) ? $default_puntos_leyenda[ 'dano_area' ]->prioridad : null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'dano_area' ] ) }}
 
                 {{ Form::label('reduc_coste', 'Reducción de coste') }}
-                {{ Form::select( 'reduc_coste', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'reduc_coste' ] ) }}
+                {{ Form::select( 'reduc_coste', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], isset($default_puntos_leyenda[ 'reduc_coste' ]) ? $default_puntos_leyenda[ 'reduc_coste' ]->prioridad : null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'reduc_coste' ] ) }}
 
                 {{ Form::label('vida_por_golpe', 'Vida por golpe') }}
-                {{ Form::select( 'vida_por_golpe', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'vida_por_golpe' ] ) }}
+                {{ Form::select( 'vida_por_golpe', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], isset($default_puntos_leyenda[ 'vida_por_golpe' ]) ? $default_puntos_leyenda[ 'vida_por_golpe' ]->prioridad : null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'vida_por_golpe' ] ) }}
 
                 {{ Form::label('hallazgo_oro', 'Hallazgo de oro') }}
-                {{ Form::select( 'hallazgo_oro', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'hallazgo_oro' ] ) }}
+                {{ Form::select( 'hallazgo_oro', [ '1' => '1', '2' => '2', '3' => '3', '4' => '4' ], isset($default_puntos_leyenda[ 'hallazgo_oro' ]) ? $default_puntos_leyenda[ 'hallazgo_oro' ]->prioridad : null, [ 'placeholder' => 'Elige una prioridad', 'class' => 'form-control', 'id' => 'hallazgo_oro' ] ) }}
               </div> <!-- Fin del div seccionLeyendaUtilidad -->
             </div> <!-- Fin del div row -->
           </div> <!-- Fin del div seccionLeyendaFormulario -->
