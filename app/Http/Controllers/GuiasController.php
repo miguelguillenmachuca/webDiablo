@@ -623,7 +623,332 @@ class GuiasController extends Controller
      */
     public function update(Request $request, Guia $guia)
     {
-        //
+      $request_original = $request->duplicate(null, $request->all());
+
+      $request_unhashed = GuiasController::decodeObjetos($request_original);
+
+      $validator = GuiasController::validateModel($request_unhashed);
+
+      $validator = GuiasController::validateModel($request_unhashed);
+
+      if($validator->fails())
+      {
+        return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput();
+      }
+      else
+      {
+        $guia->edit($request_unhashed->all());
+
+        // ----------------- HABILIDADES -----------------
+        $guia->habilidad()->detach();
+
+        // Loop to save all the habilidad and runa
+        for ($i=1; $i < 7 ; $i++)
+        {
+          // If the habilidad has a runa attached
+          if($request_unhashed->filled('runa'.$i))
+          {
+            $guia->habilidad()->attach($request_unhashed->input('habilidad'.$i), [ 'id_runa' => $request_unhashed->input('runa'.$i), 'posicion' => 'a'.$i ]);
+          }
+          // If the habilidad doesn't have a runa attached
+          else if($request_unhashed->filled('habilidad'.$i))
+          {
+            $guia->habilidad()->attach($request_unhashed->input('habilidad'.$i), [  'posicion' => 'a'.$i ]);
+          }
+        }
+
+        // Loop to save all the pasiva
+        for ($i=1; $i < 5 ; $i++)
+        {
+          if($request_unhashed->filled('pasiva'.$i))
+          {
+            $guia->habilidad()->attach($request_unhashed->input('pasiva'.$i), [ 'posicion' => 'p'.$i ]);
+          }
+        }
+
+        // ----------------- OBJETOS -----------------
+        $guia->objeto()->detach();
+
+        if($request_unhashed->filled('cabeza'))
+        {
+          $guia->objeto()->attach($request_unhashed->input('cabeza'), [ 'posicion' => 'cabeza' ]);
+        }
+
+        if($request_unhashed->filled('hombros'))
+        {
+          $guia->objeto()->attach($request_unhashed->input('hombros'), [ 'posicion' => 'hombros' ]);
+        }
+
+        if($request_unhashed->filled('amuleto'))
+        {
+          $guia->objeto()->attach($request_unhashed->input('amuleto'), [ 'posicion' => 'amuleto' ]);
+        }
+
+        if($request_unhashed->filled('torso'))
+        {
+          $guia->objeto()->attach($request_unhashed->input('torso'), [ 'posicion' => 'torso' ]);
+        }
+
+        if($request_unhashed->filled('manos'))
+        {
+          $guia->objeto()->attach($request_unhashed->input('manos'), [ 'posicion' => 'manos' ]);
+        }
+
+        if($request_unhashed->filled('munecas'))
+        {
+          $guia->objeto()->attach($request_unhashed->input('munecas'), [ 'posicion' => 'munecas' ]);
+        }
+
+        if($request_unhashed->filled('anillo1'))
+        {
+          $guia->objeto()->attach($request_unhashed->input('anillo1'), [ 'posicion' => 'anillo1' ]);
+        }
+
+        if($request_unhashed->filled('anillo2'))
+        {
+          $guia->objeto()->attach($request_unhashed->input('anillo2'), [ 'posicion' => 'anillo2' ]);
+        }
+
+        if($request_unhashed->filled('cintura'))
+        {
+          $guia->objeto()->attach($request_unhashed->input('cintura'), [ 'posicion' => 'cintura' ]);
+        }
+
+        if($request_unhashed->filled('piernas'))
+        {
+          $guia->objeto()->attach($request_unhashed->input('piernas'), [ 'posicion' => 'piernas' ]);
+        }
+
+        if($request_unhashed->filled('pies'))
+        {
+          $guia->objeto()->attach($request_unhashed->input('pies'), [ 'posicion' => 'pies' ]);
+        }
+
+        if($request_unhashed->filled('arma'))
+        {
+          $guia->objeto()->attach($request_unhashed->input('arma'), [ 'posicion' => 'arma' ]);
+        }
+
+        if($request_unhashed->filled('mano_izquierda'))
+        {
+          $guia->objeto()->attach($request_unhashed->input('mano_izquierda'), [ 'posicion' => 'mano_izquierda' ]);
+        }
+
+        for ($i=1; $i < 4; $i++)
+        {
+          if($request_unhashed->filled('cubo'.$i))
+          {
+            $guia->objeto()->attach($request_unhashed->input('cubo'.$i), [ 'posicion' => 'cubo'.$i ]);
+          }
+        }
+
+        for ($i=1; $i < 4; $i++)
+        {
+          if($request_unhashed->filled('gema'.$i))
+          {
+            $guia->objeto()->attach($request_unhashed->input('gema'.$i), [ 'posicion' => 'gema'.$i ]);
+          }
+        }
+
+        // ----------------- PUNTOS LEYENDA -----------------
+        $estad_principal = \App\PuntosLeyenda::where('id_guia', $guia->id)->where('estadistica', 'estad_principal')->first();
+
+        if($estad_principal == null)
+        {
+          $estad_principal = new \App\PuntosLeyenda;
+          $estad_principal->id_guia = $guia->id;
+          $estad_principal->estadistica = 'estad_principal';
+        }
+
+        $estad_principal->prioridad = $request_unhashed->input('estad_principal');
+        $estad_principal->save();
+
+
+        $vitalidad = \App\PuntosLeyenda::where('id_guia', $guia->id)->where('estadistica', 'vitalidad')->first();
+
+        if($vitalidad == null)
+        {
+          $vitalidad = new \App\PuntosLeyenda;
+          $vitalidad->id_guia = $guia->id;
+          $vitalidad->estadistica = 'vitalidad';
+        }
+
+        $vitalidad->prioridad = $request_unhashed->input('vitalidad');
+        $vitalidad->save();
+
+        $v_movimiento = \App\PuntosLeyenda::where('id_guia', $guia->id)->where('estadistica', 'v_movimiento')->first();
+
+        if($v_movimiento == null)
+        {
+          $v_movimiento = new \App\PuntosLeyenda;
+          $v_movimiento->id_guia = $guia->id;
+          $v_movimiento->estadistica = 'v_movimiento';
+        }
+
+        $v_movimiento->prioridad = $request_unhashed->input('v_movimiento');
+        $v_movimiento->save();
+
+        $recurso_max = \App\PuntosLeyenda::where('id_guia', $guia->id)->where('estadistica', 'recurso_max')->first();
+
+        if($recurso_max == null)
+        {
+          $recurso_max = new \App\PuntosLeyenda;
+          $recurso_max->id_guia = $guia->id;
+          $recurso_max->estadistica = 'recurso_max';
+        }
+
+        $recurso_max->prioridad = $request_unhashed->input('recurso_max');
+        $recurso_max->save();
+
+        $v_ataque = \App\PuntosLeyenda::where('id_guia', $guia->id)->where('estadistica', 'v_ataque')->first();
+
+        if($v_ataque == null)
+        {
+          $v_ataque = new \App\PuntosLeyenda;
+          $v_ataque->id_guia = $guia->id;
+          $v_ataque->estadistica = 'v_ataque';
+        }
+
+        $v_ataque->prioridad = $request_unhashed->input('v_ataque');
+        $v_ataque->save();
+
+        $reduccion_enfr = \App\PuntosLeyenda::where('id_guia', $guia->id)->where('estadistica', 'reduccion_enfr')->first();
+
+        if($reduccion_enfr == null)
+        {
+          $reduccion_enfr = new \App\PuntosLeyenda;
+          $reduccion_enfr->id_guia = $guia->id;
+          $reduccion_enfr->estadistica = 'reduccion_enfr';
+        }
+
+        $reduccion_enfr->prioridad = $request_unhashed->input('reduccion_enfr');
+        $reduccion_enfr->save();
+
+        $prob_golpe_crit = \App\PuntosLeyenda::where('id_guia', $guia->id)->where('estadistica', 'prob_golpe_crit')->first();
+
+        if($prob_golpe_crit == null)
+        {
+          $prob_golpe_crit = new \App\PuntosLeyenda;
+          $prob_golpe_crit->id_guia = $guia->id;
+          $prob_golpe_crit->estadistica = 'prob_golpe_crit';
+        }
+
+        $prob_golpe_crit->prioridad = $request_unhashed->input('prob_golpe_crit');
+        $prob_golpe_crit->save();
+
+        $dano_golpe_crit = \App\PuntosLeyenda::where('id_guia', $guia->id)->where('estadistica', 'dano_golpe_crit')->first();
+
+        if($dano_golpe_crit == null)
+        {
+          $dano_golpe_crit = new \App\PuntosLeyenda;
+          $dano_golpe_crit->id_guia = $guia->id;
+          $dano_golpe_crit->estadistica = 'dano_golpe_crit';
+        }
+
+        $dano_golpe_crit->prioridad = $request_unhashed->input('dano_golpe_crit');
+        $dano_golpe_crit->save();
+
+        $vida = \App\PuntosLeyenda::where('id_guia', $guia->id)->where('estadistica', 'vida')->first();
+
+        if($vida == null)
+        {
+          $vida = new \App\PuntosLeyenda;
+          $vida->id_guia = $guia->id;
+          $vida->estadistica = 'vida';
+        }
+
+        $vida->prioridad = $request_unhashed->input('vida');
+        $vida->save();
+
+        $armadura = \App\PuntosLeyenda::where('id_guia', $guia->id)->where('estadistica', 'armadura')->first();
+
+        if($armadura == null)
+        {
+          $armadura = new \App\PuntosLeyenda;
+          $armadura->id_guia = $guia->id;
+          $armadura->estadistica = 'armadura';
+        }
+
+        $armadura->prioridad = $request_unhashed->input('armadura');
+        $armadura->save();
+
+        $todas_resist = \App\PuntosLeyenda::where('id_guia', $guia->id)->where('estadistica', 'todas_resist')->first();
+
+        if($todas_resist == null)
+        {
+          $todas_resist = new \App\PuntosLeyenda;
+          $todas_resist->id_guia = $guia->id;
+          $todas_resist->estadistica = 'todas_resist';
+        }
+
+        $todas_resist->prioridad = $request_unhashed->input('todas_resist');
+        $todas_resist->save();
+
+        $regeneracion_vida = \App\PuntosLeyenda::where('id_guia', $guia->id)->where('estadistica', 'regeneracion_vida')->first();
+
+        if($regeneracion_vida == null)
+        {
+          $regeneracion_vida = new \App\PuntosLeyenda;
+          $regeneracion_vida->id_guia = $guia->id;
+          $regeneracion_vida->estadistica = 'regeneracion_vida';
+        }
+
+        $regeneracion_vida->prioridad = $request_unhashed->input('regeneracion_vida');
+        $regeneracion_vida->save();
+
+        $dano_area = \App\PuntosLeyenda::where('id_guia', $guia->id)->where('estadistica', 'dano_area')->first();
+
+        if($dano_area == null)
+        {
+          $dano_area = new \App\PuntosLeyenda;
+          $dano_area->id_guia = $guia->id;
+          $dano_area->estadistica = 'dano_area';
+        }
+
+        $dano_area->prioridad = $request_unhashed->input('dano_area');
+        $dano_area->save();
+
+        $reduc_coste = \App\PuntosLeyenda::where('id_guia', $guia->id)->where('estadistica', 'reduc_coste')->first();
+
+        if($reduc_coste == null)
+        {
+          $reduc_coste = new \App\PuntosLeyenda;
+          $reduc_coste->id_guia = $guia->id;
+          $reduc_coste->estadistica = 'reduc_coste';
+        }
+
+        $reduc_coste->prioridad = $request_unhashed->input('reduc_coste');
+        $reduc_coste->save();
+
+        $vida_por_golpe = \App\PuntosLeyenda::where('id_guia', $guia->id)->where('estadistica', 'vida_por_golpe')->first();
+
+        if($vida_por_golpe == null)
+        {
+          $vida_por_golpe = new \App\PuntosLeyenda;
+          $vida_por_golpe->id_guia = $guia->id;
+          $vida_por_golpe->estadistica = 'vida_por_golpe';
+        }
+
+        $vida_por_golpe->prioridad = $request_unhashed->input('vida_por_golpe');
+        $vida_por_golpe->save();
+
+        $hallazgo_oro = \App\PuntosLeyenda::where('id_guia', $guia->id)->where('estadistica', 'hallazgo_oro')->first();
+
+        if($hallazgo_oro == null)
+        {
+          $hallazgo_oro = new \App\PuntosLeyenda;
+          $hallazgo_oro->id_guia = $guia->id;
+          $hallazgo_oro->estadistica = 'hallazgo_oro';
+        }
+
+        $hallazgo_oro->prioridad = $request_unhashed->input('hallazgo_oro');
+        $hallazgo_oro->save();
+
+        return redirect()->back();
+      }
     }
 
     /**
