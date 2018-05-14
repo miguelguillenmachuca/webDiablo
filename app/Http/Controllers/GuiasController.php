@@ -98,7 +98,10 @@ class GuiasController extends Controller
 
           $habilidadesPasivas = \App\Habilidad::listNombreIdPasiva($clase);
 
-          // $objetos = \App\Objeto::listData();
+          $listaPosObj = [
+            'cabeza', 'hombros', 'amuleto', 'torso', 'manos', 'munecas', 'anillo1', 'anillo2', 'cintura', 'piernas', 'pies', 'arma', 'mano_izquierda'
+          ];
+
           $cabeza = \App\Objeto::listObjCat('cabeza', $clase);
           $hombros = \App\Objeto::listObjCat('hombros', $clase);
           $torso = \App\Objeto::listObjCat('torso', $clase);
@@ -136,7 +139,18 @@ class GuiasController extends Controller
 
           $accesorios = array_merge($anillo, $amuleto);
 
-          return view ('forms.guia_create', [ 'activas' => $habilidadesActivas, 'runas' => $runas, 'pasivas' => $habilidadesPasivas, 'objetos' => $objetos, 'armas' => $armas, 'armaduras' => $armaduras, 'accesorios' => $accesorios, 'gema' => $gema, 'clase' => $clase ]);
+          return view ('forms.guia_create', [
+            'activas' => $habilidadesActivas,
+            'runas' => $runas,
+            'pasivas' => $habilidadesPasivas,
+            'objetos' => $objetos,
+            'armas' => $armas,
+            'armaduras' => $armaduras,
+            'accesorios' => $accesorios,
+            'gema' => $gema,
+            'clase' => $clase,
+            'lista_pos_obj' => $listaPosObj
+          ]);
         break;
       }
 
@@ -456,7 +470,7 @@ class GuiasController extends Controller
         }
         else
         {
-          $votoPositivo = null;  
+          $votoPositivo = null;
         }
 
         $comentarios = \App\Comentario::where('id_guia', $guia->id)->paginate(10);
@@ -513,6 +527,10 @@ class GuiasController extends Controller
 
       $habilidadesPasivas = \App\Habilidad::listNombreIdPasiva($clase);
 
+      $listaPosObj = [
+        'cabeza', 'hombros', 'amuleto', 'torso', 'manos', 'munecas', 'anillo1', 'anillo2', 'cintura', 'piernas', 'pies', 'arma', 'mano_izquierda'
+      ];
+
       // $objetos = \App\Objeto::listData();
       $cabeza = \App\Objeto::listObjCat('cabeza', $clase);
       $hombros = \App\Objeto::listObjCat('hombros', $clase);
@@ -551,6 +569,8 @@ class GuiasController extends Controller
 
       $accesorios = array_merge($anillo, $amuleto);
 
+      $default_objetos = [];
+
       // Default values from the guia
 
       foreach($guia->habilidad as $habilidad)
@@ -563,11 +583,17 @@ class GuiasController extends Controller
         $default_runas[ $runa->pivot->posicion ] = $runa;
       }
 
+      foreach($guia->objeto as $objeto)
+      {
+        $default_objetos[ $objeto->pivot->posicion ] = $objeto;
+      }
+
       return view ('forms.guia_update', [
         'guia' => $guia,
         'activas' => $habilidadesActivas,
         'runas' => $runas,
         'pasivas' => $habilidadesPasivas,
+        'lista_pos_obj' => $listaPosObj,
         'objetos' => $objetos,
         'armas' => $armas,
         'armaduras' => $armaduras,
@@ -576,6 +602,7 @@ class GuiasController extends Controller
         'clase' => $clase,
         'default_habilidades' => $default_habilidades,
         'default_runas' => $default_runas,
+        'default_objetos' => $default_objetos,
        ]);
     }
 

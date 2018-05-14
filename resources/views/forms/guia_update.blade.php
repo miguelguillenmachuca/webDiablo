@@ -79,70 +79,12 @@
               <div class="col-xs-12 col-md-9 contenedor-seccion" id="seccionObjetos">
                 <h4 class="text-center">Objetos</h4>
                 <div class="row">
-                  <div class="form-group col-xs-6 col-md-4" id="seccionCabeza">
-                    {{ Form::label( 'cabeza', 'Cabeza') }}
-                    {{ Form::select( 'cabeza', $objetos[ 'cabeza' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'cabeza' ] ) }}
-                  </div> <!-- Fin del div seccionCabeza -->
-
-                  <div class="form-group col-xs-6 col-md-4" id="seccionHombros">
-                    {{ Form::label( 'hombros', 'Hombros') }}
-                    {{ Form::select( 'hombros', $objetos[ 'hombros' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'hombros' ] ) }}
-                  </div> <!-- Fin del div seccionHombros -->
-
-                  <div class="form-group col-xs-6 col-md-4" id="seccionAmuleto">
-                    {{ Form::label( 'amuleto', 'Amuleto') }}
-                    {{ Form::select( 'amuleto', $objetos[ 'amuleto' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'amuleto' ] ) }}
-                  </div> <!-- Fin del div seccionAmuleto -->
-
-                  <div class="form-group col-xs-6 col-md-4" id="seccionTorso">
-                    {{ Form::label( 'torso', 'Torso') }}
-                    {{ Form::select( 'torso', $objetos[ 'torso' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'torso' ] ) }}
-                  </div> <!-- Fin del div seccionTorso -->
-
-                  <div class="form-group col-xs-6 col-md-4" id="seccionManos">
-                    {{ Form::label( 'manos', 'Manos') }}
-                    {{ Form::select( 'manos', $objetos[ 'manos' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'manos' ] ) }}
-                  </div> <!-- Fin del div seccionManos -->
-
-                  <div class="form-group col-xs-6 col-md-4" id="seccionMunecas">
-                    {{ Form::label( 'munecas', 'Muñecas') }}
-                    {{ Form::select( 'munecas', $objetos[ 'munecas' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'munecas' ] ) }}
-                  </div> <!-- Fin del div seccionMunecas -->
-
-                  <div class="form-group col-xs-6 col-md-4" id="seccionAnillo1">
-                    {{ Form::label( 'anillo1', 'Anillo') }}
-                    {{ Form::select( 'anillo1', $objetos[ 'anillo' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'anillo1' ] ) }}
-                  </div> <!-- Fin del div seccionAnillo1 -->
-
-                  <div class="form-group col-xs-6 col-md-4" id="seccionAnillo2">
-                    {{ Form::label( 'anillo2', 'Anillo') }}
-                    {{ Form::select( 'anillo2', $objetos[ 'anillo' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'anillo2' ] ) }}
-                  </div> <!-- Fin del div seccionAnillo2 -->
-
-                  <div class="form-group col-xs-6 col-md-4" id="seccionCintura">
-                    {{ Form::label( 'cintura', 'Cintura') }}
-                    {{ Form::select( 'cintura', $objetos[ 'cintura' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'cintura' ] ) }}
-                  </div> <!-- Fin del div seccionCintura -->
-
-                  <div class="form-group col-xs-6 col-md-4" id="seccionPiernas">
-                    {{ Form::label( 'piernas', 'Piernas') }}
-                    {{ Form::select( 'piernas', $objetos[ 'piernas' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'piernas' ] ) }}
-                  </div> <!-- Fin del div seccionPiernas -->
-
-                  <div class="form-group col-xs-6 col-md-4" id="seccionPies">
-                    {{ Form::label( 'pies', 'Pies') }}
-                    {{ Form::select( 'pies', $objetos[ 'pies' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'pies' ] ) }}
-                  </div> <!-- Fin del div seccionPies -->
-
-                  <div class="form-group col-xs-6 col-md-4" id="seccionArma">
-                    {{ Form::label( 'arma', 'Arma') }}
-                    {{ Form::select( 'arma', $objetos[ 'arma' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'arma' ] ) }}
-                  </div> <!-- Fin del div seccionArma -->
-
-                  <div class="form-group col-xs-6 col-md-4" id="seccionManoIzquierda">
-                    {{ Form::label( 'mano_izquierda', 'Mano izquierda') }}
-                    {{ Form::select( 'mano_izquierda', $objetos[ 'mano_izquierda' ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => 'mano_izquierda' ] ) }}
-                  </div> <!-- Fin del div seccionManoIzquierda -->
+                  @foreach ($lista_pos_obj as $posObj)
+                    <div class="form-group col-xs-6 col-md-4" id="seccion{{ ucfirst($posObj) }}">
+                      {{ Form::label( $posObj, str_replace( '_', ' ', ucfirst( str_replace('munecas', 'muñecas', str_replace( 'anillo', 'anillo ', $posObj) ) ) )) }}
+                      {{ Form::select( $posObj, $objetos[ preg_replace( '^anillo.*^', 'anillo', $posObj) ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => $posObj ] ) }}
+                    </div> <!-- Fin del div seccionCabeza -->
+                  @endforeach
                 </div> <!-- Fin del div row -->
               </div> <!-- Fin del div seccionObjetos -->
 

@@ -117,7 +117,7 @@
                 @if ($cont_row == 0)
                   <div class="row">
                 @endif
-                <div class="col-xs-12 col-sm-4" id="seccionCabeza">
+                <div class="col-xs-12 col-sm-4" id="seccion{{ ucfirst($pos) }}">
                   <h4 class="text-center">{{ str_replace( '_', ' ', ucfirst( str_replace('munecas', 'muñecas', str_replace( 'anillo', 'anillo ', $pos) ) ) ) }}</h4>
 
                   <div class="row">
