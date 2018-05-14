@@ -449,7 +449,16 @@ class GuiasController extends Controller
         ];
         $objetos = [];
         $puntos_leyenda = [];
-        $votoPositivo = \App\VotoPositivo::where([ [ 'id_guia', $guia->id ], [ 'id_usuario', Auth::user()->id ] ])->first();
+
+        if(Auth::check())
+        {
+          $votoPositivo = \App\VotoPositivo::where([ [ 'id_guia', $guia->id ], [ 'id_usuario', Auth::user()->id ] ])->first();
+        }
+        else
+        {
+          $votoPositivo = null;  
+        }
+
         $comentarios = \App\Comentario::where('id_guia', $guia->id)->paginate(10);
 
         foreach($guia->habilidad as $habilidad)
@@ -472,7 +481,16 @@ class GuiasController extends Controller
           $puntos_leyenda[ $punto->estadistica ] = $punto;
         }
 
-        return view('visualizarGuia', [ 'guia' => $guia, 'habilidades' => $habilidades, 'runas' => $runas, 'listaPosObj' => $listaPosObj, 'objetos' => $objetos, 'puntos_leyenda' => $puntos_leyenda, 'votoPositivo' => $votoPositivo, 'comentarios' => $comentarios ]);
+        return view('visualizarGuia', [
+          'guia' => $guia,
+          'habilidades' => $habilidades,
+          'runas' => $runas,
+          'listaPosObj' => $listaPosObj,
+          'objetos' => $objetos,
+          'puntos_leyenda' => $puntos_leyenda,
+          'votoPositivo' => $votoPositivo,
+          'comentarios' => $comentarios
+       ]);
     }
 
     /**

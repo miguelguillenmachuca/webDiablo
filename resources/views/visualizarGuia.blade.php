@@ -25,18 +25,24 @@
           </div>
           <div class="col-xs-6 col-sm-12">
             <h3 class="likes text-right"><span class="glyphicon glyphicon-thumbs-up likes"></span>{{ $guia->get_num_likes() }}</h3>
-            @if (!$votoPositivo)
-              {{ Form::open(array('url' => route('createVoto'), 'method' => 'post')) }}
-              {{ Form::hidden('id_guia', $guia->getRouteKey()) }}
+            @auth
+              @if (!$votoPositivo)
+                {{ Form::open(array('url' => route('createVoto'), 'method' => 'post')) }}
+                {{ Form::hidden('id_guia', $guia->getRouteKey()) }}
 
-              {{ Form::button('<span class="glyphicon glyphicon-thumbs-up likes"></span><span class="likes">Votar</span>', [ 'type' => 'submit', 'class' => 'btn btn-rojo pull-right' ]) }}
-              {{ Form::close() }}
-            @else
-              {{ Form::open(array('url' => route('deleteVoto', [ $votoPositivo->getRouteKey() ]))) }}
+                {{ Form::button('<span class="glyphicon glyphicon-thumbs-up likes"></span><span class="likes">Votar</span>', [ 'type' => 'submit', 'class' => 'btn btn-rojo pull-right' ]) }}
+                {{ Form::close() }}
+              @else
+                {{ Form::open(array('url' => route('deleteVoto', [ $votoPositivo->getRouteKey() ]))) }}
 
-              {{ Form::button('<span class="glyphicon glyphicon-thumbs-up likes"></span><span class="likes">Quitar voto</span>', [ 'type' => 'submit', 'class' => 'btn btn-rojo pull-right' ]) }}
-              {{ Form::close() }}
-            @endif
+                {{ Form::button('<span class="glyphicon glyphicon-thumbs-up likes"></span><span class="likes">Quitar voto</span>', [ 'type' => 'submit', 'class' => 'btn btn-rojo pull-right' ]) }}
+                {{ Form::close() }}
+              @endif
+            @endauth
+
+            @guest
+              <p>Si quieres votar a esta guía, tienes que <a href="{{ route('login') }}">logearte</a></p>
+            @endguest
           </div>
         </div>
       </div>
@@ -262,18 +268,24 @@
 
         <h3 class="likes text-center"><span class="glyphicon glyphicon-thumbs-up likes"></span>{{ $guia->get_num_likes() }}</h3>
         <div class="text-center">
-          @if (!$votoPositivo)
-            {{ Form::open(array('url' => route('createVoto'), 'method' => 'post')) }}
-            {{ Form::hidden('id_guia', $guia->getRouteKey()) }}
+          @auth
+            @if (!$votoPositivo)
+              {{ Form::open(array('url' => route('createVoto'), 'method' => 'post')) }}
+              {{ Form::hidden('id_guia', $guia->getRouteKey()) }}
 
-            {{ Form::button('<span class="glyphicon glyphicon-thumbs-up likes"></span><span class="likes">Votar</span>', [ 'type' => 'submit', 'class' => 'btn btn-rojo' ]) }}
-            {{ Form::close() }}
-          @else
-            {{ Form::open(array('url' => route('deleteVoto', [ $votoPositivo->getRouteKey() ]))) }}
+              {{ Form::button('<span class="glyphicon glyphicon-thumbs-up likes"></span><span class="likes">Votar</span>', [ 'type' => 'submit', 'class' => 'btn btn-rojo' ]) }}
+              {{ Form::close() }}
+            @else
+              {{ Form::open(array('url' => route('deleteVoto', [ $votoPositivo->getRouteKey() ]))) }}
 
-            {{ Form::button('<span class="glyphicon glyphicon-thumbs-up likes"></span><span class="likes">Quitar voto</span>', [ 'type' => 'submit', 'class' => 'btn btn-rojo' ]) }}
-            {{ Form::close() }}
-          @endif
+              {{ Form::button('<span class="glyphicon glyphicon-thumbs-up likes"></span><span class="likes">Quitar voto</span>', [ 'type' => 'submit', 'class' => 'btn btn-rojo' ]) }}
+              {{ Form::close() }}
+            @endif
+          @endauth
+
+          @guest
+            <p>Si quieres votar a esta guía, tienes que <a href="{{ route('login') }}">logearte</a></p>
+          @endguest
         </div>
       </div>
     </div> <!-- Fin de la sección votos -->
@@ -285,14 +297,20 @@
         <h3 class="text-left bold">Comentarios</h3>
         <p class="help-block">Puedes debatir sobre tu opinión de la guía, posibles cambios, o simplemente agradecerle al autor que se haya tomado su tiempo en compartirla.</p>
 
-        <div class="formComentario">
-          {{ Form::open(array('url' => route('createComentario'), 'method' => 'post')) }}
-          {{ Form::textarea('texto_com', null , [ 'class' => 'form-control' ]) }}
-          {{ Form::hidden('id_guia', $guia->getRouteKey()) }}
+        @auth
+          <div class="formComentario">
+            {{ Form::open(array('url' => route('createComentario'), 'method' => 'post')) }}
+            {{ Form::textarea('texto_com', null , [ 'class' => 'form-control' ]) }}
+            {{ Form::hidden('id_guia', $guia->getRouteKey()) }}
 
-          {{ Form::button('Comentar', [' type' => 'submit', 'class' => 'btn btn-rojo btn-block-xs margen-sup' ]) }}
-          {{ Form::close() }}
-        </div>
+            {{ Form::button('Comentar', [' type' => 'submit', 'class' => 'btn btn-rojo btn-block-xs margen-sup' ]) }}
+            {{ Form::close() }}
+          </div>
+        @endauth
+
+        @guest
+          <p>Recuerda que para comentar, tienes que <a href="{{ route('login') }}">logearte</a></p>
+        @endguest
       </div>
     </div>
 
