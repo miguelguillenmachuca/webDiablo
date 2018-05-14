@@ -39,11 +39,11 @@
                 <div class="form-group col-xs-6 col-md-4 contenedor-seccion" id="seccionHabilidad{{ $i }}">
                   <div class="row">
                     <div class="col-xs-12">
-                      {{ Form::select( 'habilidad'.$i, $activas, null, [ 'placeholder' => 'Elige una habilidad', 'class' => 'form-control' ]) }}
+                      {{ Form::select( 'habilidad'.$i, $activas, isset($default_habilidades[ 'a' .$i ]) ? $default_habilidades[ 'a' .$i ]->getRouteKey() : null, [ 'placeholder' => 'Elige una habilidad', 'class' => 'form-control' ]) }}
                     </div>
 
                     <div class="margen-sup col-xs-offset-1 col-xs-10">
-                      {{ Form::select( 'runa' .$i, $runas, null, [ 'placeholder' => 'Elige una runa', 'class' => 'form-control' ] ) }}
+                      {{ Form::select( 'runa' .$i, $runas, isset($default_runas[ 'a' .$i ]) ? $default_runas[ 'a' .$i ]->getRouteKey() : null, [ 'placeholder' => 'Elige una runa', 'class' => 'form-control' ] ) }}
                     </div>
                   </div>
                 </div> <!-- Fin del div seccionHabilidad -->
@@ -61,7 +61,7 @@
             <div class="row">
               @for ($i=1; $i < 5; $i++)
                 <div class="form-group col-xs-6 col-md-3" id="seccionPasiva{{ $i }}">
-                  {{ Form::select( 'pasiva' .$i, $pasivas, null, [ 'placeholder' => 'Elige una pasiva', 'class' => 'form-control' ] ) }}
+                  {{ Form::select( 'pasiva' .$i, $pasivas, isset($default_habilidades[ 'p' .$i ]) ? $default_habilidades[ 'p' .$i ]->getRouteKey() : null, [ 'placeholder' => 'Elige una pasiva', 'class' => 'form-control' ] ) }}
                 </div> <!-- Fin del div seccionPasiva1 -->
               @endfor
             </div> <!-- Fin del div seccionHabilidades -->

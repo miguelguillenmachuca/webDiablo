@@ -487,7 +487,11 @@ class GuiasController extends Controller
 
       $habilidadesActivas = \App\Habilidad::listNombreIdActiva($clase);
 
+      $default_habilidades = [];
+
       $runas = \App\Runa::listNombreId($clase);
+
+      $default_runas = [];
 
       $habilidadesPasivas = \App\Habilidad::listNombreIdPasiva($clase);
 
@@ -529,7 +533,32 @@ class GuiasController extends Controller
 
       $accesorios = array_merge($anillo, $amuleto);
 
-      return view ('forms.guia_update', [ 'guia' => $guia, 'activas' => $habilidadesActivas, 'runas' => $runas, 'pasivas' => $habilidadesPasivas, 'objetos' => $objetos, 'armas' => $armas, 'armaduras' => $armaduras, 'accesorios' => $accesorios, 'gema' => $gema, 'clase' => $clase ]);
+      // Default values from the guia
+
+      foreach($guia->habilidad as $habilidad)
+      {
+        $default_habilidades[ $habilidad->pivot->posicion ] = $habilidad;
+      }
+
+      foreach($guia->runa as $runa)
+      {
+        $default_runas[ $runa->pivot->posicion ] = $runa;
+      }
+
+      return view ('forms.guia_update', [
+        'guia' => $guia,
+        'activas' => $habilidadesActivas,
+        'runas' => $runas,
+        'pasivas' => $habilidadesPasivas,
+        'objetos' => $objetos,
+        'armas' => $armas,
+        'armaduras' => $armaduras,
+        'accesorios' => $accesorios,
+        'gema' => $gema,
+        'clase' => $clase,
+        'default_habilidades' => $default_habilidades,
+        'default_runas' => $default_runas,
+       ]);
     }
 
     /**
