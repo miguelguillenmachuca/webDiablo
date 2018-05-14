@@ -82,8 +82,8 @@
                   @foreach ($lista_pos_obj as $posObj)
                     <div class="form-group col-xs-6 col-md-4" id="seccion{{ ucfirst($posObj) }}">
                       {{ Form::label( $posObj, str_replace( '_', ' ', ucfirst( str_replace('munecas', 'muñecas', str_replace( 'anillo', 'anillo ', $posObj) ) ) )) }}
-                      {{ Form::select( $posObj, $objetos[ preg_replace( '^anillo.*^', 'anillo', $posObj) ], null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => $posObj ] ) }}
-                    </div> <!-- Fin del div seccionCabeza -->
+                      {{ Form::select( $posObj, $objetos[ preg_replace( '^anillo.*^', 'anillo', $posObj) ], isset($default_objetos[ $posObj ]) ? $default_objetos[ $posObj ]->getRouteKey() : null, [ 'placeholder' => 'Elige un objeto', 'class' => 'form-control', 'id' => $posObj ] ) }}
+                    </div> <!-- Fin del div seccion{{ ucfirst($posObj) }} -->
                   @endforeach
                 </div> <!-- Fin del div row -->
               </div> <!-- Fin del div seccionObjetos -->
@@ -95,15 +95,15 @@
 
                     <div class="row">
                       <div class="col-xs-12 form-group" id="seccionCubo1">
-                        {{ Form::select( 'cubo1', $armas, null, [ 'placeholder' => 'Elige un arma', 'class' => 'form-control', 'id' => 'cubo1' ] ) }}
+                        {{ Form::select( 'cubo1', $armas, isset($default_objetos[ 'cubo1' ]) ? $default_objetos[ 'cubo1' ]->getRouteKey() : null, [ 'placeholder' => 'Elige un arma', 'class' => 'form-control', 'id' => 'cubo1' ] ) }}
                       </div> <!-- Fin del div seccionCubo1 -->
 
                       <div class="col-xs-12 form-group" id="seccionCubo2">
-                        {{ Form::select( 'cubo2', $armaduras, null, [ 'placeholder' => 'Elige una pieza de armadura', 'class' => 'form-control', 'id' => 'cubo2' ] ) }}
+                        {{ Form::select( 'cubo2', $armaduras, isset($default_objetos[ 'cubo2' ]) ? $default_objetos[ 'cubo2' ]->getRouteKey() : null, [ 'placeholder' => 'Elige una pieza de armadura', 'class' => 'form-control', 'id' => 'cubo2' ] ) }}
                       </div> <!-- Fin del div seccionCubo2 -->
 
                       <div class="col-xs-12 form-group" id="seccionCubo3">
-                        {{ Form::select( 'cubo3', $accesorios, null, [ 'placeholder' => 'Elige un accesorio', 'class' => 'form-control', 'id' => 'cubo3' ] ) }}
+                        {{ Form::select( 'cubo3', $accesorios, isset($default_objetos[ 'cubo3' ]) ? $default_objetos[ 'cubo3' ]->getRouteKey() : null, [ 'placeholder' => 'Elige un accesorio', 'class' => 'form-control', 'id' => 'cubo3' ] ) }}
                       </div> <!-- Fin del div seccionCubo3 -->
                     </div> <!-- Fin del div row -->
                   </div> <!-- Fin del div seccionCubo -->
@@ -113,15 +113,15 @@
 
                     <div class="row">
                       <div class="col-xs-12 form-group" id="seccionGema1">
-                        {{ Form::select( 'gema1', $gema, null, [ 'placeholder' => 'Elige una gema', 'class' => 'form-control', 'id' => 'gema1' ] ) }}
+                        {{ Form::select( 'gema1', $gema, isset($default_objetos[ 'gema1' ]) ? $default_objetos[ 'gema1' ]->getRouteKey() : null, [ 'placeholder' => 'Elige una gema', 'class' => 'form-control', 'id' => 'gema1' ] ) }}
                       </div> <!-- Fin del div seccionGema1 -->
 
                       <div class="col-xs-12 form-group" id="seccionGema2">
-                        {{ Form::select( 'gema2', $gema, null, [ 'placeholder' => 'Elige una gema', 'class' => 'form-control', 'id' => 'gema2' ] ) }}
+                        {{ Form::select( 'gema2', $gema, isset($default_objetos[ 'gema2' ]) ? $default_objetos[ 'gema2' ]->getRouteKey() : null, [ 'placeholder' => 'Elige una gema', 'class' => 'form-control', 'id' => 'gema2' ] ) }}
                       </div> <!-- Fin del div seccionGema2 -->
 
                       <div class="col-xs-12 form-group" id="seccionGema3">
-                        {{ Form::select( 'gema3', $gema, null, [ 'placeholder' => 'Elige una gema', 'class' => 'form-control', 'id' => 'gema3' ] ) }}
+                        {{ Form::select( 'gema3', $gema, isset($default_objetos[ 'gema3' ]) ? $default_objetos[ 'gema3' ]->getRouteKey() : null, [ 'placeholder' => 'Elige una gema', 'class' => 'form-control', 'id' => 'gema3' ] ) }}
                       </div> <!-- Fin del div seccionGema3 -->
                     </div> <!-- Fin del div row -->
                   </div> <!-- Fin del div seccionGemas -->
