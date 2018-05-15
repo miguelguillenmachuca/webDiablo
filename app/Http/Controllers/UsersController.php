@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Route;
 use Validator;
 use Storage;
 use Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CambiarPass;
 
 class UsersController extends Controller
 {
@@ -186,7 +188,17 @@ class UsersController extends Controller
         $request->request->add([ 'foto_usuario' => $avatar ]);
       }
 
+      if(Route::currentRouteName() == 'updateUsuario' &&
+         $request->has('password') &&
+         $request->password != '' &&
+         $request->has('repitePassword') &&
+         $request->repitePassword != '')
+      {
+        Mail::to($user)->send(new CambiarPass($user));
+      }
+
       $user->edit($request->all());
+
 
       return redirect()->back();
     }

@@ -221,3 +221,7 @@ Route::group([ 'prefix' => 'admin' ], function () {
   });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('/mailable', function () {
+//     return new App\Mail\TestMail();
+// });
