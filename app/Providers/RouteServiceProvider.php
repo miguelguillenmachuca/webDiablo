@@ -28,7 +28,14 @@ class RouteServiceProvider extends ServiceProvider
         {
           $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
-          $id = $hashids->decode($value)[0];
+          try
+          {
+            $id = $hashids->decode($value)[0];
+          }
+          catch (\Exception $e)
+          {
+            abort(404);
+          }
 
           return \App\User::withTrashed()->findOrFail($id);
         });
@@ -37,7 +44,14 @@ class RouteServiceProvider extends ServiceProvider
         {
           $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
-          $id = $hashids->decode($value)[0];
+          try
+          {
+            $id = $hashids->decode($value)[0];
+          }
+          catch (\Exception $e)
+          {
+            abort(404);
+          }
 
           return \App\Clase::withTrashed()->findOrFail($id);
         });
@@ -46,7 +60,14 @@ class RouteServiceProvider extends ServiceProvider
         {
           $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
-          $id = $hashids->decode($value)[0];
+          try
+          {
+            $id = $hashids->decode($value)[0];
+          }
+          catch (\Exception $e)
+          {
+            abort(404);
+          }
 
           return \App\Habilidad::withTrashed()->findOrFail($id);
         });
@@ -55,7 +76,14 @@ class RouteServiceProvider extends ServiceProvider
         {
           $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
-          $id = $hashids->decode($value)[0];
+          try
+          {
+            $id = $hashids->decode($value)[0];
+          }
+          catch (\Exception $e)
+          {
+            abort(404);
+          }
 
           return \App\Runa::withTrashed()->findOrFail($id);
         });
@@ -64,7 +92,14 @@ class RouteServiceProvider extends ServiceProvider
         {
           $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
-          $id = $hashids->decode($value)[0];
+          try
+          {
+            $id = $hashids->decode($value)[0];
+          }
+          catch (\Exception $e)
+          {
+            abort(404);
+          }
 
           return \App\Conjunto::withTrashed()->findOrFail($id);
         });
@@ -73,7 +108,14 @@ class RouteServiceProvider extends ServiceProvider
         {
           $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
-          $id = $hashids->decode($value)[0];
+          try
+          {
+            $id = $hashids->decode($value)[0];
+          }
+          catch (\Exception $e)
+          {
+            abort(404);
+          }
 
           return \App\Objeto::withTrashed()->findOrFail($id);
         });
@@ -82,7 +124,14 @@ class RouteServiceProvider extends ServiceProvider
         {
           $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
-          $id = $hashids->decode($value)[0];
+          try
+          {
+            $id = $hashids->decode($value)[0];
+          }
+          catch (\Exception $e)
+          {
+            abort(404);
+          }
 
           return \App\TipoObjeto::withTrashed()->findOrFail($id);
         });
@@ -91,7 +140,14 @@ class RouteServiceProvider extends ServiceProvider
         {
           $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
-          $id = $hashids->decode($value)[0];
+          try
+          {
+            $id = $hashids->decode($value)[0];
+          }
+          catch (\Exception $e)
+          {
+            abort(404);
+          }
 
           return \App\EfectoConjunto::withTrashed()->findOrFail($id);
         });
@@ -100,16 +156,31 @@ class RouteServiceProvider extends ServiceProvider
         {
           $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
-          $id = $hashids->decode($value)[0];
+          try
+          {
+            $id = $hashids->decode($value)[0];
+          }
+          catch (\Exception $e)
+          {
+            abort(404);
+          }
 
           return \App\Guia::withTrashed()->findOrFail($id);
+
         });
 
         Route::bind('voto_positivo', function($value, $route)
         {
           $hashids = new Hashids\Hashids('No se me ocurre una salt, soy muy original', 10);
 
-          $id = $hashids->decode($value)[0];
+          try
+          {
+            $id = $hashids->decode($value)[0];
+          }
+          catch (\Exception $e)
+          {
+            abort(404);
+          }
 
           return \App\VotoPositivo::withTrashed()->findOrFail($id);
         });
