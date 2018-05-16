@@ -11,16 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-    // return view('home');
-})->name('/');
+Route::get('/', 'Controller@welcome')->name('/');
 
 Auth::routes();
 
 //  RUTAS DE CREAR GUÍA
 Route::group([ 'prefix' => 'crearGuia' ], function() {
-  Route::get('/', 'GuiasController@create')->name('crearGuia');
+  Route::get('/', 'GuiasController@create')->name('crearGuia')->middleware('auth');
 
   Route::get('{clase}/formularioCrearGuia', 'GuiasController@create')->name('formularioCrearGuia');
 

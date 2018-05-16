@@ -107,4 +107,19 @@ class Clase extends Model
 
     return $data;
   }
+
+  /**
+  * Retrieve a list of the top 3 most voted guia
+  *
+  * @return array
+  */
+  public function getTop3()
+  {
+    $guias = \App\Guia::withCount('voto_positivo')
+                        ->where('guia.id_clase', $this->id)
+                        ->orderBy('voto_positivo_count', 'desc')
+                        ->take(3)->get();
+
+    return $guias;
+  }
 }

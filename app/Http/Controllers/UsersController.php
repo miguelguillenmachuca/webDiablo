@@ -80,7 +80,7 @@ class UsersController extends Controller
     {
       case 'usuario/show':
       case 'usuario/guias_publi':
-        if($user->id == Auth::user()->id)
+        if(Auth::check() && $user->id == Auth::user()->id)
         {
           $guias = $user->guias()->paginate(10);
         }
@@ -93,7 +93,7 @@ class UsersController extends Controller
       break;
 
       case 'usuario/comentarios':
-        if($user->id == Auth::user()->id)
+        if(Auth::check() && $user->id == Auth::user()->id)
         {
           $comentarios = $user->comentarios()->paginate(10);
         }
@@ -106,7 +106,7 @@ class UsersController extends Controller
       break;
 
       case 'usuario/favoritas':
-        if($user->id == Auth::user()->id)
+        if(Auth::check() && $user->id == Auth::user()->id)
         {
           $guias = $user->guias_favoritas()->paginate(10);
         }

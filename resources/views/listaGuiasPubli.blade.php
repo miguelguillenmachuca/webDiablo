@@ -16,7 +16,7 @@
             <th>Votos</th>
             <th>Comentarios</th>
             <th>Última modificación</th>
-            @if ($usuario->id == Auth::user()->id)
+            @if (Auth::check() && $usuario->id == Auth::user()->id)
               <th>Editar</th>
             @endif
           </tr>
@@ -31,7 +31,7 @@
               <td class="likes">{{ $guia->get_num_likes() }}</td>
               <td>{{ $guia->get_num_comentarios() }}</td>
               <td>{{ $guia->updated_at->format('d-m-Y') }}</td>
-              @if ($usuario->id == Auth::user()->id)
+              @if (Auth::check() && $usuario->id == Auth::user()->id)
                 <th><a href="{{ route('editarGuia', [ $guia ]) }}"><span class="glyphicon glyphicon-pencil"></span></a></th>
               @endif
             </tr>

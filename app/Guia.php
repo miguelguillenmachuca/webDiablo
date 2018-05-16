@@ -166,4 +166,24 @@ class Guia extends Model
     {
       return $this->voto_positivo()->count();
     }
+
+    /**
+    * Get the habilidad in a given posicion
+    * @param $pos
+    * @return mixed
+    */
+    public function getHabilidadByPos($pos)
+    {
+      return $this->belongsToMany('App\Habilidad', 'guia_habilidad', 'id_guia', 'id_habilidad')->using('App\GuiaHabilidad')->withPivot('id_runa', 'posicion')->wherePivot('posicion', '=', $pos)->first();
+    }
+
+    /**
+    * Get the habilidad in a given posicion
+    * @param $pos
+    * @return mixed
+    */
+    public function getTrimmedTitle()
+    {
+      return strlen($this->nombre) > 25 ? substr($this->nombre, 0, 25) .'...' : $this->nombre;
+    }
 }

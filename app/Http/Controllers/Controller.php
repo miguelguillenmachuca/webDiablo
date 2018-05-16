@@ -32,4 +32,16 @@ class Controller extends BaseController
 
       return $ruta;
     }
+
+    /**
+     * Show the application landing page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function welcome()
+    {
+        $clases = \App\Clase::orderBy('nombre')->get();
+
+        return view('welcome', [ 'clases' => $clases ]);
+    }
 }
