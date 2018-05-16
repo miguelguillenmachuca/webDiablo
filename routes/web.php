@@ -19,9 +19,9 @@ Auth::routes();
 Route::group([ 'prefix' => 'crearGuia' ], function() {
   Route::get('/', 'GuiasController@create')->name('crearGuia')->middleware('auth');
 
-  Route::get('{clase}/formularioCrearGuia', 'GuiasController@create')->name('formularioCrearGuia');
+  Route::get('{clase}/formularioCrearGuia', 'GuiasController@create')->name('formularioCrearGuia')->middleware('auth');
 
-  Route::post('createGuia', 'GuiasController@store')->name('createGuia');
+  Route::post('createGuia', 'GuiasController@store')->name('createGuia')->middleware('auth');
 });
 
 // RUTAS DE VISUALIZAR GUIAS
@@ -29,11 +29,11 @@ Route::group([ 'prefix' => 'guia' ], function() {
   Route::get('/', 'GuiasController@index')->name('guia');
   Route::get('buscar', 'GuiasController@index')->name('guia/buscar');
   Route::get('{guia}', 'GuiasController@show')->name('guia/show');
-  Route::post('like', 'VotosPositivosController@store')->name('createVoto');
-  Route::post('{voto_positivo}/dislike', 'VotosPositivosController@destroy')->name('deleteVoto');
-  Route::post('comentario', 'ComentariosController@store')->name('createComentario');
-  Route::get('{guia}/editar', 'GuiasController@edit')->name('editarGuia');
-  Route::post('{guia}/updateGuia', 'GuiasController@update')->name('updateGuia');
+  Route::post('like', 'VotosPositivosController@store')->name('createVoto')->middleware('auth');
+  Route::post('{voto_positivo}/dislike', 'VotosPositivosController@destroy')->name('deleteVoto')->middleware('auth');
+  Route::post('comentario', 'ComentariosController@store')->name('createComentario')->middleware('auth');
+  Route::get('{guia}/editar', 'GuiasController@edit')->name('editarGuia')->middleware('auth');
+  Route::post('{guia}/updateGuia', 'GuiasController@update')->name('updateGuia')->middleware('auth');
 });
 
 // RUTAS DE USUARIO
@@ -49,13 +49,13 @@ Route::group([ 'prefix' => 'usuario' ], function() {
   Route::get('{usuario}/favoritas', 'UsersController@show'
   )->name('usuario/favoritas');
 
-  Route::get('{usuario}/ajustes', 'UsersController@edit')->name('usuario/ajustes');
+  Route::get('{usuario}/ajustes', 'UsersController@edit')->name('usuario/ajustes')->middleware('auth');
 
-  Route::post('{usuario}/updateUsuario', 'UsersController@update')->name('updateUsuario');
+  Route::post('{usuario}/updateUsuario', 'UsersController@update')->name('updateUsuario')->middleware('auth');
 });
 
 // ---------------- RUTAS DE ADMINISTRACIÓN ----------------
-Route::group([ 'prefix' => 'admin' ], function () {
+Route::group([ 'prefix' => 'admin', 'middleware' => [ 'auth', 'admin' ] ], function () {
   Route::get('/', function () {
     return view('adminHome');
   })->name('admin');
