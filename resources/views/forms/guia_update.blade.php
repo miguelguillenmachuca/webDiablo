@@ -3,6 +3,10 @@
 @section('content')
   <div id="main" class="container">
 
+    @if(session('success') == true)
+      @include('exito')
+    @endif
+
     {{ Form::model($guia, [ 'url' => route('updateGuia', [ $guia->getRouteKey() ]), 'class' => "formGuia", 'id' => 'formGuia', 'name' => 'formGuia' ]) }}
       <h2 class="text-center">Introduzca los datos de la guía</h2>
 

@@ -64,7 +64,7 @@ class UsersController extends Controller
 
       $user->save();
 
-      return redirect()->back();
+      return redirect()->back()->with('success', true);
     }
   }
 
@@ -200,7 +200,7 @@ class UsersController extends Controller
       $user->edit($request->all());
 
 
-      return redirect()->back();
+      return redirect()->back()->with('success', true);
     }
   }
 

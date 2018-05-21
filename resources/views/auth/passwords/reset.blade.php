@@ -4,10 +4,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Restablecer Contraseña</div>
+            <div class="panel contenedor">
+                <div class="panel-heading bold">Restablecer Contraseña</div>
 
-                <div class="panel-body">
+                <div class="panel-body resumen-guia">
                     <form class="form-horizontal" method="POST" action="{{ route('password.request') }}">
                         {{ csrf_field() }}
 

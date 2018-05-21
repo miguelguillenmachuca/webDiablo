@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
   <div id="main" class="container">
+    @if(session('success') == true)
+      @include('exito')
+    @endif
 
     <div class="container-fluid contenedor margen-inf">
       <div class="row">

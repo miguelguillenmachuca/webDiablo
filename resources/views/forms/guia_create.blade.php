@@ -3,6 +3,10 @@
 @section('content')
   <div id="main" class="container">
 
+    @if(session('success') == true)
+      @include('exito')
+    @endif
+
     {{ Form::open([ 'url' => route('createGuia'), 'class' => "formGuia", 'id' => 'formGuia', 'name' => 'formGuia' ]) }}
       <h2 class="text-center">Introduzca los datos de la guía</h2>
 

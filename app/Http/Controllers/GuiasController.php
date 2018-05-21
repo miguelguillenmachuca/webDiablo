@@ -459,7 +459,7 @@ class GuiasController extends Controller
           $hallazgo_oro->save();
         }
 
-        return redirect()->back();
+        return redirect()->back()->with(['success' => 'true']);
       }
     }
 
@@ -962,7 +962,7 @@ class GuiasController extends Controller
         $hallazgo_oro->prioridad = $request_unhashed->input('hallazgo_oro');
         $hallazgo_oro->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', true);
       }
     }
 
