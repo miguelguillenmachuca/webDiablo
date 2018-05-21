@@ -172,6 +172,7 @@ class ClasesController extends Controller
       // Testing the data received
       $validator = Validator::make($request->all(), [
         'nombre' => 'required|min:3|max:20|regex:/^[A-zÀ-úÀ-ÿ ]*$/u',
+        'foto' => 'image',
       ]);
 
       return $validator;

@@ -226,6 +226,7 @@ class HabilidadesController extends Controller
       'nombre' => 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ ]*$/u',
       'id_clase' => 'required|exists:clase,id',
       'descripcion' => 'required|min:5|max:1000|nullable|string',
+      'foto' => 'image'
     ]);
 
     return $validator;

@@ -72,6 +72,11 @@
   {{ Form::label('foto', 'Cambiar avatar', [ 'class' => 'control-label col-sm-2 text-right' ]) }}
   <div class="col-sm-10">
     {{ Form::file('foto') }}
+    @if($errors->has('foto'))
+      @foreach ($errors->get('foto') as $message)
+        <span class="help-block text-error">{{ $message }}</span>
+      @endforeach
+    @endif
   </div>
 </div>
 

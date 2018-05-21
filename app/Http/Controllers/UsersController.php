@@ -253,6 +253,7 @@ class UsersController extends Controller
       // If the request comes from de admin section, the password will be a required field
       'password' => 'min:6|max:20|regex:/^[a-zA-Z0-9_.-]*$/u' . $request->route()->uri() == 'admin/updateUser' || $request->route()->uri() == 'updateUser' ? '|required' : '',
       'repitePassword' => 'required_with:password|same:password',
+      'foto' => 'image',
     ]);
 
     return $validator;
