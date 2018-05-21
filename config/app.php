@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -178,7 +178,9 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Laravelista\Ekko\EkkoServiceProvider::class,
-        Collective\Html\HtmlServiceProvider::class
+        Collective\Html\HtmlServiceProvider::class,
+
+        Laraveles\Spanish\SpanishServiceProvider::class
     ],
 
     /*

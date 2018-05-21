@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Validator;
 use Auth;
 use Hashids;
+use App\Notifications\MailResetPasswordToken;
 
 class User extends Authenticatable
 {
@@ -94,6 +95,14 @@ class User extends Authenticatable
 
     return $hashids->encode($this->getKey());
   }
+
+  /**
+ * Send a password reset email to the user
+ */
+public function sendPasswordResetNotification($token)
+{
+    $this->notify(new MailResetPasswordToken($token));
+}
 
   /**
   * Update the attributes of the model instance

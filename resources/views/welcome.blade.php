@@ -5,9 +5,8 @@
     <div id="bienvenida" class="container-fluid contenedor-top-guia">
       <h2>Bienvenido a WebDiablo</h2>
 
-      <p>Saludos, {{ Auth::check() ? Auth::user()->nombre : 'jugador' }}, y bienvenido a WebDiablo. En ésta página podrás encontrarás todas las guías que nuestros usuarios han decidido compartir con otros jugadores, siéntete libre de echarles un ojo <a href="{{ route('guia/buscar') }}">aquí</a>. Además. puedes filtrar por clase, si sólo quieres ver las que corresponden a tu clase favorita, o por usuario, si conoces a alguien con el que parece que compartes la forma de jugar.</p>
-      <p>Si lo que quieres es crear tus propias guías para compartirlas con el mundo, sólo tienes que dirigirte <a href="{{ route('crearGuia') }}">aquí</a>@if (!Auth::check())
-        ,pero primero tienes que <a href="{{ route('login') }}">logearte</a>, o si no tienes una cuenta de WebDiablo, <a href="{{ route('register') }}">crear una</a>.
+      <p>Saludos, {{ Auth::check() ? Auth::user()->nombre : 'jugador' }}, y bienvenido a WebDiablo. En ésta página podrás encontrarás todas las guías que nuestros usuarios han decidido compartir con otros jugadores, siéntete libre de echarles un ojo <a href="{{ route('guia/buscar') }}">aquí</a>. Además, puedes filtrar por clase, si sólo quieres ver las que corresponden a tu clase favorita, o por usuario, si conoces a alguien con el que parece que compartes la forma de jugar.</p>
+      <p>Si lo que quieres es crear tus propias guías para compartirlas con el mundo, sólo tienes que dirigirte <a href="{{ route('crearGuia') }}">aquí</a>@if (!Auth::check()), pero primero tienes que <a href="{{ route('login') }}">logearte</a>, o si no tienes una cuenta de WebDiablo, <a href="{{ route('register') }}">crear una</a>.
       @endif
       </p>
 
