@@ -16,7 +16,7 @@
             {{ Form::select('id_conjunto', $conjuntos, null, [ 'class' => 'form-control' ]) }}
             @if($errors->has('id_conjunto'))
               @foreach ($errors->get('id_conjunto') as $message)
-                <span class="help-block">{{ $message }}</span>
+                <span class="help-block text-error">{{ $message }}</span>
               @endforeach
             @endif
           </div>
@@ -28,7 +28,7 @@
             {{ Form::number('num_requisito', 2, [ 'class' => 'form-control' ]) }}
             @if($errors->has('num_requisito'))
               @foreach ($errors->get('num_requisito') as $message)
-                <span class="help-block">{{ $message }}</span>
+                <span class="help-block text-error">{{ $message }}</span>
               @endforeach
             @endif
           </div>
@@ -40,7 +40,7 @@
             {{ Form::textarea('efecto', null, [ 'class' => 'form-control' ]) }}
             @if($errors->has('efecto'))
               @foreach ($errors->get('efecto') as $message)
-                <span class="help-block">{{ $message }}</span>
+                <span class="help-block text-error">{{ $message }}</span>
               @endforeach
             @endif
           </div>

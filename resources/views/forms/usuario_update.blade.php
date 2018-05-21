@@ -16,7 +16,7 @@
             {{ Form::text('nombre', null, [ 'class' => 'form-control' ]) }}
             @if($errors->has('nombre'))
               @foreach ($errors->get('nombre') as $message)
-                <span class="help-block">{{ $message }}</span>
+                <span class="help-block text-error">{{ $message }}</span>
               @endforeach
             @endif
           </div>
@@ -28,7 +28,7 @@
             {{ Form::email('email', null, [ 'class' => 'form-control' ]) }}
             @if($errors->has('email'))
               @foreach ($errors->get('email') as $message)
-                <span class="help-block">{{ $message }}</span>
+                <span class="help-block text-error">{{ $message }}</span>
               @endforeach
             @endif
           </div>

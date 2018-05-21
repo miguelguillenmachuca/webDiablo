@@ -5,7 +5,7 @@
     {{ Form::email('email') }}
     @if($errors->has('email'))
       @foreach ($errors->get('email') as $message)
-        <span class="help-block">{{ $message }}</span>
+        <span class="help-block text-error">{{ $message }}</span>
       @endforeach
     @endif
   </div>
@@ -17,7 +17,7 @@
     {{ Form::text('nombre') }}
     @if($errors->has('nombre'))
       @foreach ($errors->get('nombre') as $message)
-        <span class="help-block">{{ $message }}</span>
+        <span class="help-block text-error">{{ $message }}</span>
       @endforeach
     @endif
   </div>
@@ -34,7 +34,7 @@
     {{ Form::password('pass_actual') }}
     @if($errors->has('pass_actual'))
       @foreach ($errors->get('pass_actual') as $message)
-        <span class="help-block">{{ $message }}</span>
+        <span class="help-block text-error">{{ $message }}</span>
       @endforeach
     @endif
   </div>
@@ -46,7 +46,7 @@
     {{ Form::password('password') }}
     @if($errors->has('password'))
       @foreach ($errors->get('password') as $message)
-        <span class="help-block">{{ $message }}</span>
+        <span class="help-block text-error">{{ $message }}</span>
       @endforeach
     @endif
   </div>
@@ -58,7 +58,7 @@
     {{ Form::password('repitePassword') }}
     @if($errors->has('repitePassword'))
       @foreach ($errors->get('repitePassword') as $message)
-        <span class="help-block">{{ $message }}</span>
+        <span class="help-block text-error">{{ $message }}</span>
       @endforeach
     @endif
   </div>

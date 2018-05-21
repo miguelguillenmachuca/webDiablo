@@ -16,7 +16,7 @@
             {{ Form::text('nombre', null, [ 'class' => 'form-control', 'placeholder' => 'nombre del objeto' ]) }}
             @if($errors->has('nombre'))
               @foreach ($errors->get('nombre') as $message)
-                <span class="help-block">{{ $message }}</span>
+                <span class="help-block text-error">{{ $message }}</span>
               @endforeach
             @endif
           </div>
@@ -28,7 +28,7 @@
             {{ Form::select('id_clase', $clases, $default_clase, [ 'placeholder' => 'Multiclase', 'class' => 'form-control' ]) }}
             @if($errors->has('id_clase'))
               @foreach ($errors->get('id_clase') as $message)
-                <span class="help-block">{{ $message }}</span>
+                <span class="help-block text-error">{{ $message }}</span>
               @endforeach
             @endif
           </div>
@@ -40,7 +40,7 @@
             {{ Form::select('id_tipo_objeto', $tipos_objeto, $default_tipo_objeto, [ 'class' => 'form-control' ]) }}
             @if($errors->has('id_tipo_objeto'))
               @foreach ($errors->get('id_tipo_objeto') as $message)
-                <span class="help-block">{{ $message }}</span>
+                <span class="help-block text-error">{{ $message }}</span>
               @endforeach
             @endif
           </div>
@@ -52,7 +52,7 @@
             {{ Form::select('id_conjunto', $conjuntos, $default_conjunto, [ 'placeholder' => 'Ninguno', 'class' => 'form-control' ]) }}
             @if($errors->has('id_conjunto'))
               @foreach ($errors->get('id_conjunto') as $message)
-                <span class="help-block">{{ $message }}</span>
+                <span class="help-block text-error">{{ $message }}</span>
               @endforeach
             @endif
           </div>
@@ -64,7 +64,7 @@
             {{ Form::textarea('efecto_legendario', null, [ 'placeholder' => 'Efecto legendario del objeto, en caso de no tener, déjalo vacío', 'class' => 'form-control' ]) }}
             @if($errors->has('efecto_legendario'))
               @foreach ($errors->get('efecto_legendario') as $message)
-                <span class="help-block">{{ $message }}</span>
+                <span class="help-block text-error">{{ $message }}</span>
               @endforeach
             @endif
           </div>

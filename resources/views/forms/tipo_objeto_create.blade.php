@@ -15,7 +15,7 @@
             {{ Form::text('nombre', null, [ 'class' => 'form-control' ]) }}
             @if($errors->has('nombre'))
               @foreach ($errors->get('nombre') as $message)
-                <span class="help-block">{{ $message }}</span>
+                <span class="help-block text-error">{{ $message }}</span>
               @endforeach
             @endif
           </div>
@@ -27,7 +27,7 @@
             {{ Form::select('id_clase', $clases, null, [ 'placeholder' => 'Ninguna', 'class' => 'form-control' ]) }}
             @if($errors->has('id_clase'))
               @foreach ($errors->get('id_clase') as $message)
-                <span class="help-block">{{ $message }}</span>
+                <span class="help-block text-error">{{ $message }}</span>
               @endforeach
             @endif
           </div>
@@ -39,7 +39,7 @@
             {{ Form::select('categoria_obj', $categorias, null, [ 'class' => 'form-control' ]) }}
             @if($errors->has('categoria_obj'))
               @foreach ($errors->get('categoria_obj') as $message)
-                <span class="help-block">{{ $message }}</span>
+                <span class="help-block text-error">{{ $message }}</span>
               @endforeach
             @endif
           </div>

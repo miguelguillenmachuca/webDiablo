@@ -16,7 +16,7 @@
             {{ Form::text('nombre', null, [ 'class' => 'form-control', 'placeholder' => 'nombre del conjunto' ]) }}
             @if($errors->has('nombre'))
               @foreach ($errors->get('nombre') as $message)
-                <span class="help-block">{{ $message }}</span>
+                <span class="help-block text-error">{{ $message }}</span>
               @endforeach
             @endif
           </div>
