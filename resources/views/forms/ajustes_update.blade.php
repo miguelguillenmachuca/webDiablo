@@ -25,7 +25,7 @@
 
 <div class="separador"></div>
 
-<h3>Ajustes básicos</h3>
+<h3>Ajustes de contraseña</h3>
 
 
 <div class="form-group">
