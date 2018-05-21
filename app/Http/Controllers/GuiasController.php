@@ -118,6 +118,21 @@ class GuiasController extends Controller
           $amuleto = \App\Objeto::listObjCat('amuleto', $clase);
           $gema = \App\Objeto::listObjCat('gema', $clase);
 
+          $cabeza_cubo = \App\Objeto::listObjCatCubo('cabeza', $clase);
+          $hombros_cubo = \App\Objeto::listObjCatCubo('hombros', $clase);
+          $torso_cubo = \App\Objeto::listObjCatCubo('torso', $clase);
+          $munecas_cubo = \App\Objeto::listObjCatCubo('munecas', $clase);
+          $manos_cubo = \App\Objeto::listObjCatCubo('manos', $clase);
+          $cintura_cubo = \App\Objeto::listObjCatCubo('cintura', $clase);
+          $piernas_cubo = \App\Objeto::listObjCatCubo('piernas', $clase);
+          $pies_cubo = \App\Objeto::listObjCatCubo('pies', $clase);
+          $mano_izquierda_cubo = \App\Objeto::listObjCatCubo('mano_izquierda', $clase);
+          $una_mano_cubo = \App\Objeto::listObjCatCubo('una_mano', $clase);
+          $dos_manos_cubo = \App\Objeto::listObjCatCubo('dos_manos', $clase);
+          $a_distancia_cubo = \App\Objeto::listObjCatCubo('a_distancia', $clase);
+          $anillo_cubo = \App\Objeto::listObjCatCubo('anillo', $clase);
+          $amuleto_cubo = \App\Objeto::listObjCatCubo('amuleto', $clase);
+
           $objetos = [
             'cabeza' => $cabeza,
             'hombros' => $hombros,
@@ -133,11 +148,11 @@ class GuiasController extends Controller
             'mano_izquierda' => array_merge($mano_izquierda, $una_mano, $a_distancia),
           ];
 
-          $armas = array_merge($mano_izquierda, $una_mano, $dos_manos, $a_distancia);
+          $armas = array_merge($mano_izquierda_cubo, $una_mano_cubo, $dos_manos_cubo, $a_distancia_cubo);
 
-          $armaduras = array_merge($cabeza, $hombros, $torso, $munecas, $manos, $cintura, $pies);
+          $armaduras = array_merge($cabeza_cubo, $hombros_cubo, $torso_cubo, $munecas_cubo, $manos_cubo, $cintura_cubo, $pies_cubo);
 
-          $accesorios = array_merge($anillo, $amuleto);
+          $accesorios = array_merge($anillo_cubo, $amuleto_cubo);
 
           return view ('forms.guia_create', [
             'activas' => $habilidadesActivas,
