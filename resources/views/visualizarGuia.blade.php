@@ -6,7 +6,7 @@
   <div class="container-fluid contenedor margen-inf">
     <div id="seccionEncabezado" class="row">
       <div class="col-xs-3 col-sm-1">
-        <img src="{{ asset('../storage/app/public/' .$guia->clase->foto_clase) }}" class="img-clase img-responsive margen-sup" alt="clase">
+        <img src="{{ asset('/storage/app/public/' .$guia->clase->foto_clase) }}" class="img-clase img-responsive margen-sup" alt="clase">
       </div>
       <div class="col-xs-9 col-sm-8">
         <div class="row">
@@ -59,7 +59,7 @@
             <div class="col-xs-12 col-sm-4 contenedor-seccion" id="habilidad{{ $i }}">
               <div class="row">
                 <div class="col-xs-3 col-sm-2">
-                  <img src="{{ isset($habilidades[ 'a' .$i ]) ? asset('../storage/app/public/' .$habilidades[ 'a' .$i ]->foto_habilidad) : asset("public/img/black_default_img.png") }}" alt="habilidad{{ $i }}" class="img-responsive img-habilidad-resumen">
+                  <img src="{{ isset($habilidades[ 'a' .$i ]) ? asset('/storage/app/public/' .$habilidades[ 'a' .$i ]->foto_habilidad) : asset("public/img/black_default_img.png") }}" alt="habilidad{{ $i }}" class="img-responsive img-habilidad-resumen">
                 </div>
 
                 <div class="col-xs-9 col-sm-10">
@@ -88,7 +88,7 @@
             <div class="col-xs-6 col-sm-3 contenedor-seccion" id="pasiva{{ $i }}">
               <div class="row">
                 <div class="col-xs-3">
-                  <img src="{{ isset($habilidades[ 'p' .$i ]) ? asset('../storage/app/public/' .$habilidades[ 'p' .$i ]->foto_habilidad) : asset("public/img/black_default_img.png") }}" alt="pasiva{{ $i }}" class="img-responsive img-habilidad-resumen">
+                  <img src="{{ isset($habilidades[ 'p' .$i ]) ? asset('/storage/app/public/' .$habilidades[ 'p' .$i ]->foto_habilidad) : asset("public/img/black_default_img.png") }}" alt="pasiva{{ $i }}" class="img-responsive img-habilidad-resumen">
                 </div>
 
                 <div class="col-xs-9 text-center-vertical">{{ isset($habilidades[ 'p' .$i ]) ? $habilidades[ 'p' .$i ]->nombre : 'Sin pasiva seleccionada' }}</div>
@@ -122,7 +122,7 @@
 
                   <div class="row">
                     <div class="col-xs-3">
-                      <img src="{{ isset($objetos[ $pos ]) ? asset('../storage/app/public/' .$objetos[ $pos ]->foto_objeto) : asset("public/img/black_default_img.png") }}" alt="objeto {{ $pos }}" class="img-responsive img-habilidad-resumen">
+                      <img src="{{ isset($objetos[ $pos ]) ? asset('/storage/app/public/' .$objetos[ $pos ]->foto_objeto) : asset("public/img/black_default_img.png") }}" alt="objeto {{ $pos }}" class="img-responsive img-habilidad-resumen">
                     </div>
 
                     <div class="col-xs-9 text-center-vertical">{{ isset($objetos[ $pos ]) ? $objetos[ $pos ]->nombre : 'Sin objeto seleccionado' }}</div>
@@ -153,7 +153,7 @@
 
                       <div class="row">
                         <div class="col-xs-3">
-                          <img src="{{ isset($objetos[ 'cubo' .$i ]) ? asset('../storage/app/public/' .$objetos[ 'cubo' .$i ]->foto_objeto) : asset("public/img/black_default_img.png") }}" alt="cubo{{ $i }}" class="img-responsive img-habilidad-resumen">
+                          <img src="{{ isset($objetos[ 'cubo' .$i ]) ? asset('/storage/app/public/' .$objetos[ 'cubo' .$i ]->foto_objeto) : asset("public/img/black_default_img.png") }}" alt="cubo{{ $i }}" class="img-responsive img-habilidad-resumen">
                         </div>
 
                         <div class="col-xs-9 text-center-vertical">{{ isset($objetos[ 'cubo' .$i ]) ? $objetos[ 'cubo' .$i ]->nombre : 'Sin objeto seleccionado' }}</div>
@@ -173,7 +173,7 @@
 
                       <div class="row">
                         <div class="col-xs-3">
-                          <img src="{{ isset($objetos[ 'gema' .$i ]) ? asset('../storage/app/public/' .$objetos[ 'gema' .$i ]->foto_objeto) : asset("public/img/black_default_img.png") }}" alt="gema{{ $i }}" class="img-responsive img-habilidad-resumen">
+                          <img src="{{ isset($objetos[ 'gema' .$i ]) ? asset('/storage/app/public/' .$objetos[ 'gema' .$i ]->foto_objeto) : asset("public/img/black_default_img.png") }}" alt="gema{{ $i }}" class="img-responsive img-habilidad-resumen">
                         </div>
 
                         <div class="col-xs-9 text-center-vertical">{{ isset($objetos[ 'gema' .$i ]) ? $objetos[ 'gema' .$i ]->nombre : 'Sin objeto seleccionado' }}</div>
@@ -326,7 +326,7 @@
               <div class="col-xs-12 col-sm-2 col-md-2 contenedor-autor-comentario">
                 <div class="row">
                   <div class="col-xs-2 col-sm-12">
-                    <img src="{{ asset('../storage/app/public/' .$comentario->usuario->foto_usuario) }}" alt="usuario" class="img-responsive img-usuario center-block">
+                    <img src="{{ asset('/storage/app/public/' .$comentario->usuario->foto_usuario) }}" alt="usuario" class="img-responsive img-usuario center-block">
                   </div>
                   <div class="col-xs-10 col-sm-12 text-center">
                     <div class="row">

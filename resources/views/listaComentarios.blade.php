@@ -12,7 +12,7 @@
           <div class="col-xs-12 col-sm-2 col-md-2 contenedor-autor-comentario">
             <div class="row">
               <div class="col-xs-2 col-sm-12">
-                <img src="{{ asset('../storage/app/public/' .$comentario->usuario->foto_usuario) }}" alt="usuario" class="img-responsive img-usuario center-block">
+                <img src="{{ asset('/storage/app/public/' .$comentario->usuario->foto_usuario) }}" alt="usuario" class="img-responsive img-usuario center-block">
               </div>
               <div class="col-xs-10 col-sm-12 text-center">
                 <div class="row">

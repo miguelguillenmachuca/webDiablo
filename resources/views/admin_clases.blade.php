@@ -41,7 +41,7 @@
               @foreach ($clases as $clase)
                 <tr class="{{ $clase->trashed() ? 'inactive' : '' }}">
                   <td>{{ $clase->nombre }}</td>
-                  <td><img src="{{ asset('../storage/app/public/' .$clase->foto_clase) }}" class="img-responsive foto-resumen" alt="foto clase"></td>
+                  <td><img src="{{ asset('/storage/app/public/' .$clase->foto_clase) }}" class="img-responsive foto-resumen" alt="foto clase"></td>
                   <td><a href="{{ route('admin/clases/editar', [ $clase ]) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
                   <td class="{{ $clase->trashed() ? 'inactive' : '' }}"><a href="{{ $clase->trashed() ? '#' : route('admin/deleteClase', [ $clase ]) }}"><span class="glyphicon glyphicon-remove boton-remove"></span></a></td>
                   <td class="{{ $clase->trashed() ? '' : 'inactive' }}"><a href="{{ !$clase->trashed() ? '#' : route('admin/restoreClase', [ $clase->getRouteKey() ]) }}"><span class="glyphicon glyphicon-repeat boton-restore"></span></a></td>

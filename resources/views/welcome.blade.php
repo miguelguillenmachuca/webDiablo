@@ -22,7 +22,7 @@
             <div class="resumen-guia col-xs-12 col-md-4">
               <div class="row">
                 <div class="col-xs-3">
-                  <img src="{{ asset('../storage/app/public/' .$guia->clase->foto_clase) }}" class="img-clase-resumen" alt="img-clase">
+                  <img src="{{ asset('/storage/app/public/' .$guia->clase->foto_clase) }}" class="img-clase-resumen" alt="img-clase">
                 </div>
 
                 <div class="col-xs-9">
@@ -34,7 +34,7 @@
                   <div class="row resumen-habilidades">
                     @for ($i=1; $i < 7; $i++)
                       <div class="col-xs-4 col-sm-2">
-                        <img src="{{ $guia->getHabilidadByPos('a'.$i) !== null ? asset('../storage/app/public/' .$guia->getHabilidadByPos('a'.$i)->foto_habilidad) : asset("public/img/black_default_img.png") }}" class="img-habilidad-resumen img-responsive" alt="habilidad{{ $i }}">
+                        <img src="{{ $guia->getHabilidadByPos('a'.$i) !== null ? asset('/storage/app/public/' .$guia->getHabilidadByPos('a'.$i)->foto_habilidad) : asset("public/img/black_default_img.png") }}" class="img-habilidad-resumen img-responsive" alt="habilidad{{ $i }}">
                       </div>
                     @endfor
                   </div> <!-- Fin del div row resumen-habilidades -->

@@ -43,7 +43,7 @@
               @foreach ($users as $user)
                 <tr class="{{ $user->trashed() ? 'inactive' : '' }}">
                   <td>{{ $user->nombre }}</td>
-                  <td><img src="{{ asset('../storage/app/public/' .$user->foto_usuario) }}" class="img-responsive foto-resumen" alt="foto usuario"></td>
+                  <td><img src="{{ asset('/storage/app/public/' .$user->foto_usuario) }}" class="img-responsive foto-resumen" alt="foto usuario"></td>
                   <td>{{ $user->email }}</td>
                   <td>{{ $user->tipo_usuario }}</td>
                   <td><a href="{{ route('admin/usuarios/editar', [ $user ]) }}"><span class="glyphicon glyphicon-pencil boton-edit"></span></a></td>
