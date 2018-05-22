@@ -19,7 +19,7 @@ class HabilidadesController extends Controller
   */
   public function index()
   {
-    $habilidades = Habilidad::withTrashed()->orderBy('id_clase')->orderBy('tipo_habilidad')->paginate(20);
+    $habilidades = Habilidad::withTrashed()->orderBy('id_clase')->orderBy('tipo_habilidad')->orderBy('nombre')->paginate(20);
 
     return view('admin_habilidades', [ 'habilidades' => $habilidades ]);
   }
