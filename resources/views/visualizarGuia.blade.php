@@ -198,37 +198,37 @@
           <div class="col-xs-12 col-sm-6 col-md-3 contenedor-seccion" id="seccionLeyendaPrimarios">
             <h4 class="text-center">Primarios</h4>
 
-            <p>@empty($puntos_leyenda[ 'estad_principal' ]) 1 @endempty @isset($puntos_leyenda[ 'estad_principal' ]) {{ $puntos_leyenda[ 'estad_principal' ]->prioridad }} @endisset<span class="bold">Estadística principal</span></p>
-            <p>@empty($puntos_leyenda[ 'vitalidad' ]) 1 @endempty @isset($puntos_leyenda[ 'vitalidad' ]) {{ $puntos_leyenda[ 'vitalidad' ]->prioridad }} @endisset<span class="bold">Vitalidad</span></p>
-            <p>@empty($puntos_leyenda[ 'v_movimiento' ]) 1 @endempty @isset($puntos_leyenda[ 'v_movimiento' ]) {{ $puntos_leyenda[ 'v_movimiento' ]->prioridad }} @endisset<span class="bold">Velocidad de movimiento</span></p>
-            <p>@empty($puntos_leyenda[ 'recurso_max' ]) 1 @endempty @isset($puntos_leyenda[ 'recurso_max' ]) {{ $puntos_leyenda[ 'recurso_max' ]->prioridad }} @endisset<span class="bold">Recurso máximo</span></p>
+            <p>@empty($puntos_leyenda[ 'estad_principal' ]) 4 @endempty @isset($puntos_leyenda[ 'estad_principal' ]) {{ $puntos_leyenda[ 'estad_principal' ]->prioridad }} @endisset<span class="bold">Estadística principal</span></p>
+            <p>@empty($puntos_leyenda[ 'vitalidad' ]) 4 @endempty @isset($puntos_leyenda[ 'vitalidad' ]) {{ $puntos_leyenda[ 'vitalidad' ]->prioridad }} @endisset<span class="bold">Vitalidad</span></p>
+            <p>@empty($puntos_leyenda[ 'v_movimiento' ]) 4 @endempty @isset($puntos_leyenda[ 'v_movimiento' ]) {{ $puntos_leyenda[ 'v_movimiento' ]->prioridad }} @endisset<span class="bold">Velocidad de movimiento</span></p>
+            <p>@empty($puntos_leyenda[ 'recurso_max' ]) 4 @endempty @isset($puntos_leyenda[ 'recurso_max' ]) {{ $puntos_leyenda[ 'recurso_max' ]->prioridad }} @endisset<span class="bold">Recurso máximo</span></p>
           </div> <!-- Fin de la sección leyenda primarios-->
 
           <div class="col-xs-12 col-sm-6 col-md-3 contenedor-seccion" id="seccionLeyendaAtaque">
             <h4 class="text-center">Ataque</h4>
 
-            <p>@empty($puntos_leyenda[ 'v_ataque' ]) 1 @endempty @isset($puntos_leyenda[ 'v_ataque' ]) {{ $puntos_leyenda[ 'v_ataque' ]->prioridad }} @endisset<span class="bold">Velocidad de ataque</span></p>
-            <p>@empty($puntos_leyenda[ 'reduccion_enfr' ]) 1 @endempty @isset($puntos_leyenda[ 'reduccion_enfr' ]) {{ $puntos_leyenda[ 'reduccion_enfr' ]->prioridad }} @endisset<span class="bold">Reducción de enfriamiento</span></p>
-            <p>@empty($puntos_leyenda[ 'prob_golpe_crit' ]) 1 @endempty @isset($puntos_leyenda[ 'prob_golpe_crit' ]) {{ $puntos_leyenda[ 'prob_golpe_crit' ]->prioridad }} @endisset<span class="bold">Probabilidad de golpe crítico</span></p>
-            <p>@empty($puntos_leyenda[ 'dano_golpe_crit' ]) 1 @endempty @isset($puntos_leyenda[ 'dano_golpe_crit' ]) {{ $puntos_leyenda[ 'dano_golpe_crit' ]->prioridad }} @endisset<span class="bold">Daño de golpe crítico</span></p>
+            <p>@empty($puntos_leyenda[ 'v_ataque' ]) 4 @endempty @isset($puntos_leyenda[ 'v_ataque' ]) {{ $puntos_leyenda[ 'v_ataque' ]->prioridad }} @endisset<span class="bold">Velocidad de ataque</span></p>
+            <p>@empty($puntos_leyenda[ 'reduccion_enfr' ]) 4 @endempty @isset($puntos_leyenda[ 'reduccion_enfr' ]) {{ $puntos_leyenda[ 'reduccion_enfr' ]->prioridad }} @endisset<span class="bold">Reducción de enfriamiento</span></p>
+            <p>@empty($puntos_leyenda[ 'prob_golpe_crit' ]) 4 @endempty @isset($puntos_leyenda[ 'prob_golpe_crit' ]) {{ $puntos_leyenda[ 'prob_golpe_crit' ]->prioridad }} @endisset<span class="bold">Probabilidad de golpe crítico</span></p>
+            <p>@empty($puntos_leyenda[ 'dano_golpe_crit' ]) 4 @endempty @isset($puntos_leyenda[ 'dano_golpe_crit' ]) {{ $puntos_leyenda[ 'dano_golpe_crit' ]->prioridad }} @endisset<span class="bold">Daño de golpe crítico</span></p>
           </div> <!-- Fin de la sección leyenda ataque-->
 
           <div class="col-xs-12 col-sm-6 col-md-3 contenedor-seccion" id="seccionLeyendaDefensa">
             <h4 class="text-center">Defensa</h4>
 
-            <p>@empty($puntos_leyenda[ 'vida' ]) 1 @endempty @isset($puntos_leyenda[ 'vida' ]) {{ $puntos_leyenda[ 'vida' ]->prioridad }} @endisset<span class="bold">Vida</span></p>
-            <p>@empty($puntos_leyenda[ 'armadura' ]) 1 @endempty @isset($puntos_leyenda[ 'armadura' ]) {{ $puntos_leyenda[ 'armadura' ]->prioridad }} @endisset<span class="bold">Armadura</span></p>
-            <p>@empty($puntos_leyenda[ 'todas_resist' ]) 1 @endempty @isset($puntos_leyenda[ 'todas_resist' ]) {{ $puntos_leyenda[ 'todas_resist' ]->prioridad }} @endisset<span class="bold">Todas las resistencias</span></p>
-            <p>@empty($puntos_leyenda[ 'regeneracion_vida' ]) 1 @endempty @isset($puntos_leyenda[ 'regeneracion_vida' ]) {{ $puntos_leyenda[ 'regeneracion_vida' ]->prioridad }} @endisset<span class="bold">Regeneración de vida</span></p>
+            <p>@empty($puntos_leyenda[ 'vida' ]) 4 @endempty @isset($puntos_leyenda[ 'vida' ]) {{ $puntos_leyenda[ 'vida' ]->prioridad }} @endisset<span class="bold">Vida</span></p>
+            <p>@empty($puntos_leyenda[ 'armadura' ]) 4 @endempty @isset($puntos_leyenda[ 'armadura' ]) {{ $puntos_leyenda[ 'armadura' ]->prioridad }} @endisset<span class="bold">Armadura</span></p>
+            <p>@empty($puntos_leyenda[ 'todas_resist' ]) 4 @endempty @isset($puntos_leyenda[ 'todas_resist' ]) {{ $puntos_leyenda[ 'todas_resist' ]->prioridad }} @endisset<span class="bold">Todas las resistencias</span></p>
+            <p>@empty($puntos_leyenda[ 'regeneracion_vida' ]) 4 @endempty @isset($puntos_leyenda[ 'regeneracion_vida' ]) {{ $puntos_leyenda[ 'regeneracion_vida' ]->prioridad }} @endisset<span class="bold">Regeneración de vida</span></p>
           </div> <!-- Fin de la sección leyenda defensa-->
 
           <div class="col-xs-12 col-sm-6 col-md-3 contenedor-seccion" id="seccionLeyendaUtilidad">
             <h4 class="text-center">Utilidad</h4>
 
-            <p>@empty($puntos_leyenda[ 'dano_area' ]) 1 @endempty @isset($puntos_leyenda[ 'dano_area' ]) {{ $puntos_leyenda[ 'dano_area' ]->prioridad }} @endisset<span class="bold">Daño de área</span></p>
-            <p>@empty($puntos_leyenda[ 'reduc_coste' ]) 1 @endempty @isset($puntos_leyenda[ 'reduc_coste' ]) {{ $puntos_leyenda[ 'reduc_coste' ]->prioridad }} @endisset<span class="bold">Reducción de coste</span></p>
-            <p>@empty($puntos_leyenda[ 'vida_por_golpe' ]) 1 @endempty @isset($puntos_leyenda[ 'vida_por_golpe' ]) {{ $puntos_leyenda[ 'vida_por_golpe' ]->prioridad }} @endisset<span class="bold">Vida por golpe</span></p>
-            <p>@empty($puntos_leyenda[ 'hallazgo_oro' ]) 1 @endempty @isset($puntos_leyenda[ 'hallazgo_oro' ]) {{ $puntos_leyenda[ 'hallazgo_oro' ]->prioridad }} @endisset<span class="bold">Hallazgo de oro</span></p>
+            <p>@empty($puntos_leyenda[ 'dano_area' ]) 4 @endempty @isset($puntos_leyenda[ 'dano_area' ]) {{ $puntos_leyenda[ 'dano_area' ]->prioridad }} @endisset<span class="bold">Daño de área</span></p>
+            <p>@empty($puntos_leyenda[ 'reduc_coste' ]) 4 @endempty @isset($puntos_leyenda[ 'reduc_coste' ]) {{ $puntos_leyenda[ 'reduc_coste' ]->prioridad }} @endisset<span class="bold">Reducción de coste</span></p>
+            <p>@empty($puntos_leyenda[ 'vida_por_golpe' ]) 4 @endempty @isset($puntos_leyenda[ 'vida_por_golpe' ]) {{ $puntos_leyenda[ 'vida_por_golpe' ]->prioridad }} @endisset<span class="bold">Vida por golpe</span></p>
+            <p>@empty($puntos_leyenda[ 'hallazgo_oro' ]) 4 @endempty @isset($puntos_leyenda[ 'hallazgo_oro' ]) {{ $puntos_leyenda[ 'hallazgo_oro' ]->prioridad }} @endisset<span class="bold">Hallazgo de oro</span></p>
           </div> <!-- Fin de la sección leyenda utilidad-->
         </div>
       </div>
