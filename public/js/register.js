@@ -136,7 +136,7 @@ $(document).ready(function () {
   $('#password-confirm_register').on('input', function () {
     var errores = '';
 
-    $('#password-register_container').removeClass('has-error');
+    $('#password-confirm_container').removeClass('has-error');
 
     if($('#password-confirm_register').val() != $('#password_register').val())
     {
