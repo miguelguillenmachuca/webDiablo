@@ -217,6 +217,10 @@ Route::group([ 'prefix' => 'admin', 'middleware' => [ 'auth', 'admin' ] ], funct
     Route::get('{usuario}/restoreUser', 'UsersController@restore')->name('admin/restoreUser');
   });
 
+Route::get('/tutorial', function () {
+  return view('tutorial');
+})->name('tutorial');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::get('/mailable', function () {

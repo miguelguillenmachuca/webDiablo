@@ -47,7 +47,7 @@
                           <li class="{{ isActiveUrl('/') }}"><a href="{{ route('/') }}"><span class="glyphicon glyphicon-home"></span></a></li>
                           <li class="{{ isActiveUrl('crearGuia') }}"><a href="{{ route('crearGuia') }}">Crear guía</a></li>
                           <li class="{{ isActiveRoute('guia/*') }}"><a href="{{ route('guia/buscar') }}">Guías</a></li>
-                          <li class="{{ isActiveUrl('tutorial') }}"><a href="tutorial.php">¿Cómo usar la página?</a></li>
+                          <li class="{{ isActiveUrl('tutorial') }}"><a href="{{ route('tutorial') }}">¿Cómo usar la página?</a></li>
                         </ul>
                     </ul>
 
