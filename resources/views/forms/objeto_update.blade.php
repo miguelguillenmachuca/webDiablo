@@ -8,6 +8,10 @@
   <div id="main-content" class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-sm-offset-2 col-sm-8">
+        @if(session('success') == true)
+          @include('exito')
+        @endif
+        
         {{ Form::model($objeto, [ 'url' => route('admin/updateObjeto', [ $objeto ]), 'files' => 'true', 'class' => 'form-horizontal' ]) }}
 
         <div class="form-group">

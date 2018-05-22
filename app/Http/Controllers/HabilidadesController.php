@@ -109,7 +109,7 @@ class HabilidadesController extends Controller
 
       }
 
-      return redirect()->back();
+      return redirect()->back()->with('success', true);
     }
   }
 
@@ -177,7 +177,7 @@ class HabilidadesController extends Controller
 
       $habilidad->edit($request->all());
 
-      return redirect()->back();
+      return redirect()->back()->with('success', true);
     }
   }
 

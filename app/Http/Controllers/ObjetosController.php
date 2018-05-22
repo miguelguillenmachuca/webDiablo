@@ -101,7 +101,7 @@ class ObjetosController extends Controller
 
       $objeto->save();
 
-      return redirect()->back();
+      return redirect()->back()->with('success', true);
     }
   }
 
@@ -183,7 +183,7 @@ class ObjetosController extends Controller
 
       $objeto->edit($request->all());
 
-      return redirect()->back();
+      return redirect()->back()->with('success', true);
     }
   }
 

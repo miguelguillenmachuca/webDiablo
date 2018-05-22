@@ -8,6 +8,10 @@
   <div id="main-content" class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-sm-offset-2 col-sm-8">
+        @if(session('success') == true)
+          @include('exito')
+        @endif
+        
         {{ Form::model($tipo_objeto, [ 'url' => route('admin/updateTipoObjeto', [ $tipo_objeto ]), 'class' => 'form-horizontal' ]) }}
         <div class="form-group{{ $errors->has('nombre') ? ' has-error': '' }}">
           {{ Form::label('nombre', 'Nombre del tipo', [ 'class' => 'control-label col-sm-6 col-md-4' ]) }}

@@ -109,7 +109,7 @@ class RunasController extends Controller
     {
       $runa->edit($request->all());
 
-      return redirect()->back();
+      return redirect()->back()->with('success', true);
     }
   }
 

@@ -65,7 +65,7 @@ class EfectoConjuntosController extends Controller
 
         $efecto_conjunto->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', true);
       }
     }
 
@@ -123,7 +123,7 @@ class EfectoConjuntosController extends Controller
       {
         $efectosConjunto->edit($request->all());
 
-        return redirect()->back();
+        return redirect()->back()->with('success', true);
       }
     }
 

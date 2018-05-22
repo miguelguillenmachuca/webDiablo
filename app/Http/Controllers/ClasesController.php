@@ -67,7 +67,7 @@ class ClasesController extends Controller
 
         $clase->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', true);
       }
     }
 
@@ -125,7 +125,7 @@ class ClasesController extends Controller
 
         $clase->edit($request->all());
 
-        return redirect()->back();
+        return redirect()->back()->with('success', true);
       }
     }
 

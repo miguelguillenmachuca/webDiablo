@@ -57,7 +57,7 @@ class ConjuntosController extends Controller
 
       $conjunto->save();
 
-      return redirect()->back();
+      return redirect()->back()->with('success', true);
     }
   }
 

@@ -6,8 +6,13 @@
 
 @section('content')
   <div id="main-content" class="container-fluid">
+
     <div class="row">
       <div class="col-xs-12 col-sm-offset-2 col-sm-8">
+        @if(session('success') == true)
+          @include('exito')
+        @endif
+        
         {{ Form::open([ 'url' => route('admin/createClase'), 'files' => 'true', 'class' => 'form-horizontal' ]) }}
         <div class="form-group{{ $errors->has('nombre') ? ' has-error': '' }}">
           {{ Form::label('nombre', 'Nombre de la clase', [ 'class' => 'control-label col-sm-6 col-md-4' ]) }}

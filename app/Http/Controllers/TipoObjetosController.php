@@ -86,7 +86,7 @@ class TipoObjetosController extends Controller
 
         $tipo_objeto->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', true);
       }
     }
 
@@ -164,7 +164,7 @@ class TipoObjetosController extends Controller
       {
         $tipoObjeto->edit($request->all());
 
-        return redirect()->back();
+        return redirect()->back()->with('success', true);
       }
     }
 
