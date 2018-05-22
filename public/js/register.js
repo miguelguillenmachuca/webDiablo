@@ -26,7 +26,7 @@ function validateNombreLength(nombre)
 
 function validatePasswordRegex(password)
 {
-    var re = /^[a-zA-Z0-9_.-]*$/u;
+    var re = /^[a-zA-ZñÑ0-9_.-]*$/u;
 
     return re.test(String(password));
 }

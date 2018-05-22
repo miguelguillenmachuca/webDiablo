@@ -17,6 +17,7 @@
             <th>Comentarios</th>
             <th>Última modificación</th>
             @if (Auth::check() && $usuario->id == Auth::user()->id)
+              <th>Visibilidad</th>
               <th>Editar</th>
             @endif
           </tr>
@@ -32,7 +33,8 @@
               <td>{{ $guia->get_num_comentarios() }}</td>
               <td>{{ $guia->getUpdatedAt() }}</td>
               @if (Auth::check() && $usuario->id == Auth::user()->id)
-                <th><a href="{{ route('editarGuia', [ $guia ]) }}"><span class="glyphicon glyphicon-pencil"></span></a></th>
+                <td>{{ $guia->visibilidad }}</td>
+                <td><a href="{{ route('editarGuia', [ $guia ]) }}"><span class="glyphicon glyphicon-pencil"></span></a></td>
               @endif
             </tr>
           @endforeach
