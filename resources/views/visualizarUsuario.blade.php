@@ -15,7 +15,7 @@
           <div class="col-xs-9 col-sm-5 col-md-8">
             <h3>{{ $usuario->nombre }}</h3>
             <h4>{{ $usuario->tipo_usuario }}</h4>
-            <p>Se unió el {{ $usuario->created_at->format('d-m-Y H:i') }}</p>
+            <p>Se unió el {{ $usuario->getCreatedAt() }}</p>
           </div>
 
           <div class="col-xs-12 col-sm-6 col-md-3 margen-inf">

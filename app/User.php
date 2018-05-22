@@ -159,4 +159,15 @@ public function sendPasswordResetNotification($token)
 
     return $this->hasMany('App\Comentario', 'id_usuario', 'id')->whereIn('id_guia', $id_guias_publicas);
   }
+
+  /**
+   * Get the Guia's updated_at
+   *
+   * @param  string  $value
+   * @return string
+   */
+  public function getCreatedAt()
+  {
+      return date("d-m-Y", strtotime($this->created_at));
+  }
 }
