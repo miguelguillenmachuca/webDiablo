@@ -5,7 +5,7 @@
 
   <div class="container-fluid contenedor margen-inf">
     <div class="alert alert-warning">
-        Esta guía es privada, recuerda que solo podrán verla aquellos que tengan el enlace
+        Esta guía es <strong>privada</strong>, recuerda que solo podrán verla aquellos que tengan el enlace
     </div>
     <div id="seccionEncabezado" class="row">
       <div class="col-xs-3 col-sm-1">

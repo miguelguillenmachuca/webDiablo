@@ -225,7 +225,7 @@ class ObjetosController extends Controller
   * @param  Request   $request
   * @return Response  Validator
   */
-  public static function validateModel(Request $request)
+  public static function validateModel(Request $request, Objeto $objeto = null)
   {
     if($request->id_clase != null)
     {
@@ -244,9 +244,16 @@ class ObjetosController extends Controller
     {
       $id_conjunto_rules = "";
     }
+
+    $reglas_nombre = 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ\'\- ]*$/u|unique:objeto,nombre';
+    if ($request->route()->uri() == 'admin/updateObjeto')
+    {
+      $reglas_nombre .= ',' .$habilidad->id;
+    }
+
     // Testing the data received
     $validator = Validator::make($request->all(), [
-      'nombre' => 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ\'\- ]*$/u',
+      'nombre' => $reglas_nombre,
       'id_clase' => $id_clase_rules,
       'id_conjunto' => $id_conjunto_rules,
       'id_tipo_objeto' => 'required|exists:tipo_objeto,id',
