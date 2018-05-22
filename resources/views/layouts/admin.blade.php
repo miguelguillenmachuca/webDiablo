@@ -11,15 +11,15 @@
   <title>{{ config('app.name', 'Laravel') }}</title>
 
   <!-- Styles -->
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
 
   <!-- Bootstrap -->
-  <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+  <link href="{{ asset('public/css/bootstrap.css') }}" rel="stylesheet">
 
   <!-- Less -->
-  <link href="{{ asset('css/estilosAdmin.less') }}" rel="stylesheet/less" type="text/css">
-  <link href="{{ asset('css/estilosSidebarCollapse.less') }}" rel="stylesheet/less" type="text/css">
-  <script src="{{ asset('css/less.min.js') }}" type="text/javascript"></script>
+  <link href="{{ asset('public/css/estilosAdmin.less') }}" rel="stylesheet/less" type="text/css">
+  <link href="{{ asset('public/css/estilosSidebarCollapse.less') }}" rel="stylesheet/less" type="text/css">
+  <script src="{{ asset('public/css/less.min.js') }}" type="text/javascript"></script>
 </head>
 <body>
   <div id="app">
@@ -36,7 +36,7 @@
   </div>
 
   <!-- Scripts -->
-  <script src="{{ asset('js/app.js') }}"></script>
-  <script src="{{ asset('js/navbarCollapse.js') }}"></script>
+  <script src="{{ asset('public/js/app.js') }}"></script>
+  <script src="{{ asset('public/js/navbarCollapse.js') }}"></script>
 </body>
 </html>
