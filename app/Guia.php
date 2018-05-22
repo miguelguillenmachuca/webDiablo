@@ -186,4 +186,15 @@ class Guia extends Model
     {
       return strlen($this->nombre) > 25 ? substr($this->nombre, 0, 25) .'...' : $this->nombre;
     }
+
+    /**
+     * Get the Guia's updated_at
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return date("d-m-Y", strtotime($this->updated_at));
+    }
 }

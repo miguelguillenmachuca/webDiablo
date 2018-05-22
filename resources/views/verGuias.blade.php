@@ -66,7 +66,7 @@
                   <td><a href="{{ route('usuario/show', $guia->usuario->getRouteKey()) }}" class="enlace-usuario">{{ $guia->usuario->nombre }}</a></td>
                   <td class="likes">{{ $guia->get_num_likes() }}</td>
                   <td>{{ $guia->get_num_comentarios() }}</td>
-                  <td>{{ $guia->updated_at }}</td>
+                  <td>{{ $guia->getUpdatedAt() }}</td>
                 </tr>
               @endforeach
             </tbody>

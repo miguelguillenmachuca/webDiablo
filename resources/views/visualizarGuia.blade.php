@@ -21,7 +21,7 @@
       <div class="col-xs-12 col-sm-3">
         <div class="row">
           <div class="col-xs-6 col-sm-12">
-            <h4 class="text-right text-left-xs texto-amarillo">Última modificación: {{ $guia->updated_at }}</h4>
+            <h4 class="text-right text-left-xs texto-amarillo">Última modificación: {{ $guia->getUpdatedAt() }}</h4>
           </div>
           <div class="col-xs-6 col-sm-12">
             <h3 class="likes text-right"><span class="glyphicon glyphicon-thumbs-up likes"></span>{{ $guia->get_num_likes() }}</h3>

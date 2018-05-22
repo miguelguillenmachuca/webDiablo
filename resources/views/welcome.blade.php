@@ -41,7 +41,7 @@
                 </div> <!-- Fin del div col -->
 
                 <div class="col-xs-12 resumen-guia-info">
-                  <p><span class="glyphicon glyphicon-thumbs-up likes">{{ $guia->get_num_likes() }}</span> Última edición: <span>{{ $guia->updated_at }}</span></p>
+                  <p><span class="glyphicon glyphicon-thumbs-up likes">{{ $guia->get_num_likes() }}</span> Última edición: <span>{{ $guia->getUpdatedAt() }}</span></p>
                 </div> <!-- Fin del div resumen-guia-info -->
               </div> <!-- Fin del div row -->
             </div> <!-- Fin del div resumen-guia -->

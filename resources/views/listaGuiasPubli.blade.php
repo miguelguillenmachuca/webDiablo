@@ -30,7 +30,7 @@
               <td><a href="{{ route('usuario/show', $guia->usuario) }}" class="enlace-usuario">{{ $guia->usuario->nombre }}</a></td>
               <td class="likes">{{ $guia->get_num_likes() }}</td>
               <td>{{ $guia->get_num_comentarios() }}</td>
-              <td>{{ $guia->updated_at->format('d-m-Y') }}</td>
+              <td>{{ $guia->getUpdatedAt() }}</td>
               @if (Auth::check() && $usuario->id == Auth::user()->id)
                 <th><a href="{{ route('editarGuia', [ $guia ]) }}"><span class="glyphicon glyphicon-pencil"></span></a></th>
               @endif
