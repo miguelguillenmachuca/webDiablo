@@ -223,7 +223,7 @@ class HabilidadesController extends Controller
   {
     // Testing the data received
     $validator = Validator::make($request->all(), [
-      'nombre' => 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ ]*$/u',
+      'nombre' => 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ \-]*$/u',
       'id_clase' => 'required|exists:clase,id',
       'descripcion' => 'required|min:5|max:1000|nullable|string',
       'foto' => 'image'

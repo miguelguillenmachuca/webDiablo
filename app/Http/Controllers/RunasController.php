@@ -155,7 +155,7 @@ class RunasController extends Controller
   {
     // Testing the data received
     $validator = Validator::make($request->all(), [
-      'nombre' => 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ ]*$/u',
+      'nombre' => 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ!¡ ]*$/u',
       'descripcion' => 'min:5|max:1000|nullable|string',
     ]);
 
