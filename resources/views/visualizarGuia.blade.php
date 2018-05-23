@@ -4,9 +4,12 @@
 <div id="main" class="container">
 
   <div class="container-fluid contenedor margen-inf">
-    <div class="alert alert-warning">
-        Esta guía es <strong>privada</strong>, recuerda que solo podrán verla aquellos que tengan el enlace
-    </div>
+    @if ($guia->visibilidad == 'privada')
+      <div class="alert alert-warning">
+          Esta guía es <strong>privada</strong>, recuerda que solo podrán verla aquellos que tengan el enlace
+      </div>
+    @endif
+    
     <div id="seccionEncabezado" class="row">
       <div class="col-xs-3 col-sm-1">
         <img src="{{ asset('/storage/app/public/' .$guia->clase->foto_clase) }}" class="img-clase img-responsive margen-sup" alt="clase">
