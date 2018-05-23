@@ -132,7 +132,7 @@ class ObjetosController extends Controller
 
     $default_conjunto = $hashids->encode($objeto->id_conjunto);
     $default_tipo_objeto = $hashids->encode($objeto->id_tipo_objeto);
-    $default_clase = $hashids->encode($objeto->clase);
+    $default_clase = $hashids->encode($objeto->id_clase);
 
     return view('forms.objeto_update', [ 'objeto' => $objeto, 'conjuntos' => $conjuntos,'tipos_objeto' => $tipos_objeto, 'clases' => $clases, 'default_conjunto' => $default_conjunto, 'default_tipo_objeto' => $default_tipo_objeto, 'default_clase' => $default_clase ]);
   }
@@ -245,15 +245,9 @@ class ObjetosController extends Controller
       $id_conjunto_rules = "";
     }
 
-    $reglas_nombre = 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ\'\- ]*$/u|unique:objeto,nombre';
-    if ($request->route()->uri() == 'admin/updateObjeto')
-    {
-      $reglas_nombre .= ',' .$habilidad->id;
-    }
-
     // Testing the data received
     $validator = Validator::make($request->all(), [
-      'nombre' => $reglas_nombre,
+      'nombre' => 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ\'\- ]*$/u|unique:objeto,nombre' .$request->route()->uri() == 'admin/updateUser' ? ',' .$user->id: '',
       'id_clase' => $id_clase_rules,
       'id_conjunto' => $id_conjunto_rules,
       'id_tipo_objeto' => 'required|exists:tipo_objeto,id',

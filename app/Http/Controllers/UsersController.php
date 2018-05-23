@@ -249,7 +249,7 @@ class UsersController extends Controller
     $validator = Validator::make($request->all(), [
       'nombre' => 'required|min:5|max:20|regex:/^[a-zA-Z0-9_]*$/u',
       // Make sure to ignore the unique email clause if is an update request
-      'email' => 'required|email|max:191|unique:users,email' .$request->route()->uri() == 'admin/updateUser' || $request->route()->uri() == 'usuario/updateUser' ? $user->id: '',
+      'email' => 'required|email|max:191|unique:users,email' .$request->route()->uri() == 'admin/updateUser' || $request->route()->uri() == 'usuario/updateUser' ? ',' .$user->id: '',
       // If the request comes from de admin section, the password will be a required field
       'password' => 'min:6|max:20|regex:/^[a-zA-ZñÑ0-9_.-]*$/u' . $request->route()->uri() == 'admin/updateUser' || $request->route()->uri() == 'updateUser' ? '|required' : '',
       'repitePassword' => 'required_with:password|same:password',
