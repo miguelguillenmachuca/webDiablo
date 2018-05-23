@@ -221,15 +221,9 @@ class HabilidadesController extends Controller
   */
   public static function validateModel(Request $request, Habilidad $habilidad = null)
   {
-    $reglas_nombre = 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ \-]*$/u|unique:habilidad,nombre';
-    if ($request->route()->uri() == 'admin/updateHabilidad')
-    {
-      $reglas_nombre .= ',' .$habilidad->id;
-    }
-    
     // Testing the data received
     $validator = Validator::make($request->all(), [
-      'nombre' => $reglas_nombre,
+      'nombre' => 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ \-]*$/u',
       'id_clase' => 'required|exists:clase,id',
       'descripcion' => 'required|min:5|max:1000|nullable|string',
       'foto' => 'image'

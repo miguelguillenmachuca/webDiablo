@@ -247,7 +247,7 @@ class ObjetosController extends Controller
 
     // Testing the data received
     $validator = Validator::make($request->all(), [
-      'nombre' => 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ\'\- ]*$/u|unique:objeto,nombre' .$request->route()->uri() == 'admin/updateUser' ? ',' .$user->id: '',
+      'nombre' => 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ\'\- ]*$/u|unique:objeto,nombre' .$request->route()->uri() == 'admin/updateObjeto' ? ',' .$user->id: '',
       'id_clase' => $id_clase_rules,
       'id_conjunto' => $id_conjunto_rules,
       'id_tipo_objeto' => 'required|exists:tipo_objeto,id',
