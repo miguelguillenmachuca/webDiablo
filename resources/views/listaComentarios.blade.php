@@ -2,7 +2,7 @@
   {{ $comentarios->links('pagination.limit_links_rojo') }}
 </div> <!-- Fin del div paginado_sup -->
 
-<div class="container-fluid" id="comentarios">
+<div class="container-fluid margen-sup margen-inf" id="comentarios">
   @if($comentarios->count() == 0)
     <h3>No se han encontrado comentarios</h3>
   @else
