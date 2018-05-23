@@ -999,14 +999,14 @@ class GuiasController extends Controller
     {
       if($guia->trashed())
       {
-        $comentarios = \App\Comentario::where('id_guia', $guia->id)->withTrashed();
+        $guia->restore();
+
+        $comentarios = \App\Comentario::withTrashed()->where('id_guia', $guia->id)->get();
 
         foreach ($comentarios as $comentario)
         {
           $comentario->restore();
         }
-
-        $guia->restore();
       }
 
       return redirect()->back();
