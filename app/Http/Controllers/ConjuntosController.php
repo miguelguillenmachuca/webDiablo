@@ -151,7 +151,7 @@ class ConjuntosController extends Controller
   {
     // Testing the data received
     $validator = Validator::make($request->all(), [
-      'nombre' => 'required|min:3|max:30|regex:/^[A-zÀ-úÀ-ÿñÑ\'\- ]*$/u',
+      'nombre' => 'required|min:3|max:50|regex:/^[A-zÀ-úÀ-ÿñÑ\'\- ]*$/u',
     ]);
 
     return $validator;
