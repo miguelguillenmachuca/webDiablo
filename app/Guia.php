@@ -184,7 +184,7 @@ class Guia extends Model
     */
     public function getTrimmedTitle()
     {
-      return strlen($this->nombre) > 25 ? substr($this->nombre, 0, 25) .'...' : $this->nombre;
+      return strlen($this->nombre) > 20 ? substr($this->nombre, 0, 20) .'...' : $this->nombre;
     }
 
     /**
