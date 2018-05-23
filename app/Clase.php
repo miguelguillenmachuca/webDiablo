@@ -117,6 +117,7 @@ class Clase extends Model
   {
     $guias = \App\Guia::withCount('voto_positivo')
                         ->where('guia.id_clase', $this->id)
+                        ->where('visibilidad', 'publica')
                         ->orderBy('voto_positivo_count', 'desc')
                         ->take(3)->get();
 
