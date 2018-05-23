@@ -137,7 +137,9 @@ public function sendPasswordResetNotification($token)
   */
   public function get_num_comentarios()
   {
-    return $this->comentarios()->count();
+    $id_guias_publicas = \App\Guia::where('visibilidad', 'publica')->pluck('id')->toArray();
+
+    return $this->hasMany('App\Comentario', 'id_usuario', 'id')->whereIn('id_guia', $id_guias_publicas)->count();
   }
 
   /**
@@ -155,6 +157,7 @@ public function sendPasswordResetNotification($token)
   */
   public function get_comentarios_publicos()
   {
+    dd($this);
     $id_guias_publicas = \App\Guia::where('visibilidad', 'publica')->pluck('id')->toArray();
 
     return $this->hasMany('App\Comentario', 'id_usuario', 'id')->whereIn('id_guia', $id_guias_publicas);

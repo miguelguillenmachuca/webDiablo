@@ -976,6 +976,13 @@ class GuiasController extends Controller
     {
       if(!$guia->trashed())
       {
+        $comentarios = $guia->comentarios;
+
+        foreach ($comentarios as $comentario)
+        {
+          $comentario->delete();
+        }
+
         $guia->delete();
       }
 
@@ -992,6 +999,13 @@ class GuiasController extends Controller
     {
       if($guia->trashed())
       {
+        $comentarios = \App\Comentario::where('id_guia', $guia->id)->withTrashed();
+
+        foreach ($comentarios as $comentario)
+        {
+          $comentario->restore();
+        }
+
         $guia->restore();
       }
 
