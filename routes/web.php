@@ -81,7 +81,6 @@ Route::group([ 'prefix' => 'admin', 'middleware' => [ 'auth', 'admin' ] ], funct
     Route::get('{guia}/restoreGuia', 'GuiasController@restore')->name('admin/restoreGuia');
   });
 
-
   // RUTAS DE CLASES
   Route::group([ 'prefix' => 'clases' ], function () {
     Route::get('/', 'ClasesController@index')->name('admin/clases');
@@ -216,6 +215,7 @@ Route::group([ 'prefix' => 'admin', 'middleware' => [ 'auth', 'admin' ] ], funct
 
     Route::get('{usuario}/restoreUser', 'UsersController@restore')->name('admin/restoreUser');
   });
+  /* Cierre mal ubicado, corregido por Daniel Arturo Restrepo Camacho, muchas gracias, Dani */
 });
 
 Route::get('/tutorial', function () {
